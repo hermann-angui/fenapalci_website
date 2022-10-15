@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Staff{% endblock %}
+
+{% block body %}
+    <h1>Staff</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ staff.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ staff.email }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ staff.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ staff.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Place_of_birth</th>
+                <td>{{ staff.placeOfBirth }}</td>
+            </tr>
+            <tr>
+                <th>Date_of_birth</th>
+                <td>{{ staff.dateOfBirth ? staff.dateOfBirth|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Nationality</th>
+                <td>{{ staff.nationality }}</td>
+            </tr>
+            <tr>
+                <th>Sex</th>
+                <td>{{ staff.sex }}</td>
+            </tr>
+            <tr>
+                <th>Phone_number</th>
+                <td>{{ staff.phoneNumber }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ staff.address }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td>{{ staff.photo }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ staff.type }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ staff.status }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ staff.createdAt ? staff.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Modified_at</th>
+                <td>{{ staff.modifiedAt ? staff.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_staff_index') }}">back to list</a>
+
+    <a href="{{ path('app_staff_edit', {'id': staff.id}) }}">edit</a>
+
+    {{ include('staff/_delete_form.html.twig') }}
+{% endblock %}

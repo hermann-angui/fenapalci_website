@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Webestica.com">
+    <meta name="description" content="Eduport- LMS, Education and Course Theme">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap">
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/font-awesome/css/all.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/tiny-slider/tiny-slider.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/glightbox/css/glightbox.css') }}">
+
+    <!-- Theme CSS -->
+    <link id="style-switch" rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+    <style type="text/css">
+
+        .light-mode-item {
+            width: 430px !important;
+            height: 120px !important;
+        }
+
+        .nav-link, .nav-link:hover, .nav-link:focus {
+            color: #f2f3f3;
+        }
+
+        .nav-item:hover, .nav-item:focus {
+            color: #f2f3f3;
+            border-bottom: 3px solid #0e87ae;
+        }
+
+        .border-bottom-pink {
+            color: #f2f3f3;
+            border-bottom: 4px solid #d00c6e;
+        }
+
+        .border-bottom-red {
+            color: #f2f3f3;
+            border-bottom: 4px solid #e33920;
+        }
+
+        .border-bottom-yellow {
+            color: #f2f3f3;
+            border-bottom: 4px solid #f6be00;
+        }
+
+        .border-bottom-blue {
+            color: #f2f3f3;
+            border-bottom: 4px solid #118ab3;
+        }
+
+        .border-bottom-orange {
+            color: #f2f3f3;
+            border-bottom: 4px solid #fd7e14;
+        }
+
+        .border-bottom-green {
+            color: #f2f3f3;
+            border-bottom: 4px solid #419102;
+        }
+
+        .border-bottom-black {
+            color: #f2f3f3;
+            border-bottom: 4px solid #000000;
+        }
+
+        .bg-dark-purple {
+            --bs-bg-opacity: 1;
+            background-color: #4f2470;
+        }
+
+        .bg-red {
+            --bs-bg-opacity: 1;
+            background-color: #e33920;
+        }
+
+        .bg-black {
+            --bs-bg-opacity: 1;
+            background-color: #000000;
+        }
+
+        .bg-yellow {
+            --bs-bg-opacity: 1;
+            background-color: #f6be00;
+        }
+
+        .bg-orange {
+            --bs-bg-opacity: 1;
+            background-color: #fd7e14;
+        }
+
+        .dropdown-item.active, .dropdown-item:active, .dropdown-item:hover, .dropdown-item:focus {
+            border-radius: 0;
+        }
+
+        .container, .container-fluid, .container-xxl, .container-xl, .container-lg, .container-md, .container-sm {
+            padding-right: calc(var(--bs-gutter-x) * 0.5);
+            padding-left: 0px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Header START -->
+{% block header %}
+{{ include('partials/header.html.twig') }}
+{% endblock %}
+<!-- Header END -->
+
+<!-- **************** MAIN CONTENT START **************** -->
+{% block body %}
+{% endblock %}
+<!-- **************** MAIN CONTENT END **************** -->
+
+<!-- ======================= Footer START -->
+{% block footer %}
+    {{ include('partials/footer.html.twig') }}
+{% endblock %}
+
+<!-- Bootstrap JS -->
+<script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+
+<!-- Vendors -->
+<script src="{{ asset('assets/vendor/tiny-slider/tiny-slider.js') }}"></script>
+<script src="{{ asset('assets/vendor/glightbox/js/glightbox.js') }}"></script>
+<script src="{{ asset('assets/vendor/purecounterjs/dist/purecounter_vanilla.js') }}"></script>
+
+<!-- Template Functions -->
+<script src="{{ asset('assets/js/functions.js') }}"></script>
+
+</body>
+</html>

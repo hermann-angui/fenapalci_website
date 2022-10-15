@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Enregistrement nouveau membre{% endblock %}
+
+{% block body %}
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+	<section class="p-0 d-flex justify-content-center align-items-center position-relative overflow-hidden">
+		<div class="container">
+			<div class="card my-4">
+				<div class="card-header ">
+					<!-- Title -->
+					<h3>Formulaire d'adhésion nouveau membre</h3>
+					<p class="lead mb-4">Veuilez fournir vos informations.</p>
+				</div>
+				<div class="card-body">
+					{{ form_start(registrationForm) }}
+					{% if error is defined %}
+						<div class="alert alert-danger">
+							{{ error.messageKey|trans(error.messageData, 'security') }}
+						</div>
+					{% endif %}
+					<div class="row mb-3">
+						<div class="col-md-4">
+							<div class="inpt-form-group">
+								<label for="firstName">{{ form_label(registrationForm.firstname) }}*</label>
+								<div class="inpt-group">
+									{{ form_widget(registrationForm.firstname, {'attr': {'class': 'inpt-control required'}}) }}
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="inpt-form-group">
+								<label for="lastName">{{ form_label(registrationForm.lastname) }}*</label>
+								<div class="inpt-group">
+									{{ form_widget(registrationForm.lastname, {'attr': {'class': 'inpt-control required'}}) }}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<div class="col-md-7">
+							<div class="inpt-form-group">
+								<label for="email">{{ form_label(registrationForm.phoneNumber) }}*</label>
+								<div class="inpt-group">
+									{{ form_widget(registrationForm.phoneNumber, {'attr': {'class': 'inpt-control required'}}) }}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<div class="col-md-7">
+							<div class="inpt-form-group">
+								<label for="email">{{ form_label(registrationForm.dateofBirth) }}</label>
+								<div class="inpt-group">
+									{{ form_widget(registrationForm.dateofBirth, {'attr': {'class': 'form-control-sm js-datepicker required'}}) }}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<div class="col-md-7">
+							<div class="inpt-form-group">
+								<label for="email">{{ form_label(registrationForm.email) }}*</label>
+								<div class="inpt-group">
+									{{ form_widget(registrationForm.email, {'attr': {'class': 'inpt-control required'}}) }}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<div class="col-md-7">
+							<div class="inpt-form-group">
+								<div class="inpt-group">
+									{{ form_widget(registrationForm.password, {'attr': {'class': 'inpt-control required'}}) }}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<div class="col-md-7">
+							<div class="inpt-form-group">
+								<div class="inpt-group">
+									{{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'inpt-control required'}}) }}
+								</div>
+							</div>
+						</div>
+					</div>
+					{{ form_rest(registrationForm) }}
+					<div>
+						<input type="submit" value="Procéder au paiement" class="btn btn-success-shadow text-white text-uppercase" id="btn-submit-contact-page">
+					</div>
+					{{ form_end(registrationForm) }}
+				</div>
+			</div>
+		</div>
+	</section>
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+{% endblock %}
