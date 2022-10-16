@@ -32,15 +32,18 @@
             height: 120px !important;
         }
 
-        .nav-link, .nav-link:hover, .nav-link:focus {
+        .navbar-nav .nav-link,.navbar-nav .nav-link:hover,.navbar-nav .nav-link:focus {
             color: #f2f3f3;
         }
 
-        .nav-item:hover, .nav-item:focus {
+        .navbar-nav .nav-item:hover,.navbar-nav .nav-item:focus {
             color: #f2f3f3;
             border-bottom: 3px solid #0e87ae;
         }
 
+        footer .nav-link, footer .nav-link:hover, footer .nav-link:focus {
+            color: #f2f3f3;
+        }
         .border-bottom-pink {
             color: #f2f3f3;
             border-bottom: 4px solid #d00c6e;
@@ -96,6 +99,10 @@
             background-color: #f6be00;
         }
 
+        .bg-pink {
+            --bs-bg-opacity: 1;
+            background-color: #d00c6e;
+        }
         .bg-orange {
             --bs-bg-opacity: 1;
             background-color: #fd7e14;
@@ -108,6 +115,11 @@
         .container, .container-fluid, .container-xxl, .container-xl, .container-lg, .container-md, .container-sm {
             padding-right: calc(var(--bs-gutter-x) * 0.5);
             padding-left: 0px;
+        }
+
+        .bg-dot {
+            background-image: url({{ asset('assets/images/misc/bg-dot.png') }});
+            background-repeat: repeat;
         }
     </style>
 </head>
