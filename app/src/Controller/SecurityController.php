@@ -4,7 +4,8 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\RegistrationFormType;
-use App\Security\FormLoginControllerAuthenticator;
+use App\Helper\UserHelper;
+use App\Security\FormLoginAuthenticator;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -42,8 +43,9 @@ class SecurityController extends AbstractController
     public function register(Request $request,
                              UserPasswordHasherInterface $userPasswordHasher,
                              UserAuthenticatorInterface $userAuthenticator,
-                             FormLoginControllerAuthenticator $authenticator,
-                             EntityManagerInterface $entityManager): Response
+                             FormLoginAuthenticator $authenticator,
+                             EntityManagerInterface $entityManager,
+                             UserHelper $userHelper): Response
     {
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
@@ -59,8 +61,14 @@ class SecurityController extends AbstractController
             );
             $user->setRoles(['ROLE_USER']);
 
+            $photo = $form->get('photo')->getData();
+            $fileName = $userHelper->uploadAsset($photo, $user);
+            if($fileName) $user->setPhoto($fileName);
+
             $entityManager->persist($user);
             $entityManager->flush();
+
+            $request->request->set("registration", true);
             // do anything else you need here, like send an email
 
             return $userAuthenticator->authenticateUser(

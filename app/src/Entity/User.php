@@ -83,10 +83,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'owner', targetEntity: Company::class, orphanRemoval: true)]
     private Collection $companies;
 
+    #[ORM\OneToMany(mappedBy: 'payer', targetEntity: PaymentTransaction::class, orphanRemoval: true)]
+    private Collection $paymentTransactions;
+
     public function __construct()
     {
         $this->payments = new ArrayCollection();
         $this->companies = new ArrayCollection();
+        $this->paymentTransactions = new ArrayCollection();
     }
 
     /**

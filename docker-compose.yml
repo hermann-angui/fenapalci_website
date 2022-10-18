@@ -7,7 +7,7 @@ services:
   db:
     image: postgres:14
     container_name: db
-    restart: on-failure
+    restart: always
     environment:
       POSTGRES_DB: fenapalci_db
       POSTGRES_USER: root
@@ -22,6 +22,7 @@ services:
 
   pgadmin:
     image: "dpage/pgadmin4:latest"
+    restart: always
     container_name: pgadmin
     environment:
       POSTGRES_DB: fenapalci_db
@@ -38,6 +39,7 @@ services:
 
   app:
     container_name: app
+    restart: always
     build:
       context: ./docker
     depends_on:
@@ -55,6 +57,7 @@ services:
 
   nginx:
     container_name: nginx
+    restart: always
     build:
       context: ./docker/nginx
     volumes:

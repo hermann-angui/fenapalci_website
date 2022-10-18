@@ -3613,7 +3613,7 @@ textarea.form-control-lg {
 .btn {
   --bs-btn-padding-x: 1rem;
   --bs-btn-padding-y: 0.5rem;
-  --bs-btn-font-family: ;
+  --bs-btn-font-family: 'Open Sans' ;
   --bs-btn-font-size: 0.9375rem;
   --bs-btn-font-weight: 500;
   --bs-btn-line-height: 1.5;

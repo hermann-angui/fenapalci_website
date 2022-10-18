@@ -1,0 +1,128 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+{% block stylesheet %}
+    {{ parent() }}
+    <style>
+        .btn:hover {
+            color: var(--bs-btn-hover-color);
+            background-color: #4f2470;
+            border-color:  #4f2470;
+        }
+    </style>
+{% endblock %}
+{% block body %}
+    <!-- **************** MAIN CONTENT START **************** -->
+    <main>
+        <section class="container">
+                <div class="row justify-content-md-center">
+                    <!-- Right -->
+                    <div class="col-6 col-lg-6">
+                        <div class="pt-4 border-1 border-light bg-light text-center">
+                            <p class="fs-5">Frais unique d’adhésion</p>
+                            <p class="fs-2 text-dark fw-bold">15 000 F CFA</p>
+                            <img src="{{ asset("assets/images/misc/wave-logo.png") }}" width="120" alt="logo wave"><br>
+                        </div>
+
+                        <div class="mx-5 pt-3">
+                            <a onclick="window.open('{{ payment_redirect_url }}','popup','width=600,height=600'); return false;" target="popup" class="btn bg-dark-purple text-white btn-lg my-5 w-100 rounded-5">Payer maintenant</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-md-center">
+                    <div class="col-6 col-lg-6">
+                        <div class="py-3">
+                            <h5 style="border-left:5px solid #ff0000; padding-left: 10px; margin-bottom: 20px"> Cotisation mensuelle</h5>
+                            <p class="">
+                               Cette cotisation vous donne accès à tous les partenaires de notre fédération et aux différents avantages
+                               Les frais de cotisation mensuelle sont définis par type d'établissement :
+                            </p>
+                        </div>
+                        <table class="table table-sm">
+                            <tr>
+                                <td>GLACIER</td>
+                                <td>5 000 fcfa/Mois</td>
+                            </tr>
+                            <tr>
+                                <td>BAR</td>
+                                <td>5 000 fcfa/Mois</td>
+                            </tr>
+                            <tr>
+                                <td>MAQUIS : 1-50 Places</td>
+                                <td> 2 000 fcfa/Mois</td>
+                            </tr>
+                            <tr>
+                                <td>MAQUIS : 50-100 Places</td>
+                                <td>3 000 fcfa/Mois</td>
+                            </tr>
+                            <tr>
+                                <td>MAQUIS : 101 Places et Plus </td>
+                                <td>5 000 fcfa/Mois</td>
+                            </tr>
+                            <tr>
+                                <td>RESTAURANT : 1-50 Places</td>
+                                <td>2 000 fcfa/Mois</td>
+                            </tr>
+                            <tr>
+                                <td>RESTAURANT : 51 Places et Plus</td>
+                                <td>3 000 fcfa/Mois</td>
+                            </tr>
+                            <tr>
+                                <td>RESTAURANT : 51 Places et Plus</td>
+                                <td>3 000 fcfa/Mois</td>
+                            </tr>
+                            <tr>
+                                <td>RESTAURANT : 51 Places et Plus</td>
+                                <td>3 000 fcfa/Mois</td>
+                            </tr>
+                            <tr>
+                                <td>MAQUIS/RESTAURANT</td>
+                                <td>5 000 fcfa/Mois</td>
+                            </tr>
+                            <tr>
+                                <td>RESTAURANT VIP</td>
+                                <td>3 000 fcfa/Mois</td>
+                            </tr>
+                            <tr>
+                                <td>DEPOT DE BOISSON</td>
+                                <td> 000 fcfa/Mois</td>
+                            </tr>
+                            <tr>
+                                <td>HOTEL</td>
+                                <td>5 000 fcfa/Mois</td>
+                            </tr>
+                            <tr>
+                                <td>NIGHT CLUB</td>
+                                <td>5 000 fcfa/Mois</td>
+                            </tr>
+                            <tr>
+                                <td>NIGHT CLUB</td>
+                                <td>5 000 fcfa/Mois</td>
+                            </tr>
+                            <tr>
+                                <td>EVENEMENTIEL</td>
+                                <td>5 000 fcfa/Mois</td>
+                            </tr>
+                            <tr>
+                                <td>PATISSERIE</td>
+                                <td>5 000 fcfa/Mois</td>
+                            </tr>
+                            <tr>
+                                <td>CAVE : 1-50 Places</td>
+                                <td>2 000 fcfa/Mois</td>
+                            </tr>
+                            <tr>
+                                <td>CAVE : 51 Places et Plus</td>
+                                <td>3 000 fcfa/Mois</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div> <!-- Row END -->
+        </section>
+    </main>
+    <!-- **************** MAIN CONTENT END **************** -->
+{% endblock %}
+
+
+{% block footer %}
+{% endblock %}

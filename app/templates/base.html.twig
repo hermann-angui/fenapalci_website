@@ -18,110 +18,96 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap">
 
     <!-- Plugins CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/font-awesome/css/all.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/fonts/font-awesome.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/tiny-slider/tiny-slider.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/glightbox/css/glightbox.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/datepicker/css/bootstrap-datepicker.min.css') }}">
 
     <!-- Theme CSS -->
-    <link id="style-switch" rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
-    <style type="text/css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
 
-        .light-mode-item {
-            width: 430px !important;
-            height: 120px !important;
-        }
-
-        .navbar-nav .nav-link,.navbar-nav .nav-link:hover,.navbar-nav .nav-link:focus {
-            color: #f2f3f3;
-        }
-
-        .navbar-nav .nav-item:hover,.navbar-nav .nav-item:focus {
-            color: #f2f3f3;
-            border-bottom: 3px solid #0e87ae;
-        }
-
-        footer .nav-link, footer .nav-link:hover, footer .nav-link:focus {
-            color: #f2f3f3;
-        }
-        .border-bottom-pink {
-            color: #f2f3f3;
-            border-bottom: 4px solid #d00c6e;
-        }
-
-        .border-bottom-red {
-            color: #f2f3f3;
-            border-bottom: 4px solid #e33920;
-        }
-
-        .border-bottom-yellow {
-            color: #f2f3f3;
-            border-bottom: 4px solid #f6be00;
-        }
-
-        .border-bottom-blue {
-            color: #f2f3f3;
-            border-bottom: 4px solid #118ab3;
-        }
-
-        .border-bottom-orange {
-            color: #f2f3f3;
-            border-bottom: 4px solid #fd7e14;
-        }
-
-        .border-bottom-green {
-            color: #f2f3f3;
-            border-bottom: 4px solid #419102;
-        }
-
-        .border-bottom-black {
-            color: #f2f3f3;
-            border-bottom: 4px solid #000000;
-        }
-
-        .bg-dark-purple {
-            --bs-bg-opacity: 1;
-            background-color: #4f2470;
-        }
-
-        .bg-red {
-            --bs-bg-opacity: 1;
-            background-color: #e33920;
-        }
-
-        .bg-black {
-            --bs-bg-opacity: 1;
-            background-color: #000000;
-        }
-
-        .bg-yellow {
-            --bs-bg-opacity: 1;
-            background-color: #f6be00;
-        }
-
-        .bg-pink {
-            --bs-bg-opacity: 1;
-            background-color: #d00c6e;
-        }
-        .bg-orange {
-            --bs-bg-opacity: 1;
-            background-color: #fd7e14;
-        }
-
-        .dropdown-item.active, .dropdown-item:active, .dropdown-item:hover, .dropdown-item:focus {
-            border-radius: 0;
-        }
-
-        .container, .container-fluid, .container-xxl, .container-xl, .container-lg, .container-md, .container-sm {
-            padding-right: calc(var(--bs-gutter-x) * 0.5);
-            padding-left: 0px;
-        }
-
-        .bg-dot {
-            background-image: url({{ asset('assets/images/misc/bg-dot.png') }});
-            background-repeat: repeat;
-        }
-    </style>
+         <style type="text/css">
+            .light-mode-item {
+                width: 430px !important;
+                height: 120px !important;
+            }
+            .navbar-nav .nav-link,.navbar-nav .nav-link:hover,.navbar-nav .nav-link:focus {
+                color: #f2f3f3;
+            }
+            .navbar-nav .nav-item:hover,.navbar-nav .nav-item:focus {
+                color: #f2f3f3;
+                border-bottom: 3px solid #0e87ae;
+            }
+             footer .nav-link, footer .nav-link:hover, footer .nav-link:focus {
+                color: #f2f3f3;
+            }
+            .border-bottom-pink {
+                color: #f2f3f3;
+                border-bottom: 4px solid #d00c6e;
+            }
+            .border-bottom-red {
+                color: #f2f3f3;
+                border-bottom: 4px solid #e33920;
+            }
+            .border-bottom-yellow {
+                color: #f2f3f3;
+                border-bottom: 4px solid #f6be00;
+            }
+            .border-bottom-blue {
+                color: #f2f3f3;
+                border-bottom: 4px solid #118ab3;
+            }
+            .border-bottom-orange {
+                color: #f2f3f3;
+                border-bottom: 4px solid #fd7e14;
+            }
+            .border-bottom-green {
+                color: #f2f3f3;
+                border-bottom: 4px solid #419102;
+            }
+            .border-bottom-black {
+                color: #f2f3f3;
+                border-bottom: 4px solid #000000;
+            }
+            .bg-dark-purple {
+                --bs-bg-opacity: 1;
+                background-color: #4f2470;
+            }
+            .bg-red {
+                --bs-bg-opacity: 1;
+                background-color: #e33920;
+            }
+            .bg-black {
+                --bs-bg-opacity: 1;
+                background-color: #000000;
+            }
+            .bg-yellow {
+                --bs-bg-opacity: 1;
+                background-color: #f6be00;
+            }
+            .bg-pink {
+                --bs-bg-opacity: 1;
+                background-color: #d00c6e;
+            }
+            .bg-orange {
+                --bs-bg-opacity: 1;
+                background-color: #fd7e14;
+            }
+            .dropdown-item.active, .dropdown-item:active, .dropdown-item:hover, .dropdown-item:focus {
+                border-radius: 0;
+            }
+            .container, .container-fluid, .container-xxl, .container-xl, .container-lg, .container-md, .container-sm {
+                padding-right: calc(var(--bs-gutter-x) * 0.5);
+                padding-left: 0px;
+            }
+            .bg-dot {
+                background-image: url({{ asset('assets/images/misc/bg-dot.png') }});
+                background-repeat: repeat;
+            }
+        </style>
+    {% block stylesheet %}
+    {% endblock %}
 </head>
 
 <body>
@@ -143,8 +129,10 @@
 {% endblock %}
 
 <!-- Bootstrap JS -->
+<script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-
+<script src="{{ asset('assets/fonts/font-awesome-all.js') }}"></script>
+<script src="{{ asset('assets/vendor/datepicker/js/bootstrap-datepicker.min.js') }}"></script>
 <!-- Vendors -->
 <script src="{{ asset('assets/vendor/tiny-slider/tiny-slider.js') }}"></script>
 <script src="{{ asset('assets/vendor/glightbox/js/glightbox.js') }}"></script>
@@ -152,6 +140,19 @@
 
 <!-- Template Functions -->
 <script src="{{ asset('assets/js/functions.js') }}"></script>
+<script>
+    $('document').ready(function() {
+        // you may need to change this code if you are not using Bootstrap Datepicker
+        /*
+                $('.js-datepicker').datepicker({
+                    format: 'yyyy-mm-dd'
+                });
+        */
 
+    });
+</script>
+
+{% block javascript %}
+{% endblock %}
 </body>
 </html>

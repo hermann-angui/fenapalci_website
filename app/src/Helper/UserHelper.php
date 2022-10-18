@@ -4,6 +4,7 @@ namespace App\Helper;
 
 use App\Entity\User;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Routing\RouterInterface;
 
 class UserHelper
@@ -24,17 +25,28 @@ class UserHelper
     protected Packages $assetsManager;
 
 
-    public function __construct(string           $uploadDirectory,
-                                FileUploadHelper $fileUploadHelper
-    )
+    public function __construct(string $uploadDirectory, FileUploadHelper $fileUploadHelper)
     {
         $this->uploadDirectory = $uploadDirectory;
         $this->fileUploadHelper = $fileUploadHelper;
     }
 
+    public function getUploadDirectory(): ?string
+    {
+        try {
+            $path = $this->uploadDirectory . '/public/users/';
+            if (!file_exists($path)) mkdir($path, 0777, true);
+            return $path;
+        } catch (\Exception $e) {
+            return null;
+        }
+
+    }
+
     public function getUserUploadDirectory(?User $user): ?string
     {
         try {
+            if(!$user) return null;
             $path = $this->uploadDirectory . '/public/users/' . $user->getId() . '/';
             if (!file_exists($path)) mkdir($path, 0777, true);
             return $path;
@@ -44,8 +56,10 @@ class UserHelper
 
     }
 
-    public function getPublicDirectory(): ?string
+    public function uploadAsset(?File $file, ?User $user): ?string
     {
-        return $this->uploadDirectory . "/plublic/";
+        return $this->fileUploadHelper->upload($file, $this->getUploadDirectory());
     }
+
+
 }

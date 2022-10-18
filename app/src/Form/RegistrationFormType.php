@@ -5,6 +5,8 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -20,7 +22,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class RegistrationFormType extends AbstractType
 {
-
     private TranslatorInterface $translator;
 
     public function __construct(TranslatorInterface $translator)
@@ -30,11 +31,25 @@ class RegistrationFormType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        $past = new \DateTime('- 80 years');
+        $end = new \DateTime();
+
         $builder
-            ->add('sex', TextType::class, [
-                'label' => 'Sexe',
-                'mapped' => true,
-                'required' => true
+            ->add('sex', ChoiceType::class, [
+                    'label' => "Sexe",
+                    'label_attr' => [
+                        'class' => 'checkbox-inline checkbox-switch',
+                    ],
+                    'mapped' => true,
+                    'expanded' => false,
+                    'multiple' => false,
+                    'required' => false,
+                    'choices' => [
+                        'Male' => 'M',
+                        'Female' => 'F',
+                    ],
+                    'empty_data' => 'M',
+                    'data' => 'M',
             ])
             ->add('firstname', TextType::class, [
                 'label' => 'Prénoms',
@@ -54,6 +69,7 @@ class RegistrationFormType extends AbstractType
             ->add('dateofBirth', DateType::class, [
                 'label' => 'Date de naissance',
                 'mapped' => true,
+                'years' => range($past->format('Y'), $end->format('Y')),
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Email',
@@ -81,7 +97,7 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
 
-            ->add('nationality', TextType::class, [
+            ->add('nationality', CountryType::class, [
                 'label' => 'Votre nationalité',
                 'mapped' => true,
                 'required' => true
@@ -89,7 +105,7 @@ class RegistrationFormType extends AbstractType
             ->add('photo', FileType::class, [
                 'label' => 'Photo',
                 'mapped' => true,
-                'required' => true
+                'required' => false
             ])
             ->add('agreeTerms', CheckboxType::class, [
                 'label' => $this->translator->trans('general_term_gdpr'),

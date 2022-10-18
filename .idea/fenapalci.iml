@@ -117,6 +117,7 @@
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/proxy-manager-bridge" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/jms/metadata" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/vich/uploader-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/google-mailer" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

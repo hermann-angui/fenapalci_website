@@ -108,6 +108,7 @@
       <path value="$PROJECT_DIR$/app/vendor/symfony/proxy-manager-bridge" />
       <path value="$PROJECT_DIR$/app/vendor/jms/metadata" />
       <path value="$PROJECT_DIR$/app/vendor/vich/uploader-bundle" />
+      <path value="$PROJECT_DIR$/app/vendor/symfony/google-mailer" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0" />
