@@ -11,7 +11,7 @@
         <!-- Logo Nav START -->
         <div class="w-100 d-flex flex-column">
             <div class="flex-fill">
-                {% if app.user is not defined %}
+                {% if app.user is null %}
                 <div class="ms-1 ms-lg-0 float-end bg-yellow p-2 rounded-bottom text-white">
                     <a href="{{ path('app_register') }}" class="text-white">Créer un compte </a><span> | </span>
                     <a href="{{ path('app_login') }}" class="text-white"> Me connecter </a>
