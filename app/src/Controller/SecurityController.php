@@ -60,6 +60,7 @@ class SecurityController extends AbstractController
                 )
             );
             $user->setRoles(['ROLE_USER']);
+            $user->setStatus('WAITING_FOR_PAYMENT');
 
             $photo = $form->get('photo')->getData();
             $fileName = $userHelper->uploadAsset($photo, $user);

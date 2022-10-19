@@ -15,6 +15,7 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Intl\Countries;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -23,6 +24,11 @@ class UserFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+
+        $past = new \DateTime('- 80 years');
+        $end = new \DateTime();
+        $countries = array_combine(array_values(Countries::getNames()), array_values(Countries::getNames()));
+
         $builder
             ->add('email',EmailType::class,['required' => true])
             ->add('password',RepeatedType::class, [
@@ -59,8 +65,17 @@ class UserFormType extends AbstractType
                 'data' => 'Homme',
             ])
             ->add('place_of_birth', TextType::class)
-            ->add('date_of_birth', DateType::class)
-            ->add('country', CountryType::class)
+            ->add('date_of_birth', DateType::class, [
+                'label' => 'Date de naissance',
+                'mapped' => true,
+                'years' => range($past->format('Y'), $end->format('Y')),
+            ])
+            ->add('country', ChoiceType::class, [
+                'label' => 'Country of residence',
+                'mapped' => true,
+                'choices' => $countries,
+                'choice_loader' => null
+            ])
             ->add('address', TextType::class)
             ->add('phone_number', TelType::class)
             ->add('photo', FileType::class)

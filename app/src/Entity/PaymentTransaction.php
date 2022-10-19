@@ -28,6 +28,9 @@ class PaymentTransaction
     #[ORM\Column(type: 'string', length: 5, nullable: true)]
     private string $currency;
 
+    #[ORM\Column(type: 'string', length: 5, nullable: true)]
+    private string $operator;
+
     #[ORM\Column(type: 'string', nullable: true)]
     private string $payment_mode;
 
@@ -295,6 +298,24 @@ class PaymentTransaction
     public function setModifiedAt(?\DateTimeInterface $modified_at): PaymentTransaction
     {
         $this->modified_at = $modified_at;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOperator(): string
+    {
+        return $this->operator;
+    }
+
+    /**
+     * @param string $operator
+     * @return PaymentTransaction
+     */
+    public function setOperator(?string $operator): PaymentTransaction
+    {
+        $this->operator = $operator;
         return $this;
     }
 

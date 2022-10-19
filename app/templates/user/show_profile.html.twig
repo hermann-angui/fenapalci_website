@@ -29,7 +29,11 @@
                                 <div class="col-auto mt-4 mt-md-0">
                                     <div class="avatar avatar-xxl mt-n3">
                                         {% if app.user.photo is not null %}
-                                            <img class="avatar-img rounded-circle border border-white border-3 shadow" src="{{ asset('users/') }}{{ app.user.photo }}" alt="">
+                                            <label for="registration_form_photo">
+                                                <img id="imagePreview" src="{{ asset('users/') }}{{ app.user.photo }}" alt="" width="150" class="avatar-img rounded-circle border border-white border-3 shadow">
+                                                <span class="d-block position-relative text-dark" style="top:-30px;left:90px"><i class="fa fa-camera fa-2x"></i></span>
+                                                <input type="file" class="visually-hidden" id="registration_form_photo" name="photo">
+                                            </label>
                                         {% else %}
                                             <img class="avatar-img rounded-circle border border-white border-3 shadow" src="{{ asset('assets/images/avatar/avatar.jpg') }}" alt="">
                                         {% endif %}
@@ -191,7 +195,17 @@
 {{ parent() }}
   <script>
       $('document').ready(function() {
+			$("#registration_form_photo").change(function(data){
+				var imageFile = data.target.files[0];
+				var reader = new FileReader();
+				reader.readAsDataURL(imageFile);
 
+				reader.onload = function(evt){
+					$('#imagePreview').attr('src', evt.target.result);
+					$('#imagePreview').hide();
+					$('#imagePreview').fadeIn(650);
+				}
+        	});
       });
    </script>
 {% endblock %}

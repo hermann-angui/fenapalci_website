@@ -14,6 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Intl\Countries;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
@@ -33,6 +34,8 @@ class RegistrationFormType extends AbstractType
     {
         $past = new \DateTime('- 80 years');
         $end = new \DateTime();
+
+        $countries = array_combine(array_values(Countries::getNames()), array_values(Countries::getNames()));
 
         $builder
             ->add('sex', ChoiceType::class, [
@@ -99,8 +102,10 @@ class RegistrationFormType extends AbstractType
 
             ->add('nationality', CountryType::class, [
                 'label' => 'Votre nationalité',
-                'mapped' => true,
-                'required' => true
+                'mapped' => false,
+                'required' => true,
+                'choices' => $countries,
+                'choice_loader' => null
             ])
             ->add('photo', FileType::class, [
                 'label' => 'Photo',
@@ -110,7 +115,7 @@ class RegistrationFormType extends AbstractType
             ->add('agreeTerms', CheckboxType::class, [
                 'label' => $this->translator->trans('general_term_gdpr'),
                 'mapped' => false,
-                'required' => false,
+                'required' => true,
                 'constraints' => [
                     new IsTrue([
                         'message' => $this->translator->trans('invalid_password'),

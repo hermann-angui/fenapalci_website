@@ -61,12 +61,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $address;
 
-
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $city;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $commune;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $quartier;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $photo;
@@ -76,6 +78,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $status;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private $subscription_start_date;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private $subscription_expire_date;
 
     #[ORM\Column(type: 'datetime', nullable: true)]
     private $created_at;
@@ -378,4 +386,187 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCni()
+    {
+        return $this->cni;
+    }
+
+    /**
+     * @param mixed $cni
+     * @return User
+     */
+    public function setCni($cni)
+    {
+        $this->cni = $cni;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPassport()
+    {
+        return $this->passport;
+    }
+
+    /**
+     * @param mixed $passport
+     * @return User
+     */
+    public function setPassport($passport)
+    {
+        $this->passport = $passport;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * @param mixed $city
+     * @return User
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCommune()
+    {
+        return $this->commune;
+    }
+
+    /**
+     * @param mixed $commune
+     * @return User
+     */
+    public function setCommune($commune)
+    {
+        $this->commune = $commune;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param mixed $type
+     * @return User
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $status
+     * @return User
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection|Collection
+     */
+    public function getPayments(): ArrayCollection|Collection
+    {
+        return $this->payments;
+    }
+
+    /**
+     * @param ArrayCollection|Collection $payments
+     * @return User
+     */
+    public function setPayments(ArrayCollection|Collection $payments): User
+    {
+        $this->payments = $payments;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuartier()
+    {
+        return $this->quartier;
+    }
+
+    /**
+     * @param mixed $quartier
+     * @return User
+     */
+    public function setQuartier($quartier)
+    {
+        $this->quartier = $quartier;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSubscriptionStartDate()
+    {
+        return $this->subscription_start_date;
+    }
+
+    /**
+     * @param mixed $subscription_start_date
+     * @return User
+     */
+    public function setSubscriptionStartDate($subscription_start_date)
+    {
+        $this->subscription_start_date = $subscription_start_date;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSubscriptionExpireDate()
+    {
+        return $this->subscription_expire_date;
+    }
+
+    /**
+     * @param mixed $subscription_expire_date
+     * @return User
+     */
+    public function setSubscriptionExpireDate($subscription_expire_date)
+    {
+        $this->subscription_expire_date = $subscription_expire_date;
+        return $this;
+    }
+
+
+
 }

@@ -16,27 +16,30 @@ class Company
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    #[Groups(['company'])]
     private $id;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    #[Groups(['company'])]
     private $name;
     
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    #[Groups(['company'])]
     private $phone_number;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    #[Groups(['company'])]
     private $address;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    #[Groups(['company'])]
+    private $ville;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $commune;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $quartier;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $status;
 
     #[ORM\Column(type: 'datetime', nullable: true)]
-    #[Groups(['company'])]
     private $date_created = null;
 
     #[ORM\ManyToOne(inversedBy: 'companies')]
@@ -198,6 +201,60 @@ class Company
     public function setDateCreated($date_created)
     {
         $this->date_created = $date_created;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * @param mixed $ville
+     * @return Company
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCommune()
+    {
+        return $this->commune;
+    }
+
+    /**
+     * @param mixed $commune
+     * @return Company
+     */
+    public function setCommune($commune)
+    {
+        $this->commune = $commune;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuartier()
+    {
+        return $this->quartier;
+    }
+
+    /**
+     * @param mixed $quartier
+     * @return Company
+     */
+    public function setQuartier($quartier)
+    {
+        $this->quartier = $quartier;
         return $this;
     }
 

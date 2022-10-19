@@ -5,13 +5,16 @@
 {% block body %}
     <!-- **************** MAIN CONTENT START **************** -->
     <main>
-        <section class="p-0 d-flex align-items-center position-relative overflow-hidden">
-
-            <div class="container-fluid">
+        <section class="pt-0">
+            <div class="container-fluid px-0">
+                <div class="bg-light h-70px h-md-70px rounded-0">
+                </div>
+            </div>
+            <div class="container mt-4">
                 <div class="row">
                     <!-- left -->
-                    <div class="col-12 col-lg-6 d-md-flex align-items-center justify-content-center bg-primary bg-opacity-10 vh-lg-100">
-                        <div class="p-3 p-lg-5">
+                    <div class="col-sm-12 col-lg-6 d-md-flex align-items-center justify-content-center bg-primary bg-opacity-10 vh-lg-50">
+                        <div class="p-3 p-lg-3">
                             <!-- Title -->
                             <div class="text-center">
                                 <h2 class="fw-bold">BIENVENUE SUR LE SITE DE VOTRE FEDERATION</h2>
@@ -21,9 +24,9 @@
                     </div>
 
                     <!-- Right -->
-                    <div class="col-12 col-lg-6 m-auto">
-                        <div class="row my-2">
-                            <div class="col-sm-12 col-xl-11 m-auto">
+                    <div class="col-sm-12 col-lg-6 m-auto">
+                        <div class="row px-3 py-5">
+                            <div class="col-sm-12 col-xl-12 m-auto">
                                 <h1 class="fs-4">Connexion à votre espace membre!</h1>
                                 <p class="lead mb-4">Heureux de vous revoir!</p>
 
@@ -67,7 +70,7 @@
                                     <!-- Button -->
                                     <div class="align-items-center mt-0">
                                         <div class="d-grid">
-                                            <button class="btn bg-dark-purple mb-0" type="submit">Connexion</button>
+                                            <button class="btn btn-dark bg-pink mb-0" type="submit">Connexion</button>
                                         </div>
                                     </div>
                                     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">

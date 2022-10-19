@@ -4851,7 +4851,7 @@ textarea.form-control-lg {
   padding: var(--bs-navbar-toggler-padding-y) var(--bs-navbar-toggler-padding-x);
   font-size: var(--bs-navbar-toggler-font-size);
   line-height: 1;
-  color: var(--bs-navbar-color);
+  color: #ffffff;
   background-color: transparent;
   border: var(--bs-border-width) solid var(--bs-navbar-toggler-border-color);
   border-radius: var(--bs-navbar-toggler-border-radius);
@@ -5102,7 +5102,6 @@ textarea.form-control-lg {
     position: absolute;
   }
   .navbar-expand-xl .navbar-nav .nav-link {
-    padding-right: var(--bs-navbar-nav-link-padding-x);
     padding-left: var(--bs-navbar-nav-link-padding-x);
   }
   .navbar-expand-xl .navbar-nav-scroll {
@@ -19796,7 +19795,7 @@ textarea.form-control-lg {
     left: 0;
     right: 0;
     top: 100%;
-    background: #fff;
+    background: #543e82;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
   .navbar-expand-xl .navbar-collapse .navbar-nav .nav-item {
@@ -20341,7 +20340,7 @@ textarea.form-control-lg {
   -webkit-transform: rotateZ(0deg);
   transform: rotateZ(0deg);
   height: 2px;
-  background: #24292d;
+  background: #ffffff;
   display: block;
   position: absolute;
   width: 100%;
