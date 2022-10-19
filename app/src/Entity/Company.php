@@ -92,4 +92,114 @@ class Company
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     * @return Company
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $name
+     * @return Company
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPhoneNumber()
+    {
+        return $this->phone_number;
+    }
+
+    /**
+     * @param mixed $phone_number
+     * @return Company
+     */
+    public function setPhoneNumber($phone_number)
+    {
+        $this->phone_number = $phone_number;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param mixed $address
+     * @return Company
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $status
+     * @return Company
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+        return $this;
+    }
+
+    /**
+     * @return null
+     */
+    public function getDateCreated()
+    {
+        return $this->date_created;
+    }
+
+    /**
+     * @param null $date_created
+     * @return Company
+     */
+    public function setDateCreated($date_created)
+    {
+        $this->date_created = $date_created;
+        return $this;
+    }
+
+
 }

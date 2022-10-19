@@ -27,8 +27,8 @@ class WaveService
                 'amount' => $request->getAmount(),
                 'currency' => $request->getCurrency(),
                 'client_reference' => $request->getClientReference(),
-                'success_url' => 'https://fenapalci.org/payment/wave/success',   //$request->getSuccessUrl(),
-                'error_url' => 'https://fenapalci.org/payment/wave/error'        //$request->getSuccessUrl(),
+                'success_url' => 'https://fenapalci.org/payment/wave/checkout/success',   //$request->getSuccessUrl(),
+                'error_url' => 'https://fenapalci.org/payment/wave/checkout/error'        //$request->getSuccessUrl(),
             ]);
 
             $curlOptions = [
@@ -51,7 +51,7 @@ class WaveService
             curl_close($curl);
 
             if ($err) {
-                echo "cURL Error #:" . $err;
+                return null;
             } else {
                 # You can now decode the response and use the checkout session. Happy coding ;)
                 $checkout_session = json_decode($response, true);

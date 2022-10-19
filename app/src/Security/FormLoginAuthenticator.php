@@ -51,7 +51,7 @@ class FormLoginAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($this->urlGenerator->generate('app_payment_howto'));
         }
         // For example:
-        return new RedirectResponse($this->urlGenerator->generate('app_home'));
+        return new RedirectResponse($this->urlGenerator->generate('app_user_profile'));
        // throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 

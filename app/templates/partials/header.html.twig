@@ -11,10 +11,12 @@
         <!-- Logo Nav START -->
         <div class="w-100 d-flex flex-column">
             <div class="flex-fill">
+                {% if app.user is not defined %}
                 <div class="ms-1 ms-lg-0 float-end bg-yellow p-2 rounded-bottom text-white">
-                    <a href="{{ path('app_register') }}" class="text-white">Devenir membre </a><span> | </span>
-                    <a href="{{ path('app_login') }}" class="text-white">Espace membre </a>
+                    <a href="{{ path('app_register') }}" class="text-white">Créer un compte </a><span> | </span>
+                    <a href="{{ path('app_login') }}" class="text-white"> Me connecter </a>
                 </div>
+                {% endif %}
             </div>
             <nav class="navbar navbar-expand-xl navbar-sticky navbar-static-top bg-dark-purple" >
                 <div class="container-fluid">
@@ -84,7 +86,11 @@
                     {%  if app.user is not null %}
                     <div class="dropdown ms-1 ms-lg-0 px-2">
                         <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/profile.jpg') }}" alt="avatar">
+                            {% if app.user.photo is not null %}
+                                <img class="avatar-img rounded-circle" src="{{ asset('users/') }}{{ app.user.photo }}" alt="avatar">
+                            {% else %}
+                                <img class="avatar-img rounded-circle" src="{{ asset('assets/images/avatar/avatar.jpg') }}" alt="avatar">
+                            {% endif %}
                         </a>
                         <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
                             <!-- Profile info -->
@@ -102,8 +108,8 @@
                             </li>
                             <li> <hr class="dropdown-divider"></li>
                             <!-- Links -->
-                            <li><a class="dropdown-item" href="{{ path('app_home') }}"><i class="bi bi-person fa-fw me-2"></i>Editer mon profile</a></li>
-                            <li><a class="dropdown-item" href="{{ path('app_home') }}"><i class="bi bi-gear fa-fw me-2"></i>Mon compte</a></li>
+                            <li><a class="dropdown-item" href="{{ path('app_user_profile') }}"><i class="bi bi-person fa-fw me-2"></i>Editer mon profile</a></li>
+                            <li><a class="dropdown-item" href="{{ path('app_user_profile') }}"><i class="bi bi-gear fa-fw me-2"></i>Mon compte</a></li>
                             <li><a class="dropdown-item" href="{{ path('app_home') }}"><i class="bi bi-info-circle fa-fw me-2"></i>Aide</a></li>
                             <li> <hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item bg-danger-soft-hover" href="{{ path('app_logout') }}"><i class="bi bi-power fa-fw me-2"></i>Me déconnecter</a></li>

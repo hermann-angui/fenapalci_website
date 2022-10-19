@@ -50,6 +50,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $sex;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $cni;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $passport;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $phone_number;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]

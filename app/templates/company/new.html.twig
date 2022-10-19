@@ -1,11 +1,273 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Company{% endblock %}
-
+{% block title %}Connexion{% endblock %}
+{% block stylesheet %}
+    {{ parent() }}
+    <style>
+    </style>
+{% endblock %}
 {% block body %}
-    <h1>Create new Company</h1>
+    <!-- **************** MAIN CONTENT START **************** -->
+    <main>
 
-    {{ include('company/_form.html.twig') }}
+        <!-- =======================
+        Page Banner START -->
+        <section class="py-0 bg-light align-items-center d-flex h-200px rounded-0" style="background:url(assets/images/pattern/04.png) no-repeat center center; background-size:cover;">
+            <!-- Main banner background image -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <!-- Title -->
+                        <h3 class="text-dark">Enregistrement entreprise</h3>
+                        <p class="text-dark mb-0">En tant que membre, vous pouvez déclarer votre entreprise</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- =======================
+        Page Banner END -->
 
-    <a href="{{ path('app_company_index') }}">back to list</a>
+        <!-- =======================
+        Steps START -->
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 mx-auto text-center">
+                        <!-- Content -->
+                        <p class="text-center">Les déclarations d'une entreprise et ses employés comme membre de la FENAPALCI ne seront pris en compte seulement après paiement de frais d'inscription de ceux-ci.</p>
+                    </div>
+                </div>
+
+                <div class="card bg-transparent border rounded-3 mb-5">
+                    <div id="stepper" class="bs-stepper stepper-outline">
+                        <!-- Card header -->
+                        <div class="card-header bg-light border-bottom px-lg-5">
+                            <!-- Step Buttons START -->
+                            <div class="bs-stepper-header" role="tablist">
+                                <!-- Step 1 -->
+                                <div class="step" data-target="#step-1">
+                                    <div class="d-grid text-center align-items-center">
+                                        <button type="button" class="btn btn-link step-trigger mb-0" role="tab" id="steppertrigger1" aria-controls="step-1">
+                                            <span class="bs-stepper-circle">1</span>
+                                        </button>
+                                        <h6 class="bs-stepper-label d-none d-md-block">Information de l'entreprise</h6>
+                                    </div>
+                                </div>
+                                <div class="line"></div>
+
+                                <!-- Step 2 -->
+                                <div class="step" data-target="#step-2">
+                                    <div class="d-grid text-center align-items-center">
+                                        <button type="button" class="btn btn-link step-trigger mb-0" role="tab" id="steppertrigger2" aria-controls="step-2">
+                                            <span class="bs-stepper-circle">2</span>
+                                        </button>
+                                        <h6 class="bs-stepper-label d-none d-md-block">Enregistrement des employés</h6>
+                                    </div>
+                                </div>
+                                <div class="line"></div>
+
+                                <!-- Step 3 -->
+                                <div class="step" data-target="#step-3">
+                                    <div class="d-grid text-center align-items-center">
+                                        <button type="button" class="btn btn-link step-trigger mb-0" role="tab" id="steppertrigger3" aria-controls="step-3">
+                                            <span class="bs-stepper-circle">3</span>
+                                        </button>
+                                        <h6 class="bs-stepper-label d-none d-md-block">Frais d'adhésion</h6>
+                                    </div>
+                                </div>
+                                <div class="line"></div>
+
+                                <!-- Step 4 -->
+                                <div class="step" data-target="#step-4">
+                                    <div class="d-grid text-center align-items-center">
+                                        <button type="button" class="btn btn-link step-trigger mb-0" role="tab" id="steppertrigger4" aria-controls="step-4">
+                                            <span class="bs-stepper-circle">4</span>
+                                        </button>
+                                        <h6 class="bs-stepper-label d-none d-md-block">Confirmation paiement</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Step Buttons END -->
+                        </div>
+
+                        <!-- Card body START -->
+                        <div class="card-body">
+                            <!-- Step content START -->
+                            <div class="bs-stepper-content">
+                                <form onsubmit="return false">
+
+                                    <!-- Step 1 content START -->
+                                    <div id="step-1" role="tabpanel" class="content fade" aria-labelledby="steppertrigger1">
+                                        <!-- Title -->
+                                        <h5 class="d-block border-start border-5 border-orange px-2">Déclaratioon entreprise</h5>
+
+                                        <hr> <!-- Divider -->
+
+                                        <!-- Basic information START -->
+                                        <div class="row g-4">
+                                            <!-- Course title -->
+                                            <div class="col-12">
+                                                <label class="form-label">Nom de l'entreprise</label>
+                                                <input class="form-control" type="text" placeholder="Nom de votre entreprise">
+                                            </div>
+
+                                            <!-- Course category -->
+                                            <div class="col-md-6">
+                                                <label class="form-label">Satus juridique</label>
+                                                <select class="form-select js-choice border-0 z-index-9 bg-transparent" aria-label=".form-select-sm" data-search-enabled="true">
+                                                    <option value="">Selectionnez le status juridique</option>
+                                                    <option>Société à responsabilité limitée</option>
+                                                    <option>Société anonyme</option>
+                                                    <option>Entreprise individuelle</option>
+                                                    <option>Entreprise unipersonnelle à responsabilité limitée</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Switch -->
+                                            <div class="col-md-6 d-flex align-items-center justify-content-start mt-5">
+                                                <div class="form-check form-switch form-check-md">
+                                                    <input class="form-check-input" type="checkbox" id="checkPrivacy1">
+                                                    <label class="form-check-label" for="checkPrivacy1">Etes vous déclarez au impôt ?</label>
+                                                </div>
+                                            </div>
+
+                                            <!-- Course time -->
+                                            <div class="col-md-6">
+                                                <label class="form-label">Ville</label>
+                                                <input class="form-control" type="text" placeholder="Ville">
+                                            </div>
+
+                                            <!-- Total lecture -->
+                                            <div class="col-md-6">
+                                                <label class="form-label">Date de création</label>
+                                                <input class="form-control" type="text" placeholder="Date de création">
+                                            </div>
+
+                                            <!-- Course price -->
+                                            <div class="col-md-6">
+                                                <label class="form-label">Numéro registre de commerce</label>
+                                                <input type="text" class="form-control" placeholder="Numéro registre de commerce">
+                                            </div>
+
+                                            <div class="col-12">
+                                                <label class="form-label">Description entreprise</label>
+                                                <textarea class="form-control" rows="2" placeholder="Décrire brièvement votre entreprise"></textarea>
+                                            </div>
+                                            <!-- Step 1 button -->
+                                            <div class="d-flex justify-content-end mt-3">
+                                                <button class="btn btn-primary next-btn mb-0">Suivant</button>
+                                            </div>
+                                        </div>
+                                        <!-- Basic information START -->
+                                    </div>
+                                    <!-- Step 1 content END -->
+
+                                    <!-- Step 2 content START -->
+                                    <div id="step-2" role="tabpanel" class="content fade" aria-labelledby="steppertrigger2">
+                                        <!-- Title -->
+                                        <h5 class="d-block border-start border-5 border-orange px-2">Enregistrement des employés</h5>
+
+                                        <hr> <!-- Divider -->
+
+                                        <div class="row">
+                                            <!-- Upload image START -->
+                                            <div class="col-12">
+                                            </div>
+                                            <!-- Upload image END -->
+
+                                            <!-- Upload video START -->
+                                            <div class="col-12">
+                                            </div>
+                                            <!-- Upload video END -->
+
+                                            <!-- Step 2 button -->
+                                            <div class="d-flex justify-content-between mt-3">
+                                                <button class="btn btn-secondary prev-btn mb-0">Précédent</button>
+                                                <button class="btn btn-primary next-btn mb-0">Suivant</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Step 2 content END -->
+
+                                    <!-- Step 3 content START -->
+                                    <div id="step-3" role="tabpanel" class="content fade" aria-labelledby="steppertrigger3">
+                                        <!-- Title -->
+                                        <h4>Frais d'adhésion</h4>
+
+                                        <hr> <!-- Divider -->
+
+                                        <div class="row">
+
+                                            <!-- Step 3 button -->
+                                            <div class="d-flex justify-content-between">
+                                                <button class="btn btn-secondary prev-btn mb-0">Précédent</button>
+                                                <button class="btn btn-primary next-btn mb-0">Suivant</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Step 3 content END -->
+
+                                    <!-- Step 4 content START -->
+                                    <div id="step-4" role="tabpanel" class="content fade" aria-labelledby="steppertrigger4">
+                                        <!-- Title -->
+                                        <h4>Additional information</h4>
+
+                                        <hr> <!-- Divider -->
+
+                                        <div class="row g-4">
+
+                                            <!-- Edit faq START -->
+                                            <div class="col-12">
+                                            </div>
+                                            <!-- Edit faq END -->
+
+                                            <!-- Tags START -->
+                                            <div class="col-12">
+
+                                            </div>
+                                            <!-- Tags START -->
+
+                                            <!-- Reviewer START -->
+                                            <div class="col-12">
+
+                                            </div>
+                                            <!-- Reviewer START -->
+
+                                            <!-- Step 4 button -->
+                                            <div class="d-md-flex justify-content-between align-items-start mt-4">
+                                                <button class="btn btn-secondary prev-btn mb-2 mb-md-0">Précédent</button>
+                                                <button class="btn btn-light me-auto ms-md-2 mb-2 mb-md-0">Suivant</button>
+                                                <div class="text-md-end">
+                                                    <a href="#" class="btn btn-success mb-2 mb-sm-0">Enregistrer</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Step 4 content END -->
+
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Card body END -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- =======================
+        Steps END -->
+
+    </main>
+    <!-- **************** MAIN CONTENT END **************** -->
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block javascript %}
+{{ parent() }}
+  <script>
+      $('document').ready(function() {
+
+      });
+   </script>
 {% endblock %}

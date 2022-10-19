@@ -31,7 +31,7 @@ class CompanyController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $companyRepository->add($company, true);
 
-            return $this->redirectToRoute('app_company_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_user_profile', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('company/new.html.twig', [

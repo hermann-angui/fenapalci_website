@@ -38,13 +38,7 @@ class PaymentController extends AbstractController
     #[Route(path: '/wave/checkout/{status}', name: 'app_wave_payment_callback')]
     public function wavePaymentCheckoutStatusCallback($status): Response
     {
-        $match = match ($status) {
-            "success" => "<h1>SUCCESSFUL</h1>",
-            "error" => "<h1>ERROR</h1>",
-            default => "<h1>Unknow status</h1>",
-        };
-
-        return new Response($match);
+        return $this->render('payment/checkout_result.html.twig', ['status' => $status]);
     }
 
     #[Route(path: '/wave', name: 'app_wave_payment_checkout_webhook')]
