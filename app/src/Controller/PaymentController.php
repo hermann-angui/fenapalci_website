@@ -35,67 +35,8 @@ class PaymentController extends AbstractController
         return $this->render('payment/summary.html.twig', ["payment_redirect_url" => $payment_redirect_url]);
     }
 
-    #[Route(path: '/wave/checkout/{status}', name: 'app_wave_payment_callback')]
-    public function wavePaymentCheckoutStatusCallback($status, Request $request, PaymentTransactionRepository $paymentTransactionRepository): Response
-    {
-        $paymentRef = null;
-        $errorMessage = null;
-
-        try{
-            $checkoutStatus = json_decode($request->getContent(), true);
-            if (!file_exists("/var/www/html/var/log/wave_checkout/")) mkdir("/var/www/html/var/log/wave_checkout");
-            file_put_contents("/var/www/html/var/log/wave_checkout/checkout_status_" . date('d-m-Y') . ".json", $request->getContent());
-
-            if (!empty($checkoutStatus) && array_key_exists("client_reference", $checkoutStatus)) {
-                $payment = $paymentTransactionRepository->findOneBy(["payment_reference" => $checkoutStatus["client_reference"]]);
-                if ($payment) {
-                    $payment->setPaymentStatus($checkoutStatus["payment_status"]);
-                    $payment->setModifiedAt(new \DateTime());
-                    $paymentTransactionRepository->add($payment);
-                    $paymentRef = $checkoutStatus["client_reference"];
-                }
-            }
-        }catch(\Exception $exception){
-            $errorMessage = $exception->getMessage();
-        }
-
-        return $this->render('payment/checkout_result.html.twig', ['status' => $status, "payment_reference" => $paymentRef, "errorMessage" => $errorMessage]);
-    }
-
-    #[Route(path: '/wave', name: 'app_wave_payment_checkout_webhook')]
-    public function callbackWavePayment(Request $request,
-                                        PaymentTransactionRepository $paymentTransactionRepository,
-                                        UserRepository $userRepository): Response
-    {
-
-        $checkoutSessionPayload = json_decode($request->getContent(), true);
-        if (!file_exists("/var/www/html/var/log/wave_checkout/")) mkdir("/var/www/html/var/log/wave_checkout");
-        file_put_contents("/var/www/html/var/log/wave_checkout/checkout_webhook_" . date('d-m-Y') . ".json", $request->getContent());
-
-        if (!empty($checkoutSessionPayload) && array_key_exists("client_reference", $checkoutSessionPayload)) {
-
-            $payment = $paymentTransactionRepository->findOneBy(["payment_reference" => $checkoutSessionPayload["client_reference"]]);
-
-            if ($payment) {
-                $now = new \DateTime();
-                $user = $payment->getPayer();
-                $user->setStatus("VALID_MEMBER");
-                $user->setSubscriptionStartDate($now);
-                $user->setSubscriptionExpireDate($now->add(new \DateInterval('P1Y')));
-                $userRepository->add($user);
-
-                $payment->setPaymentStatus($checkoutSessionPayload["payment_status"]);
-                $payment->setModifiedAt(new \DateTime());
-                $paymentTransactionRepository->add($payment);
-            }
-        }
-
-        return $this->json($checkoutSessionPayload);
-    }
-
-
-    public function payToWave(?User $user,
-                              WaveService $waveService,
+    public function payToWave(?User                        $user,
+                              WaveService                  $waveService,
                               PaymentTransactionRepository $paymentTransactionRepository)
     {
         $waveCheckoutRequest = new WaveCheckoutRequest();
@@ -128,5 +69,68 @@ class PaymentController extends AbstractController
 
             return $waveResponse->getWaveLaunchUrl();
         }
+    }
+
+    #[Route(path: '/wave/checkout/{status}', name: 'app_wave_payment_callback')]
+    public function wavePaymentCheckoutStatusCallback($status, Request $request, PaymentTransactionRepository $paymentTransactionRepository): Response
+    {
+        $paymentRef = null;
+        $errorMessage = null;
+
+        try {
+            $checkoutStatus = json_decode($request->getContent(), true);
+            $folder = "/var/www/html/var/log/wave_checkout/";
+            if (!file_exists($folder)) mkdir($folder);
+            file_put_contents($folder . "/checkout_status_" . date('d-m-Y') . ".json", $request->getContent());
+
+            if (!empty($checkoutStatus) && array_key_exists("client_reference", $checkoutStatus)) {
+                $payment = $paymentTransactionRepository->findOneBy(["payment_reference" => $checkoutStatus["client_reference"]]);
+                if ($payment) {
+                    $payment->setPaymentStatus($checkoutStatus["payment_status"]);
+                    $payment->setModifiedAt(new \DateTime());
+                    $paymentTransactionRepository->add($payment);
+                    $paymentRef = $checkoutStatus["client_reference"];
+                }
+            }
+        } catch (\Exception $exception) {
+            $errorMessage = $exception->getMessage();
+        }
+
+        return $this->render('payment/checkout_result.html.twig', ['status' => $status, "payment_reference" => $paymentRef, "errorMessage" => $errorMessage]);
+    }
+
+    #[Route(path: '/wave', name: 'app_wave_payment_checkout_webhook')]
+    public function callbackWavePayment(Request                      $request,
+                                        PaymentTransactionRepository $paymentTransactionRepository,
+                                        UserRepository               $userRepository): Response
+    {
+
+        $checkoutSessionPayload = json_decode($request->getContent(), true);
+        $folder = "/var/www/html/var/log/wave_checkout/";
+        if (!file_exists($folder)) mkdir($folder);
+        file_put_contents($folder . "checkout_webhook_" . date('d-m-Y') . ".json", $request->getContent());
+
+        if (!empty($checkoutSessionPayload) && array_key_exists("client_reference", $checkoutSessionPayload["data"])) {
+
+            $payment = $paymentTransactionRepository->findOneBy([
+                "payment_reference" => $checkoutSessionPayload["data"]["client_reference"],
+                "checkout_session_id" => $checkoutSessionPayload["data"]["id"]
+            ]);
+
+            if ($payment) {
+                $now = new \DateTime();
+                $user = $payment->getPayer();
+                $user->setStatus("VALID_MEMBER");
+                $user->setSubscriptionStartDate($now);
+                $user->setSubscriptionExpireDate($now->add(new \DateInterval('P1Y')));
+                $userRepository->add($user);
+
+                $payment->setPaymentStatus($checkoutSessionPayload["data"]["payment_status"]);
+                $payment->setModifiedAt(new \DateTime());
+                $paymentTransactionRepository->add($payment);
+            }
+        }
+
+        return $this->json($checkoutSessionPayload);
     }
 }

@@ -40,9 +40,6 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('sex', ChoiceType::class, [
                     'label' => "Sexe",
-                    'label_attr' => [
-                        'class' => 'checkbox-inline checkbox-switch',
-                    ],
                     'mapped' => true,
                     'expanded' => false,
                     'multiple' => false,

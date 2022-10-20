@@ -55,6 +55,12 @@ class Staff
     private $status;
 
     #[ORM\Column(type: 'datetime', nullable: true)]
+    private $subscription_start_date;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private $subscription_expire_date;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
     private $created_at;
 
     #[ORM\Column(type: 'datetime', nullable: true)]
@@ -259,6 +265,78 @@ class Staff
     {
         $this->company = $company;
 
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param mixed $type
+     * @return Staff
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $status
+     * @return Staff
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSubscriptionStartDate()
+    {
+        return $this->subscription_start_date;
+    }
+
+    /**
+     * @param mixed $subscription_start_date
+     * @return Staff
+     */
+    public function setSubscriptionStartDate($subscription_start_date)
+    {
+        $this->subscription_start_date = $subscription_start_date;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSubscriptionExpireDate()
+    {
+        return $this->subscription_expire_date;
+    }
+
+    /**
+     * @param mixed $subscription_expire_date
+     * @return Staff
+     */
+    public function setSubscriptionExpireDate($subscription_expire_date)
+    {
+        $this->subscription_expire_date = $subscription_expire_date;
         return $this;
     }
 

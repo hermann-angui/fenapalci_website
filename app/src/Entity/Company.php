@@ -37,7 +37,19 @@ class Company
     private $quartier;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $category;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $legal_status;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $status;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private $subscription_start_date;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private $subscription_expire_date;
 
     #[ORM\Column(type: 'datetime', nullable: true)]
     private $date_created = null;
@@ -257,6 +269,128 @@ class Company
         $this->quartier = $quartier;
         return $this;
     }
+
+   public static function getSubscriptionFee (string $categorieName) : ?string
+   {
+        $fees =     [
+            "GLACIER" => 5000,
+            "BAR"  => 5000,
+            "MAQUIS : 1-50 Places" => 2000,
+            "MAQUIS : 50-100 Places"=> 3000,
+            "MAQUIS : 101 Places et Plus" => 5000,
+            "RESTAURANT : 1-50 Places" => 2000,
+            "RESTAURANT : 51 Places et Plus"=> 3000,
+            "MAQUIS/RESTAURANT"  => 5000,
+            "RESTAURANT VIP" => 5000,
+            "DEPOT DE BOISSON"  => 5000,
+            "HOTEL"   => 5000,
+            "NIGHT CLUB" => 5000,
+            "EVENEMENTIEL" => 5000,
+            "PATISSERIE" => 5000,
+            "CAVE : 1-50 Places"  => 2000,
+            "CAVE : 51 Places et Plus" => 3000
+        ];
+
+        if(key_exists($categorieName, $fees)) return $fees[$categorieName];
+        else return null;
+
+   }
+
+    public static function getCategories () : array
+    {
+        return  [
+            "GLACIER" => "GLACIER" ,
+            "BAR" => "BAR",
+            "MAQUIS : 1-50 Places" => "MAQUIS : 1-50 Places",
+            "MAQUIS : 50-100 Places" => "MAQUIS : 50-100 Places",
+            "MAQUIS : 101 Places et Plus" => "MAQUIS : 101 Places et Plus",
+            "RESTAURANT : 1-50 Places" => "RESTAURANT : 1-50 Places",
+            "RESTAURANT : 51 Places et Plus" => "RESTAURANT : 51 Places et Plus",
+            "MAQUIS/RESTAURANT" => "MAQUIS/RESTAURANT",
+            "RESTAURANT VIP" => "RESTAURANT VIP",
+            "DEPOT DE BOISSON"  => "DEPOT DE BOISSON",
+            "HOTEL"   => "HOTEL",
+            "NIGHT CLUB" => "NIGHT CLUB",
+            "EVENEMENTIEL" => "EVENEMENTIEL",
+            "PATISSERIE" => "PATISSERIE",
+            "CAVE : 1-50 Places"  => "CAVE : 1-50 Places",
+            "CAVE : 51 Places et Plus" => "CAVE : 51 Places et Plus"
+        ];
+
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param mixed $category
+     * @return Company
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLegalStatus()
+    {
+        return $this->legal_status;
+    }
+
+    /**
+     * @param mixed $legal_status
+     * @return Company
+     */
+    public function setLegalStatus($legal_status)
+    {
+        $this->legal_status = $legal_status;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSubscriptionStartDate()
+    {
+        return $this->subscription_start_date;
+    }
+
+    /**
+     * @param mixed $subscription_start_date
+     * @return Company
+     */
+    public function setSubscriptionStartDate($subscription_start_date)
+    {
+        $this->subscription_start_date = $subscription_start_date;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSubscriptionExpireDate()
+    {
+        return $this->subscription_expire_date;
+    }
+
+    /**
+     * @param mixed $subscription_expire_date
+     * @return Company
+     */
+    public function setSubscriptionExpireDate($subscription_expire_date)
+    {
+        $this->subscription_expire_date = $subscription_expire_date;
+        return $this;
+    }
+
 
 
 }

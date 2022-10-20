@@ -22,7 +22,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    #[ORM\Column(type: 'string', length: 255, unique: true, nullable: true)]
     private $email;
 
     #[ORM\Column(type: 'json')]
@@ -30,6 +30,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'string')]
     private $password;
+
+    private $plain_password;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $firstname;
@@ -173,8 +175,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function eraseCredentials()
     {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
+       $this->plain_password = null;
     }
 
     public function getFirstname(): ?string
@@ -274,18 +275,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setEmail(?string $email): self
     {
         $this->email = $email;
-
-        return $this;
-    }
-
-    public function isVerified(): bool
-    {
-        return $this->isVerified;
-    }
-
-    public function setIsVerified(?bool $isVerified): ?self
-    {
-        $this->isVerified = $isVerified;
 
         return $this;
     }
@@ -567,6 +556,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getPlainPassword()
+    {
+        return $this->plain_password;
+    }
 
+    /**
+     * @param mixed $plain_password
+     * @return User
+     */
+    public function setPlainPassword($plain_password)
+    {
+        $this->plain_password = $plain_password;
+        return $this;
+    }
 
 }
