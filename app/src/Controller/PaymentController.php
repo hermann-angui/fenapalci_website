@@ -119,13 +119,15 @@ class PaymentController extends AbstractController
                 $now = new \DateTime();
                 $user = $payment->getPayer();
                 $user->setStatus("VALID_MEMBER");
+                $user->setModifiedAt(new \DateTime());
                 $user->setSubscriptionStartDate($now);
                 $user->setSubscriptionExpireDate($now->add(new \DateInterval('P1Y')));
                 $userRepository->add($user);
 
                 $payment->setPaymentStatus($payload["payment_status"]);
+                $payment->setOperatorTransactionId($payload["transaction_id"]);
                 $payment->setModifiedAt(new \DateTime());
-                $paymentTransactionRepository->add($payment);
+                $paymentTransactionRepository->add($payment, true);
             }
         }
     }

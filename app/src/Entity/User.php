@@ -214,6 +214,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    public function setModifiedAt(?\DateTime $modified_at): self
+    {
+        $this->modified_at = $modified_at;
+
+        return $this;
+    }
+
     public function getModifiedAt(): ?\DateTime
     {
         return $this->modified_at;
@@ -573,5 +580,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->plain_password = $plain_password;
         return $this;
     }
+
+
 
 }

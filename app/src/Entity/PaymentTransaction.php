@@ -19,10 +19,10 @@ class PaymentTransaction
     #[ORM\Column(type: 'uuid')]
     private string $payment_reference;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private string $checkout_session_id;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private string $operator_transaction_id;
 
     #[ORM\Column(type: 'integer', nullable: true)]
@@ -226,7 +226,7 @@ class PaymentTransaction
      * @param string $payment_status
      * @return PaymentTransaction
      */
-    public function setPaymentStatus(string $payment_status): PaymentTransaction
+    public function setPaymentStatus(?string $payment_status): PaymentTransaction
     {
         $this->payment_status = $payment_status;
         return $this;
@@ -235,7 +235,7 @@ class PaymentTransaction
     /**
      * @return string
      */
-    public function getPaymentType(): string
+    public function getPaymentType(): ?string
     {
         return $this->payment_type;
     }
@@ -244,7 +244,7 @@ class PaymentTransaction
      * @param string $payment_type
      * @return PaymentTransaction
      */
-    public function setPaymentType(string $payment_type): PaymentTransaction
+    public function setPaymentType(?string $payment_type): PaymentTransaction
     {
         $this->payment_type = $payment_type;
         return $this;
@@ -307,7 +307,7 @@ class PaymentTransaction
     /**
      * @return string
      */
-    public function getOperator(): string
+    public function getOperator(): ?string
     {
         return $this->operator;
     }
@@ -325,7 +325,7 @@ class PaymentTransaction
     /**
      * @return string
      */
-    public function getOperatorTransactionId(): string
+    public function getOperatorTransactionId(): ?string
     {
         return $this->operator_transaction_id;
     }
@@ -334,7 +334,7 @@ class PaymentTransaction
      * @param string $operator_transaction_id
      * @return PaymentTransaction
      */
-    public function setOperatorTransactionId(string $operator_transaction_id): PaymentTransaction
+    public function setOperatorTransactionId(?string $operator_transaction_id): PaymentTransaction
     {
         $this->operator_transaction_id = $operator_transaction_id;
         return $this;

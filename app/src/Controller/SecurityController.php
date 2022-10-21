@@ -68,6 +68,9 @@ class SecurityController extends AbstractController
                 if($fileName) $user->setPhoto($fileName);
             }
 
+            $user->setCreatedAt(new \DateTime());
+            $user->setModifiedAt(new \DateTime());
+
             $entityManager->persist($user);
             $entityManager->flush();
 
