@@ -80,7 +80,10 @@ class PaymentController extends AbstractController
     }
 
     #[Route(path: '/wave/checkout/{status}', name: 'app_wave_payment_callback')]
-    public function wavePaymentCheckoutStatusCallback($status, Request $request, PaymentTransactionRepository $paymentTransactionRepository): Response
+    public function wavePaymentCheckoutStatusCallback($status,
+                                                      Request $request,
+                                                      PaymentTransactionRepository $paymentTransactionRepository,
+                                                      UserRepository               $userRepository): Response
     {
         $paymentRef = null;
         $errorMessage = null;
@@ -91,17 +94,13 @@ class PaymentController extends AbstractController
             if (!file_exists($folder)) mkdir($folder);
             file_put_contents($folder . "/checkout_status_" . $status . "_" . date('d-m-Y') . ".json", $request->getContent());
 
-            if (!empty($checkoutStatus) && array_key_exists("client_reference", $checkoutStatus)) {
-               // $payment = $paymentTransactionRepository->findOneBy(["payment_reference" => $checkoutStatus["client_reference"]]);
-               // if ($payment) {
-                    //$payment->setPaymentStatus($checkoutStatus["payment_status"]);
-                    //$payment->setModifiedAt(new \DateTime());
-                    //$paymentTransactionRepository->add($payment);
-                    $paymentRef = $checkoutStatus["client_reference"];
-               // }
-            }
-        } catch (\Exception $exception) {
-            $errorMessage = $exception->getMessage();
+            $this->saveCheckoutStatus($checkoutStatus,
+                                      $paymentTransactionRepository,
+                                       $userRepository
+                                    );
+
+        }catch (\Exception $exception) {
+                $errorMessage = $exception->getMessage();
         }
 
         return $this->render('payment/checkout_result.html.twig', [
@@ -122,11 +121,29 @@ class PaymentController extends AbstractController
         if (!file_exists($folder)) mkdir($folder);
         file_put_contents($folder . "checkout_webhook_" . date('d-m-Y') . ".json", $request->getContent());
 
-        if (!empty($checkoutSessionPayload) && array_key_exists("client_reference", $checkoutSessionPayload["data"])) {
+        $this->saveCheckoutStatus(
+                    $checkoutSessionPayload,
+                    $paymentTransactionRepository,
+                    $userRepository
+                );
 
+        return $this->json($checkoutSessionPayload);
+    }
+
+    /**
+     * @param mixed $checkoutStatus
+     * @param PaymentTransactionRepository $paymentTransactionRepository
+     * @param UserRepository $userRepository
+     * @return void
+     */
+    private function saveCheckoutStatus(mixed $checkoutStatus,
+                                        PaymentTransactionRepository $paymentTransactionRepository,
+                                        UserRepository $userRepository): void
+    {
+        if (!empty($checkoutStatus) && array_key_exists("client_reference", $checkoutStatus["data"])) {
             $payment = $paymentTransactionRepository->findOneBy([
-                "payment_reference" => $checkoutSessionPayload["data"]["client_reference"],
-                "checkout_session_id" => $checkoutSessionPayload["data"]["id"]
+                "payment_reference" => $checkoutStatus["data"]["client_reference"],
+                "checkout_session_id" => $checkoutStatus["data"]["id"]
             ]);
 
             if ($payment) {
@@ -137,12 +154,10 @@ class PaymentController extends AbstractController
                 $user->setSubscriptionExpireDate($now->add(new \DateInterval('P1Y')));
                 $userRepository->add($user);
 
-                $payment->setPaymentStatus($checkoutSessionPayload["data"]["payment_status"]);
+                $payment->setPaymentStatus($checkoutStatus["data"]["payment_status"]);
                 $payment->setModifiedAt(new \DateTime());
                 $paymentTransactionRepository->add($payment);
             }
         }
-
-        return $this->json($checkoutSessionPayload);
     }
 }
