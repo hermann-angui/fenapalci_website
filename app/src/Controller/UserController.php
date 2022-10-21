@@ -4,7 +4,12 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserFormType;
+use App\Helper\UserHelper;
+use App\Repository\PaymentTransactionRepository;
 use App\Repository\UserRepository;
+use App\Traits\UserTrait;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,15 +18,36 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/user')]
 class UserController extends AbstractController
 {
+
+    use UserTrait;
+
     #[Route('/edit_account', name: 'app_user_edit_account', methods: ['GET', 'POST'])]
-    public function profile(Request $request, UserRepository $userRepository): Response
+    public function profile(Request $request,
+                            UserHelper $userHelper,
+                            UserRepository $userRepository): Response
     {
+
         $user = $this->getUser();
+
+        $this->redirectIfNotAllow();
+
+        $session = $request->getSession();
+        $session->set('previous_photo', $this->getUser()->getPhoto());
+
         $user->setPlainPassword($user->getPassword());
         $form = $this->createForm(UserFormType::class, $user);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $photo = $form->get('photo')->getData();
+            if($photo){
+                $fileName = $userHelper->uploadAsset($photo, $user);
+                if($fileName) $user->setPhoto($fileName);
+            }else{
+                if($session->get('previous_photo')) $user->setPhoto($session->get('previous_photo'));
+            }
+
             $userRepository->add($user, true);
         }
 
@@ -32,22 +58,46 @@ class UserController extends AbstractController
     }
 
     #[Route('/payment', name: 'app_user_payment', methods: ['GET'])]
-    public function payment(Request $request): Response
+    public function payment(Request $request,
+                            EntityManagerInterface  $em,
+                            PaymentTransactionRepository $paymentTransactionRepository): Response
     {
-        if(!$this->getUser()){
-            return $this->redirectToRoute('app_login');
+
+        $this->redirectIfNotAllow();
+
+        $dql = "SELECT SUM(p.amount) AS balance, p.payment_status, p.payment_for FROM App\Entity\PaymentTransaction p  WHERE p.payer = ?1 GROUP BY p.payment_for, p.payment_status";
+        $paymentStats = $em->createQuery($dql)
+                    ->setParameter(1, $this->getUser())
+                    ->getResult();
+
+        $stats = [
+            "FRAIS_ADHESION" => null,
+            "REMBOURSEMENT" => null,
+            "PENALITE" => null,
+        ];
+
+        $stats["total"] = 0;
+        foreach ($paymentStats as $paymentStat){
+             if($paymentStat["payment_status"] ==="PROCESSING") $stats["total"]+=$paymentStat["balance"];
+             $stats[$paymentStat["payment_for"]][$paymentStat["payment_status"]] =  $paymentStat["balance"];
         }
+
+
+     //   $paymentStats = $paymentTransactionRepository->findTotalAmountPayByUser($this->getUser());
+
+        $payments = $paymentTransactionRepository->findBy(['payer' => $this->getUser()]);
         return $this->render('user/payment.html.twig', [
             'user' => $this->getUser(),
+            'payments' => $payments,
+            'paymentStats' => $stats,
         ]);
     }
 
     #[Route('/order', name: 'app_user_order', methods: ['GET'])]
     public function order(Request $request): Response
     {
-        if(!$this->getUser()){
-            return $this->redirectToRoute('app_login');
-        }
+        $this->redirectIfNotAllow();
+
         return $this->render('user/order.html.twig', [
             'user' => $this->getUser(),
         ]);
@@ -56,9 +106,8 @@ class UserController extends AbstractController
     #[Route('/company', name: 'app_user_company', methods: ['GET'])]
     public function company(Request $request): Response
     {
-        if(!$this->getUser()){
-            return $this->redirectToRoute('app_login');
-        }
+        $this->redirectIfNotAllow();
+
         return $this->render('user/company.html.twig', [
             'user' => $this->getUser(),
         ]);
@@ -67,9 +116,8 @@ class UserController extends AbstractController
     #[Route('/employee', name: 'app_user_employee', methods: ['GET'])]
     public function employee(Request $request): Response
     {
-        if(!$this->getUser()){
-            return $this->redirectToRoute('app_login');
-        }
+        $this->redirectIfNotAllow();
+
         return $this->render('user/employee.html.twig', [
             'user' => $this->getUser(),
         ]);
@@ -78,9 +126,8 @@ class UserController extends AbstractController
     #[Route('/dashboard', name: 'app_user_dashboard', methods: ['GET'])]
     public function dashboard(Request $request): Response
     {
-        if(!$this->getUser()){
-            return $this->redirectToRoute('app_login');
-        }
+        $this->redirectIfNotAllow();
+
         return $this->render('user/dashboard.html.twig', [
             'user' => $this->getUser(),
         ]);
@@ -89,9 +136,8 @@ class UserController extends AbstractController
     #[Route('/configuration', name: 'app_user_configuration', methods: ['GET'])]
     public function configuration(Request $request): Response
     {
-        if(!$this->getUser()){
-            return $this->redirectToRoute('app_login');
-        }
+        $this->redirectIfNotAllow();
+
         return $this->render('user/configuration.html.twig', [
             'user' => $this->getUser(),
         ]);
@@ -100,33 +146,19 @@ class UserController extends AbstractController
     #[Route('/', name: 'app_user_index', methods: ['GET'])]
     public function index(Request $request, UserRepository $userRepository): Response
     {
+        $this->redirectIfNotAllow();
+
         return $this->render('user/index.html.twig', [
             'users' => $userRepository->findAll(),
         ]);
     }
 
-    #[Route('/new', name: 'app_user_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, UserRepository $userRepository): Response
-    {
-        $user = new User();
-        $form = $this->createForm(UserFormType::class, $user);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $userRepository->add($user, true);
-
-            return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->renderForm('user/new.html.twig', [
-            'user' => $user,
-            'form' => $form,
-        ]);
-    }
 
     #[Route('/{id}', name: 'app_user_show', methods: ['GET'])]
     public function show(Request $request, User $user): Response
     {
+        $this->redirectIfNotAllow();
+
         return $this->render('user/show.html.twig', [
             'user' => $user,
         ]);
@@ -135,6 +167,8 @@ class UserController extends AbstractController
     #[Route('/{id}/edit', name: 'app_user_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, User $user, UserRepository $userRepository): Response
     {
+        $this->redirectIfNotAllow();
+
         $form = $this->createForm(UserFormType::class, $user);
         $form->handleRequest($request);
 
@@ -153,6 +187,8 @@ class UserController extends AbstractController
     #[Route('/{id}', name: 'app_user_delete', methods: ['POST'])]
     public function delete(Request $request, User $user, UserRepository $userRepository): Response
     {
+        $this->redirectIfNotAllow();
+
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
             $userRepository->remove($user, true);
         }

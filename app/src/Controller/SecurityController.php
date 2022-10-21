@@ -63,8 +63,10 @@ class SecurityController extends AbstractController
             $user->setStatus('WAITING_FOR_PAYMENT');
 
             $photo = $form->get('photo')->getData();
-            $fileName = $userHelper->uploadAsset($photo, $user);
-            if($fileName) $user->setPhoto($fileName);
+            if($photo){
+                $fileName = $userHelper->uploadAsset($photo, $user);
+                if($fileName) $user->setPhoto($fileName);
+            }
 
             $entityManager->persist($user);
             $entityManager->flush();

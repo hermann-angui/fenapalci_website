@@ -23,6 +23,18 @@ class CompanyType extends AbstractType
             ->add('name', TextType::class, [
                 'mapped' => true,
             ])
+            ->add('ville', TextType::class, [
+                'mapped' => true,
+            ])
+            ->add('commune', TextType::class, [
+                'mapped' => true,
+            ])
+            ->add('registre_commerce', TextType::class, [
+                'mapped' => true,
+            ])
+            ->add('quartier', TextType::class, [
+                'mapped' => true,
+            ])
             ->add('phone_number', TelType::class, [
                 'mapped' => true,
             ])

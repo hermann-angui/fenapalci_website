@@ -22,8 +22,8 @@ class PaymentTransaction
     #[ORM\Column(type: 'string', length: 255)]
     private string $checkout_session_id;
 
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private string $amount;
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private int $amount;
 
     #[ORM\Column(type: 'string', length: 5, nullable: true)]
     private string $currency;
@@ -142,16 +142,16 @@ class PaymentTransaction
     /**
      * @return string
      */
-    public function getAmount(): string
+    public function getAmount(): int
     {
         return $this->amount;
     }
 
     /**
-     * @param string $amount
+     * @param int $amount
      * @return PaymentTransaction
      */
-    public function setAmount(?string $amount): PaymentTransaction
+    public function setAmount(?int $amount): PaymentTransaction
     {
         $this->amount = $amount;
         return $this;

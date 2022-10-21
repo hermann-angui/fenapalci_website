@@ -43,6 +43,9 @@ class Company
     private $legal_status;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $registre_commerce;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $status;
 
     #[ORM\Column(type: 'datetime', nullable: true)]
@@ -391,6 +394,23 @@ class Company
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getRegistreCommerce()
+    {
+        return $this->registre_commerce;
+    }
+
+    /**
+     * @param mixed $registre_commerce
+     * @return Company
+     */
+    public function setRegistreCommerce($registre_commerce)
+    {
+        $this->registre_commerce = $registre_commerce;
+        return $this;
+    }
 
 
 }

@@ -90,32 +90,31 @@
                         <!-- Payout box START -->
                         <div class="row g-4 mb-4">
                             <!-- Box item -->
-                            <div class="col-sm-6 col-md-4">
-                                <div class="border p-3 rounded-3 h-100">
-                                    <div class="d-flex mb-1 justify-content-between align-items-center">
-                                        <h6 class="mb-0">Last month payout</h6>
-                                        <span class="badge bg-success bg-opacity-10 text-success ms-2 mb-0">Paid</span>
-                                    </div>
-                                    <h2 class="mb-2 mt-2">$12,825</h2>
-                                    <a href="#">View transaction</a>
-                                </div>
-                            </div>
 
                             <!-- Box item -->
                             <div class="col-sm-6 col-md-4">
                                 <div class="border p-3 rounded-3 h-100">
-                                    <h6 class="mb-0">This month earning</h6>
-                                    <h2 class="mb-2 mt-2">$15,356</h2>
-                                    <p class="mb-0">Expected payout on 05/01/2022</p>
+                                    <h6 class="mb-0">Total Frais d'adhésion</h6>
+                                    <h2 class="mb-2 mt-2">{{ paymentStats.FRAIS_ADHESION.PROCESSING ?? '0' }} CFA</h2>
+                                    <p class="mb-0">Expire le: {{  app.user.subscriptionExpireDate|date('d/m/Y') }}</p>
+                                </div>
+                            </div>
+
+                             <!-- Box item -->
+                            <div class="col-sm-6 col-md-4">
+                                <div class="border p-3 rounded-3 h-100">
+                                    <h6 class="mb-0">Total remboursement</h6>
+                                    <h2 class="mb-2 mt-2">{{  paymentStats.REMBOURSEMENT.PROCESSING ?? '0' }} CFA</h2>
+                                    <p class="mb-0"></p>
                                 </div>
                             </div>
 
                             <!-- Box item -->
                             <div class="col-sm-6 col-md-4">
                                 <div class="bg-primary bg-opacity-10 h-100 p-3 rounded-3">
-                                    <h6 class="mb-0">Balance</h6>
-                                    <h2 class="mb-2 mt-2">$8,485</h2>
-                                    <a href="#" class="btn btn-sm btn-primary mb-0">Withdraw Earning</a>
+                                    <h6 class="mb-0">Cumul</h6>
+                                    <h2 class="mb-2 mt-2">{{ paymentStats.total ?? '0' }} CFA</h2>
+                                    <p class="mb-0"></p>
                                 </div>
                             </div>
                         </div>
@@ -124,7 +123,7 @@
                         <div class="card bg-transparent border rounded-3">
                             <!-- Card header START -->
                             <div class="card-header bg-transparent border-bottom">
-                                <h3 class="mb-0">Payouts</h3>
+                                <h6 class="mb-0">Transactions</h6>
                             </div>
                             <!-- Card header END -->
 
@@ -160,7 +159,7 @@
                                         <thead>
                                         <tr>
                                             <th scope="col" class="border-0 rounded-start">Reference</th>
-                                            <th scope="col" class="border-0">Montant</th>
+                                            <th scope="col" class="border-0">Montant (FCFA)</th>
                                             <th scope="col" class="border-0">Status</th>
                                             <th scope="col" class="border-0 rounded-end">Date</th>
                                         </tr>
@@ -168,14 +167,15 @@
                                         <!-- Table body START -->
                                         <tbody>
                                         <!-- Table item -->
+                                        {% for payment in payments %}
                                         <tr>
                                             <!-- Table data -->
                                             <td>
-                                                <h6 class="mt-2 mt-lg-0 mb-0"><a href="#">Successful payout #102356</a></h6>
+                                                <h6 class="mt-2 mt-lg-0 mb-0"><a href="#">{{ payment.paymentReference }}</a></h6>
                                             </td>
 
                                             <!-- Table data -->
-                                            <td>$3,999
+                                            <td>{{ payment.amount }}
                                                 <!-- Drop down with id -->
                                                 <a href="#" class="h6 mb-0" role="button" id="dropdownShare" data-bs-toggle="dropdown" aria-expanded="false">
                                                     <i class="bi bi-info-circle-fill"></i>
@@ -183,8 +183,8 @@
                                                 <ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare">
                                                     <li>
                                                         <div class="d-flex justify-content-between">
-                                                            <span class="small">Commission</span>
-                                                            <span class="h6 mb-0 small">$86</span>
+                                                            <span class="small">valide</span>
+                                                            <span class="h6 mb-0 small">{{ payment.amount }}</span>
                                                         </div>
                                                         <hr class="my-1">
                                                     </li>
@@ -192,16 +192,16 @@
 
                                                     <li>
                                                         <div class="d-flex justify-content-between">
-                                                            <span class="me-4 small">Us royalty withholding</span>
-                                                            <span class="text-danger small">-$0.00</span>
+                                                            <span class="me-4 small">en cours</span>
+                                                            <span class="text-danger small">{{ payment.amount }}</span>
                                                         </div>
                                                         <hr class="my-1">
                                                     </li>
 
                                                     <li>
                                                         <div class="d-flex justify-content-between">
-                                                            <span class="small">Earning</span>
-                                                            <span class="h6 mb-0 small">$86</span>
+                                                            <span class="small">en échec</span>
+                                                            <span class="h6 mb-0 small">{{ payment.amount }}</span>
                                                         </div>
                                                     </li>
                                                 </ul>
@@ -209,210 +209,13 @@
 
                                             <!-- Table data -->
                                             <td class="text-center text-sm-start">
-                                                <span class="badge bg-success bg-opacity-10 text-success">Paid</span>
+                                                <span class="badge bg-success bg-opacity-10 text-success">{{ payment.paymentStatus }}</span>
                                             </td>
 
                                             <!-- Table data -->
-                                            <td>18/1/2022</td>
+                                            <td>{{  payment.paymentDate|date('d/m/Y')}}</td>
                                         </tr>
-
-                                        <!-- Table item -->
-                                        <tr>
-                                            <!-- Table data -->
-                                            <td>
-                                                <!-- Title -->
-                                                <h6 class="mt-2 mt-lg-0 mb-0"><a href="#">Successful payout #102589</a></h6>
-                                            </td>
-
-                                            <!-- Table data -->
-                                            <td>$4,875
-                                                <!-- Drop down with id -->
-                                                <a href="#" class="h6 mb-0" role="button" id="dropdownShare1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="bi bi-info-circle-fill"></i>
-                                                </a>
-                                                <ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare1">
-                                                    <li>
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="small">Commission</span>
-                                                            <span class="h6 mb-0 small">$86</span>
-                                                        </div>
-                                                        <hr class="my-1">
-                                                    </li>
-                                                    <!-- Divider -->
-
-                                                    <li>
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="me-4 small">Us royalty withholding</span>
-                                                            <span class="text-danger small">-$0.00</span>
-                                                        </div>
-                                                        <hr class="my-1">
-                                                    </li>
-
-                                                    <li>
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="small">Earning</span>
-                                                            <span class="h6 mb-0 small">$86</span>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </td>
-
-                                            <!-- Table data -->
-                                            <td class="text-center text-sm-start">
-                                                <span class="badge bg-success bg-opacity-10 text-success">Paid</span>
-                                            </td>
-
-                                            <!-- Table data -->
-                                            <td>12/1/2022</td>
-                                        </tr>
-
-                                        <!-- Table item -->
-                                        <tr>
-                                            <!-- Table data -->
-                                            <td>
-                                                <h6 class="mt-2 mt-lg-0 mb-0"><a href="#">Successful payout #108645</a></h6>
-                                            </td>
-
-                                            <!-- Table data -->
-                                            <td>$1,800
-                                                <!-- Drop down with id -->
-                                                <a href="#" class="h6 mb-0" role="button" id="dropdownShare2" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="bi bi-info-circle-fill"></i>
-                                                </a>
-                                                <ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare2">
-                                                    <li>
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="small">Commission</span>
-                                                            <span class="h6 mb-0 small">$86</span>
-                                                        </div>
-                                                        <hr class="my-1">
-                                                    </li>
-                                                    <!-- Divider -->
-
-                                                    <li>
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="me-4 small">Us royalty withholding</span>
-                                                            <span class="text-danger small">-$0.00</span>
-                                                        </div>
-                                                        <hr class="my-1">
-                                                    </li>
-
-                                                    <li>
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="small">Earning</span>
-                                                            <span class="h6 mb-0 small">$86</span>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </td>
-
-                                            <!-- Table data -->
-                                            <td class="text-center text-sm-start">
-                                                <span class="badge bg-danger bg-opacity-10 text-danger">Cancelled </span>
-                                            </td>
-
-                                            <!-- Table data -->
-                                            <td>22/1/2022</td>
-                                        </tr>
-
-                                        <!-- Table item -->
-                                        <tr>
-                                            <!-- Table data -->
-                                            <td>
-                                                <h6 class="mt-2 mt-lg-0 mb-0"><a href="#">Successful payout #108645</a></h6>
-                                            </td>
-
-                                            <!-- Table data -->
-                                            <td>$6,800
-                                                <!-- Drop down with id -->
-                                                <a href="#" class="h6 mb-0" role="button" id="dropdownShare3" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="bi bi-info-circle-fill"></i>
-                                                </a>
-                                                <ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare3">
-                                                    <li>
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="small">Commission</span>
-                                                            <span class="h6 mb-0 small">$86</span>
-                                                        </div>
-                                                        <hr class="my-1">
-                                                    </li>
-                                                    <!-- Divider -->
-
-                                                    <li>
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="me-4 small">Us royalty withholding</span>
-                                                            <span class="text-danger small">-$0.00</span>
-                                                        </div>
-                                                        <hr class="my-1">
-                                                    </li>
-
-                                                    <li>
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="small">Earning</span>
-                                                            <span class="h6 mb-0 small">$86</span>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </td>
-
-                                            <!-- Table data -->
-                                            <td class="text-center text-sm-start">
-                                                <span class="badge bg-success bg-opacity-10 text-success">Paid</span>
-                                            </td>
-
-                                            <!-- Table data -->
-                                            <td>28/1/2022</td>
-                                        </tr>
-
-                                        <!-- Table item -->
-                                        <tr>
-                                            <!-- Table data -->
-                                            <td>
-                                                <!-- Title -->
-                                                <h6 class="mt-2 mt-lg-0 mb-0"><a href="#">Successful payout #108645</a></h6>
-                                            </td>
-
-                                            <!-- Table data -->
-                                            <td>$3,576
-                                                <!-- Drop down with id -->
-                                                <a href="#" class="h6 mb-0" role="button" id="dropdownShare4" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="bi bi-info-circle-fill"></i>
-                                                </a>
-                                                <ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare4">
-                                                    <li>
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="small">Commission</span>
-                                                            <span class="h6 mb-0 small">$86</span>
-                                                        </div>
-                                                        <hr class="my-1">
-                                                    </li>
-                                                    <!-- Divider -->
-
-                                                    <li>
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="me-4 small">Us royalty withholding</span>
-                                                            <span class="text-danger small">-$0.00</span>
-                                                        </div>
-                                                        <hr class="my-1">
-                                                    </li>
-
-                                                    <li>
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="small">Earning</span>
-                                                            <span class="h6 mb-0 small">$86</span>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </td>
-
-                                            <!-- Table data -->
-                                            <td class="text-center text-sm-start">
-                                                <span class="badge bg-orange bg-opacity-10 text-orange">Pending</span>
-                                            </td>
-
-                                            <!-- Table data -->
-                                            <td>12/1/2022</td>
-                                        </tr>
+                                        {% endfor %}
                                         </tbody>
                                         <!-- Table body END -->
                                     </table>
@@ -422,7 +225,7 @@
                                 <!-- Pagination START -->
                                 <div class="d-sm-flex justify-content-sm-between align-items-sm-center mt-4 mt-sm-3">
                                     <!-- Content -->
-                                    <p class="mb-0 text-center text-sm-start">Showing 1 to 8 of 20 entries</p>
+                                    <p class="mb-0 text-center text-sm-start">Afficher 1 à 8 of 20 lignes</p>
                                     <!-- Pagination -->
                                     <nav class="d-flex justify-content-center mb-0" aria-label="navigation">
                                         <ul class="pagination pagination-sm pagination-primary-soft d-inline-block d-md-flex rounded mb-0">

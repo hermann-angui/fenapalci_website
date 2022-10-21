@@ -16,6 +16,7 @@ use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Intl\Countries;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
@@ -37,7 +38,7 @@ class UserFormType extends AbstractType
             ->add('email',EmailType::class,[
                 'required' => false,
                 'label' => 'Email',
-                'mapped' => 'true',
+                'mapped' => true,
             ])
             ->add('plain_password',RepeatedType::class, [
                 'type' => PasswordType::class,
@@ -56,7 +57,7 @@ class UserFormType extends AbstractType
             ->add('photo',FileType::class, [
                 'required' => false,
                 'label' => 'Photo',
-                'data_class' => null,
+                'data_class' =>  null,
                 'mapped' => true,
             ])
             ->add('lastname',TextType::class,[
@@ -112,7 +113,7 @@ class UserFormType extends AbstractType
             ->add('nationality', ChoiceType::class, [
                 'required' => false,
                 'label' => 'Pays',
-                'mapped' => false,
+                'mapped' => true,
                 'choices' => $countries,
                 'choice_loader' => null
             ])

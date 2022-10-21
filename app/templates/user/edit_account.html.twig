@@ -11,6 +11,8 @@
 {% block body %}
     <main>
         <!-- =======Page Banner START -->
+        {{ form_start(userForm) }}
+
         <section class="pt-0">
             <!-- Main banner background image -->
             <div class="container-fluid px-0">
@@ -71,9 +73,9 @@
         <!-- ======== END -->
 
         <!-- ======== START -->
-        <section class="pt-0">
-            <div class="container">
-                    {{ form_start(userForm, { 'attr': {'class': 'row'} }) }}
+        <section class="pt-0 px-5">
+            <div class="container-fluid">
+                <div class="row">
                     <!-- Left sidebar START -->
                     {{ include('partials/user_profile_menu.html.twig', {active : 'edit_account'}) }}
 
@@ -181,10 +183,12 @@
                         <!-- Edit profile END -->
                     </div>
                     <!-- Main content END -->
-                    {{ form_end(userForm) }}
+
+                </div>
             </div>
         </section>
-        <!-- ======= END -->
+        {{ form_rest(userForm) }}
+        {{ form_end(userForm) }}
     </main>
 {% endblock %}
 
@@ -192,7 +196,7 @@
 {% endblock %}
 
 {% block javascript %}
-{{ parent() }}
+   {{ parent() }}
   <script>
       $('document').ready(function() {
 			$("#user_form_photo").change(function(data){

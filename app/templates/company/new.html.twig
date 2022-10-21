@@ -108,37 +108,45 @@
                                             <!-- Course title -->
                                             <div class="col-12">
                                                 <label class="form-label">Nom de l'entreprise</label>
-                                                <input class="form-control" type="text" placeholder="Nom de votre entreprise">
+                                                {{ form_widget(form.name, {'attr': {'class': 'form-control', 'placeholder': 'Nom de votre établissemnt'}}) }}
+
                                             </div>
 
                                             <!-- Course category -->
                                             <div class="col-md-6">
                                                 <label class="form-label">Status juridique</label>
-                                                <select class="form-select js-choice border-0 z-index-9 bg-transparent" aria-label=".form-select-sm" data-search-enabled="true">
-                                                    <option value="">Selectionnez le status juridique</option>
-                                                    <option>Société à responsabilité limitée</option>
-                                                    <option>Société anonyme</option>
-                                                    <option>Entreprise individuelle</option>
-                                                    <option>Entreprise unipersonnelle à responsabilité limitée</option>
-                                                </select>
+                                                {{ form_widget(form.legal_status, {'attr': {'class': 'form-control'}}) }}
                                             </div>
 
                                             <!-- Course time -->
                                             <div class="col-md-6">
                                                 <label class="form-label">Ville</label>
-                                                <input class="form-control" type="text" placeholder="Ville">
+                                                {{ form_widget(form.ville, {'attr': {'class': 'form-control'}}) }}
+                                            </div>
+
+                                            <!-- Course time -->
+                                            <div class="col-md-6">
+                                                <label class="form-label">Commune</label>
+                                                {{ form_widget(form.commune, {'attr': {'class': 'form-control'}}) }}
+                                            </div>
+
+
+                                            <!-- Course time -->
+                                            <div class="col-md-6">
+                                                <label class="form-label">Quartier</label>
+                                                {{ form_widget(form.quartier, {'attr': {'class': 'form-control'}}) }}
                                             </div>
 
                                             <!-- Total lecture -->
                                             <div class="col-md-6">
                                                 <label class="form-label">Date de création</label>
-                                                <input class="form-control" type="text" placeholder="Date de création">
+                                                {{ form_widget(form.date_created, {'attr': {'class': 'form-control'}}) }}
                                             </div>
 
                                             <!-- Course price -->
                                             <div class="col-md-6">
                                                 <label class="form-label">Numéro registre de commerce</label>
-                                                <input type="text" class="form-control" placeholder="Numéro registre de commerce">
+                                                {{ form_widget(form.registre_commerce, {'attr': {'class': 'form-control'}}) }}
                                             </div>
 
                                             <div class="col-12">
@@ -162,16 +170,6 @@
                                         <hr> <!-- Divider -->
 
                                         <div class="row">
-                                            <!-- Upload image START -->
-                                            <div class="col-12">
-                                            </div>
-                                            <!-- Upload image END -->
-
-                                            <!-- Upload video START -->
-                                            <div class="col-12">
-                                            </div>
-                                            <!-- Upload video END -->
-
                                             <!-- Step 2 button -->
                                             <div class="d-flex justify-content-between mt-3">
                                                 <button class="btn btn-secondary prev-btn mb-0">Précédent</button>

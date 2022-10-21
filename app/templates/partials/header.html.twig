@@ -100,7 +100,11 @@
                                         <div class="d-flex align-items-center">
                                             <!-- Avatar -->
                                             <div class="avatar me-3">
-                                                <img class="avatar-img rounded-circle shadow" src="{{ asset('assets/images/avatar/profile.jpg') }}" alt="avatar">
+                                                {% if app.user.photo is not null %}
+                                                    <img class="avatar-img rounded-circle shadow" src="{{ asset('users/') }}{{ app.user.photo }}" alt="avatar">
+                                                {% else %}
+                                                    <img class="avatar-img rounded-circle shadow" src="{{ asset('assets/images/avatar/avatar.jpg') }}" alt="avatar">
+                                                {% endif %}
                                             </div>
                                             <div>
                                                 <a class="h6" href="#">{{ app.user.firstname }} {{ app.user.lastname }}</a>
