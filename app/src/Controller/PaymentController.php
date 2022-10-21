@@ -22,7 +22,9 @@ class PaymentController extends AbstractController
     public function howToPayment(Request $request): Response
     {
         $user = $this->getUser();
-        return $this->render('payment/howtopay.html.twig', ['user' => $user]);
+        return $this->render('payment/howtopay.html.twig', [
+            'user' => $user]
+        );
     }
 
     #[Route(path: '/summary', name: 'app_payment_summary')]
@@ -102,7 +104,11 @@ class PaymentController extends AbstractController
             $errorMessage = $exception->getMessage();
         }
 
-        return $this->render('payment/checkout_result.html.twig', ['status' => $status, "payment_reference" => $paymentRef, "errorMessage" => $errorMessage]);
+        return $this->render('payment/checkout_result.html.twig', [
+            'status' => $status,
+            "payment_reference" => $paymentRef,
+            "errorMessage" => $errorMessage]
+        );
     }
 
     #[Route(path: '/wave', name: 'app_wave_payment_checkout_webhook')]
