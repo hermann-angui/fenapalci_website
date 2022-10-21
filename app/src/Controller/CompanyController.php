@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Company;
+use App\Entity\Staff;
 use App\Form\CompanyType;
+use App\Form\StaffType;
 use App\Repository\CompanyRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,6 +30,12 @@ class CompanyController extends AbstractController
         $form = $this->createForm(CompanyType::class, $company);
         $form->handleRequest($request);
 
+
+        $staff = new Staff();
+        $staffForm = $this->createForm(StaffType::class, $staff);
+        $staffForm->handleRequest($request);
+
+
         if ($form->isSubmitted() && $form->isValid()) {
             $companyRepository->add($company, true);
 
@@ -36,6 +44,7 @@ class CompanyController extends AbstractController
 
         return $this->renderForm('company/new.html.twig', [
             'company' => $company,
+            'staffForm' => $staffForm,
             'form' => $form,
         ]);
     }

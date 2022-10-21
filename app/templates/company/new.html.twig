@@ -163,15 +163,74 @@
                                     <!-- Step 1 content END -->
 
                                     <!-- Step 2 content START -->
-                                    <div id="step-2" role="tabpanel" class="content fade" aria-labelledby="steppertrigger2">
+                                    <div id="step-2" role="tabpanel" class="content fade dstepper-block active" aria-labelledby="steppertrigger2">
                                         <!-- Title -->
-                                        <h5 class="d-block border-start border-5 border-orange px-2">Enregistrement des employés</h5>
+                                        <h4>Enregistrement employé</h4>
 
                                         <hr> <!-- Divider -->
 
                                         <div class="row">
-                                            <!-- Step 2 button -->
-                                            <div class="d-flex justify-content-between mt-3">
+                                            <!-- Add lecture Modal button -->
+                                            <div class="d-sm-flex justify-content-sm-between align-items-center mb-3">
+                                                <h5 class="mb-2 mb-sm-0"></h5>
+                                                <a href="#" class="btn btn-sm btn-primary-soft mb-0" data-bs-toggle="modal" data-bs-target="#addEmployee"><i class="bi bi-plus-circle me-2"></i>Ajouter</a>
+                                            </div>
+
+                                            <!-- Edit lecture START -->
+                                            <div class="accordion accordion-icon accordion-bg-light" id="accordionExample2">
+                                                <!-- Item START -->
+                                                <div class="accordion-item mb-3">
+                                                    <h6 class="accordion-header font-base" id="heading-1">
+                                                        <button class="accordion-button fw-bold rounded d-inline-block collapsed d-block pe-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="false" aria-controls="collapse-1">
+
+                                                        </button>
+                                                    </h6>
+
+                                                    <div id="collapse-1" class="accordion-collapse collapse show" aria-labelledby="heading-1" data-bs-parent="#accordionExample2">
+                                                        <!-- Topic START -->
+                                                        <div class="accordion-body mt-3">
+                                                            <!-- Video item START -->
+                                                            <div class="d-flex justify-content-between align-items-center">
+                                                                <div class="position-relative">
+                                                                    <a href="#" class="btn btn-danger-soft btn-round btn-sm mb-0 stretched-link position-static"><i class="fas fa-play"></i></a>
+                                                                    <span class="ms-2 mb-0 h6 fw-light">Koffi matthias</span>
+                                                                </div>
+                                                                <!-- Edit and cancel button -->
+                                                                <div>
+                                                                    <a href="#" class="btn btn-sm btn-success-soft btn-round me-1 mb-1 mb-md-0"><i class="far fa-fw fa-edit"></i></a>
+                                                                    <button class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Divider -->
+                                                            <hr>
+                                                            <!-- Video item END -->
+
+                                                            <!-- Video item START -->
+                                                            <div class="d-flex justify-content-between align-items-center">
+                                                                <div class="position-relative">
+                                                                    <a href="#" class="btn btn-danger-soft btn-round btn-sm mb-0 stretched-link position-static"><i class="fas fa-play"></i></a>
+                                                                    <span class="ms-2 mb-0 h6 fw-light">Abdoul cissé</span>
+                                                                </div>
+                                                                <!-- Edit and cancel button -->
+                                                                <div>
+                                                                    <a href="#" class="btn btn-sm btn-success-soft btn-round me-1 mb-1 mb-md-0"><i class="far fa-fw fa-edit"></i></a>
+                                                                    <button class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Divider -->
+                                                            <hr>
+                                                            <!-- Video item END -->
+                                                        </div>
+                                                        <!-- Topic END -->
+                                                    </div>
+                                                </div>
+                                                <!-- Item END -->
+
+                                            </div>
+                                            <!-- Edit lecture END -->
+
+                                            <!-- Step 3 button -->
+                                            <div class="d-flex justify-content-between">
                                                 <button class="btn btn-secondary prev-btn mb-0">Précédent</button>
                                                 <button class="btn btn-primary next-btn mb-0">Suivant</button>
                                             </div>
@@ -243,8 +302,27 @@
                 </div>
             </div>
         </section>
-        <!-- =======================
-        Steps END -->
+        <!-- ========== Steps END -->
+
+        <div class="modal fade modal-lg" id="addEmployee" tabindex="-1" aria-labelledby="addEmployeeLabel" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-dark">
+                        <h5 class="modal-title text-white" id="addTopicLabel">Enregister employé</h5>
+                        <button type="button" class="btn btn-sm btn-light mb-0" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        {{ form_start(staffForm) }}
+                             {{ form_widget(staffForm) }}
+                        {{ form_end(staffForm) }}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger-soft my-0" data-bs-dismiss="modal">Fermer</button>
+                        <button type="button" class="btn btn-success my-0">Enregistrer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </main>
     <!-- **************** MAIN CONTENT END **************** -->

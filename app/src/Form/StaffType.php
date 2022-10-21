@@ -22,17 +22,17 @@ class StaffType extends AbstractType
 
         $builder
             ->add('email', TextType::class, [
-                'label' => 'Téléphone',
+                'label' => 'Email',
                 'mapped' => true,
                 'required' => true
             ])
             ->add('firstname', TextType::class, [
-                'label' => 'Téléphone',
+                'label' => 'Prénom',
                 'mapped' => true,
                 'required' => true
             ])
             ->add('lastname', TextType::class, [
-                'label' => 'Téléphone',
+                'label' => 'Nom',
                 'mapped' => true,
                 'required' => true
             ])
@@ -54,32 +54,7 @@ class StaffType extends AbstractType
                 'choice_loader' => null
             ])
             ->add('sex')
-            ->add('phone_number')
-            ->add('address')
-            ->add('photo')
             ->add('type')
-            ->add('status')
-            ->add('subscriptionExpireDate',DateType::class, [
-                'label' => 'Date de naissance',
-                'mapped' => true,
-                'years' => range($past->format('Y'), $end->format('Y')),
-            ])
-            ->add('subscriptionStartDate',DateType::class, [
-                'label' => 'Date de naissance',
-                'mapped' => true,
-                'years' => range($past->format('Y'), $end->format('Y')),
-            ])
-            ->add('created_at',DateType::class, [
-                'label' => 'Date de naissance',
-                'mapped' => true,
-                'years' => range($past->format('Y'), $end->format('Y')),
-            ])
-            ->add('modified_at',DateType::class, [
-                'label' => 'Date de naissance',
-                'mapped' => true,
-                'years' => range($past->format('Y'), $end->format('Y')),
-            ])
-            ->add('company')
         ;
     }
 

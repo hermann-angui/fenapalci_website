@@ -27,8 +27,10 @@ class UserController extends AbstractController
     {
         $user = $this->getUser();
 
-     /*   $response = $this->redirectIfNotAllow();
-        if($response) return $response;*/
+     /*
+        $response = $this->redirectIfNotAllow();
+        if($response) return $response;
+     */
 
         $session = $request->getSession();
         $session->set('previous_photo', $this->getUser()->getPhoto());
@@ -44,7 +46,8 @@ class UserController extends AbstractController
                 $fileName = $userHelper->uploadAsset($photo, $user);
                 if($fileName) $user->setPhoto($fileName);
             }else{
-                if($session->get('previous_photo')) $user->setPhoto($session->get('previous_photo'));
+                if($session->get('previous_photo'))
+                    $user->setPhoto($session->get('previous_photo'));
             }
 
             $userRepository->add($user, true);
