@@ -22,6 +22,9 @@ class PaymentTransaction
     #[ORM\Column(type: 'string', length: 255)]
     private string $checkout_session_id;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private string $operator_transaction_id;
+
     #[ORM\Column(type: 'integer', nullable: true)]
     private int $amount;
 
@@ -319,6 +322,22 @@ class PaymentTransaction
         return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getOperatorTransactionId(): string
+    {
+        return $this->operator_transaction_id;
+    }
 
+    /**
+     * @param string $operator_transaction_id
+     * @return PaymentTransaction
+     */
+    public function setOperatorTransactionId(string $operator_transaction_id): PaymentTransaction
+    {
+        $this->operator_transaction_id = $operator_transaction_id;
+        return $this;
+    }
 
 }

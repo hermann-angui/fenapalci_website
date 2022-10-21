@@ -85,29 +85,7 @@ class PaymentController extends AbstractController
                                                       PaymentTransactionRepository $paymentTransactionRepository,
                                                       UserRepository               $userRepository): Response
     {
-        $paymentRef = null;
-        $errorMessage = null;
-
-        try {
-            $checkoutStatus = json_decode($request->getContent(), true);
-            $folder = "/var/www/html/var/log/wave_checkout/";
-            if (!file_exists($folder)) mkdir($folder);
-            file_put_contents($folder . "/checkout_status_" . $status . "_" . date('d-m-Y') . ".json", $request->getContent());
-
-            $this->saveCheckoutStatus($checkoutStatus,
-                                      $paymentTransactionRepository,
-                                       $userRepository
-                                    );
-
-        }catch (\Exception $exception) {
-                $errorMessage = $exception->getMessage();
-        }
-
-        return $this->render('payment/checkout_result.html.twig', [
-            'status' => $status,
-            "payment_reference" => $paymentRef,
-            "errorMessage" => $errorMessage]
-        );
+        return $this->render('payment/checkout_result.html.twig', ['status' => $status]);
     }
 
     #[Route(path: '/wave', name: 'app_wave_payment_checkout_webhook')]
@@ -115,35 +93,26 @@ class PaymentController extends AbstractController
                                         PaymentTransactionRepository $paymentTransactionRepository,
                                         UserRepository               $userRepository): Response
     {
+        $payload =  json_decode($request->getContent(), true);
+        $this->savePaymentStatus($payload["data"], $paymentTransactionRepository, $userRepository);
 
-        $checkoutSessionPayload = json_decode($request->getContent(), true);
-        $folder = "/var/www/html/var/log/wave_checkout/";
-        if (!file_exists($folder)) mkdir($folder);
-        file_put_contents($folder . "checkout_webhook_" . date('d-m-Y') . ".json", $request->getContent());
-
-        $this->saveCheckoutStatus(
-                    $checkoutSessionPayload,
-                    $paymentTransactionRepository,
-                    $userRepository
-                );
-
-        return $this->json($checkoutSessionPayload);
+        return $this->json($payload);
     }
 
     /**
-     * @param mixed $checkoutStatus
+     * @param array $payload
      * @param PaymentTransactionRepository $paymentTransactionRepository
      * @param UserRepository $userRepository
      * @return void
      */
-    private function saveCheckoutStatus(mixed $checkoutStatus,
+    private function savePaymentStatus(array $payload,
                                         PaymentTransactionRepository $paymentTransactionRepository,
                                         UserRepository $userRepository): void
     {
-        if (!empty($checkoutStatus) && array_key_exists("client_reference", $checkoutStatus["data"])) {
+        if (!empty($payload) && array_key_exists("client_reference", $payload)) {
             $payment = $paymentTransactionRepository->findOneBy([
-                "payment_reference" => $checkoutStatus["data"]["client_reference"],
-                "checkout_session_id" => $checkoutStatus["data"]["id"]
+                "payment_reference" => $payload["client_reference"],
+                "checkout_session_id" => $payload["id"]
             ]);
 
             if ($payment) {
@@ -154,7 +123,7 @@ class PaymentController extends AbstractController
                 $user->setSubscriptionExpireDate($now->add(new \DateInterval('P1Y')));
                 $userRepository->add($user);
 
-                $payment->setPaymentStatus($checkoutStatus["data"]["payment_status"]);
+                $payment->setPaymentStatus($payload["payment_status"]);
                 $payment->setModifiedAt(new \DateTime());
                 $paymentTransactionRepository->add($payment);
             }
