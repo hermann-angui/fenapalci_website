@@ -27,8 +27,8 @@ class UserController extends AbstractController
     {
         $user = $this->getUser();
 
-        $response = $this->redirectIfNotAllow();
-        if($response) return $response;
+     /*   $response = $this->redirectIfNotAllow();
+        if($response) return $response;*/
 
         $session = $request->getSession();
         $session->set('previous_photo', $this->getUser()->getPhoto());
