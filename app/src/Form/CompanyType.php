@@ -41,9 +41,6 @@ class CompanyType extends AbstractType
             ->add('address', TextType::class, [
                 'mapped' => true,
             ])
-            ->add('status', TextType::class, [
-                'mapped' => true,
-            ])
             ->add('legal_status', ChoiceType::class, [
                 'label' => "Status juridique",
                 'mapped' => true,

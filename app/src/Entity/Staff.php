@@ -37,19 +37,16 @@ class Staff
     private $nationality;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $cni;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $sex;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $phone_number;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private $address;
-
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $photo;
-
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private $type;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $status;
@@ -66,7 +63,7 @@ class Staff
     #[ORM\Column(type: 'datetime', nullable: true)]
     private $modified_at;
 
-    #[ORM\ManyToOne(inversedBy: 'staff')]
+    #[ORM\ManyToOne(inversedBy: 'staff', cascade: ['persist'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?Company $company = null;
 
@@ -207,18 +204,6 @@ class Staff
         return $this;
     }
 
-    public function isVerified(): bool
-    {
-        return $this->isVerified;
-    }
-
-    public function setIsVerified(?bool $isVerified): ?self
-    {
-        $this->isVerified = $isVerified;
-
-        return $this;
-    }
-
     public function getPhoto(): ?string
     {
         return $this->photo;
@@ -271,73 +256,74 @@ class Staff
     /**
      * @return mixed
      */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param mixed $type
-     * @return Staff
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getStatus()
     {
         return $this->status;
     }
 
     /**
-     * @param mixed $status
+     * @param string $status
      * @return Staff
      */
-    public function setStatus($status)
+    public function setStatus(?string $status): self
     {
         $this->status = $status;
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return \DateTime
      */
-    public function getSubscriptionStartDate()
+    public function getSubscriptionStartDate(): ?\DateTime
     {
         return $this->subscription_start_date;
     }
 
     /**
-     * @param mixed $subscription_start_date
+     * @param \DateTime $subscription_start_date
      * @return Staff
      */
-    public function setSubscriptionStartDate($subscription_start_date)
+    public function setSubscriptionStartDate(?\DateTime $subscription_start_date): self
     {
         $this->subscription_start_date = $subscription_start_date;
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return \DateTime
      */
-    public function getSubscriptionExpireDate()
+    public function getSubscriptionExpireDate(): ?\DateTime
     {
         return $this->subscription_expire_date;
     }
 
     /**
-     * @param mixed $subscription_expire_date
+     * @param ?\DateTime $subscription_expire_date
      * @return Staff
      */
-    public function setSubscriptionExpireDate($subscription_expire_date)
+    public function setSubscriptionExpireDate(?\DateTime $subscription_expire_date): self
     {
         $this->subscription_expire_date = $subscription_expire_date;
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getCni() : ?string
+    {
+        return $this->cni;
+    }
+
+    /**
+     * @param string $cni
+     * @return Staff
+     */
+    public function setCni(?string $cni)
+    {
+        $this->cni = $cni;
+        return $this;
+    }
+
 
 }

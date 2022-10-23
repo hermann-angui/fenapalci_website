@@ -30,8 +30,8 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
          - { path: ^/admin, roles: ROLE_ADMIN }
-         - { path: ^(?!/(|login|register|reset-password|payment/wave/checkout)), roles: ROLE_USER }
-         - { path: ^(user|staff|company), roles: ROLE_USER }
+         - { path: ^(?!/(|login|register|reset-password|payment/wave)), roles: ROLE_USER }
+         - { path: ^(/(user|staff|company)), roles: ROLE_USER }
 when@test:
     security:
         password_hashers:

@@ -7,6 +7,7 @@ use App\Entity\Staff;
 use App\Form\CompanyType;
 use App\Form\StaffType;
 use App\Repository\CompanyRepository;
+use App\Repository\StaffRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,28 +25,39 @@ class CompanyController extends AbstractController
     }
 
     #[Route('/new', name: 'app_company_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, CompanyRepository $companyRepository): Response
+    public function new(Request $request,
+                        CompanyRepository $companyRepository,
+                        StaffRepository $staffRepository): Response
     {
-        $company = new Company();
-        $form = $this->createForm(CompanyType::class, $company);
-        $form->handleRequest($request);
 
+        $session = $request->getSession();
+
+        $company = new Company();
+        $companyForm = $this->createForm(CompanyType::class, $company);
+        $companyForm->handleRequest($request);
 
         $staff = new Staff();
         $staffForm = $this->createForm(StaffType::class, $staff);
         $staffForm->handleRequest($request);
 
-
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($companyForm->isSubmitted() && $companyForm->isValid()) {
+            $company->setOwner($this->getUser());
             $companyRepository->add($company, true);
+            $session->set('current_company', $company);
+            return $this->json($company->getId(), Response::HTTP_CREATED);
+        }
 
-            return $this->redirectToRoute('app_company_new', []);
+        if ($staffForm->isSubmitted()) {
+            $company = $companyRepository->find( $session->get('current_company')->getId());
+            $staff->setCompany($company);
+            $staffRepository->add($staff, true);
+            return $this->json($staff->getId(), Response::HTTP_CREATED);
         }
 
         return $this->renderForm('company/new.html.twig', [
             'company' => $company,
             'staffForm' => $staffForm,
-            'form' => $form,
+            'companyForm' => $companyForm,
         ]);
     }
 

@@ -16,9 +16,9 @@
     <main>
         <section class="container">
             {% if status == 'success' %}
-                <div class="row justify-content-md-center align-items-center align-content-center">
+                <div class="row">
                     <!-- Right -->
-                    <div class="col-6 col-lg-6 text-center">
+                    <div class="col-md-6 col-lg-6 text-center">
                         <div class="card mb-3 shadow-sm">
                             <div class="card-header">
                                 <img class="py-3" src="{{ asset('assets/images/misc/payment_successful.gif') }}" width="130" alt="payment successful">
@@ -26,23 +26,23 @@
                             <div class="card-body">
                                 <p class="fs-6 text-success fw-bolder">Transaction effectuée avec succès</p>
                                 <p class="small">Vous serez redirigé dans quelques instants sinon <a href="{{ path('app_user_edit_account') }}">cliquez sur ce lien</a></p>
-                                <table class="table table-striped">
-                                    <tr>
-                                        <td>Montant payé</td>
-                                        <td class="fw-bold">15000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Date transaction </td>
-                                        <td>{{ 'now'|date('d/m/Y H:i:s') }}</td>
-                                    </tr>
-                                </table>
+                                <div>
+                                    <p class="border-1 border-top border-light">
+                                        <span>Montant payé</span>
+                                        <span class="fw-bold">15000</span>
+                                    </p>
+                                    <p class="border-1 border-top border-bottom border-light">
+                                        <span>Date transaction </span>
+                                        <span>{{ 'now'|date('d/m/Y H:i:s') }}</span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             {% else %}
-                <div class="row justify-content-md-center">
-                    <div class="col-6 col-lg-6 text-center">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 text-center">
                         <div class="card mb-3 shadow-sm">
                             <div class="card-header">
                                 <img class="py-3" src="{{ asset('assets/images/misc/failed.png') }}" width="130" alt="payment successful">

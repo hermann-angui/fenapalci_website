@@ -107,7 +107,7 @@ var e = {
         e.activeChart2(),
         e.reviewChart(),
         e.quill(),
-        e.stepper(),
+       // e.stepper(),
         e.videoPlyr(),
         e.darkMode(),
         e.pricing(),
@@ -931,6 +931,7 @@ var e = {
 
     // START: 22 Stepper
     stepper: function () {
+        /*
         var stp = e.select('#stepper');
         if (e.isVariableDefined(stp)) {
           var nxtBtn = document.querySelectorAll('.next-btn');
@@ -938,21 +939,25 @@ var e = {
 
           var stepper = new Stepper(document.querySelector('#stepper'), {
             linear: false,
-            animation: true
+            animation: true,
           });
 
           nxtBtn.forEach(function (button) {
             button.addEventListener("click", () =>{
-            stepper.next()
+                alert('next clicked');
+                stepper.next()
           })
           });
 
           prvBtn.forEach(function (button) {
             button.addEventListener("click", () =>{
-            stepper.previous()
+                alert('previous clicked');
+                stepper.previous()
           })
           });
         }
+
+        */
     },
     // END: Stepper
 

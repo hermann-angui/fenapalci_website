@@ -8,11 +8,11 @@ use App\Helper\UserHelper;
 use App\Repository\PaymentTransactionRepository;
 use App\Repository\UserRepository;
 use App\Traits\UserTrait;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/user')]
@@ -23,14 +23,10 @@ class UserController extends AbstractController
     #[Route('/edit_account', name: 'app_user_edit_account', methods: ['GET', 'POST'])]
     public function profile(Request $request,
                             UserHelper $userHelper,
+                            UserPasswordHasherInterface $userPasswordHasher,
                             UserRepository $userRepository): Response
     {
         $user = $this->getUser();
-
-     /*
-        $response = $this->redirectIfNotAllow();
-        if($response) return $response;
-     */
 
         $session = $request->getSession();
         $session->set('previous_photo', $this->getUser()->getPhoto());
@@ -41,6 +37,17 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid())
         {
+            if(!$user->getPlainPassword()) {
+                $user->setPassword($this->getUser()->getPassword());
+            }else{
+                $user->setPassword(
+                    $userPasswordHasher->hashPassword(
+                        $user,
+                        $user->getPlainPassword()
+                    )
+                );
+            }
+
             $photo = $form->get('photo')->getData();
             if($photo){
                 $fileName = $userHelper->uploadAsset($photo, $user);
