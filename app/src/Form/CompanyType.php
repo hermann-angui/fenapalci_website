@@ -46,14 +46,14 @@ class CompanyType extends AbstractType
                 'mapped' => true,
                 'required' => false,
                 'choices' => [
-                    "Sélectionnez le status juridique" => "Sélectionnez le status juridique",
-                    "Société à responsabilité limitée" => "Société à responsabilité limitée",
-                    "Société anonyme" => "Société anonyme",
-                    "Entreprise individuelle" => "Entreprise individuelle",
-                    "Entreprise unipersonnelle à responsabilité limitée" => "Entreprise unipersonnelle à responsabilité limitée"
+                    "" => "Sélectionnez le status juridique",
+                    "SARL" => "Société à responsabilité limitée",
+                    "SA" => "Société anonyme",
+                    "EI" => "Entreprise individuelle",
+                    "EURL" => "Entreprise unipersonnelle à responsabilité limitée"
                 ],
-                'empty_data' => 'Sélectionnez le status juridique',
-                'data' => 'Sélectionnez le status juridique',
+                'empty_data' => '',
+                'data' => '',
             ])
             ->add('date_created', DateType::class, [
                 'mapped' => true ,

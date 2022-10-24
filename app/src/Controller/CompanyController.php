@@ -43,6 +43,7 @@ class CompanyController extends AbstractController
         if ($companyForm->isSubmitted() && $companyForm->isValid()) {
             $company->setOwner($this->getUser());
             $companyRepository->add($company, true);
+            $staff->setStatus("WAITING_FOR_PAYMENT");
             $session->set('current_company', $company);
             return $this->json($company->getId(), Response::HTTP_CREATED);
         }
@@ -50,8 +51,13 @@ class CompanyController extends AbstractController
         if ($staffForm->isSubmitted()) {
             $company = $companyRepository->find( $session->get('current_company')->getId());
             $staff->setCompany($company);
+            $staff->setStatus("WAITING_FOR_PAYMENT");
             $staffRepository->add($staff, true);
-            return $this->json($staff->getId(), Response::HTTP_CREATED);
+
+            $staffList = $staffRepository->findBy(["company" => $company , "status" => "WAITING_FOR_PAYMENT"]);
+           // return $this->json($staff->getId(), Response::HTTP_CREATED);
+
+            return $this->render('company/staff_list_ajax.html.twig',["staffList" => $staffList], Response::HTTP_CREATED);
         }
 
         return $this->renderForm('company/new.html.twig', [
