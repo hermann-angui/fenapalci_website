@@ -70,10 +70,18 @@ class PaymentController extends AbstractController
     #[Route(path: '/wave', name: 'app_wave_payment_checkout_webhook')]
     public function callbackWavePayment(Request                      $request,
                                         PaymentTransactionRepository $paymentTransactionRepository,
-                                        UserRepository               $userRepository): Response
+                                        StaffRepository $staffRepository,
+                                        CompanyRepository $companyRepository,
+                                        UserRepository $userRepository): Response
     {
         $payload =  json_decode($request->getContent(), true);
-        $this->savePaymentStatus($payload["data"], $paymentTransactionRepository, $userRepository);
+        $this->savePaymentStatus(
+            $payload["data"],
+            $paymentTransactionRepository,
+            $staffRepository,
+            $companyRepository,
+            $userRepository
+        );
 
         return $this->json($payload);
     }
@@ -120,7 +128,7 @@ class PaymentController extends AbstractController
                             $staff->setStatus("VALID_MEMBER");
                             $staff->setSubscriptionStartDate($now);
                             $staff->setSubscriptionExpireDate($now->add(new \DateInterval('P1Y')));
-                            $staff->add($staff);
+                            $staffRepository->add($staff);
                         }
                         $company->setStatus("VALID_MEMBER");
                         $company->setSubscriptionStartDate($now);
