@@ -8,18 +8,18 @@ use App\Repository\CompanyRepository;
 use App\Repository\PaymentTransactionRepository;
 use App\Repository\StaffRepository;
 use App\Repository\UserRepository;
-use App\Service\Payment\Wave\WaveCheckoutRequest;
 use App\Service\Payment\Wave\WaveService;
+use App\Traits\UserTrait;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Routing\Generator\UrlGenerator;
-use Symfony\Component\Uid\Uuid;
 
 #[Route('/payment')]
 class PaymentController extends AbstractController
 {
+    use UserTrait;
+
     #[Route(path: '/howto', name: 'app_payment_howto')]
     public function howToPayment(Request $request): Response
     {

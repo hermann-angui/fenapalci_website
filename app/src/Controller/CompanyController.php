@@ -8,6 +8,7 @@ use App\Form\CompanyType;
 use App\Form\StaffType;
 use App\Repository\CompanyRepository;
 use App\Repository\StaffRepository;
+use App\Traits\UserTrait;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,6 +17,8 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/company')]
 class CompanyController extends AbstractController
 {
+    use UserTrait;
+
     #[Route('/', name: 'app_company_index', methods: ['GET'])]
     public function index(CompanyRepository $companyRepository): Response
     {
@@ -29,26 +32,32 @@ class CompanyController extends AbstractController
     {
         $session = $request->getSession();
         $company = $companyRepository->find($session->get('current_company')->getId());
+        $staffList = $company->getStaff();
 
-        $members[] = [
+        $company = [
             "name" => $company->getName(),
             "type" => "COMPANY",
-            "fee" => '100',
+            "fee" => '100', // Get fee based on category if needed
         ];
-        $amount = 100;
+        $total = 100;
 
-        $staffList = $company->getStaff();
+        $employeeTotal = 0;
         foreach ($staffList as $staff){
-            $members[] = [
-                "name" => $staff->getName(),
+            $employees[] = [
+                "name" => $staff->getLastname() . ' ' . $staff->getFirstname(),
                 "type" => "STAFF",
-                "fee" => '100',
+                "fee" => '100', // Get fee based on category if needed
             ];
-            $amount += 100;
+            $employeeTotal += 100;
         }
+
+        $total += $employeeTotal;
+
         return $this->render('company/registration_resume_ajax.html.twig', [
-            "members" => $members,
-            "amount" => $amount
+            "company" => $company,
+            "employees" => $employees,
+            "employeeTotal" => $employeeTotal,
+            "total" => $total
         ]);
     }
 

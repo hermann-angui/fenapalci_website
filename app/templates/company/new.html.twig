@@ -362,7 +362,8 @@
 
         $("#btn-fee-summary").click(function(){
             $.get("{{ path('company_ajax_registration_resume') }}", function(d){
-                 stepper.next();
+                $('#registration_resume').html(d);
+                stepper.next();
             });
         });
 

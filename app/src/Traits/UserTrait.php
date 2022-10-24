@@ -25,9 +25,6 @@ trait UserTrait
         return null;
     }
 
-
-
-
     public function payToWave(string $amount,
                               string $payingFor,
                               int $beneficiaryId,

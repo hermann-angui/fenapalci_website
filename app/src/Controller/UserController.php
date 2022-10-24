@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\UserFormType;
 use App\Helper\UserHelper;
+use App\Repository\CompanyRepository;
 use App\Repository\PaymentTransactionRepository;
+use App\Repository\StaffRepository;
 use App\Repository\UserRepository;
 use App\Traits\UserTrait;
 use Doctrine\ORM\EntityManagerInterface;
@@ -61,7 +63,8 @@ class UserController extends AbstractController
         }
 
         return $this->render('user/edit_account.html.twig', [
-            'user' => $user,
+            'user' => $this->getUser(),
+            'active' => 'edit_account',
             'userForm' => $form->createView(),
         ]);
     }
@@ -92,12 +95,12 @@ class UserController extends AbstractController
              $stats[$paymentStat["payment_for"]][$paymentStat["payment_status"]] =  $paymentStat["balance"];
         }
 
-
-     //   $paymentStats = $paymentTransactionRepository->findTotalAmountPayByUser($this->getUser());
-
+     // $paymentStats = $paymentTransactionRepository->findTotalAmountPayByUser($this->getUser());
         $payments = $paymentTransactionRepository->findBy(['payer' => $this->getUser()]);
+
         return $this->render('user/payment.html.twig', [
             'user' => $this->getUser(),
+            'active' => 'order',
             'payments' => $payments,
             'paymentStats' => $stats,
         ]);
@@ -111,28 +114,39 @@ class UserController extends AbstractController
 
         return $this->render('user/order.html.twig', [
             'user' => $this->getUser(),
+            'active' => 'order',
         ]);
     }
 
     #[Route('/company', name: 'app_user_company', methods: ['GET'])]
-    public function company(Request $request): Response
+    public function company(Request $request, CompanyRepository $companyRepository): Response
     {
         $response = $this->redirectIfNotAllow();
         if($response) return $response;
 
         return $this->render('user/company.html.twig', [
             'user' => $this->getUser(),
+            'active' => 'company',
+            'companies' => $companyRepository->findBy(['owner' => $this->getUser()])
         ]);
     }
 
     #[Route('/employee', name: 'app_user_employee', methods: ['GET'])]
-    public function employee(Request $request): Response
+    public function employee(Request $request, StaffRepository $staffRepository): Response
     {
         $response = $this->redirectIfNotAllow();
         if($response) return $response;
 
+        $user = $this->getUser();
+        $companies = $user->getCompanies();
+        $staffList = [];
+        foreach ($companies as $company){
+            $staffList = array_merge($staffList, $staffRepository->findBy(['company' => $company->getId()]));
+        }
         return $this->render('user/employee.html.twig', [
             'user' => $this->getUser(),
+            'active' => 'employee',
+            'employees' => $staffList
         ]);
     }
 
@@ -144,6 +158,7 @@ class UserController extends AbstractController
 
         return $this->render('user/dashboard.html.twig', [
             'user' => $this->getUser(),
+            'active' => 'dashboard',
         ]);
     }
 
@@ -155,6 +170,7 @@ class UserController extends AbstractController
 
         return $this->render('user/configuration.html.twig', [
             'user' => $this->getUser(),
+            'active' => 'configuration',
         ]);
     }
 
