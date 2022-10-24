@@ -35,6 +35,7 @@ class CompanyController extends AbstractController
         $staffList = $company->getStaff();
 
         $company = [
+            "id" => $company->getId(),
             "name" => $company->getName(),
             "type" => "COMPANY",
             "fee" => '100', // Get fee based on category if needed

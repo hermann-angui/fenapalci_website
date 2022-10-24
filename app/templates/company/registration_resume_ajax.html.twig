@@ -40,5 +40,5 @@
 </div>
 <!-- Step 3 button -->
 <div class="d-flex justify-content-end mt-5">
-    <a href="{{ path('app_payment_summary', {'amount': total,'pay_for': 'FRAIS_ADHESION','beneficiary_id': app.user.id,'beneficiary_type': 'MEMBER'}) }}" class="btn btn-primary bg-dark-purple next-btn mb-0">Lancer le paiement</a>
+    <a href="{{ path('app_payment_summary', {'amount': total,'pay_for': 'FRAIS_ADHESION','beneficiary_id': company.id,'beneficiary_type': 'COMPANY'}) }}" class="btn btn-primary bg-dark-purple next-btn mb-0">Lancer le paiement</a>
 </div>

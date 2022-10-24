@@ -102,21 +102,34 @@ class PaymentController extends AbstractController
                 $beneficiary_type = $payment->getBeneficiaryType();
                 switch($beneficiary_type){
                     case "MEMBER":
-                        $beneficiary = $this->getUser();
+                        $user = $this->getUser();
+                        $user->setStatus("VALID_MEMBER");
+                        $user->setSubscriptionStartDate($now);
+                        $user->setSubscriptionExpireDate($now->add(new \DateInterval('P1Y')));
+                        $userRepository->add($user);
                     case "STAFF":
-                        $beneficiary = $staffRepository->find($payment->getBeneficiaryId());
+                        $staff = $staffRepository->find($beneficiaryId);
+                        $staff->setStatus("VALID_MEMBER");
+                        $staff->setSubscriptionStartDate($now);
+                        $staff->setSubscriptionExpireDate($now->add(new \DateInterval('P1Y')));
+                        $staffRepository->add($staff);
                     case "COMPANY":
-                        $beneficiary = $companyRepository->find($payment->getBeneficiaryId());
-                        $beneficiary = $this->getUser();
+                        $company = $companyRepository->find($beneficiaryId);
+                        $staffList = $staffRepository->findBy(['company' => $company, 'status' => "WAITING_FOR_PAYMENT"]);
+                        foreach ($staffList as $staff){
+                            $staff->setStatus("VALID_MEMBER");
+                            $staff->setSubscriptionStartDate($now);
+                            $staff->setSubscriptionExpireDate($now->add(new \DateInterval('P1Y')));
+                            $staff->add($staff);
+                        }
+                        $company->setStatus("VALID_MEMBER");
+                        $company->setSubscriptionStartDate($now);
+                        $company->setSubscriptionExpireDate($now->add(new \DateInterval('P1Y')));
+                        $companyRepository->add($company);
                     default:
 
                 }
-                $beneficiary->setStatus("VALID_MEMBER");
-                $beneficiary->setSubscriptionStartDate($now);
-                $beneficiary->setSubscriptionExpireDate($now->add(new \DateInterval('P1Y')));
-                $userRepository->add($beneficiary);
-
-                $payment->setPaymentStatus($payload["payment_status"]);
+                $payment->setPaymentStatus(strtoupper($payload["payment_status"]));
                 $payment->setOperatorTransactionId($payload["transaction_id"]);
                 $payment->setModifiedAt(new \DateTime());
                 $paymentTransactionRepository->add($payment, true);
