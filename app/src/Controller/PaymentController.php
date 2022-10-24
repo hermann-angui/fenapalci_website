@@ -92,7 +92,7 @@ class PaymentController extends AbstractController
      * @param UserRepository $userRepository
      * @return void
      */
-    private function savePaymentStatus(array $payload,
+    private function savePaymentStatus( array $payload,
                                         PaymentTransactionRepository $paymentTransactionRepository,
                                         StaffRepository $staffRepository,
                                         CompanyRepository $companyRepository,
@@ -106,21 +106,23 @@ class PaymentController extends AbstractController
 
             if ($payment) {
                 $now = new \DateTime();
+                $user = $payment->getPayer();
                 $beneficiaryId = $payment->getBeneficiaryId();
                 $beneficiary_type = $payment->getBeneficiaryType();
                 switch($beneficiary_type){
                     case "MEMBER":
-                        $user = $this->getUser();
                         $user->setStatus("VALID_MEMBER");
                         $user->setSubscriptionStartDate($now);
                         $user->setSubscriptionExpireDate($now->add(new \DateInterval('P1Y')));
-                        $userRepository->add($user);
+                        $userRepository->add($user, true);
+                        break;
                     case "STAFF":
                         $staff = $staffRepository->find($beneficiaryId);
                         $staff->setStatus("VALID_MEMBER");
                         $staff->setSubscriptionStartDate($now);
                         $staff->setSubscriptionExpireDate($now->add(new \DateInterval('P1Y')));
                         $staffRepository->add($staff);
+                        break;
                     case "COMPANY":
                         $company = $companyRepository->find($beneficiaryId);
                         $staffList = $staffRepository->findBy(['company' => $company, 'status' => "WAITING_FOR_PAYMENT"]);
@@ -134,6 +136,7 @@ class PaymentController extends AbstractController
                         $company->setSubscriptionStartDate($now);
                         $company->setSubscriptionExpireDate($now->add(new \DateInterval('P1Y')));
                         $companyRepository->add($company);
+                        break;
                     default:
 
                 }
