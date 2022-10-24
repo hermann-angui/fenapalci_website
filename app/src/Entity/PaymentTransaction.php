@@ -59,8 +59,11 @@ class PaymentTransaction
     #[ORM\JoinColumn(nullable: false)]
     private ?User $payer = null;
 
-    #[ORM\Column]
-    private ?int $beneficiary = null;
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $beneficiaryId = null;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private ?string $beneficiary_type = null;
 
     public function __construct()
     {
@@ -94,14 +97,14 @@ class PaymentTransaction
         return $this;
     }
 
-    public function getBeneficiary(): ?int
+    public function getBeneficiaryId(): ?int
     {
-        return $this->beneficiary;
+        return $this->beneficiaryId;
     }
 
-    public function setBeneficiary(?int $beneficiary): self
+    public function setBeneficiaryId(?int $beneficiaryId): self
     {
-        $this->beneficiary = $beneficiary;
+        $this->beneficiaryId = $beneficiaryId;
 
         return $this;
     }
@@ -339,5 +342,24 @@ class PaymentTransaction
         $this->operator_transaction_id = $operator_transaction_id;
         return $this;
     }
+
+    /**
+     * @return string|null
+     */
+    public function getBeneficiaryType(): ?string
+    {
+        return $this->beneficiary_type;
+    }
+
+    /**
+     * @param string|null $beneficiary_type
+     * @return PaymentTransaction
+     */
+    public function setBeneficiaryType(?string $beneficiary_type): PaymentTransaction
+    {
+        $this->beneficiary_type = $beneficiary_type;
+        return $this;
+    }
+
 
 }

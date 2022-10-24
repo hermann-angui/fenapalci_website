@@ -80,8 +80,7 @@
                                 <!-- Step 3 -->
                                 <div class="step" data-target="#step-3">
                                     <div class="d-grid text-center align-items-center">
-                                        <button type="button" class="btn btn-link step-trigger mb-0" role="tab"
-                                                id="steppertrigger3" aria-controls="step-3">
+                                        <button type="button" class="btn btn-link step-trigger mb-0" role="tab" id="steppertrigger3" aria-controls="step-3">
                                             <span class="bs-stepper-circle">3</span>
                                         </button>
                                         <h6 class="bs-stepper-label d-none d-md-block">Frais d'adhésion</h6>
@@ -89,16 +88,6 @@
                                 </div>
                                 <div class="line"></div>
 
-                                <!-- Step 4 -->
-                                <div class="step" data-target="#step-4">
-                                    <div class="d-grid text-center align-items-center">
-                                        <button type="button" class="btn btn-link step-trigger mb-0" role="tab"
-                                                id="steppertrigger4" aria-controls="step-4">
-                                            <span class="bs-stepper-circle">4</span>
-                                        </button>
-                                        <h6 class="bs-stepper-label d-none d-md-block">Confirmation paiement</h6>
-                                    </div>
-                                </div>
                             </div>
                             <!-- Step Buttons END -->
                         </div>
@@ -110,11 +99,9 @@
                                 <!-- Step 1 ENTREPRISE content START -->
                                 <div id="step-1" role="tabpanel" class="content fade" aria-labelledby="steppertrigger1">
                                     <!-- Title -->
-                                    <h5 class="d-block border-start border-5 border-orange px-2">Déclaration
-                                        entreprise</h5>
-
+                                    <p class="fs-5 fw-bold d-block border-start border-5 border-orange px-2">Adhésion établissement</p>
+                                    <p>En tant que membre de la fenapalci, vous pouvez déclarer et payer les frais d'adhésion de votre établissement.</p>
                                     <hr> <!-- Divider -->
-
                                     <!-- Basic information START -->
                                     {{ form_start(companyForm, {'attr': {'class': 'row', 'id': 'company-form'}}) }}
                                     <div class="row g-4">
@@ -177,8 +164,8 @@
                                         </div>
 
                                         <!-- Step 1 button -->
-                                        <div class="d-flex justify-content-end mt-3">
-                                            <button id="btn-" class="btn btn-primary bg-dark-purple next-btn mb-0">Enregister</button>
+                                        <div class="d-flex justify-content-end mt-5">
+                                            <button class="btn btn-primary btn-sm bg-dark-purple next-btn mb-0"><i class="ajaxloader fa fa-spin fa-spinner visually-hidden"></i> Enregistrer</button>
                                         </div>
 
                                     </div>
@@ -188,18 +175,16 @@
                                 <!-- Step 1 content END -->
 
                                 <!-- Step 2 ADD EMPLOYEE content START -->
-                                <div id="step-2" role="tabpanel" class="content fade dstepper-block active"
-                                     aria-labelledby="steppertrigger2">
+                                <div id="step-2" role="tabpanel" class="content fade" aria-labelledby="steppertrigger2">
                                     <!-- Title -->
-                                    <h4>Enregistrement employé</h4>
-
+                                    <p class="fs-5 fw-bold d-block border-start border-5 border-orange px-2">Adhésion des employés de votre établissement</p>
+                                    <p>En tant que membre de la fenapalci, vous pouvez déclarer et payer les frais d'adhésion de chaque employé de votre établissement.</p>
                                     <hr> <!-- Divider -->
 
                                     <div class="row">
                                         <!-- Modal button -->
-                                        <div class="d-sm-flex justify-content-sm-between align-items-center mb-3">
-                                            <h5 class="mb-2 mb-sm-0"></h5>
-                                            <a href="#" class="btn btn-sm btn-primary mb-0" data-bs-toggle="modal" data-bs-target="#addEmployee"><i class="bi bi-plus-circle me-2"></i>Ajouter</a>
+                                        <div class="d-sm-flex justify-content-sm-end align-items-end mb-3">
+                                            <a href="#" class="btn btn-xs btn-primary mb-0" data-bs-toggle="modal" data-bs-target="#addEmployee"><i class="bi bi-plus-circle me-2"></i>Ajouter</a>
                                         </div>
 
                                         <!--  START -->
@@ -207,28 +192,17 @@
                                             <!-- Item START -->
                                             <div class="accordion-item mb-3">
                                                 <h6 class="accordion-header font-base" id="heading-1">
-                                                    <button class="accordion-button fw-bold rounded d-inline-block collapsed d-block pe-5"
-                                                            type="button" data-bs-toggle="collapse"
-                                                            data-bs-target="#collapse-1" aria-expanded="false"
-                                                            aria-controls="collapse-1">
-
-                                                    </button>
+                                                    <button class="accordion-button fw-bold rounded d-inline-block collapsed d-block pe-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="false" aria-controls="collapse-1"></button>
                                                 </h6>
-
                                                 <div id="staff_list">
-                                                    
                                                 </div>
-                                            
                                             </div>
                                             <!-- Item END -->
-
                                         </div>
                                         <!-- END -->
-
-                                        <!-- Step 3 button -->
-                                        <div class="d-flex justify-content-between">
-                                            <button class="btn btn-secondary prev-btn mb-0">Précédent</button>
-                                            <button class="btn btn-primary bg-dark-purple next-btn mb-0">Suivant</button>
+                                        <!-- Step button -->
+                                        <div class="d-flex d-flex justify-content-end mt-5">
+                                            <button id="btn-fee-summary" class="btn btn-primary btn-sm bg-dark-purple next-btn mb-0">Suivant</button>
                                         </div>
                                     </div>
                                 </div>
@@ -238,56 +212,12 @@
                                 <div id="step-3" role="tabpanel" class="content fade" aria-labelledby="steppertrigger3">
                                     <!-- Title -->
                                     <h4>Frais d'adhésion</h4>
-
                                     <hr> <!-- Divider -->
-
                                     <div class="row">
-
-                                        <!-- Step 3 button -->
-                                        <div class="d-flex justify-content-between">
-                                            <button class="btn btn-secondary prev-btn mb-0">Précédent</button>
-                                            <button class="btn btn-primary bg-dark-purple next-btn mb-0">Suivant</button>
-                                        </div>
+                                        <div id="registration_resume"></div>
                                     </div>
                                 </div>
                                 <!-- Step 3 content END -->
-
-                                <!-- Step 4 CONFIRMATION content START -->
-                                <div id="step-4" role="tabpanel" class="content fade" aria-labelledby="steppertrigger4">
-                                    <!-- Title -->
-                                    <h4>Additional information</h4>
-
-                                    <hr> <!-- Divider -->
-
-                                    <div class="row g-4">
-
-                                        <!-- Edit faq START -->
-                                        <div class="col-12">
-                                        </div>
-                                        <!-- Edit faq END -->
-
-                                        <!-- Tags START -->
-                                        <div class="col-12">
-
-                                        </div>
-                                        <!-- Tags START -->
-
-                                        <!-- Reviewer START -->
-                                        <div class="col-12">
-
-                                        </div>
-                                        <!-- Reviewer START -->
-
-                                        <!-- Step 4 button -->
-                                        <div class="d-md-flex justify-content-between align-items-start mt-4">
-                                            <button class="btn btn-secondary prev-btn mb-2 mb-md-0">Précédent</button>
-                                            <div class="text-md-end">
-                                                <a href="#" class="btn btn-success mb-2 mb-sm-0">Payer</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Step 4 content END -->
                             </div>
                         </div>
                         <!-- Card body END -->
@@ -355,10 +285,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger-soft my-0" id="cancel-btn" data-bs-dismiss="modal">
-                            Fermer
-                        </button>
-                        <input type="submit" class="btn btn-success my-0" value="Enregistrer"/>
+                        <button type="button" class="btn btn-danger-soft btn-sm my-0" id="cancel-btn" data-bs-dismiss="modal">Fermer</button>
+                        <button type="submit" class="btn btn-success btn-sm my-0"><i class="ajaxloader fa fa-spin fa-spinner visually-hidden"></i> Enregistrer</button>
                     </div>
                     {{ form_end(staffForm) }}
                 </div>
@@ -387,6 +315,7 @@
                  var opt = {
                     success: function(d) {
                         companyForm.resetForm();
+                        $(".ajaxloader").addClass("visually-hidden");
                         Swal.fire({
                           position: 'center',
                           icon: 'success',
@@ -397,11 +326,10 @@
                         stepper.next();
                     }
                 };
+                $(".ajaxloader").removeClass("visually-hidden");
 				$(form).ajaxSubmit(opt);
 			},
 			showErrors: function(map, list) {
-                console.log(map);
-                //console.log(list);
             }
 		});
 
@@ -412,6 +340,7 @@
                     success: function(d) {
                         staffForm.resetForm();
                         $('#addEmployee').modal('hide');
+                        $(".ajaxloader").addClass("visually-hidden");
                         Swal.fire({
                           position: 'center',
                           icon: 'success',
@@ -419,16 +348,22 @@
                           showConfirmButton: false,
                           timer: 2500
                         });
-
-                        $('staff_list').html(d);
+                         $('#staff_list').html(d);
                     }
                 };
+
+                $(".ajaxloader").removeClass("visually-hidden");
                 $(frm).ajaxSubmit(options);
             },
             showErrors: function(map, list) {
-                console.log(map);
                 //console.log(list);
             }
+        });
+
+        $("#btn-fee-summary").click(function(){
+            $.get("{{ path('company_ajax_registration_resume') }}", function(d){
+                 stepper.next();
+            });
         });
 
         $("#cancel-btn").click(function() {

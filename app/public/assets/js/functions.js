@@ -108,9 +108,6 @@ var e = {
         e.reviewChart(),
         e.quill(),
        // e.stepper(),
-        e.videoPlyr(),
-        e.darkMode(),
-        e.pricing(),
         e.stickyElement(),
         e.overlayScrollbars();
         
@@ -960,109 +957,6 @@ var e = {
         */
     },
     // END: Stepper
-
-    // START: 23 Video player
-    videoPlyr: function () {
-        var vdp = e.select('.video-player');
-        if (e.isVariableDefined(vdp)) {
-            // youtube
-            const playerYoutube = new Plyr('#player-youtube', {});
-            window.player = playerYoutube;
-
-            // Vimeo
-            const playerVimeo = new Plyr('#player-vimeo', {});
-            window.player = playerVimeo;
-            
-            // HTML video
-            const playerHtmlvideo = new Plyr('video', {
-                captions: {active: true}
-            });
-            window.player = playerHtmlvideo;
-
-            // HTML audio
-            const playerHtmlaudio = new Plyr('audio', {
-                captions: {active: true}
-            });
-            window.player = playerHtmlaudio;
-        }
-    },
-    // END: Video player
-    
-    // START: 24 Dark mode
-    darkMode: function () {
-
-        let theme = localStorage.getItem('data-theme');
-        var style = document.getElementById("style-switch");
-        var dir = document.getElementsByTagName("html")[0].getAttribute('dir');
-
-        var changeThemeToDark = () => {
-          document.documentElement.setAttribute("data-theme", "dark") // set theme to dark
-          if(dir == 'rtl') {
-              style.setAttribute('href', 'assets/css/style-dark-rtl.css');
-          } else {
-              style.setAttribute('href', 'assets/css/style-dark.css');
-          }
-          localStorage.setItem("data-theme", "dark") // save theme to local storage
-        }
-
-        var changeThemeToLight = () => {
-          document.documentElement.setAttribute("data-theme", "light") // set theme light
-          if(dir == 'rtl') {
-              style.setAttribute('href', 'assets/css/style-rtl.css');
-          } else {
-              style.setAttribute('href', 'assets/css/style.css');
-          }
-          
-          localStorage.setItem("data-theme", 'light') // save theme to local storage
-        }
-
-        if(theme === 'dark'){
-          changeThemeToDark()
-        } else if (theme == null || theme === 'light' ) {
-          changeThemeToLight();
-        }
-
-        const dms = e.select('#darkModeSwitch');
-        if (e.isVariableDefined(dms)) {
-            dms.addEventListener('click', () => {
-              let theme = localStorage.getItem('data-theme'); // Retrieve saved them from local storage
-              if (theme ==='dark'){
-                  changeThemeToLight()
-              } else{
-                  changeThemeToDark()
-              }
-            });
-        }
-    },
-    // END: Dark mode
-
-    // START: 25 Pricing
-    pricing: function () {
-        var p = e.select('.price-wrap');
-        if (e.isVariableDefined(p)) {
-          var pWrap = e.selectAll(".price-wrap");
-          pWrap.forEach(item => {
-
-            var priceSwitch = item.querySelector('.price-toggle'),
-            priceElement = item.querySelectorAll('.plan-price');
-
-            priceSwitch.addEventListener('change', function () {
-              if (priceSwitch.checked) {
-                priceElement.forEach(pItem => {
-                  var dd = pItem.getAttribute('data-annual-price');
-                  pItem.innerHTML = dd;
-                });
-              } else {
-                priceElement.forEach(pItem => {
-                  var ee = pItem.getAttribute('data-monthly-price');
-                  pItem.innerHTML = ee;
-                });
-              }
-            });
-          });
-        }
-    },
-    // END: Pricing
 
     // START: 26 Sticky element
     stickyElement: function () {

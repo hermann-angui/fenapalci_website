@@ -91,6 +91,7 @@ class UserFormType extends AbstractType
                 'mapped' => true
             ])
             ->add('sex', ChoiceType::class, [
+                'mapped' => true,
                 'required' => false,
                 'choices' => [
                     'monsieur' => 'Homme',

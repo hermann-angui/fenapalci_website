@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\PaymentTransaction;
 use App\Entity\User;
+use App\Repository\CompanyRepository;
 use App\Repository\PaymentTransactionRepository;
+use App\Repository\StaffRepository;
 use App\Repository\UserRepository;
 use App\Service\Payment\Wave\WaveCheckoutRequest;
 use App\Service\Payment\Wave\WaveService;
@@ -32,51 +34,28 @@ class PaymentController extends AbstractController
                                    WaveService                  $waveService,
                                    PaymentTransactionRepository $paymentTransactionRepository): Response
     {
+
+        $user = $this->getUser();
+        $amount = $request->get('amount');
+        $payingFor =  $request->get('pay_for');
+        $beneficiaryId =  $request->get('beneficiary_id');
+        $beneficiaryType =  $request->get('beneficiary_type');
+
         $payment_redirect_url = $this->payToWave(
-            $this->getUser(),
+            $amount,
+            $payingFor,
+            $beneficiaryId,
+            $beneficiaryType,
+            $user,
             $waveService,
             $paymentTransactionRepository
         );
 
         return $this->render('payment/summary.html.twig', [
+            "amount" => $amount,
+            "message" => "Frais unique d’adhésion",
             "payment_redirect_url" => $payment_redirect_url
         ]);
-    }
-
-    public function payToWave(?User                        $user,
-                              WaveService                  $waveService,
-                              PaymentTransactionRepository $paymentTransactionRepository)
-    {
-        $waveCheckoutRequest = new WaveCheckoutRequest();
-        $waveCheckoutRequest->setCurrency("XOF")
-            ->setAmount("100")
-            ->setClientReference(Uuid::v4()->toRfc4122())
-            ->setErrorUrl($this->generateUrl('app_wave_payment_callback', ["status" => "error"], UrlGenerator::ABSOLUTE_URL))
-            ->setSuccessUrl($this->generateUrl('app_wave_payment_callback', ["status" => "success"], UrlGenerator::ABSOLUTE_URL));
-
-        $waveResponse = $waveService->checkOutRequest($waveCheckoutRequest);
-
-        if ($waveResponse) {
-            $payment = new PaymentTransaction();
-            $payment->setAmount($waveResponse->getAmount())
-                ->setCurrency($waveResponse->getCurrency())
-                ->setPaymentReference($waveResponse->getClientReference())
-                ->setCheckoutSessionId($waveResponse->getCheckoutSessionId())
-                ->setPayer($user)
-                ->setPaymentFor("FRAIS_ADHESION")
-                ->setBeneficiary($user->getId())
-                ->setOperator("WAVE")
-                ->setPaymentMode("WEBSITE")
-                ->setPaymentType("MOBILE_MONEY")
-                ->setPaymentDate($waveResponse->getWhenCreated())
-                ->setCreatedAt(new \DateTime())
-                ->setModifiedAt(new \DateTime())
-                ->setPaymentStatus(strtoupper($waveResponse->getPaymentStatus()));
-
-            $paymentTransactionRepository->add($payment, true);
-
-            return $waveResponse->getWaveLaunchUrl();
-        }
     }
 
     #[Route(path: '/wave/checkout/{status}', name: 'app_wave_payment_callback')]
@@ -107,6 +86,8 @@ class PaymentController extends AbstractController
      */
     private function savePaymentStatus(array $payload,
                                         PaymentTransactionRepository $paymentTransactionRepository,
+                                        StaffRepository $staffRepository,
+                                        CompanyRepository $companyRepository,
                                         UserRepository $userRepository): void
     {
         if (!empty($payload) && array_key_exists("client_reference", $payload)) {
@@ -117,12 +98,23 @@ class PaymentController extends AbstractController
 
             if ($payment) {
                 $now = new \DateTime();
-                $user = $payment->getPayer();
-                $user->setStatus("VALID_MEMBER");
-                $user->setModifiedAt(new \DateTime());
-                $user->setSubscriptionStartDate($now);
-                $user->setSubscriptionExpireDate($now->add(new \DateInterval('P1Y')));
-                $userRepository->add($user);
+                $beneficiaryId = $payment->getBeneficiaryId();
+                $beneficiary_type = $payment->getBeneficiaryType();
+                switch($beneficiary_type){
+                    case "MEMBER":
+                        $beneficiary = $this->getUser();
+                    case "STAFF":
+                        $beneficiary = $staffRepository->find($payment->getBeneficiaryId());
+                    case "COMPANY":
+                        $beneficiary = $companyRepository->find($payment->getBeneficiaryId());
+                        $beneficiary = $this->getUser();
+                    default:
+
+                }
+                $beneficiary->setStatus("VALID_MEMBER");
+                $beneficiary->setSubscriptionStartDate($now);
+                $beneficiary->setSubscriptionExpireDate($now->add(new \DateInterval('P1Y')));
+                $userRepository->add($beneficiary);
 
                 $payment->setPaymentStatus($payload["payment_status"]);
                 $payment->setOperatorTransactionId($payload["transaction_id"]);

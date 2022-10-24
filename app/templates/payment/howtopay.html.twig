@@ -16,7 +16,7 @@
                     <!-- Content and button -->
                     <div class="col-md-6">
                         <p>L'accès à votre espace membre n'est possible qu'après validation du paiement du droit d'adhésion via l'application mobile wave </p>
-                        <a href="{{path('app_payment_summary')}}" class="btn btn-outline-orange">Je veux payer maintenant</a>
+                        <a href="{{ path('app_payment_summary', {'amount': '100','pay_for': 'FRAIS_ADHESION','beneficiary_id': app.user.id,'beneficiary_type': 'MEMBER'}) }}" class="btn btn-outline-orange">Je veux payer maintenant</a>
                     </div>
                 </div>
                 <!-- Steps START -->

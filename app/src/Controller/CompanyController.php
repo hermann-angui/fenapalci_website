@@ -24,6 +24,34 @@ class CompanyController extends AbstractController
         ]);
     }
 
+    #[Route('/ajax/registration', name: 'company_ajax_registration_resume', methods: ['GET'])]
+    public function companyRegistrationResume(Request $request, CompanyRepository $companyRepository): Response
+    {
+        $session = $request->getSession();
+        $company = $companyRepository->find($session->get('current_company')->getId());
+
+        $members[] = [
+            "name" => $company->getName(),
+            "type" => "COMPANY",
+            "fee" => '100',
+        ];
+        $amount = 100;
+
+        $staffList = $company->getStaff();
+        foreach ($staffList as $staff){
+            $members[] = [
+                "name" => $staff->getName(),
+                "type" => "STAFF",
+                "fee" => '100',
+            ];
+            $amount += 100;
+        }
+        return $this->render('company/registration_resume_ajax.html.twig', [
+            "members" => $members,
+            "amount" => $amount
+        ]);
+    }
+
     #[Route('/new', name: 'app_company_new', methods: ['GET', 'POST'])]
     public function new(Request $request,
                         CompanyRepository $companyRepository,
@@ -57,7 +85,7 @@ class CompanyController extends AbstractController
             $staffList = $staffRepository->findBy(["company" => $company , "status" => "WAITING_FOR_PAYMENT"]);
            // return $this->json($staff->getId(), Response::HTTP_CREATED);
 
-            return $this->render('company/staff_list_ajax.html.twig',["staffList" => $staffList], Response::HTTP_CREATED);
+            return $this->render('company/staff_list_ajax.html.twig',["staffList" => $staffList]);
         }
 
         return $this->renderForm('company/new.html.twig', [

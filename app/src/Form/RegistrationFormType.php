@@ -39,17 +39,14 @@ class RegistrationFormType extends AbstractType
 
         $builder
             ->add('sex', ChoiceType::class, [
-                    'label' => "Sexe",
-                    'mapped' => true,
-                    'expanded' => false,
-                    'multiple' => false,
-                    'required' => false,
-                    'choices' => [
-                        'Male' => 'M',
-                        'Female' => 'F',
-                    ],
-                    'empty_data' => 'M',
-                    'data' => 'M',
+                'required' => false,
+                'mapped' => true,
+                'choices' => [
+                    'monsieur' => 'Homme',
+                    'madame' => 'Femme',
+                ],
+                'empty_data' => 'Homme',
+                'data' => 'Homme',
             ])
             ->add('firstname', TextType::class, [
                 'label' => 'Prénoms',
@@ -99,7 +96,7 @@ class RegistrationFormType extends AbstractType
 
             ->add('nationality', CountryType::class, [
                 'label' => 'Votre nationalité',
-                'mapped' => false,
+                'mapped' => true,
                 'required' => true,
                 'choices' => $countries,
                 'choice_loader' => null
