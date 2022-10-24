@@ -91,7 +91,7 @@ class UserController extends AbstractController
 
         $stats["total"] = 0;
         foreach ($paymentStats as $paymentStat){
-             if($paymentStat["payment_status"] ==="PROCESSING") $stats["total"]+=$paymentStat["balance"];
+             if($paymentStat["payment_status"] ==="SUCCEEDED") $stats["total"]+=$paymentStat["balance"];
              $stats[$paymentStat["payment_for"]][$paymentStat["payment_status"]] =  $paymentStat["balance"];
         }
 
