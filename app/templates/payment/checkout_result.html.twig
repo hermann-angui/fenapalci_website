@@ -16,7 +16,7 @@
     <main>
         <section class="container">
             {% if status == 'success' %}
-                <div class="row">
+                <div class="row justify-content-md-center">
                     <!-- Right -->
                     <div class="col-md-6 col-lg-6 text-center">
                         <div class="card mb-3 shadow-sm">
@@ -27,10 +27,6 @@
                                 <p class="fs-6 text-success fw-bolder">Transaction effectuée avec succès</p>
                                 <p class="small">Vous serez redirigé dans quelques instants sinon <a href="{{ path('app_user_edit_account') }}">cliquez sur ce lien</a></p>
                                 <div>
-                                    <p class="border-1 border-top border-light">
-                                        <span>Montant payé</span>
-                                        <span class="fw-bold">15000</span>
-                                    </p>
                                     <p class="border-1 border-top border-bottom border-light">
                                         <span>Date transaction </span>
                                         <span>{{ 'now'|date('d/m/Y H:i:s') }}</span>
@@ -41,7 +37,7 @@
                     </div>
                 </div>
             {% else %}
-                <div class="row">
+                <div class="row justify-content-md-center">
                     <div class="col-md-6 col-lg-6 text-center">
                         <div class="card mb-3 shadow-sm">
                             <div class="card-header">
@@ -69,7 +65,7 @@
         $('document').ready(function() {
            var timer = setTimeout(function(){
                window.location.href = '{{ path('app_user_edit_account') }}';
-           }, 6000);
+           }, 5000);
         });
  	</script>
 {% endblock %}

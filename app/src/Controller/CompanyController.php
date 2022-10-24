@@ -80,8 +80,8 @@ class CompanyController extends AbstractController
 
         if ($companyForm->isSubmitted() && $companyForm->isValid()) {
             $company->setOwner($this->getUser());
+            $company->setStatus("WAITING_FOR_PAYMENT");
             $companyRepository->add($company, true);
-            $staff->setStatus("WAITING_FOR_PAYMENT");
             $session->set('current_company', $company);
             return $this->json($company->getId(), Response::HTTP_CREATED);
         }
