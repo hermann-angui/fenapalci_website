@@ -111,31 +111,13 @@ class PaymentController extends AbstractController
                 $beneficiary_type = $payment->getBeneficiaryType();
                 switch($beneficiary_type){
                     case "MEMBER":
-                        $user->setStatus("VALID_MEMBER");
-                        $user->setSubscriptionStartDate($now);
-                        $user->setSubscriptionExpireDate($now->add(new \DateInterval('P1Y')));
-                        $userRepository->add($user, true);
+                        $this->updateUserStatus($user, $now, $userRepository);
                         break;
                     case "STAFF":
-                        $staff = $staffRepository->find($beneficiaryId);
-                        $staff->setStatus("VALID_MEMBER");
-                        $staff->setSubscriptionStartDate($now);
-                        $staff->setSubscriptionExpireDate($now->add(new \DateInterval('P1Y')));
-                        $staffRepository->add($staff);
+                        $this->updateStaffStatus($staffRepository, $beneficiaryId, $now);
                         break;
                     case "COMPANY":
-                        $company = $companyRepository->find($beneficiaryId);
-                        $staffList = $staffRepository->findBy(['company' => $company, 'status' => "WAITING_FOR_PAYMENT"]);
-                        foreach ($staffList as $staff){
-                            $staff->setStatus("VALID_MEMBER");
-                            $staff->setSubscriptionStartDate($now);
-                            $staff->setSubscriptionExpireDate($now->add(new \DateInterval('P1Y')));
-                            $staffRepository->add($staff);
-                        }
-                        $company->setStatus("VALID_MEMBER");
-                        $company->setSubscriptionStartDate($now);
-                        $company->setSubscriptionExpireDate($now->add(new \DateInterval('P1Y')));
-                        $companyRepository->add($company);
+                        $this->updateCompanyStatus($companyRepository, $beneficiaryId, $staffRepository, $now);
                         break;
                     default:
 
@@ -147,4 +129,5 @@ class PaymentController extends AbstractController
             }
         }
     }
+
 }

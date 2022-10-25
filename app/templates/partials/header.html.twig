@@ -1,24 +1,25 @@
 
 <header class="navbar-light border-bottom border-light">
 
-    <div class="d-flex flex-row">
+    <div class="row">
         <!-- Logo START -->
-        <div class="px-3 py-2">
+        <div class="col-sm-12 d-flex">
             <a class="navbar-brand" href="{{ path('app_home') }}">
                 <img class="light-mode-item navbar-brand-item" src="{{ asset('assets/images/logo-new.png') }}" alt="logo">
             </a>
+            <div class="flex-fill">
+                {% if app.user is null %}
+                    <div class="ms-1 ms-lg-0 float-end bg-yellow p-2 rounded-bottom text-white">
+                        <a href="{{ path('app_register') }}" class="text-white">Créer un compte </a><span> | </span>
+                        <a href="{{ path('app_login') }}" class="text-white"> Me connecter </a>
+                    </div>
+                {% endif %}
+            </div>
         </div>
         <!-- Logo END -->
         <!-- Logo Nav START -->
-        <div class="w-100 d-flex flex-column">
-            <div class="flex-fill">
-                {% if app.user is null %}
-                <div class="ms-1 ms-lg-0 float-end bg-yellow p-2 rounded-bottom text-white">
-                    <a href="{{ path('app_register') }}" class="text-white">Créer un compte </a><span> | </span>
-                    <a href="{{ path('app_login') }}" class="text-white"> Me connecter </a>
-                </div>
-                {% endif %}
-            </div>
+        <div class="col-sm-12">
+
             <nav class="navbar navbar-expand-xl navbar-sticky navbar-static-top bg-dark-purple" >
                 <div class="container-fluid">
 

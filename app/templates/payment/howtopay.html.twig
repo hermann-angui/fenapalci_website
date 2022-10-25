@@ -6,23 +6,23 @@
     <!-- **************** MAIN CONTENT START **************** -->
     <main>
         <section class="position-relative pt-0 pt-lg-5">
-            <div class="container">
+            <div class="container px-1">
                 <!-- Title -->
                 <div class="row">
                     <!-- Title -->
-                    <div class="col-md-6">
+                    <div class="col-md-12 text-center">
                         <h2>Payer avec application mobile wave </h2>
                     </div>
                     <!-- Content and button -->
-                    <div class="col-md-6">
+                    <div class="col-md-12 text-center">
                         <p>L'accès à votre espace membre n'est possible qu'après validation du paiement du droit d'adhésion via l'application mobile wave </p>
-                        <a href="{{ path('app_payment_summary', {'amount': '100','pay_for': 'FRAIS_ADHESION','beneficiary_id': app.user.id,'beneficiary_type': 'MEMBER'}) }}" class="btn btn-outline-orange">Je veux payer maintenant</a>
+                        <a href="{{ path('app_payment_summary', {'amount': '100','pay_for': 'FRAIS_ADHESION','beneficiary_id': app.user.id,'beneficiary_type': 'MEMBER'}) }}" class="btn btn-orange">Je veux payer maintenant</a>
                     </div>
                 </div>
                 <!-- Steps START -->
                 <div class="row g-lg-5 mt-3">
                     <!-- Item -->
-                    <div class="col-md-6 col-lg-4 text-center position-relative">
+                    <div class="col-md-12 col-lg-4 text-center position-relative">
                         <!-- SVG decoration -->
                         <figure class="position-absolute top-0 start-100 translate-middle d-none d-lg-block">
                             <svg width="182.9px" height="86px" viewBox="0 0 182.9 86">
@@ -42,7 +42,7 @@
                     </div>
 
                     <!-- Item -->
-                    <div class="col-md-6 col-lg-4 text-center pt-0 pt-lg-5 position-relative">
+                    <div class="col-md-12 col-lg-4 text-center pt-0 pt-lg-5 position-relative">
                         <!-- SVG decoration -->
                         <figure class="position-absolute top-100 start-100 translate-middle mt-n3 d-none d-lg-block">
                             <svg width="182.9px" height="86px" viewBox="0 0 182.9 86">
@@ -62,7 +62,7 @@
                     </div>
 
                     <!-- Item -->
-                    <div class="col-md-6 col-lg-4 text-center">
+                    <div class="col-md-12 col-lg-4 text-center">
                         <div class="px-4">
                             <!-- Image -->
                             <div class="icon-xxl bg-body shadow mx-auto rounded-circle mb-3">

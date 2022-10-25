@@ -14,23 +14,23 @@
 {% block body %}
     <!-- **************** MAIN CONTENT START **************** -->
     <main>
-        <section class="container">
+        <section class="container px-2">
                 <div class="row justify-content-md-center">
                     <!-- Right -->
-                    <div class="col-6 col-lg-6">
+                    <div class="col-md-12">
                         <div class="pt-4 border-1 border-light bg-light text-center">
                             <p class="fs-5">{{ message }}</p>
                             <p class="fs-2 text-dark fw-bold">{{  amount }} F CFA</p>
                             <img src="{{ asset("assets/images/misc/wave-logo.png") }}" width="120" alt="logo wave"><br>
                         </div>
 
-                        <div class="mx-5 pt-3">
-                            <a href="{{ payment_redirect_url }}" class="btn bg-dark-purple text-white btn-lg my-5 w-100 rounded-5">Payer maintenant</a>
+                        <div class="mx-5 pt-3 text-center">
+                            <a href="{{ payment_redirect_url }}" class="btn bg-dark-purple text-white btn-lg my-5 w-75 rounded-5">Payer maintenant</a>
                         </div>
                     </div>
                 </div>
                 <div class="row justify-content-md-center">
-                    <div class="col-6 col-lg-6">
+                    <div class="col-md-12 col-lg-12">
                         <div class="py-3">
                             <h5 style="border-left:5px solid #ff0000; padding-left: 10px; margin-bottom: 20px"> Cotisation mensuelle</h5>
                             <p class="">
@@ -38,7 +38,7 @@
                               NB: Les frais de cotisations mensuelles sont définis par type d'établissement :
                             </p>
                         </div>
-                        <table class="table table-sm">
+                        <table class="table table-responsive table-sm">
                             <tr>
                                 <td>GLACIER</td>
                                 <td>5 000 fcfa/Mois</td>
