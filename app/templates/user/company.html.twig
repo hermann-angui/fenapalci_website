@@ -146,9 +146,9 @@
                                                     <a href="#" class="text-body"><u>{{ company.legalStatus }}</u></a>
                                                 </td>
 
-                                                <td>{{ company.subscriptionStartDate }}</td>
+                                                <td>{{ company.subscriptionStartDate|date('d/m/Y') }}</td>
 
-                                                <td>{{ company.subscriptionExpireDate }}</td>
+                                                <td>{{ company.subscriptionExpireDate|date('d/m/Y') }}</td>
                                             </tr>
                                         {% endfor %}
                                         </tbody>

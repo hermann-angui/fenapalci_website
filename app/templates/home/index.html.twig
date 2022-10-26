@@ -379,10 +379,9 @@
 {% endblock %}
 
 {% block javascript %}
-{{ parent() }}
-<script type="text/javascript">
-   jQuery(document).ready(function ($) {
-});
-
-</script>
+    {{ parent() }}
+    <script type="text/javascript">
+       jQuery(document).ready(function ($) {
+        });
+    </script>
 {% endblock %}
