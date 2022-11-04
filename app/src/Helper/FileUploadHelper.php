@@ -39,4 +39,22 @@ class FileUploadHelper
         return $fileName;
     }
 
+
+    public function remove(?File $file, string $destinationDirectory): ?string
+    {
+        try {
+            if(!$file) return null;
+            $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $safeFilename = $this->slugger->slug($originalFilename);
+            $fileName = $safeFilename . time() . uniqid() .'.'. $file->guessExtension();
+
+            $fs = new Filesystem();
+            if(!$fs->exists($destinationDirectory)) $fs->mkdir($destinationDirectory);
+            $file->move($destinationDirectory, $fileName);
+        } catch (\Exception $e) {
+            $this->logger->critical($e->getMessage());
+            return null;
+        }
+        return $fileName;
+    }
 }

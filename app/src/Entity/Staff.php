@@ -325,5 +325,15 @@ class Staff
         return $this;
     }
 
+    public static function getSubscriptionFee (string $categorieName = "default") : ?string
+    {
+        $categorieName = strtoupper($categorieName);
+        $fees = [
+            "DEFAULT" => 15000,
+        ];
 
+        if(key_exists($categorieName, $fees)) return $fees[$categorieName];
+        else return 0;
+
+    }
 }

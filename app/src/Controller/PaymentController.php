@@ -68,7 +68,7 @@ class PaymentController extends AbstractController
     }
 
     #[Route(path: '/wave', name: 'app_wave_payment_checkout_webhook')]
-    public function callbackWavePayment(Request                      $request,
+    public function callbackWavePayment(Request $request,
                                         PaymentTransactionRepository $paymentTransactionRepository,
                                         StaffRepository $staffRepository,
                                         CompanyRepository $companyRepository,

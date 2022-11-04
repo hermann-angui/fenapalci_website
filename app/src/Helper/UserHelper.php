@@ -62,4 +62,9 @@ class UserHelper
     }
 
 
+    public function removeAsset(?File $file, ?User $user): ?string
+    {
+        return $this->fileUploadHelper->remove($file, $this->getUploadDirectory());
+    }
+
 }

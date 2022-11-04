@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Intl\Countries;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Email;
 
 class StaffType extends AbstractType
 {
@@ -29,12 +30,15 @@ class StaffType extends AbstractType
             ->add('email', TextType::class, [
                 'label' => 'Email',
                 'mapped' => true,
-                'required' => true
+                'required' => true,
+                'constraints' => [
+                    new Email()
+                ]
             ])
             ->add('firstname', TextType::class, [
                 'label' => 'Prénom',
                 'mapped' => true,
-                'required' => true
+                'required' => true,
             ])
             ->add('lastname', TextType::class, [
                 'label' => 'Nom',

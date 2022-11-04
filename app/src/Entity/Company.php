@@ -273,55 +273,6 @@ class Company
         return $this;
     }
 
-   public static function getSubscriptionFee (string $categorieName) : ?string
-   {
-        $fees =     [
-            "GLACIER" => 5000,
-            "BAR"  => 5000,
-            "MAQUIS : 1-50 Places" => 2000,
-            "MAQUIS : 50-100 Places"=> 3000,
-            "MAQUIS : 101 Places et Plus" => 5000,
-            "RESTAURANT : 1-50 Places" => 2000,
-            "RESTAURANT : 51 Places et Plus"=> 3000,
-            "MAQUIS/RESTAURANT"  => 5000,
-            "RESTAURANT VIP" => 5000,
-            "DEPOT DE BOISSON"  => 5000,
-            "HOTEL"   => 5000,
-            "NIGHT CLUB" => 5000,
-            "EVENEMENTIEL" => 5000,
-            "PATISSERIE" => 5000,
-            "CAVE : 1-50 Places"  => 2000,
-            "CAVE : 51 Places et Plus" => 3000
-        ];
-
-        if(key_exists($categorieName, $fees)) return $fees[$categorieName];
-        else return null;
-
-   }
-
-    public static function getCategories () : array
-    {
-        return  [
-            "GLACIER" => "GLACIER" ,
-            "BAR" => "BAR",
-            "MAQUIS : 1-50 Places" => "MAQUIS : 1-50 Places",
-            "MAQUIS : 50-100 Places" => "MAQUIS : 50-100 Places",
-            "MAQUIS : 101 Places et Plus" => "MAQUIS : 101 Places et Plus",
-            "RESTAURANT : 1-50 Places" => "RESTAURANT : 1-50 Places",
-            "RESTAURANT : 51 Places et Plus" => "RESTAURANT : 51 Places et Plus",
-            "MAQUIS/RESTAURANT" => "MAQUIS/RESTAURANT",
-            "RESTAURANT VIP" => "RESTAURANT VIP",
-            "DEPOT DE BOISSON"  => "DEPOT DE BOISSON",
-            "HOTEL"   => "HOTEL",
-            "NIGHT CLUB" => "NIGHT CLUB",
-            "EVENEMENTIEL" => "EVENEMENTIEL",
-            "PATISSERIE" => "PATISSERIE",
-            "CAVE : 1-50 Places"  => "CAVE : 1-50 Places",
-            "CAVE : 51 Places et Plus" => "CAVE : 51 Places et Plus"
-        ];
-
-    }
-
     /**
      * @return mixed
      */
@@ -413,4 +364,53 @@ class Company
     }
 
 
+    public static function getSubscriptionFee (string $categorieName) : ?string
+    {
+        $categorieName = strtoupper($categorieName);
+        $fees =     [
+            "GLACIER" => 5000,
+            "BAR"  => 5000,
+            "MAQUIS : 1-50 Places" => 2000,
+            "MAQUIS : 50-100 Places"=> 3000,
+            "MAQUIS : 101 Places et Plus" => 5000,
+            "RESTAURANT : 1-50 Places" => 2000,
+            "RESTAURANT : 51 Places et Plus"=> 3000,
+            "MAQUIS/RESTAURANT"  => 5000,
+            "RESTAURANT VIP" => 5000,
+            "DEPOT DE BOISSON"  => 5000,
+            "HOTEL"   => 5000,
+            "NIGHT CLUB" => 5000,
+            "EVENEMENTIEL" => 5000,
+            "PATISSERIE" => 5000,
+            "CAVE : 1-50 Places"  => 2000,
+            "CAVE : 51 Places et Plus" => 3000
+        ];
+
+        if(key_exists($categorieName, $fees)) return $fees[$categorieName];
+        else return 0;
+
+    }
+
+    public static function getCategories () : array
+    {
+        return  [
+            "GLACIER" => "GLACIER" ,
+            "BAR" => "BAR",
+            "MAQUIS : 1-50 Places" => "MAQUIS : 1-50 Places",
+            "MAQUIS : 50-100 Places" => "MAQUIS : 50-100 Places",
+            "MAQUIS : 101 Places et Plus" => "MAQUIS : 101 Places et Plus",
+            "RESTAURANT : 1-50 Places" => "RESTAURANT : 1-50 Places",
+            "RESTAURANT : 51 Places et Plus" => "RESTAURANT : 51 Places et Plus",
+            "MAQUIS/RESTAURANT" => "MAQUIS/RESTAURANT",
+            "RESTAURANT VIP" => "RESTAURANT VIP",
+            "DEPOT DE BOISSON"  => "DEPOT DE BOISSON",
+            "HOTEL"   => "HOTEL",
+            "NIGHT CLUB" => "NIGHT CLUB",
+            "EVENEMENTIEL" => "EVENEMENTIEL",
+            "PATISSERIE" => "PATISSERIE",
+            "CAVE : 1-50 Places"  => "CAVE : 1-50 Places",
+            "CAVE : 51 Places et Plus" => "CAVE : 51 Places et Plus"
+        ];
+
+    }
 }

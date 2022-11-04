@@ -16,8 +16,9 @@ class StaffController extends AbstractController
     #[Route('/', name: 'app_staff_index', methods: ['GET'])]
     public function index(StaffRepository $staffRepository): Response
     {
+        $staff = $staffRepository->findAll();
         return $this->render('staff/index.html.twig', [
-            'staff' => $staffRepository->findAll(),
+            'staff' => $staff,
         ]);
     }
 

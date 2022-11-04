@@ -30,31 +30,30 @@ class CompanyController extends AbstractController
     #[Route('/ajax/registration', name: 'company_ajax_registration_resume', methods: ['GET'])]
     public function companyRegistrationResume(Request $request, CompanyRepository $companyRepository): Response
     {
+        $env = $this->container->get('kernel')->getEnvironment();
+
         $session = $request->getSession();
         $company = $companyRepository->find($session->get('current_company')->getId());
         $staffList = $company->getStaff();
-
         $company = [
-            "id" => $company->getId(),
+            "id"   => $company->getId(),
             "name" => $company->getName(),
             "type" => "COMPANY",
-            "fee" => '100', // Get fee based on category if needed
+            "fee"  => ($env==="prod") ? Company::getSubscriptionFee($company->getCategory()) : "100", // Get fee based on category if needed
         ];
-        $total = 100;
-
+        $total = $company['fee'];
         $employeeTotal = 0;
+        $employees = [];
         foreach ($staffList as $staff){
             $employees[] = [
                 "name" => $staff->getLastname() . ' ' . $staff->getFirstname(),
                 "type" => "STAFF",
-                "fee" => '100', // Get fee based on category if needed
+                "fee"  => ($env==="prod") ? Staff::getSubscriptionFee() : "100", // Get fee based on category if needed
             ];
-            $employeeTotal += 100;
+            $employeeTotal += $employees["fee"];
         }
-
         $total += $employeeTotal;
-
-        return $this->render('company/registration_resume_ajax.html.twig', [
+        return $this->render('company/registration_resume_ajax.html.twig',[
             "company" => $company,
             "employees" => $employees,
             "employeeTotal" => $employeeTotal,
@@ -93,7 +92,6 @@ class CompanyController extends AbstractController
             $staffRepository->add($staff, true);
 
             $staffList = $staffRepository->findBy(["company" => $company , "status" => "WAITING_FOR_PAYMENT"]);
-           // return $this->json($staff->getId(), Response::HTTP_CREATED);
 
             return $this->render('company/staff_list_ajax.html.twig',["staffList" => $staffList]);
         }
