@@ -70,16 +70,16 @@ class PaymentController extends AbstractController
     #[Route(path: '/wave', name: 'app_wave_payment_checkout_webhook')]
     public function callbackWavePayment(Request $request,
                                         PaymentTransactionRepository $paymentTransactionRepository,
-                                        StaffRepository $staffRepository,
-                                        CompanyRepository $companyRepository,
+//                                        StaffRepository $staffRepository,
+//                                        CompanyRepository $companyRepository,
                                         UserRepository $userRepository): Response
     {
         $payload =  json_decode($request->getContent(), true);
         $this->savePaymentStatus(
             $payload["data"],
             $paymentTransactionRepository,
-            $staffRepository,
-            $companyRepository,
+//            $staffRepository,
+//            $companyRepository,
             $userRepository
         );
 
@@ -94,8 +94,8 @@ class PaymentController extends AbstractController
      */
     private function savePaymentStatus( array $payload,
                                         PaymentTransactionRepository $paymentTransactionRepository,
-                                        StaffRepository $staffRepository,
-                                        CompanyRepository $companyRepository,
+//                                        StaffRepository $staffRepository,
+//                                        CompanyRepository $companyRepository,
                                         UserRepository $userRepository): void
     {
         if (!empty($payload) && array_key_exists("client_reference", $payload)) {
@@ -113,12 +113,12 @@ class PaymentController extends AbstractController
                     case "MEMBER":
                         $this->updateUserStatus($user, $now, $userRepository);
                         break;
-                    case "STAFF":
-                        $this->updateStaffStatus($staffRepository, $beneficiaryId, $now);
-                        break;
-                    case "COMPANY":
-                        $this->updateCompanyStatus($companyRepository, $beneficiaryId, $staffRepository, $now);
-                        break;
+//                    case "STAFF":
+//                        $this->updateStaffStatus($staffRepository, $beneficiaryId, $now);
+//                        break;
+//                    case "COMPANY":
+//                        $this->updateCompanyStatus($companyRepository, $beneficiaryId, $staffRepository, $now);
+//                        break;
                     default:
 
                 }

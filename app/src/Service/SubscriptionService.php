@@ -17,22 +17,22 @@ class SubscriptionService
         $this->mailer = $mailer;
     }
 
-    public function SubscribeNewMember(UserDto $member)
+    public function subscribeNewMember(UserDto $member)
     {
         return true;
     }
 
-    public function RemoveMember(UserDto $member)
+    public function removeMember(UserDto $member)
     {
         return true;
     }
 
-    public function SubscribeNewStaff(UserDto $member)
+    public function subscribeNewStaff(UserDto $member)
     {
         return true;
     }
 
-    public function RemoveStaff(UserDto $member)
+    public function removeStaff(UserDto $member)
     {
         return true;
     }

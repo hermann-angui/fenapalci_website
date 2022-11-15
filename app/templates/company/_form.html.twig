@@ -1,4 +1,67 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+{{ form_start(companyForm, {'attr': {'class': 'row', 'id': 'company-form'}}) }}
+    <div class="row g-4">
+
+    <!-- Course title -->
+    <div class="col-md-6">
+        <label class="form-label">Nom de l'entreprise</label>
+        {{ form_widget(companyForm.name, {'attr': {'class': 'form-control', 'placeholder': 'Nom de votre établissemnt'}}) }}
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Catégorie</label>
+        {{ form_widget(companyForm.category, {'attr': {'class': 'form-control', 'placeholder': 'Nom de votre établissemnt'}}) }}
+    </div>
+
+    <!-- Course category -->
+    <div class="col-md-6">
+        <label class="form-label">Status juridique</label>
+        {{ form_widget(companyForm.legal_status, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Téléphone</label>
+        {{ form_widget(companyForm.phone_number, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <!-- Course time -->
+    <div class="col-md-6">
+        <label class="form-label">Ville</label>
+        {{ form_widget(companyForm.ville, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <!-- Course time -->
+    <div class="col-md-6">
+        <label class="form-label">Commune</label>
+        {{ form_widget(companyForm.commune, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <!-- Course time -->
+    <div class="col-md-6">
+        <label class="form-label">Quartier</label>
+        {{ form_widget(companyForm.quartier, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Date de création</label>
+        {{ form_widget(companyForm.date_created, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+
+    <div class="col-md-6">
+        <label class="form-label">Adresse</label>
+        {{ form_widget(companyForm.address, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <!-- Course price -->
+    <div class="col-md-6">
+        <label class="form-label">Numéro registre de commerce</label>
+        {{ form_widget(companyForm.registre_commerce, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <!-- Step 1 button -->
+    <div class="d-flex justify-content-end mt-5">
+        <button class="btn btn-primary btn-sm bg-dark-purple next-btn mb-0"><i class="ajaxloader fa fa-spin fa-spinner visually-hidden"></i> Enregistrer</button>
+    </div>
+
+</div>
+{{ form_end(companyForm) }}

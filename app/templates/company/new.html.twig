@@ -29,7 +29,7 @@
                 <div class="row">
                     <div class="col-12 text-center">
                         <h3 class="text-dark">Enregistrement entreprise</h3>
-                        <p class="text-dark mb-0">En tant que membre, vous pouvez déclarer votre entreprise</p>
+                        <p class="text-dark mb-0">En tant que membre, vous pouvez déclarer un établissement dont vous êtes le gérant ou le propriétaire</p>
                     </div>
                 </div>
             </div>
@@ -39,14 +39,6 @@
         <!-- ==== START -->
         <section>
             <div class="container px-1">
-                <div class="row">
-                    <div class="col-md-8 mx-auto text-center">
-                        <p class="text-center">Les déclarations d'une entreprise et ses employés comme membre de la
-                            FENAPALCI ne seront pris en compte seulement après paiement de frais d'inscription de
-                            ceux-ci.</p>
-                    </div>
-                </div>
-
                 <div class="card bg-transparent border rounded-3 mb-5">
                     <div id="stepper" class="bs-stepper stepper-outline">
                         <!-- Card header -->
@@ -60,7 +52,7 @@
                                                 id="steppertrigger1" aria-controls="step-1">
                                             <span class="bs-stepper-circle">1</span>
                                         </button>
-                                        <h6 class="bs-stepper-label d-none d-md-block">Information de l'entreprise</h6>
+                                        <h6 class="bs-stepper-label d-none d-md-block">Information sur l'établissement</h6>
                                     </div>
                                 </div>
                                 <div class="line"></div>
@@ -83,7 +75,7 @@
                                         <button type="button" class="btn btn-link step-trigger mb-0" role="tab" id="steppertrigger3" aria-controls="step-3">
                                             <span class="bs-stepper-circle">3</span>
                                         </button>
-                                        <h6 class="bs-stepper-label d-none d-md-block">Frais d'adhésion</h6>
+                                        <h6 class="bs-stepper-label d-none d-md-block">Résumé des informations</h6>
                                     </div>
                                 </div>
                                 <div class="line"></div>
@@ -99,77 +91,9 @@
                                 <!-- Step 1 ENTREPRISE content START -->
                                 <div id="step-1" role="tabpanel" class="content fade" aria-labelledby="steppertrigger1">
                                     <!-- Title -->
-                                    <p class="fs-5 fw-bold d-block border-start border-5 border-orange px-2">Adhésion établissement</p>
-                                    <p>En tant que membre de la fenapalci, vous pouvez déclarer et payer les frais d'adhésion de votre établissement.</p>
-                                    <hr> <!-- Divider -->
+                                    <p class="fs-5 fw-bold d-block border-start border-5 border-orange px-2">Déclarez votre établissement</p>
                                     <!-- Basic information START -->
-                                    {{ form_start(companyForm, {'attr': {'class': 'row', 'id': 'company-form'}}) }}
-                                    <div class="row g-4">
-
-                                        <!-- Course title -->
-                                        <div class="col-md-6">
-                                            <label class="form-label">Nom de l'entreprise</label>
-                                            {{ form_widget(companyForm.name, {'attr': {'class': 'form-control', 'placeholder': 'Nom de votre établissemnt'}}) }}
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <label class="form-label">Catégorie</label>
-                                            {{ form_widget(companyForm.category, {'attr': {'class': 'form-control', 'placeholder': 'Nom de votre établissemnt'}}) }}
-                                        </div>
-
-                                        <!-- Course category -->
-                                        <div class="col-md-6">
-                                            <label class="form-label">Status juridique</label>
-                                            {{ form_widget(companyForm.legal_status, {'attr': {'class': 'form-control'}}) }}
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <label class="form-label">Téléphone</label>
-                                            {{ form_widget(companyForm.phone_number, {'attr': {'class': 'form-control'}}) }}
-                                        </div>
-
-                                        <!-- Course time -->
-                                        <div class="col-md-6">
-                                            <label class="form-label">Ville</label>
-                                            {{ form_widget(companyForm.ville, {'attr': {'class': 'form-control'}}) }}
-                                        </div>
-
-                                        <!-- Course time -->
-                                        <div class="col-md-6">
-                                            <label class="form-label">Commune</label>
-                                            {{ form_widget(companyForm.commune, {'attr': {'class': 'form-control'}}) }}
-                                        </div>
-
-                                        <!-- Course time -->
-                                        <div class="col-md-6">
-                                            <label class="form-label">Quartier</label>
-                                            {{ form_widget(companyForm.quartier, {'attr': {'class': 'form-control'}}) }}
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <label class="form-label">Date de création</label>
-                                            {{ form_widget(companyForm.date_created, {'attr': {'class': 'form-control'}}) }}
-                                        </div>
-
-
-                                        <div class="col-md-6">
-                                            <label class="form-label">Adresse</label>
-                                            {{ form_widget(companyForm.address, {'attr': {'class': 'form-control'}}) }}
-                                        </div>
-
-                                        <!-- Course price -->
-                                        <div class="col-md-6">
-                                            <label class="form-label">Numéro registre de commerce</label>
-                                            {{ form_widget(companyForm.registre_commerce, {'attr': {'class': 'form-control'}}) }}
-                                        </div>
-
-                                        <!-- Step 1 button -->
-                                        <div class="d-flex justify-content-end mt-5">
-                                            <button class="btn btn-primary btn-sm bg-dark-purple next-btn mb-0"><i class="ajaxloader fa fa-spin fa-spinner visually-hidden"></i> Enregistrer</button>
-                                        </div>
-
-                                    </div>
-                                    {{ form_end(companyForm) }}
+                                    {{ include('company/_form.html.twig') }}
                                     <!-- Basic information START -->
                                 </div>
                                 <!-- Step 1 content END -->
@@ -177,7 +101,7 @@
                                 <!-- Step 2 ADD EMPLOYEE content START -->
                                 <div id="step-2" role="tabpanel" class="content fade" aria-labelledby="steppertrigger2">
                                     <!-- Title -->
-                                    <p class="fs-5 fw-bold d-block border-start border-5 border-orange px-2">Adhésion des employés de votre établissement</p>
+                                    <p class="fs-5 fw-bold d-block border-start border-5 border-orange px-2">Enregistrement des employés de votre établissement</p>
                                     <p>En tant que membre de la fenapalci, vous pouvez déclarer et payer les frais d'adhésion de chaque employé de votre établissement.</p>
                                     <hr> <!-- Divider -->
 
@@ -211,7 +135,7 @@
                                 <!-- Step 3 FRAIS ADHESION content START -->
                                 <div id="step-3" role="tabpanel" class="content fade" aria-labelledby="steppertrigger3">
                                     <!-- Title -->
-                                    <h4>Frais d'adhésion</h4>
+                                    <h4>Votre établissement et ses employés</h4>
                                     <hr> <!-- Divider -->
                                     <div class="row">
                                         <div id="registration_resume"></div>

@@ -30,8 +30,6 @@ class CompanyController extends AbstractController
     #[Route('/ajax/registration', name: 'company_ajax_registration_resume', methods: ['GET'])]
     public function companyRegistrationResume(Request $request, CompanyRepository $companyRepository): Response
     {
-        $env = $this->container->get('kernel')->getEnvironment();
-
         $session = $request->getSession();
         $company = $companyRepository->find($session->get('current_company')->getId());
         $staffList = $company->getStaff();
@@ -39,25 +37,25 @@ class CompanyController extends AbstractController
             "id"   => $company->getId(),
             "name" => $company->getName(),
             "type" => "COMPANY",
-            "fee"  => ($env==="prod") ? Company::getSubscriptionFee($company->getCategory()) : "100", // Get fee based on category if needed
+           // "fee"  => Company::getSubscriptionFee($company->getCategory()), // Get fee based on category if needed
         ];
-        $total = $company['fee'];
-        $employeeTotal = 0;
+//        $total = $company['fee'];
+//        $employeeTotal = 0;
         $employees = [];
         foreach ($staffList as $staff){
             $employees[] = [
                 "name" => $staff->getLastname() . ' ' . $staff->getFirstname(),
                 "type" => "STAFF",
-                "fee"  => ($env==="prod") ? Staff::getSubscriptionFee() : "100", // Get fee based on category if needed
+             //   "fee"  =>  Staff::getSubscriptionFee(), // Get fee based on category if needed
             ];
-            $employeeTotal += $employees["fee"];
+           // $employeeTotal += $employees["fee"];
         }
-        $total += $employeeTotal;
+//        $total += $employeeTotal;
         return $this->render('company/registration_resume_ajax.html.twig',[
             "company" => $company,
             "employees" => $employees,
-            "employeeTotal" => $employeeTotal,
-            "total" => $total
+           // "employeeTotal" => $employeeTotal,
+           // "total" => $total
         ]);
     }
 
