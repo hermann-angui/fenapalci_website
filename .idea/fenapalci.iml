@@ -118,6 +118,15 @@
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/jms/metadata" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/vich/uploader-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/google-mailer" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/nelmio/alice" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/fakerphp/faker" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/sebastian/comparator" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/sebastian/recursion-context" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/sebastian/diff" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/sebastian/exporter" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/myclabs/deep-copy" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/liip/test-fixtures-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/web-profiler-bundle" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

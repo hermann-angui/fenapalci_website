@@ -109,7 +109,18 @@
       <path value="$PROJECT_DIR$/app/vendor/jms/metadata" />
       <path value="$PROJECT_DIR$/app/vendor/vich/uploader-bundle" />
       <path value="$PROJECT_DIR$/app/vendor/symfony/google-mailer" />
+      <path value="$PROJECT_DIR$/app/vendor/nelmio/alice" />
+      <path value="$PROJECT_DIR$/app/vendor/fakerphp/faker" />
+      <path value="$PROJECT_DIR$/app/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/app/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/app/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/app/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/app/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/app/vendor/liip/test-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/app/vendor/symfony/web-profiler-bundle" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="8.0" />
+  <component name="PhpProjectSharedConfiguration" php_language_level="8.1">
+    <option name="suggestChangeDefaultLanguageLevel" value="false" />
+  </component>
 </project>

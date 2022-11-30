@@ -11,7 +11,6 @@ class WaveService
     const BASE_URL = "https://api.wave.com/";
     const CHECKOUT_URL = "https://api.wave.com/v1/checkout/sessions";
 
-
     private HttpClientInterface $client;
 
     public function __construct(HttpClientInterface $client)

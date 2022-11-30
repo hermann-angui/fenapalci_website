@@ -30,8 +30,8 @@ class PaymentController extends AbstractController
     }
 
     #[Route(path: '/summary', name: 'app_payment_summary')]
-    public function summaryPayment(Request                      $request,
-                                   WaveService                  $waveService,
+    public function summaryPayment(Request  $request,
+                                   WaveService $waveService,
                                    PaymentTransactionRepository $paymentTransactionRepository): Response
     {
 
