@@ -1108,7 +1108,7 @@ table img {
 
 #block-views-block-featured-carousel-block-1 .views-row {
     color: #fff;
-    background-color: var(--dark-magenta);
+    background-color: var(--magenta);
 }
 
 #block-views-block-featured-carousel-block-1 .views-row h2 {
@@ -1289,7 +1289,7 @@ table img {
 }
 
 .site-footer .content a.btn.btn-primary:hover, a.btn.btn-primary:hover {
-    background-color: #95a300;
+    background-color: var(--yellow);
     border-color: #e0e0e0;
 }
 
@@ -1528,7 +1528,7 @@ body {
 }
 
 #navbar-top {
-    background-color: var(--black);
+    background-color: var(--yellow);
 }
 
 #navbar-main {

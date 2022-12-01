@@ -127,6 +127,7 @@
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/myclabs/deep-copy" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/liip/test-fixtures-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/web-profiler-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/app/templates/themeforest" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -51,79 +51,35 @@
                                 data-target="#CollapsingNavbar" aria-controls="CollapsingNavbar" aria-expanded="false"
                                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                         <section class="row region region-secondary-menu">
-                            <nav role="navigation" aria-labelledby="block-liensrapides-menu" id="block-liensrapides"
-                                 class="block block-menu navigation menu--liens-rapides">
+                            <nav role="navigation" aria-labelledby="block-liensrapides-menu" id="block-liensrapides" class="block block-menu navigation menu--liens-rapides">
 
                                 <h2 class="sr-only" id="block-liensrapides-menu">Liens Rapides</h2>
 
-
                                 <ul class="clearfix nav">
                                     <li class="nav-item">
-                                        <a href="/fr/acheter-adhesion" class="nav-link nav-link--fr-acheter-adhesion">Devenir
-                                            membre</a>
+                                        <a href="/fr/acheter-adhesion" class="nav-link nav-link--fr-acheter-adhesion">Devenir membre</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="/fr/devenez-membre/renouvelez-votre-adhesion"
-                                           class="nav-link nav-link--fr-devenez-membre-renouvelez-votre-adhesion">Renouveler</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/fr/en-bref/nous-joindre"
-                                           class="nav-link nav-link--fr-en-bref-nous-joindre"
-                                           data-drupal-link-system-path="node/406">Nous joindre</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/fr/sitemap" class="nav-link nav-link--fr-sitemap"
-                                           data-drupal-link-system-path="sitemap">Plan du site</a>
+                                        <a href="" class="" data-drupal-link-system-path="node/406">Nous contacter</a>
                                     </li>
                                 </ul>
 
-
                             </nav>
-                            <div class="language-switcher-language-url block block-language block-language-blocklanguage-interface"
-                                 id="block-languageswitcher" role="navigation">
-
+                            <div id="block-print" class="block block-block-content block-block-content3712e72b-a0a4-43f2-8c01-c931314fcec1">
 
                                 <div class="content">
-
-
-                                    <nav class="links nav links-inline"><span hreflang="en"
-                                                                              data-drupal-link-system-path="&lt;front&gt;"
-                                                                              class="en nav-link"><a href="/en"
-                                                                                                     class="language-link"
-                                                                                                     hreflang="en"
-                                                                                                     data-drupal-link-system-path="&lt;front&gt;">English</a></span><span
-                                                hreflang="fr" data-drupal-link-system-path="&lt;front&gt;"
-                                                class="fr nav-link is-active"><a href="/fr"
-                                                                                 class="language-link is-active"
-                                                                                 hreflang="fr"
-                                                                                 data-drupal-link-system-path="&lt;front&gt;">Français</a></span>
-                                    </nav>
-
-                                </div>
-                            </div>
-                            <div id="block-print"
-                                 class="block block-block-content block-block-content3712e72b-a0a4-43f2-8c01-c931314fcec1">
-
-
-                                <div class="content">
-
                                     <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item">
-                                        <a href="javascript:window.print()"><i class="fas fa-print"></i></a></div>
-
+                                        <a href="javascript:window.print()"><i class="fas fa-print"></i></a>
+                                    </div>
                                 </div>
                             </div>
-                            <nav role="navigation" aria-labelledby="block-useraccountmenu-menu"
-                                 id="block-useraccountmenu" class="block block-menu navigation menu--account">
+                            <nav role="navigation" aria-labelledby="block-useraccountmenu-menu" id="block-useraccountmenu" class="block block-menu navigation menu--account">
 
                                 <h2 class="sr-only" id="block-useraccountmenu-menu">User account menu</h2>
 
-
                                 <div block="block-useraccountmenu" class="clearfix nav">
-                                    <a href="/fr/user/login?current=/fr/mes-voyages/destinations/canada/courtes-escapades"
-                                       class="nav-link nav-link--fr-user-login"
-                                       data-drupal-link-system-path="user/login">Se connecter</a>
+                                    <a href="{{ path('app_login') }}" class="nav-link nav-link--fr-user-login" data-drupal-link-system-path="user/login">Se connecter</a>
                                 </div>
-
 
                             </nav>
 
@@ -161,25 +117,15 @@
 
                                     <div class="content container-inline">
                                         <div class="content container-inline">
-                                            <form action="/fr/search/pages" method="get" id="search-block-form"
-                                                  accept-charset="UTF-8" class="search-form search-block-form form-row">
-
-                                                <fieldset
-                                                        class="js-form-item js-form-type-search form-type-search js-form-item-keys form-item-keys form-no-label form-group">
+                                            <form action="" method="get" id="search-block-form" accept-charset="UTF-8" class="search-form search-block-form form-row">
+                                                <fieldset class="js-form-item js-form-type-search form-type-search js-form-item-keys form-item-keys form-no-label form-group">
                                                     <label for="edit-keys" class="sr-only">Rechercher</label>
-                                                    <input title="Indiquer les termes à rechercher"
-                                                           data-drupal-selector="edit-keys" type="search" id="edit-keys"
-                                                           name="keys" value="" size="15" maxlength="128"
-                                                           class="form-search form-control"/>
-
+                                                    <input title="Indiquer les termes à rechercher" data-drupal-selector="edit-keys" type="search" id="edit-keys" name="keys" value="" size="15" maxlength="128" class="form-search form-control"/>
                                                 </fieldset>
                                                 <div data-drupal-selector="edit-actions"
                                                      class="form-actions js-form-wrapper form-group" id="edit-actions">
-                                                    <input data-drupal-selector="edit-submit" type="submit"
-                                                           id="edit-submit" value="Rechercher"
-                                                           class="button js-form-submit form-submit btn btn-primary form-control"/>
+                                                    <input data-drupal-selector="edit-submit" type="submit" id="edit-submit" value="Rechercher" class="button js-form-submit form-submit btn btn-primary form-control"/>
                                                 </div>
-
                                             </form>
 
                                         </div>
@@ -199,25 +145,16 @@
 
                                 <ul block="block-nafr-main-menu" class="clearfix nav navbar-nav">
                                     <li class="nav-item menu-item--expanded dropdown">
-                                        <a href="" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown"
-                                           aria-expanded="false" aria-haspopup="true">Défense des intérêts</a>
+                                        <a href="" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Défense des intérêts</a>
                                         <ul class="dropdown-menu">
                                             <li class="dropdown-item menu-item--collapsed">
-                                                <a href="/fr/defense-des-interets/nos-priorites"
-                                                   class="nav-link--fr-defense-des-interets-nos-priorites"
-                                                   data-drupal-link-system-path="node/2">Nos priorités</a>
+                                                <a href="" class="nav-link--fr-defense-des-interets-nos-priorites" data-drupal-link-system-path="node/2">Nos priorités</a>
                                             </li>
                                             <li class="dropdown-item">
-                                                <a href="/fr/advocacy/the-latest"
-                                                   class="nav-link--fr-advocacy-the-latest"
-                                                   data-drupal-link-system-path="advocacy/the-latest">Actualités sur la
-                                                    défense des intérêts</a>
+                                                <a href="" class="nav-link--fr-advocacy-the-latest" data-drupal-link-system-path="advocacy/the-latest">Actualités sur la défense des intérêts</a>
                                             </li>
                                             <li class="dropdown-item menu-item--collapsed">
-                                                <a href="/fr/defense-des-interets/defense-des-interets-en-action"
-                                                   class="nav-link--fr-defense-des-interets-defense-des-interets-en-action"
-                                                   data-drupal-link-system-path="node/1400">Défense des intérêts en
-                                                    action</a>
+                                                <a href="/fr/defense-des-interets/defense-des-interets-en-action" class="nav-link--fr-defense-des-interets-defense-des-interets-en-action" data-drupal-link-system-path="node/1400">Défense des intérêts en action</a>
                                             </li>
                                             <li class="dropdown-item">
                                                 <a href="/fr/defense-des-interets/soins-de-longue-duree-a-domicile"
