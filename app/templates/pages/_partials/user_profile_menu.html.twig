@@ -1,0 +1,42 @@
+<div class=" sidebar col-md-3 order-first" id="sidebar_first">
+    <aside class="section" role="complementary">
+        <nav role="navigation" aria-labelledby="block-ataglance-menu" id="block-ataglance" class="block block-menu navigation menu--footer">
+
+            <h2 id="block-ataglance-menu">En Bref</h2>
+
+            <ul class="clearfix nav navbar-nav">
+                <li class="nav-item">
+                    <a class="list-group-item text-danger bg-danger-soft-hover" href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt fa-fw me-2"></i>Me déconnecter</a>
+                    <a href="/fr/en-bref/gouvernance" class="nav-link nav-link--fr-en-bref-gouvernance" data-drupal-link-system-path="node/51">Gouvernance</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ path('app_user_dashboard') }}" class="nav-link {{ active == 'dashboard' ? 'is-active active': '' }}"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Tableau de bord</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ path('app_user_edit_account') }}" class="nav-link {{ active == 'edit_account' ? 'is-active active': '' }}"><i class="bi bi-pencil-square fa-fw me-2"></i>Modifier mon compte</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ path('app_user_order') }}" class="nav-link {{ active == 'payment' ? 'is-active active': '' }}"><i class="bi bi-currency-dollar fa-fw me-2"></i>Mes versements</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ path('app_user_company') }}" class="nav-link {{ active == 'order' ? 'is-active active': '' }}"><i class="bi bi-basket fa-fw me-2"></i>Mes commandes</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ path('app_user_employee') }}" class="nav-link {{ active == 'company' ? 'is-active active': '' }}"><i class="bi bi-clock fa-fw me-2"></i>Mes entreprises</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ path('app_user_configuration') }}" class="nav-link {{ active == 'app_user_configuration' ? 'is-active active': '' }}"><i class="bi bi-folder-check fa-fw me-2"></i>Mes employés</a>
+                </li>
+            </ul>
+
+
+
+        </nav>
+        <div id="block-whatmemberssaycontact" class="block block-block-content">
+            <div class="content">
+            </div>
+        </div>
+
+
+    </aside>
+</div>

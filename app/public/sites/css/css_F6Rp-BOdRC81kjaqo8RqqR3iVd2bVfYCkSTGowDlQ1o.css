@@ -117,7 +117,7 @@ ul.menu {
 
 #navbar-top .nav-link {
     padding: 0rem 1rem;
-    border-left: 1px white solid;
+    /*border-left: 1px white solid;*/
 }
 
 #navbar-top .nav .nav-item:first-child .nav-link {
@@ -231,7 +231,7 @@ ul.menu {
 }
 
 #block-nafr-main-menu .nav.navbar-nav > li:hover {
-    background-color: var(--dark-purple);
+    background-color: var(--magenta);
     color: var(--white);
 }
 
@@ -393,39 +393,39 @@ body .node--type-directory h2 {
 }
 
 .featured-top {
-    background: #ffffff;
+    background: #1183ac;
 }
 
 .path-defense-des-interets .featured-top, .path-advocacy .featured-top {
-    background: #c3d600;
+    background: #1183ac;
 }
 
 .path-sections .featured-top, .path-branches .featured-top {
-    background: #28998b;
+    background: #1183ac;
 }
 
 .path-news-views .featured-top, .path-news-and-events .featured-top, .path-nouvelles-opinions .featured-top {
-    background: #d0112b;
+    background: #1183ac;
 }
 
 .path-mes-voyages .featured-top, .path-my-travel .featured-top, .path-about-us .featured-top, .path-a-propos-de-nous .featured-top {
-    background: #f6a704;
+    background: #1183ac;
 }
 
 .path-mon-argent .featured-top, .path-my-money .featured-top {
-    background: #80bd01;
+    background: #1183ac;
 }
 
 .path-ma-sante .featured-top, .path-my-health .featured-top, .path-volunteers .featured-top, .path-benevoles .featured-top {
-    background: #00a6cf;
+    background: #1183ac;
 }
 
 .path-devenez-membre .featured-top, .path-joining-us .featured-top, .path-members .featured-top, .path-membres .featured-top, .path-preferred-partners .featured-top, .path-partenaires-privilegies .featured-top {
-    background: #6e2f75;
+    background: #1183ac;
 }
 
 .path-mon-style-de-vie .featured-top, .path-my-lifestyle .featured-top, .path-publications .featured-top {
-    background: #dc5f13;
+    background: #1183ac;
 }
 
 .pillar-header img {
@@ -838,7 +838,7 @@ fieldset.communication-preferences .fieldset-wrapper {
 }
 
 .site-footer__bottom {
-    background-color: #012639;
+    background-color: var(--dark-purple);
 }
 
 .site-footer__bottom .region {
@@ -1441,7 +1441,7 @@ table img {
     }
 
     #block-nafr-main-menu .nav.navbar-nav > li .nav-link {
-        border-right: 1px black solid;
+        border-right: 1px solid #5d2e6d;
     }
 
     #block-nafr-main-menu .nav.navbar-nav .dropdown-menu {
@@ -1540,11 +1540,11 @@ a, .link {
 }
 
 a:hover, a:focus, .link:hover, .link:focus {
-    color: #124d6d;
+    color: var(--white);
 }
 
 a:active, .link:active {
-    color: #267cab;
+    color: var(--white);
 }
 
 .page-item.active .page-link {
@@ -1571,11 +1571,11 @@ a:active, .link:active {
 }
 
 .site-footer {
-    background: #23485b;
+    background: var(--dark-purple);
 }
 
 .site-footer__bottom {
-    background-color: #012539;
+    background-color: var(--dark-purple);
 }
 
 .region-header, .region-header a, .region-header li a.is-active, .region-header .site-branding__text, .region-header .site-branding, .region-header .site-branding__text a, .region-header .site-branding a, .region-secondary-menu .menu-item a, .region-secondary-menu .menu-item a.is-active {

@@ -40,15 +40,6 @@ class UserFormType extends AbstractType
                 'label' => 'Email',
                 'mapped' => true,
             ])
-            ->add('plain_password',RepeatedType::class, [
-                'type' => PasswordType::class,
-                'invalid_message' => 'Mot de passe différent.',
-                'options' => ['attr' => ['class' => 'password-field']],
-                'required' => false,
-                'mapped' => true,
-                'first_options'  => ['label' => 'Mot de passe'],
-                'second_options' => ['label' => 'Confirmer votre mot de passe'],
-            ])
             ->add('firstname',TextType::class,[
                 'required' => false,
                 'label' => 'Prénoms',

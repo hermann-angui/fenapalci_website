@@ -62,7 +62,7 @@ class UserController extends AbstractController
             $userRepository->add($user, true);
         }
 
-        return $this->render('user/edit_account.html.twig', [
+        return $this->render('pages/user/edit_account.html.twig', [
             'user' => $this->getUser(),
             'active' => 'edit_account',
             'userForm' => $form->createView(),
@@ -98,7 +98,7 @@ class UserController extends AbstractController
      // $paymentStats = $paymentTransactionRepository->findTotalAmountPayByUser($this->getUser());
         $payments = $paymentTransactionRepository->findBy(['payer' => $this->getUser()]);
 
-        return $this->render('user/payment.html.twig', [
+        return $this->render('pages/user/payment.html.twig', [
             'user' => $this->getUser(),
             'active' => 'order',
             'payments' => $payments,
@@ -124,7 +124,7 @@ class UserController extends AbstractController
 //        $response = $this->redirectIfNotAllow();
 //        if($response) return $response;
 
-        return $this->render('user/company.html.twig', [
+        return $this->render('pages/user/company.html.twig', [
             'user' => $this->getUser(),
             'active' => 'company',
             'companies' => $companyRepository->findBy(['owner' => $this->getUser()])
@@ -143,7 +143,7 @@ class UserController extends AbstractController
         foreach ($companies as $company){
             $staffList = array_merge($staffList, $staffRepository->findBy(['company' => $company->getId()]));
         }
-        return $this->render('user/employee.html.twig', [
+        return $this->render('pages/user/employee.html.twig', [
             'user' => $this->getUser(),
             'active' => 'employee',
             'employees' => $staffList
@@ -156,7 +156,7 @@ class UserController extends AbstractController
 //        $response = $this->redirectIfNotAllow();
 //        if($response) return $response;
 
-        return $this->render('user/dashboard.html.twig', [
+        return $this->render('pages/user/dashboard.html.twig', [
             'user' => $this->getUser(),
             'active' => 'dashboard',
         ]);
@@ -168,7 +168,7 @@ class UserController extends AbstractController
 //        $response = $this->redirectIfNotAllow();
 //        if($response) return $response;
 
-        return $this->render('user/configuration.html.twig', [
+        return $this->render('pages/user/configuration.html.twig', [
             'user' => $this->getUser(),
             'active' => 'configuration',
         ]);
@@ -180,7 +180,7 @@ class UserController extends AbstractController
 //        $response = $this->redirectIfNotAllow();
 //        if($response) return $response;
 
-        return $this->render('user/index.html.twig', [
+        return $this->render('pages/user/index.html.twig', [
             'users' => $userRepository->findAll(),
         ]);
     }
@@ -192,7 +192,7 @@ class UserController extends AbstractController
 //        $response = $this->redirectIfNotAllow();
 //        if($response) return $response;
 
-        return $this->render('user/show.html.twig', [
+        return $this->render('pages/user/show.html.twig', [
             'user' => $user,
         ]);
     }
@@ -212,7 +212,7 @@ class UserController extends AbstractController
             return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('user/edit.html.twig', [
+        return $this->renderForm('pages/user/edit.html.twig', [
             'user' => $user,
             'form' => $form,
         ]);

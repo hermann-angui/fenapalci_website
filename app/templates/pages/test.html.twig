@@ -1,1286 +1,372 @@
-<!DOCTYPE html>
-<html lang="fr" dir="ltr"
-      prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# ">
-<head>
-    <meta charset="utf-8"/>
-    <link rel="canonical" href="https://www.retraitesfederaux.ca/fr"/>
-    <link rel="shortlink" href="https://www.retraitesfederaux.ca/fr"/>
-    <meta name="description"
-          content="Still a force — join 176,000 fellow members who share a common purpose — making retirement better for federal retirees, veterans, and all Canadians"/>
-    <meta name="keywords"
-          content="NAFR, National Association of Federal Retirees, Federal Retirees, Canadian pensions, pensions, retirement, superannuation, seniors, federal public service of Canada, Canadian Forces, veterans, RCMP, health, retirement planning,Federal Superannuates,FSNA"/>
-    <meta name="Generator" content="Drupal 9 (https://www.drupal.org)"/>
-    <meta name="MobileOptimized" content="width"/>
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-    <link rel="icon" href="/themes/nafr/favicon.ico" type="image/vnd.microsoft.icon"/>
-    <link rel="alternate" hreflang="en" href="https://www.retraitesfederaux.ca/en"/>
-    <link rel="alternate" hreflang="fr" href="https://www.retraitesfederaux.ca/fr"/>
-    <script src="/sites/js/google_tag.script.js?rm4t89" defer></script>
+{% extends 'main.html.twig' %}
 
-    <title>National Association of Federal Retirees</title>
-    <link rel="stylesheet" media="all"
-          href="/sites/css/css_wdFn76ocR_CLUxJfhVZgjFabVWLXnSyMW2wVsMKkrZE.css"/>
-    <link rel="stylesheet" media="all"
-          href="/sites/css/css_YXorpN3TP_aNtJqKUz28p70SiXEcz6FPgsVkpTyYoec.css"/>
-    <link rel="stylesheet" media="all" href="//stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"/>
-    <link rel="stylesheet" media="all"
-          href="/sites/css/css_F6Rp-BOdRC81kjaqo8RqqR3iVd2bVfYCkSTGowDlQ1o.css"/>
-    <link rel="stylesheet" media="all" href="//use.fontawesome.com/releases/v5.7.2/css/all.css"/>
-    <link rel="stylesheet" media="print"
-          href="/sites/css/css_Y4H_4BqmgyCtG7E7YdseTs2qvy9C34c51kBamDdgark.css"/>
+{% block stylesheet %}
+    {{ parent() }}
+{% endblock %}
 
 
-</head>
-<body class="layout-no-sidebars has-featured-top page-node-1 path-suivez-nous path-membership path-suivez-nous-membership i18n-fr role-anonymous path-frontpage node--type-page">
-<a href="#main-content" class="visually-hidden focusable skip-link">
-    Aller au contenu principal
-</a>
-<noscript aria-hidden="true">
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZR89D" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe>
-</noscript>
-<div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
-    <div id="page-wrapper">
-        <div id="page">
-            <header id="header" class="header" role="banner" aria-label="Entête du site">
-                <nav class="navbar navbar-dark" id="navbar-top">
-                    <div class="container">
-                        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-                                data-target="#CollapsingNavbar" aria-controls="CollapsingNavbar" aria-expanded="false"
-                                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                        <section class="row region region-secondary-menu">
-                            <nav role="navigation" aria-labelledby="block-liensrapides-menu" id="block-liensrapides" class="block block-menu navigation menu--liens-rapides">
+{% block page_title %}
+    {{ include('_partials/page_title.html.twig') }}
+{% endblock %}
 
-                                <h2 class="sr-only" id="block-liensrapides-menu">Liens Rapides</h2>
+{% block body %}
+    <div id="main-wrapper" class="layout-main-wrapper clearfix">
+        <div id="main" class="container">
+            <div class="row row-offcanvas row-offcanvas-left clearfix">
+                <main class="main-content col" id="content" role="main">
+                    <section class="section">
+                        <a id="main-content" tabindex="-1"></a>
+                        <div id="block-nafr-content" class="block block-system block-system-main-block">
+                            <div class="content">
+                                <article data-history-node-id="1" role="article" about="/fr/suivez-nous/membership" >
+                                    <header>
+                                        <span property="schema:name" content="Accueil" class="rdf-meta hidden"></span>
+                                    </header>
+                                    <div class="node__content clearfix">
+                                        <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item">
+                                            <div class="banner-bar">
+                                                <div class="row">
+                                                    <div class="col-lg-4 col-md-5">
+                                                        <a href="">
+                                                            <img alt="" height="80" src="{{ asset('sites/img/devenez_membre_364.png') }}" width="364"/>
+                                                        </a>
+                                                    </div>
 
-                                <ul class="clearfix nav">
-                                    <li class="nav-item">
-                                        <a href="/fr/acheter-adhesion" class="nav-link nav-link--fr-acheter-adhesion">Devenir membre</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="" class="" data-drupal-link-system-path="node/406">Nous contacter</a>
-                                    </li>
-                                </ul>
+                                                    <div class="col-lg-5 col-md-5 banner-col-left my-auto">
+                                                        <p>
+                                                            <strong>
+                                                                <span style="font-size: 16px;">Nous formons une famille — joignez près de 17 000 autres membres qui partagent un but commun.</span>
+                                                            </strong>
+                                                        </p>
+                                                    </div>
 
-                            </nav>
-                            <div id="block-print" class="block block-block-content block-block-content3712e72b-a0a4-43f2-8c01-c931314fcec1">
-
-                                <div class="content">
-                                    <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item">
-                                        <a href="javascript:window.print()"><i class="fas fa-print"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <nav role="navigation" aria-labelledby="block-useraccountmenu-menu" id="block-useraccountmenu" class="block block-menu navigation menu--account">
-
-                                <h2 class="sr-only" id="block-useraccountmenu-menu">User account menu</h2>
-
-                                <div block="block-useraccountmenu" class="clearfix nav">
-                                    <a href="{{ path('app_login') }}" class="nav-link nav-link--fr-user-login" data-drupal-link-system-path="user/login">Se connecter</a>
-                                </div>
-
-                            </nav>
-
-                        </section>
-
-
-                    </div>
-                </nav>
-                <nav class="navbar navbar-expand-lg" id="navbar-main">
-                    <div class="container">
-                        <section class="region region-header">
-                            <a href="/fr" title="Accueil" rel="home" class="navbar-brand">
-                                <img src="{{ asset('assets/images/logo-new.png') }}" style="width: 250px;height: 114px;" alt="Accueil" class="img-fluid d-inline-block align-top"/>
-                            </a>
-                            <div id="block-mailmunchscript" class="block block-block-content block-block-contentc549656a-ba84-491d-93bb-ae74fa3854cb">
-
-                                <div class="content">
-
-                                    <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item">
-                                        <!-- MailMunch for Federal Retirees -->
-                                        <!-- Paste this code right before the </head> tag on every page of your site. -->
-                                        <script>
-                                            document.write("<scr" + "ipt src='//a.mailmunch.co/app/v1/site.js' id='mailmunch-script' data-mailmunch-site-id='696039' async='async'></scr" + "ipt>");
-                                        </script>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        </section>
-
-                        <div class="form-inline navbar-form float-right">
-                            <section class="row region region-header-form">
-                                <div class="search-block-form block block-search block-search-form-block" data-drupal-selector="search-block-form" id="block-nafr-search" role="search">
-
-                                    <div class="content container-inline">
-                                        <div class="content container-inline">
-                                            <form action="" method="get" id="search-block-form" accept-charset="UTF-8" class="search-form search-block-form form-row">
-                                                <fieldset class="js-form-item js-form-type-search form-type-search js-form-item-keys form-item-keys form-no-label form-group">
-                                                    <label for="edit-keys" class="sr-only">Rechercher</label>
-                                                    <input title="Indiquer les termes à rechercher" data-drupal-selector="edit-keys" type="search" id="edit-keys" name="keys" value="" size="15" maxlength="128" class="form-search form-control"/>
-                                                </fieldset>
-                                                <div data-drupal-selector="edit-actions"
-                                                     class="form-actions js-form-wrapper form-group" id="edit-actions">
-                                                    <input data-drupal-selector="edit-submit" type="submit" id="edit-submit" value="Rechercher" class="button js-form-submit form-submit btn btn-primary form-control"/>
+                                                    <div class="col-lg-3 col-md-2 banner-col-join-now my-auto">
+                                                        <div class="banner-join-now">
+                                                            <p>
+                                                                <span style="font-size: 18px;">
+                                                                    <strong>
+                                                                        <a href="https://magasiner.federalretirees.ca/">
+                                                                            <span style="color: #e31837;">Adhérez</span>
+                                                                        </a>
+                                                                    </strong>
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </form>
-
+                                            </div>
                                         </div>
 
                                     </div>
-                                </div>
-
-                            </section>
-
+                                </article>
+                            </div>
                         </div>
-                        <div class="collapse navbar-collapse" id="CollapsingNavbar">
-                            <nav role="navigation" aria-labelledby="block-nafr-main-menu-menu" id="block-nafr-main-menu"
-                                 class="block block-menu navigation menu--main">
-
-                                <h2 class="sr-only" id="block-nafr-main-menu-menu">Main navigation</h2>
-
-
-                                <ul block="block-nafr-main-menu" class="clearfix nav navbar-nav">
-                                    <li class="nav-item menu-item--expanded dropdown">
-                                        <a href="" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Défense des intérêts</a>
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown-item menu-item--collapsed">
-                                                <a href="" class="nav-link--fr-defense-des-interets-nos-priorites" data-drupal-link-system-path="node/2">Nos priorités</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="" class="nav-link--fr-advocacy-the-latest" data-drupal-link-system-path="advocacy/the-latest">Actualités sur la défense des intérêts</a>
-                                            </li>
-                                            <li class="dropdown-item menu-item--collapsed">
-                                                <a href="/fr/defense-des-interets/defense-des-interets-en-action" class="nav-link--fr-defense-des-interets-defense-des-interets-en-action" data-drupal-link-system-path="node/1400">Défense des intérêts en action</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="/fr/defense-des-interets/soins-de-longue-duree-a-domicile"
-                                                   class="nav-link--fr-defense-des-interets-soins-de-longue-duree-a-domicile"
-                                                   data-drupal-link-system-path="node/1477">Soins de longue durée et à
-                                                    domicile</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="/fr/nouvelles-opinion/dernieres-nouvelles/renouvellement-rssfp"
-                                                   class="nav-link--fr-nouvelles-opinion-dernieres-nouvelles-renouvellement-rssfp"
-                                                   data-drupal-link-system-path="news-views/news-listing/pshcp-renewal">Renouvellement
-                                                    du RSSFP</a>
-                                            </li>
-                                        </ul>
-
-                                    </li>
-                                    <li class="nav-item menu-item--expanded dropdown">
-                                        <a href="" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown"
-                                           aria-expanded="false" aria-haspopup="true">Sections</a>
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown-item menu-item--collapsed">
-                                                <a href="/fr/sections/bienvenue" class="nav-link--fr-sections-bienvenue"
-                                                   data-drupal-link-system-path="node/18">Bienvenue</a>
-                                            </li>
-                                            <li class="dropdown-item menu-item--collapsed">
-                                                <a href="/fr/sections/alberta" class="nav-link--fr-sections-alberta"
-                                                   data-drupal-link-system-path="node/19">Alberta</a>
-                                            </li>
-                                            <li class="dropdown-item menu-item--collapsed">
-                                                <a href="/fr/sections/colombie-britannique"
-                                                   class="nav-link--fr-sections-colombie-britannique"
-                                                   data-drupal-link-system-path="node/20">Colombie-Britannique</a>
-                                            </li>
-                                            <li class="dropdown-item menu-item--collapsed">
-                                                <a href="/fr/sections/manitoba" class="nav-link--fr-sections-manitoba"
-                                                   data-drupal-link-system-path="node/21">Manitoba</a>
-                                            </li>
-                                            <li class="dropdown-item menu-item--collapsed">
-                                                <a href="/fr/sections/nouveau-brunswick"
-                                                   class="nav-link--fr-sections-nouveau-brunswick"
-                                                   data-drupal-link-system-path="node/22">Nouveau-Brunswick</a>
-                                            </li>
-                                            <li class="dropdown-item menu-item--collapsed">
-                                                <a href="/fr/sections/terre-neuve-labrador"
-                                                   class="nav-link--fr-sections-terre-neuve-labrador"
-                                                   data-drupal-link-system-path="node/23">Terre-Neuve et Labrador</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="/fr/sections/territoires-du-nord-ouest"
-                                                   class="nav-link--fr-sections-territoires-du-nord-ouest"
-                                                   data-drupal-link-system-path="node/24">Territoires du Nord-Ouest</a>
-                                            </li>
-                                            <li class="dropdown-item menu-item--collapsed">
-                                                <a href="/fr/sections/nouvelle-ecosse"
-                                                   class="nav-link--fr-sections-nouvelle-ecosse"
-                                                   data-drupal-link-system-path="node/25">Nouvelle-Écosse</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="/fr/sections/nunavut" class="nav-link--fr-sections-nunavut"
-                                                   data-drupal-link-system-path="node/26">Nunavut</a>
-                                            </li>
-                                            <li class="dropdown-item menu-item--collapsed">
-                                                <a href="/fr/sections/ontario" class="nav-link--fr-sections-ontario"
-                                                   data-drupal-link-system-path="node/27">Ontario</a>
-                                            </li>
-                                            <li class="dropdown-item menu-item--collapsed">
-                                                <a href="/fr/sections/lile-du-prince-edouard"
-                                                   class="nav-link--fr-sections-lile-du-prince-edouard"
-                                                   data-drupal-link-system-path="node/28">L&#039;Île-du-Prince-Édouard</a>
-                                            </li>
-                                            <li class="dropdown-item menu-item--collapsed">
-                                                <a href="/fr/sections/quebec" class="nav-link--fr-sections-quebec"
-                                                   data-drupal-link-system-path="node/29">Québec</a>
-                                            </li>
-                                            <li class="dropdown-item menu-item--collapsed">
-                                                <a href="/fr/sections/saskatchewan"
-                                                   class="nav-link--fr-sections-saskatchewan"
-                                                   data-drupal-link-system-path="node/30">Saskatchewan</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="/fr/sections/territoire-du-yukon"
-                                                   class="nav-link--fr-sections-territoire-du-yukon"
-                                                   data-drupal-link-system-path="node/31">Territoire du Yukon</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="/fr/sections/membres-internationaux"
-                                                   class="nav-link--fr-sections-membres-internationaux"
-                                                   data-drupal-link-system-path="node/32">Membres internationaux</a>
-                                            </li>
-                                        </ul>
-
-                                    </li>
-                                    <li class="nav-item menu-item--expanded dropdown">
-                                        <a href="" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown"
-                                           aria-expanded="false" aria-haspopup="true">Membres</a>
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown-item menu-item--collapsed">
-                                                <a href="/fr/devenez-membre/mega-campagne-de-recrutement"
-                                                   class="nav-link--fr-devenez-membre-mega-campagne-de-recrutement"
-                                                   data-drupal-link-system-path="node/1084">Méga campagne de
-                                                    recrutement</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="/fr/membres/comment-devenir-membre"
-                                                   class="nav-link--fr-membres-comment-devenir-membre"
-                                                   data-drupal-link-system-path="node/73">Comment devenir membre</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="/fr/membres/renouvelez-votre-adhesion"
-                                                   class="nav-link--fr-membres-renouvelez-votre-adhesion"
-                                                   data-drupal-link-system-path="node/1571">Renouvelez votre
-                                                    adhésion</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="/fr/membres/faites-cadeau-dune-adhesion"
-                                                   class="nav-link--fr-membres-faites-cadeau-dune-adhesion"
-                                                   data-drupal-link-system-path="node/1532">Faites cadeau d’une
-                                                    adhésion</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="/fr/membres/avantages-dune-adhesion"
-                                                   class="nav-link--fr-membres-avantages-dune-adhesion"
-                                                   data-drupal-link-system-path="node/447">Une adhésion qui a des
-                                                    avantages</a>
-                                            </li>
-                                            <li class="dropdown-item menu-item--collapsed">
-                                                <a href="/fr/membres/partenaires-privilegies"
-                                                   class="nav-link--fr-membres-partenaires-privilegies"
-                                                   data-drupal-link-system-path="node/43">Partenaires privilégiés</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="/fr/joining-us/membership-validation"
-                                                   class="nav-link--fr-joining-us-membership-validation"
-                                                   data-drupal-link-system-path="joining-us/membership-validation">Validation
-                                                    d&#039;adhésion actuelle</a>
-                                            </li>
-                                        </ul>
-
-                                    </li>
-                                    <li class="nav-item menu-item--expanded dropdown">
-                                        <a href="" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown"
-                                           aria-expanded="false" aria-haspopup="true">Bénévoles</a>
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown-item">
-                                                <a href="/fr/benevoles/devenir-benevole"
-                                                   class="nav-link--fr-benevoles-devenir-benevole"
-                                                   data-drupal-link-system-path="node/46">Devenir bénévole</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="/fr/benevoles/joignez-vous-a-notre-conseil-dadministration"
-                                                   class="nav-link--fr-benevoles-joignez-vous-a-notre-conseil-dadministration"
-                                                   data-drupal-link-system-path="node/75">Joignez-vous à notre Conseil
-                                                    d’administration</a>
-                                            </li>
-                                            <li class="dropdown-item menu-item--collapsed">
-                                                <a href="/fr/benevoles/programme-de-reconnaissance-des-benevoles"
-                                                   class="nav-link--fr-benevoles-programme-de-reconnaissance-des-benevoles"
-                                                   data-drupal-link-system-path="node/47">Programme de reconnaissance
-                                                    des bénévoles</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="https://www.federalretirees.ca/fr/user/login"
-                                                   class="nav-link-https--wwwfederalretireesca-fr-user-login">Connexion
-                                                    des bénévoles</a>
-                                            </li>
-                                        </ul>
-
-                                    </li>
-                                    <li class="nav-item menu-item--expanded dropdown">
-                                        <a href="" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown"
-                                           aria-expanded="false" aria-haspopup="true">Publications</a>
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown-item">
-                                                <a href="/fr/publications/la-revue-sage"
-                                                   class="nav-link--fr-publications-la-revue-sage"
-                                                   data-drupal-link-system-path="node/932">La Revue Sage</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="/fr/publications/reading-nook"
-                                                   class="nav-link--fr-publications-reading-nook"
-                                                   data-drupal-link-system-path="publications/reading-nook">Le coin
-                                                    lecture</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="/fr/publications/vous-vos-survivants"
-                                                   class="nav-link--fr-publications-vous-vos-survivants"
-                                                   data-drupal-link-system-path="node/1332">Vous et vos survivants</a>
-                                            </li>
-                                        </ul>
-
-                                    </li>
-                                    <li class="nav-item menu-item--expanded dropdown">
-                                        <a href="" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown"
-                                           aria-expanded="false" aria-haspopup="true">Nouvelles et opinions</a>
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown-item">
-                                                <a href="/fr/nouvelles-opinions/dernieres-nouvelles"
-                                                   class="nav-link--fr-nouvelles-opinions-dernieres-nouvelles"
-                                                   data-drupal-link-system-path="news-and-events/news-listing">Dernières
-                                                    nouvelles</a>
-                                            </li>
-                                            <li class="dropdown-item menu-item--collapsed">
-                                                <a href="/fr/nouvelles-opinions/centre-dinformation-de-retraites-federaux-sur-la-covid-19"
-                                                   class="nav-link--fr-nouvelles-opinions-centre-dinformation-de-retraites-federaux-sur-la-covid-19"
-                                                   data-drupal-link-system-path="node/1339">Centre d’information de
-                                                    Retraités fédéraux sur la COVID-19</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="/fr/nouvelles-opinions/abonnez-vous-a-notre-bulletin"
-                                                   class="nav-link--fr-nouvelles-opinions-abonnez-vous-a-notre-bulletin"
-                                                   data-drupal-link-system-path="node/1493">Abonnez-vous à notre
-                                                    bulletin</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="/fr/nouvelles-opinions/assemblee-annuelle-des-membres"
-                                                   class="nav-link--fr-nouvelles-opinions-assemblee-annuelle-des-membres"
-                                                   data-drupal-link-system-path="node/87">Assemblée annuelle des
-                                                    membres</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="/fr/nouvelles-opinions/semaine-des-veterans"
-                                                   class="nav-link--fr-nouvelles-opinions-semaine-des-veterans"
-                                                   data-drupal-link-system-path="node/1530">Semaine des vétérans</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="/fr/nouvelles-opinions/demandes-de-renseignements-des-medias"
-                                                   class="nav-link--fr-nouvelles-opinions-demandes-de-renseignements-des-medias"
-                                                   data-drupal-link-system-path="node/2206">Demandes de renseignements
-                                                    des médias</a>
-                                            </li>
-                                        </ul>
-
-                                    </li>
-                                    <li class="nav-item menu-item--expanded dropdown">
-                                        <a href="" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown"
-                                           aria-expanded="false" aria-haspopup="true">À propos de nous</a>
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown-item">
-                                                <a href="/fr/a-propos-de-nous/a-propos-des-retraites-federaux"
-                                                   class="nav-link--fr-a-propos-de-nous-a-propos-des-retraites-federaux"
-                                                   data-drupal-link-system-path="node/44">À propos des Retraités
-                                                    fédéraux</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="/fr/a-propos-de-nous/notre-histoire"
-                                                   class="nav-link--fr-a-propos-de-nous-notre-histoire"
-                                                   data-drupal-link-system-path="node/50">Notre histoire</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="/fr/a-propos-de-nous/conseil-dadministration"
-                                                   class="nav-link--fr-a-propos-de-nous-conseil-dadministration"
-                                                   data-drupal-link-system-path="node/45">Conseil
-                                                    d&#039;administration</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="/fr/a-propos-de-nous/plan-strategique"
-                                                   class="nav-link--fr-a-propos-de-nous-plan-strategique"
-                                                   data-drupal-link-system-path="node/48">Plan stratégique</a>
-                                            </li>
-                                        </ul>
-
-                                    </li>
-                                </ul>
-
-
-                            </nav>
-
-
-                        </div>
-                    </div>
-                </nav>
-            </header>
-            <div class="featured-top">
-                <aside class="featured-top__inner section container clearfix" role="complementary">
-                    <section class="region region-featured-top">
-                        <div class="views-element-container block block-views block-views-blockfeatured-carousel-block-1"
-                             id="block-views-block-featured-carousel-block-1">
-
-
+                        <div class="views-element-container block block-views block-views-blockadvocacy-news-block-2" id="block-views-block-advocacy-news-block-2">
+                            <h2>TITLE</h2>
                             <div class="content">
                                 <div>
-                                    <div class="view view-featured-carousel view-id-featured_carousel view-display-id-block_1 js-view-dom-id-24973784bebf441ca802de18037b871fb497d3c69f6bc92d36ce4587f7ae7e04">
-
-
+                                    <div class="">
                                         <div class="view-content">
-                                            <div class="skin-default">
-
-                                                <div id="views_slideshow_cycle_main_featured_carousel-block_1"
-                                                     class="views_slideshow_cycle_main views_slideshow_main">
-                                                    <div id="views_slideshow_cycle_teaser_section_featured_carousel-block_1"
-                                                         class="views_slideshow_cycle_teaser_section">
-                                                        <div id="views_slideshow_cycle_div_featured_carousel-block_1_0"
-                                                             class="views_slideshow_cycle_slide views_slideshow_slide views-row-1 views-row-odd">
-                                                            <div class="views-row views-row-0 views-row-odd views-row-first row">
-                                                                <div class="col-md-9">
-                                                                    <img loading="lazy"
-                                                                         src="/sites/img/Election_slider_1916770808.jpg"
-                                                                         width="858" height="300"
-                                                                         alt="Une femme souriante."
-                                                                         title="Budget fédéral de 2023" typeof="Image"/>
-
-
-                                                                </div>
-                                                                <div class="col-md-3">
-                                                                    <h2>Budget fédéral de 2023</h2>
-                                                                    <p><span>Donnez votre avis sur le prochain budget fédéral. Les outils en ligne de Retraités fédéraux facilitent votre implication.</span>
-                                                                    </p>
-                                                                    <p><a class="btn btn-lg btn-primary" role="button"
-                                                                          href="/fr/nouvelles-opinions/dernieres-nouvelles/novembre/le-budget-federal-de-2023-faites-connaitre-nos"
-                                                                          target="_blank">COMPTEZ SUR MOI</a></p>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-
-                                                        <div id="views_slideshow_cycle_div_featured_carousel-block_1_1"
-                                                             class="views_slideshow_cycle_slide views_slideshow_slide views-row-2 views_slideshow_cycle_hidden views-row-even">
-                                                            <div class="views-row views-row-1 views-row-even row">
-                                                                <div class="col-md-9">
-                                                                    <img loading="lazy"
-                                                                         src="/sites/default/files/2021-08/mcr2021_banniere-carrousel_0.png"
-                                                                         width="858" height="300"
-                                                                         alt="Méga campagne de recrutement de 2022."
-                                                                         title="Méga campagne de recrutement de 2022"
-                                                                         typeof="Image"/>
-
-
-                                                                </div>
-                                                                <div class="col-md-3">
-                                                                    <h2>La Méga campagne de recrutement est en
-                                                                        cours!</h2>
-                                                                    <p><span>Connaissez-vous quelqu’un qui devrait être membre de Retraités fédéraux? Référez un membre à l’Association et courez la chance de gagner l’un des 14 superbes prix.
-</span></p>
-                                                                    <p><a class="btn btn-lg btn-primary" role="button"
-                                                                          href="/fr/devenez-membre/mega-campagne-de-recrutement"
-                                                                          target="_blank">DITES-M’EN PLUS</a></p>
-
-
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-
-                                                        <div id="views_slideshow_cycle_div_featured_carousel-block_1_2"
-                                                             class="views_slideshow_cycle_slide views_slideshow_slide views-row-3 views_slideshow_cycle_hidden views-row-odd">
-                                                            <div class="views-row views-row-2 views-row-odd views-row-last row">
-                                                                <div class="col-md-9">
-                                                                    <img loading="lazy"
-                                                                         src="/sites/img/slider_member_557001676_0.jpg"
-                                                                         width="858" height="300"
-                                                                         alt="Une adhésion qui a des avantages."
-                                                                         title="Une adhésion qui a des avantages"
-                                                                         typeof="Image"/>
-
-
-                                                                </div>
-                                                                <div class="col-md-3">
-                                                                    <h2>Avantages d&#039;une adhésion</h2>
-                                                                    <p><span>Des démarches stratégiques de défense des intérêts aux partenaires privilégiés qui offrent des économies importantes, une adhésion à Retraités fédéraux comporte bien des avantages!</span>
-                                                                    </p>
-                                                                    <p><a class="btn btn-lg btn-primary"
-                                                                          href="/fr/devenez-membre/avantages-dune-adhesion"
-                                                                          role="button" target="_blank">DITES-M’EN
-                                                                            PLUS</a></p>
-
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
+                                            <div>
+                                                <div class="row bg-blue ">
+                                                    <div class="col-md-4">
 
                                                     </div>
-
-                                                </div>
-
-
-                                                <div class="views-slideshow-controls-bottom clearfix">
-                                                    <div id="views_slideshow_controls_text_featured_carousel-block_1"
-                                                         class="views_slideshow_controls_text">
-  <span id="views_slideshow_controls_text_previous_featured_carousel-block_1"
-        class="views_slideshow_controls_text_previous">
-  <a href="#">Précédent</a>
-</span>
-
-                                                        <span id="views_slideshow_controls_text_pause_featured_carousel-block_1"
-                                                              class="views_slideshow_controls_text_pause  views-slideshow-controls-text-status-play">
-  <a href="#">Pause</a>
-</span>
-
-                                                        <span id="views_slideshow_controls_text_next_featured_carousel-block_1"
-                                                              class="views_slideshow_controls_text_next">
-  <a href="#">Suivant</a>
-</span>
+                                                    <div class="col-md-4">
 
                                                     </div>
+                                                    <div class="col-md-4">
 
-
+                                                    </div>
                                                 </div>
                                             </div>
-
                                         </div>
-
                                     </div>
                                 </div>
-
                             </div>
                         </div>
-
                     </section>
 
-                </aside>
-            </div>
-            <div id="main-wrapper" class="layout-main-wrapper clearfix">
-                <div id="main" class="container">
-                    <div data-drupal-messages-fallback class="hidden"></div>
+                    <!--START -->
+                    <section class="py-6 py-lg-6">
+                        <div class="container">
+                            <!--  START -->
+                            <div class="row g-4 py-2">
+                                <!-- Category item -->
+                                <div class="col-sm-6 col-lg-12 col-xl-3">
+                                    <h4 class="text-white">Les composantes de la fédération</h4>
+                                    <p class="text-white">Ils participent à la vitalité de notre organisation et sont l'émanation de la vision de solidarité et de progrès de la FENAPAL-CI</p>
+                                </div>
 
+                                <!-- Category item -->
+                                <div class="col-sm-6 col-lg-4 col-xl-3">
+                                    <div class="card card-body shadow h-100">
+                                        <!-- Title and image -->
+                                        <div class="d-flex align-items-center">
+                                            <img src="{{ asset('assets/images/misc/espace_animation_1.jpg') }}" class="h-60px mb-2" alt="">
+                                            <div class="ms-3">
+                                                <h5 class="mb-0"><a href="#">Espaces d'animation</a></h5>
+                                                <p class="mb-0 small">268 membres</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                    <div class="row row-offcanvas row-offcanvas-left clearfix">
-                        <main class="main-content col" id="content" role="main">
-                            <section class="section">
-                                <a id="main-content" tabindex="-1"></a>
-                                <div id="block-nafr-content" class="block block-system block-system-main-block">
+                                <!-- Category item -->
+                                <div class="col-sm-6 col-lg-4 col-xl-3">
+                                    <div class="card card-body shadow h-100">
+                                        <!-- Title and image -->
+                                        <div class="d-flex align-items-center">
+                                            <img src="{{ asset('assets/images/misc/bar1.jpg') }}" class="h-60px mb-2" alt="">
+                                            <div class="ms-3">
+                                                <h5 class="mb-0"><a href="#">Espaces de restauration</a></h5>
+                                                <p class="mb-0 small">780 membres</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
+                                <!-- Category item -->
+                                <div class="col-sm-6 col-lg-4 col-xl-3">
+                                    <div class="card card-body shadow h-100">
+                                        <!-- Title and image -->
+                                        <div class="d-flex align-items-center">
+                                            <img src="{{ asset('assets/images/misc/espace_loisir_1.png') }}" class="h-60px mb-2" alt="">
+                                            <div class="ms-3">
+                                                <h5 class="mb-0"><a href="#">Espaces de loisirs</a></h5>
+                                                <p class="mb-0 small">576 membres</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--  END -->
 
-                                    <div class="content">
+                            <!-- START -->
+                            <div class="row g-4 h-100px">
+                            </div>
+                            <!-- END -->
+                        </div>
+                    </section>
 
+                    <!--START -->
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="bg-light rounded-3 p-4">
+                                        <!-- Slider START -->
+                                        <div class="tiny-slider arrow-round arrow-creative arrow-blur arrow-hover py-1">
+                                            <div class="tiny-slider-inner" data-autoplay="true" data-gutter="80" data-arrow="true" data-dots="false" data-items="5" data-items-lg="3" data-items-md="2" data-items-xs="1">
 
-                                        <article data-history-node-id="1" role="article"
-                                                 about="/fr/suivez-nous/membership" typeof="schema:WebPage"
-                                                 class="node node--type-page node--view-mode-full clearfix">
-                                            <header>
+                                                <!-- Item -->
+                                                <div>
+                                                    <div class="bg-body text-center rounded-2 border py-2 px-1 position-relative">
+                                                        <img src="{{  asset('assets/images/misc/mtn-ci.jpg') }}" class="h-40px d-block" alt="">
+                                                        <a href="#" class="text-primary-hover stretched-link"><span class="h6 ms-2">MTN  Côte d'Ivoire</span></a>
+                                                    </div>
+                                                </div>
+                                                <!-- Item -->
+                                                <div>
+                                                    <div class="bg-body text-center rounded-2 border py-2 px-1 position-relative">
+                                                        <img src="{{  asset('assets/images/misc/orange_ci.jpg') }}" class="h-40px d-block" alt="">
+                                                        <a href="#" class="text-primary-hover stretched-link"><span class="h6 ms-2">Orange Côte d'Ivoire</span></a>
+                                                    </div>
+                                                </div>
+                                                <!-- Item -->
+                                                <div>
+                                                    <div class="bg-body text-center rounded-2 border py-2 px-1 position-relative">
+                                                        <img src="{{  asset('assets/images/misc/smart_logo.png') }}" class="h-40px d-block" alt="">
+                                                        <a href="#" class="text-primary-hover stretched-link"><span class="h6 ms-2">Smart Technology</span></a>
+                                                    </div>
+                                                </div>
+                                                <!-- Item -->
+                                                <div>
+                                                    <div class="bg-body text-center rounded-2 border py-2 px-1 position-relative">
+                                                        <img src="{{  asset('assets/images/misc/Haier-Logo.png') }}" class="h-40px d-blockd" alt="">
+                                                        <a href="#" class="text-primary-hover stretched-link"><span class="h6 ms-2">Haier Electronics</span></a>
+                                                    </div>
+                                                </div>
+                                                <!-- Item -->
+                                                <div>
+                                                    <div class="bg-body text-center rounded-2 border py-2 px-1 position-relative">
+                                                        <img src="{{  asset('assets/images/misc/nasco_logo.png') }}" class="h-40px d-block" alt="">
+                                                        <a href="#" class="text-primary-hover stretched-link"><span class="h6 ms-2">Nasco Electronics</span></a>
+                                                    </div>
+                                                </div>
+                                                <!-- Item -->
+                                                <div>
+                                                    <div class="bg-body text-center rounded-2 border py-2 px-1 position-relative">
+                                                        <img src="{{  asset('assets/images/misc/Samsung_Logo.png') }}" class="h-40px d-block" alt="">
+                                                        <a href="#" class="text-primary-hover stretched-link"><span class="h6 ms-2">Samsung Electronics</span></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Slider END -->
+                                    </div>
+                                </div>
+                            </div> <!-- Row END -->
+                        </div>
+                    </section>
 
-                                                <span property="schema:name" content="Accueil"
-                                                      class="rdf-meta hidden"></span>
-
-                                            </header>
-                                            <div class="node__content clearfix">
-
-                                                <div property="schema:text"
-                                                     class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item">
-                                                    <div class="banner-bar">
-                                                        <div class="row">
-                                                            <div class="col-lg-4 col-md-5"><a
-                                                                        href="fr/devenez-membre/comment-devenir-membre"><img
-                                                                            alt="" height="80"
-                                                                            src="/sites/default/files/2019-02/devenez_membre_364.png"
-                                                                            width="364"/></a></div>
-
-                                                            <div class="col-lg-5 col-md-5 banner-col-left my-auto">
-                                                                <p><strong><span style="font-size: 16px;">Toujours influente — joignez près de 170 000 autres membres qui partagent un but commun.</span></strong>
-                                                                </p>
+                    <!--START -->
+                    <section class="pb-0 pb-md-5">
+                        <div class="container">
+                            <!-- Title -->
+                            <div class="row mb-4">
+                                <h2 class="mb-0">Des séminaires de <span class="text-warning"> Formations </span> au bénéfice de nos membres</h2>
+                            </div>
+                            <div class="row">
+                                <!-- Slider START -->
+                                <div class="tiny-slider arrow-round arrow-creative arrow-blur arrow-hover">
+                                    <div class="tns-outer" id="tns2-ow">
+                                        <div class="tns-liveregion tns-visually-hidden" aria-live="polite" aria-atomic="true">slide <span class="current">9 to 11</span>  of 5</div>
+                                        <div id="tns2-mw" class="tns-ovh">
+                                            <div class="tns-inner" id="tns2-iw">
+                                                <div class="tiny-slider-inner  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal" data-autoplay="false" data-arrow="true" data-dots="false" data-items-xl="3" data-items-md="2" data-items-xs="1" id="tns2" style="transform: translate3d(-53.3333%, 0px, 0px);">
+                                                    <div class="card bg-transparent tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
+                                                        <div class="position-relative">
+                                                            <!-- Image -->
+                                                            <img src="{{ asset('assets/images/courses/4by3/16.jpg') }}" class="card-img" alt="course image">
+                                                            <!-- Overlay -->
+                                                            <div class="card-img-overlay d-flex align-items-start flex-column p-3">
+                                                                <div class="w-100 mt-auto">
+                                                                    <!-- Category -->
+                                                                    <a href="#" class="badge text-bg-white fs-6 rounded-1"><i class="far fa-calendar-alt text-orange me-2"></i> 10 janvier 2023</a>
+                                                                </div>
                                                             </div>
+                                                        </div>
 
-                                                            <div class="col-lg-3 col-md-2 banner-col-join-now my-auto">
-                                                                <div class="banner-join-now">
-                                                                    <p><span style="font-size: 18px;"><strong><a
-                                                                                        href="https://magasiner.federalretirees.ca/"><span
-                                                                                            style="color: #e31837;">Adhérez</span></a></strong></span>
-                                                                    </p>
+                                                        <!-- Card body -->
+                                                        <div class="card-body px-2">
+                                                            <!-- Title -->
+                                                            <h5 class="card-title"><a href="#">Technique comptable pour PME</a></h5>
+                                                            <!-- Address and button -->
+                                                            <div class="d-flex justify-content-between align-items-center">
+                                                                <address class="mb-0"><i class="fas fa-map-marker-alt me-2"></i>Bouaké</address>
+                                                                <a href="#" class="btn btn-sm btn-primary-soft mb-0">Participer</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card bg-transparent tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
+                                                        <div class="position-relative">
+                                                            <!-- Image -->
+                                                            <img src="{{ asset('assets/images/courses/4by3/17.jpg') }}" class="card-img" alt="course image">
+                                                            <!-- Overlay -->
+                                                            <div class="card-img-overlay d-flex align-items-start flex-column p-3">
+                                                                <div class="w-100 mt-auto">
+                                                                    <!-- Category -->
+                                                                    <a href="#" class="badge text-bg-white fs-6 rounded-1"><i class="far fa-calendar-alt text-orange me-2"></i>29 Septembre 2023</a>
                                                                 </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Card body -->
+                                                        <div class="card-body px-2">
+                                                            <!-- Title -->
+                                                            <h5 class="card-title"><a href="#">Hygiène du personnel</a></h5>
+                                                            <!-- Address and button -->
+                                                            <div class="d-flex justify-content-between align-items-center">
+                                                                <address class="mb-0"><i class="fas fa-map-marker-alt me-2"></i>Abidjan</address>
+                                                                <a href="#" class="btn btn-sm btn-primary-soft mb-0">Participer</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card bg-transparent tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
+                                                        <div class="position-relative">
+                                                            <!-- Image -->
+                                                            <img src="{{ asset('assets/images/courses/4by3/17.jpg') }}" class="card-img" alt="course image">
+                                                            <!-- Overlay -->
+                                                            <div class="card-img-overlay d-flex align-items-start flex-column p-3">
+                                                                <div class="w-100 mt-auto">
+                                                                    <!-- Category -->
+                                                                    <a href="#" class="badge text-bg-white fs-6 rounded-1"><i class="far fa-calendar-alt text-orange me-2"></i>29 Septembre 2023</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Card body -->
+                                                        <div class="card-body px-2">
+                                                            <!-- Title -->
+                                                            <h5 class="card-title"><a href="#">Relation avec les partenaires externes</a></h5>
+                                                            <!-- Address and button -->
+                                                            <div class="d-flex justify-content-between align-items-center">
+                                                                <address class="mb-0"><i class="fas fa-map-marker-alt me-2"></i>Abidjan</address>
+                                                                <a href="#" class="btn btn-sm btn-primary-soft mb-0">Participer</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card bg-transparent tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
+                                                        <div class="position-relative">
+                                                            <!-- Image -->
+                                                            <img src="{{ asset('assets/images/courses/4by3/16.jpg') }}" class="card-img" alt="course image">
+                                                            <!-- Overlay -->
+                                                            <div class="card-img-overlay d-flex align-items-start flex-column p-3">
+                                                                <div class="w-100 mt-auto">
+                                                                    <!-- Category -->
+                                                                    <a href="#" class="badge text-bg-white fs-6 rounded-1"><i class="far fa-calendar-alt text-orange me-2"></i>29 Septembre 2023</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Card body -->
+                                                        <div class="card-body px-2">
+                                                            <!-- Title -->
+                                                            <h5 class="card-title"><a href="#">Investissement</a></h5>
+                                                            <!-- Address and button -->
+                                                            <div class="d-flex justify-content-between align-items-center">
+                                                                <address class="mb-0"><i class="fas fa-map-marker-alt me-2"></i>Daloa</address>
+                                                                <a href="#" class="btn btn-sm btn-primary-soft mb-0">Participer</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card bg-transparent tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
+                                                        <div class="position-relative">
+                                                            <!-- Image -->
+                                                            <img src="{{ asset('assets/images/courses/4by3/17.jpg') }}" class="card-img" alt="course image">
+                                                            <!-- Overlay -->
+                                                            <div class="card-img-overlay d-flex align-items-start flex-column p-3">
+                                                                <div class="w-100 mt-auto">
+                                                                    <!-- Category -->
+                                                                    <a href="#" class="badge text-bg-white fs-6 rounded-1"><i class="far fa-calendar-alt text-orange me-2"></i>29 Septembre 2023</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Card body -->
+                                                        <div class="card-body px-2">
+                                                            <!-- Title -->
+                                                            <h5 class="card-title"><a href="#">Les impôts</a></h5>
+                                                            <!-- Address and button -->
+                                                            <div class="d-flex justify-content-between align-items-center">
+                                                                <address class="mb-0"><i class="fas fa-map-marker-alt me-2"></i>Abidjan</address>
+                                                                <a href="#" class="btn btn-sm btn-primary-soft mb-0">Participer</a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-
-                                            </div>
-                                        </article>
-
-                                    </div>
-                                </div>
-                                <div class="views-element-container block block-views block-views-blockadvocacy-news-block-2"
-                                     id="block-views-block-advocacy-news-block-2">
-
-                                    <h2>En vedette</h2>
-
-                                    <div class="content">
-                                        <div>
-                                            <div class="view view-advocacy-news view-id-advocacy_news view-display-id-block_2 js-view-dom-id-0b5098326cf2031f84fea1a673a5fa46f23504076bc8ecd4929160a0bc76a8a4">
-
-
-                                                <div class="view-content">
-                                                    <div>
-
-                                                        <ul class="row">
-
-                                                            <li class="col-md-4">
-                                                                <div class="views-field views-field-field-image">
-                                                                    <div class="field-content"><a
-                                                                                href="/fr/nouvelles-opinions/dernieres-nouvelles/novembre/taux-dindexation-des-pensions-pour-2023"><img
-                                                                                    loading="lazy"
-                                                                                    src="/sites/img/woman_1749759128.jpg"
-                                                                                    width="540" height="360"
-                                                                                    alt="Femme adulte souriante."
-                                                                                    title="Taux d’indexation des pensions pour 2023"
-                                                                                    typeof="foaf:Image"/>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="views-field views-field-title"><span
-                                                                            class="field-content"><a
-                                                                                href="/fr/nouvelles-opinions/dernieres-nouvelles/novembre/taux-dindexation-des-pensions-pour-2023"
-                                                                                hreflang="fr">Taux d’indexation des pensions pour 2023</a></span>
-                                                                </div>
-                                                            </li>
-                                                            <li class="col-md-4">
-                                                                <div class="views-field views-field-field-image">
-                                                                    <div class="field-content"><a
-                                                                                href="/fr/defense-des-interets/defense-des-interets-en-action/rayonnement-338"><img
-                                                                                    loading="lazy"
-                                                                                    src="/sites/img/2021-06/r338_1014559447_0.jpg"
-                                                                                    width="540" height="360"
-                                                                                    alt="Faites une différence, avec Rayonnement 338."
-                                                                                    title="Faites une différence, avec Rayonnement 338"
-                                                                                    typeof="foaf:Image"/>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="views-field views-field-title"><span
-                                                                            class="field-content"><a
-                                                                                href="/fr/defense-des-interets/defense-des-interets-en-action/rayonnement-338"
-                                                                                hreflang="fr">Faites une différence, avec Rayonnement 338</a></span>
-                                                                </div>
-                                                            </li>
-                                                            <li class="col-md-4">
-                                                                <div class="views-field views-field-field-image">
-                                                                    <div class="field-content"><a
-                                                                                href="/fr/nouvelles-opinions/dernieres-nouvelles/aout/lassociation-conclut-une-entente-par-rapport-au-rssfp"><img
-                                                                                    loading="lazy"
-                                                                                    src="/sites/img/2022-08/roypshcp_0.jpg"
-                                                                                    width="540" height="360"
-                                                                                    alt="Voici votre nouveau RSSPFP."
-                                                                                    title="Président de Retraités fédéraux, Roy Goodall"
-                                                                                    typeof="foaf:Image"/>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="views-field views-field-title"><span
-                                                                            class="field-content"><a
-                                                                                href="/fr/nouvelles-opinions/dernieres-nouvelles/aout/lassociation-conclut-une-entente-par-rapport-au-rssfp"
-                                                                                hreflang="fr">L’Association conclut une entente par rapport au RSSFP qui priorise les demandes des pensionné·e·s</a></span>
-                                                                </div>
-                                                            </li>
-
-                                                        </ul>
-
-                                                    </div>
-
-                                                </div>
-
                                             </div>
                                         </div>
-
-                                    </div>
-                                </div>
-                                <div class="views-element-container block block-views block-views-blockadvocacy-news-block-1"
-                                     id="block-views-block-front-latest-news-block">
-
-                                    <h2>Nouvelles</h2>
-
-                                    <div class="content">
-                                        <div>
-                                            <div class="view view-advocacy-news view-id-advocacy_news view-display-id-block_1 js-view-dom-id-418d310f8ad00bbeccb046e06907cd691c232d3179a92f225e2e141c619e1ace">
-
-
-                                                <div class="view-content">
-                                                    <div>
-
-                                                        <ul class="row">
-
-                                                            <li class="col-md-4">
-                                                                <div class="views-field views-field-field-image">
-                                                                    <div class="field-content"><a
-                                                                                href="/fr/nouvelles-opinions/dernieres-nouvelles/novembre/message-du-president-bilan-de-lannee"><img
-                                                                                    loading="lazy"
-                                                                                    src="/sites/img/roy_goodall_2022.jpg"
-                                                                                    width="5760" height="3840"
-                                                                                    alt="Roy Goodall, président des Retraités fédéraux."
-                                                                                    title="Roy Goodall, président des Retraités fédéraux"
-                                                                                    typeof="foaf:Image"/>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="views-field views-field-title"><span
-                                                                            class="field-content"><a
-                                                                                href="/fr/nouvelles-opinions/dernieres-nouvelles/novembre/message-du-president-bilan-de-lannee"
-                                                                                hreflang="fr">Message du président : Bilan de l’année</a></span>
-                                                                </div>
-                                                            </li>
-                                                            <li class="col-md-4">
-                                                                <div class="views-field views-field-field-image">
-                                                                    <div class="field-content"><a
-                                                                                href="/fr/nouvelles-opinions/dernieres-nouvelles/novembre/le-dg-de-lassociation-exige-un-meilleur-service-une"><img
-                                                                                    loading="lazy"
-                                                                                    src="/sites/img/pizzino_op-ed.jpg"
-                                                                                    width="540" height="360"
-                                                                                    alt="Anthony Pizzino, DG de l’Association nationale des retraités fédéraux."
-                                                                                    title="Les vétéran·e·s du Canada méritent mieux."
-                                                                                    typeof="foaf:Image"/>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="views-field views-field-title"><span
-                                                                            class="field-content"><a
-                                                                                href="/fr/nouvelles-opinions/dernieres-nouvelles/novembre/le-dg-de-lassociation-exige-un-meilleur-service-une"
-                                                                                hreflang="fr">Le DG de l’Association exige un meilleur service et une meilleure reddition de comptes pour les vétéran·e·s</a></span>
-                                                                </div>
-                                                            </li>
-                                                            <li class="col-md-4">
-                                                                <div class="views-field views-field-field-image">
-                                                                    <div class="field-content"><a
-                                                                                href="/fr/nouvelles-opinions/dernieres-nouvelles/novembre/la-colombie-britannique-souhaite-la-bienvenue-a-sa"><img
-                                                                                    loading="lazy"
-                                                                                    src="/sites/img/renate_apo.jpg"
-                                                                                    width="540" height="360"
-                                                                                    alt=" L’Association souhaite la bienvenue à sa nouvelle APDI, Renate Sutherland."
-                                                                                    title="Renate Sutherland"
-                                                                                    typeof="foaf:Image"/>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="views-field views-field-title"><span
-                                                                            class="field-content"><a
-                                                                                href="/fr/nouvelles-opinions/dernieres-nouvelles/novembre/la-colombie-britannique-souhaite-la-bienvenue-a-sa"
-                                                                                hreflang="fr">La Colombie-Britannique souhaite la bienvenue à sa nouvelle agente des programmes de défense des intérêts, Renate Sutherland</a></span>
-                                                                </div>
-                                                            </li>
-
-                                                        </ul>
-
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
+                                        <div class="tns-controls" aria-label="Carousel Navigation" tabindex="0">
+                                            <button type="button" data-controls="prev" tabindex="-1" aria-controls="tns2"><i class="fas fa-chevron-left"></i></button><button type="button" data-controls="next" tabindex="-1" aria-controls="tns2"><i class="fas fa-chevron-right"></i></button>
                                         </div>
-
                                     </div>
                                 </div>
-                                <div id="block-stayconnected"
-                                     class="block block-block-content block-block-content68b80fd1-338b-4dcd-9452-31c887c2a087">
-
-                                    <h2>Restez en contact</h2>
-
-                                    <div class="content">
-
-                                        <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item">
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div id="" class="mixed-content panel panel-figure">
-
-                                                        <div class="mixed-content  ">
-                                                            <a href="/fr/en-bref/nous-joindre" target="New Browser">
-                                                                <img src="/sites/img/phone_1593896728.jpg"
-                                                                     alt="Contact" width="356" height="237"
-                                                                     title="Contact">
-                                                            </a>
-
-                                                            <figcaption class="panel-body">
-                                                                <h3>
-                                                                    <a href="/fr/en-bref/nous-joindre"
-                                                                       target="New Browser">
-                                                                        Nous joindre
-                                                                    </a>
-                                                                </h3>
-                                                                <p><span style="font-family: arial; font-size: 16px;">Faites-nous des commentaires ou posez-nous une question sur les adhésions, la défense des intérêts, nos partenaires privilégiés ou quoi que ce soit d’autre. </span>
-                                                                </p>
-                                                                <!--
-                                                                <a class="btn btn-primary"></a>
-                                                                -->
-                                                            </figcaption>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-
-
-                                                    <div id="" class="mixed-content panel panel-figure">
-
-                                                        <div class="mixed-content  ">
-                                                            <a href="/fr/sections/bienvenue" target="New Browser">
-                                                                <img src="/sites/img/homepage_community_384225499.jpg"
-                                                                     alt="Communauté" width="356" height="237"
-                                                                     title="Communauté">
-                                                            </a>
-
-                                                            <figcaption class="panel-body">
-                                                                <h3>
-                                                                    <a href="/fr/sections/bienvenue"
-                                                                       target="New Browser">
-                                                                        Communauté
-                                                                    </a>
-                                                                </h3>
-                                                                <p><span style="font-family: arial; font-size: 16px;">Même s’il n’est pas possible de tenir des réunions en personne, les bénévoles et les sections trouvent toujours des moyens de vous permettre de garder le contact. </span>
-                                                                </p>
-                                                                <!--
-                                                                <a class="btn btn-primary" href="/fr/sections/bienvenue" target="New Browser"></a>
-                                                                -->
-                                                            </figcaption>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-
-
-                                                    <div id="" class="mixed-content panel panel-figure">
-
-                                                        <div class="mixed-content  ">
-                                                            <a href="/fr/user/login" target="New Browser">
-                                                                <img src="/sites/img/homepage_member_381104131.jpg"
-                                                                     alt="adhésion" width="356" height="237"
-                                                                     title="adhésion">
-                                                            </a>
-
-                                                            <figcaption class="panel-body">
-                                                                <h3>
-                                                                    <a href="/fr/user/login" target="New Browser">
-                                                                        Votre adhésion
-                                                                    </a>
-                                                                </h3>
-                                                                <p><span style="font-family: arial; font-size: 16px;">Modifiez votre profil, revoyez vos préférences de communication et accédez à des rabais exclusifs, des rapports et des articles.</span>
-                                                                </p>
-                                                                <!--
-                                                                <a class="btn btn-primary" href="/fr/user/login" target="New Browser"></a>
-                                                                -->
-                                                            </figcaption>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="views-element-container block block-views block-views-blockpartners-block-1"
-                                     id="block-views-block-partners-block-1">
-
-                                    <h2>Catégories de partenaires privilégiés</h2>
-
-                                    <div class="content">
-                                        <div>
-                                            <div class="view view-partners view-id-partners view-display-id-block_1 js-view-dom-id-7d198299f24ab9486b908ea52dc897dbd572507d770e78cc610f4f74ad2e842f">
-
-
-                                                <div class="view-content">
-                                                    <div class="item-list item-list--blazy item-list--blazy-column">
-                                                        <ul class="blazy blazy--view blazy--view--partners blazy--view--partners--block-1 blazy--view--partners-block-block-1 blazy--grid block-column block-count-6 large-block-column-3 list-group"
-                                                            data-blazy="" id="blazy-views-partners-block-block-1-1">
-                                                            <li class="grid list-group-item">
-                                                                <div class="grid__content"><a
-                                                                            href="/fr/en-bref/partenaires-privilegies#Voyages"
-                                                                            title="Voyages" target="_blank"> <img
-                                                                                loading="lazy"
-                                                                                src="/sites/default/files/2018-12/NAFR_WebsitePartnerGraphics_Travel-FR.png"
-                                                                                width="199" height="119"
-                                                                                alt="Partenaires voyages"
-                                                                                title="Voyages" typeof="foaf:Image"/>
-
-                                                                    </a></div>
-                                                            </li>
-                                                            <li class="grid list-group-item">
-                                                                <div class="grid__content"><a
-                                                                            href="/fr/en-bref/partenaires-privilegies#Finances"
-                                                                            title="Finances" target="_blank"> <img
-                                                                                loading="lazy"
-                                                                                src="/sites/default/files/2018-12/NAFR_WebsitePartnerGraphics_Financial-FR.png"
-                                                                                width="199" height="119"
-                                                                                alt="Partenaires conseils financiers"
-                                                                                title="Finances" typeof="foaf:Image"/>
-
-                                                                    </a></div>
-                                                            </li>
-                                                            <li class="grid list-group-item">
-                                                                <div class="grid__content"><a
-                                                                            href="/fr/en-bref/partenaires-privilegies#Sante"
-                                                                            title="Sante" target="_blank"> <img
-                                                                                loading="lazy"
-                                                                                src="/sites/default/files/2018-12/NAFR_WebsitePartnerGraphics_Health-FR.png"
-                                                                                width="199" height="119"
-                                                                                alt="Partenaires santé" title="Sante"
-                                                                                typeof="foaf:Image"/>
-
-                                                                    </a></div>
-                                                            </li>
-                                                            <li class="grid list-group-item">
-                                                                <div class="grid__content"><a
-                                                                            href="/fr/en-bref/partenaires-privilegies#Maison"
-                                                                            title="Maison" target="_blank"> <img
-                                                                                loading="lazy"
-                                                                                src="/sites/default/files/2018-12/NAFR_WebsitePartnerGraphics_HomeAuto-FR.png"
-                                                                                width="199" height="119"
-                                                                                alt="Partenaires services pour la maison et l&#039;auto"
-                                                                                title="Maison" typeof="foaf:Image"/>
-
-                                                                    </a></div>
-                                                            </li>
-                                                            <li class="grid list-group-item">
-                                                                <div class="grid__content"><a
-                                                                            href="/fr/en-bref/partenaires-privilegies#Technologiques"
-                                                                            title="Technologiques" target="_blank"> <img
-                                                                                loading="lazy"
-                                                                                src="/sites/default/files/2018-12/NAFR_WebsitePartnerGraphics_Technology-FR.png"
-                                                                                width="199" height="119"
-                                                                                alt="Partenaires technologiques"
-                                                                                title="Technologiques"
-                                                                                typeof="foaf:Image"/>
-
-                                                                    </a></div>
-                                                            </li>
-                                                            <li class="grid list-group-item">
-                                                                <div class="grid__content"><img loading="lazy"
-                                                                                                src="/sites/default/files/2018-12/NAFR_WebsitePartnerGraphics_PartnerLogo-FR.png"
-                                                                                                width="199" height="119"
-                                                                                                alt="Partenaires privilégiés"
-                                                                                                typeof="foaf:Image"/>
-
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-
-                            </section>
-                        </main>
-                    </div>
-                </div>
+                                <!-- Slider END -->
+                            </div>
+                        </div>
+                    </section>
+                </main>
             </div>
-            <footer class="site-footer">
-                <div class="container">
-                    <div class="site-footer__top clearfix">
-                        <section class="col col-md-3 region region-footer-first">
-                            <nav role="navigation" aria-labelledby="block-nafr-footer-menu" id="block-nafr-footer"
-                                 class="block block-menu navigation menu--footer">
-
-                                <h2 id="block-nafr-footer-menu">EN BREF</h2>
-
-
-                                <ul block="block-nafr-footer" class="clearfix nav navbar-nav">
-                                    <li class="nav-item">
-                                        <a href="/fr/en-bref/gouvernance"
-                                           class="nav-link nav-link--fr-en-bref-gouvernance"
-                                           data-drupal-link-system-path="node/51">Gouvernance</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/fr/en-bref/carri%C3%A8res"
-                                           class="nav-link nav-link--fr-en-bref-carric3a8res"
-                                           data-drupal-link-system-path="node/52">Carrières</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/fr/en-bref/declaration-de-confidentialite"
-                                           class="nav-link nav-link--fr-en-bref-declaration-de-confidentialite"
-                                           data-drupal-link-system-path="node/53">Déclaration de confidentialité</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/fr/en-bref/lignes-directrices-a-lintention-de-la-communaute-de-retraites-federaux"
-                                           class="nav-link nav-link--fr-en-bref-lignes-directrices-a-lintention-de-la-communaute-de-retraites-federaux"
-                                           data-drupal-link-system-path="node/1039">Lignes directrices – Communauté</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/fr/en-bref/etats-financiers"
-                                           class="nav-link nav-link--fr-en-bref-etats-financiers"
-                                           data-drupal-link-system-path="node/933">États financiers</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="https://www.federalretirees.ca/fr/nouvelles-opinions/demandes-de-renseignements-des-medias"
-                                           class="nav-link nav-link-https--wwwfederalretireesca-fr-nouvelles-opinions-demandes-de-renseignements-des-medias">Demandes
-                                            de renseignements des médias </a>
-                                    </li>
-                                </ul>
-
-
-                            </nav>
-
-                        </section>
-
-                        <section class="col col-md-5 region region-footer-second">
-                            <div id="block-letushelpyou"
-                                 class="block block-block-content block-block-content1137534f-8b0c-45c6-9356-07dbec2a4dec">
-
-                                <h2>ADHÉREZ À RETRAITÉS FÉDÉRAUX</h2>
-
-                                <div class="content">
-
-                                    <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item">
-                                        <p>Prêt à devenir membre?</p>
-
-                                        <p><a class="btn btn-primary" href="/fr/acheter-adhesion">Adhérez à
-                                                l’Association!</a></p>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        </section>
-
-                        <section class="col region region-footer-third">
-                            <div id="block-getintouch"
-                                 class="block block-block-content block-block-content70d11b32-e0ab-4b54-8b9d-f1f5ccb822c4">
-
-
-                                <div class="content">
-
-                                    <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item">
-                                        <h2><a href="/fr/en-bref/nous-joindre">NOUS JOINDRE</a></h2>
-
-                                        <p><strong><a href="mailto:service@retraitesfederaux.ca">service@retraitesfederaux.ca</a></strong>
-                                        </p>
-
-                                        <p><strong>1.855.304.4700</strong></p>
-
-                                        <p>T | 613.745.2559<br/>
-                                            F | 613.745.5457</p>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        </section>
-
-                        <section class="col region region-footer-fourth">
-                            <div id="block-followus"
-                                 class="block block-block-content block-block-contentbb6b9a8a-35fc-451d-8774-c670e5419e3a">
-
-
-                                <div class="content">
-
-                                    <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item">
-                                        <h2><a href="/fr/en-bref/suivez-nous">SUIVEZ NOUS</a></h2>
-                                        <ul class="social-links">
-                                            <li class="facebook-link"><a
-                                                        href="https://www.facebook.com/retraitesfederaux"
-                                                        target="blank"><i class="fab fa-facebook-square"></i></a></li>
-                                            <li class="twitter-link"><a href="https://twitter.com/retraitesfed"
-                                                                        target="blank"><i
-                                                            class="fab fa-twitter-square"></i></a></li>
-                                            <li class="linkedin-link"><a
-                                                        href="https://www.linkedin.com/company/retraitesfederaux/"
-                                                        target="blank"><i class="fab fa-linkedin"></i></i></a></li>
-                                        </ul>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        </section>
-
-                    </div>
-                </div>
-                <div class="site-footer__bottom">
-                    <div class="container">
-                        <section class="row region region-footer-fifth">
-                            <div id="block-copyright"
-                                 class="block block-block-content block-block-content96c8a23b-2932-4417-8bc9-4c1d94dc7cde">
-
-
-                                <div class="content">
-
-                                    <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item">
-                                        <p>© Association nationale des retraités fédéraux</p>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div id="block-privacylegaldisclaimer"
-                                 class="block block-block-content block-block-content6fb79ad8-706b-4b35-8ebc-204e17933692">
-
-
-                                <div class="content">
-
-                                    <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item">
-                                        <p><a href="/fr/en-bref/declaration-de-confidentialite">Confidentialité</a> | <a
-                                                    href="/fr/avis-de-non-responsabilite-civile">Avis de
-                                                non-responsabilité civile</a></p>
-
-
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        </section>
-
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
-</div>
+{% endblock %}
 
-
-<script type="application/json" data-drupal-selector="drupal-settings-json">{
-        "path": {
-            "baseUrl": "\/",
-            "scriptPath": null,
-            "pathPrefix": "fr\/",
-            "currentPath": "node\/1",
-            "currentPathIsAdmin": false,
-            "isFront": true,
-            "currentLanguage": "fr"
-        },
-        "pluralDelimiter": "\u0003",
-        "suppressDeprecationErrors": true,
-        "simple_popup_blocks": {
-            "settings": []
-        },
-        "blazy": {
-            "loadInvisible": false,
-            "offset": 100,
-            "saveViewportOffsetDelay": 50,
-            "validateDelay": 25,
-            "container": "",
-            "loader": true,
-            "unblazy": false,
-            "compat": true
-        },
-        "blazyIo": {
-            "disconnect": false,
-            "rootMargin": "0px",
-            "threshold": [
-                0,
-                0.25,
-                0.5,
-                0.75,
-                1
-            ]
-        },
-        "viewsSlideshowControls": {
-            "featured_carousel-block_1": {
-                "bottom": {
-                    "type": "viewsSlideshowControlsText"
-                }
-            }
-        },
-        "viewsSlideshowCycle": {
-            "#views_slideshow_cycle_main_featured_carousel-block_1": {
-                "num_divs": 3,
-                "id_prefix": "#views_slideshow_cycle_main_",
-                "div_prefix": "#views_slideshow_cycle_div_",
-                "vss_id": "featured_carousel-block_1",
-                "effect": "scrollRight",
-                "transition_advanced": 0,
-                "timeout": 5000,
-                "speed": 700,
-                "delay": 0,
-                "sync": 1,
-                "random": 0,
-                "pause": 1,
-                "pause_on_click": 1,
-                "action_advanced": 1,
-                "start_paused": 0,
-                "remember_slide": 0,
-                "remember_slide_days": 1,
-                "pause_in_middle": 0,
-                "pause_when_hidden": 1,
-                "pause_when_hidden_type": "full",
-                "amount_allowed_visible": "",
-                "nowrap": 0,
-                "fixed_height": 1,
-                "items_per_slide": 1,
-                "items_per_slide_first": 0,
-                "items_per_slide_first_number": 1,
-                "wait_for_image_load": 1,
-                "wait_for_image_load_timeout": 3000,
-                "cleartype": 0,
-                "cleartypenobg": 0,
-                "advanced_options": "{\u0022width\u0022:\u00221110\u0022}",
-                "advanced_options_choices": "containerResize",
-                "advanced_options_entry": true
-            }
-        },
-        "viewsSlideshow": {
-            "featured_carousel-block_1": {
-                "methods": {
-                    "goToSlide": [
-                        "viewsSlideshowSlideCounter",
-                        "viewsSlideshowPager",
-                        "viewsSlideshowCycle"
-                    ],
-                    "nextSlide": [
-                        "viewsSlideshowSlideCounter",
-                        "viewsSlideshowPager",
-                        "viewsSlideshowCycle"
-                    ],
-                    "pause": [
-                        "viewsSlideshowControls",
-                        "viewsSlideshowCycle"
-                    ],
-                    "play": [
-                        "viewsSlideshowControls",
-                        "viewsSlideshowCycle"
-                    ],
-                    "previousSlide": [
-                        "viewsSlideshowSlideCounter",
-                        "viewsSlideshowPager",
-                        "viewsSlideshowCycle"
-                    ],
-                    "transitionBegin": [
-                        "viewsSlideshowSlideCounter",
-                        "viewsSlideshowPager"
-                    ],
-                    "transitionEnd": []
-                },
-                "paused": 0
-            }
-        },
-        "ajaxTrustedUrl": {
-            "\/fr\/search\/pages": true
-        },
-        "user": {
-            "uid": 0,
-            "permissionsHash": "066ae2e2c49dde7d5241bca2490673e0b2779d332be8bad984f65638948e0281"
-        }
-    }</script>
-<script src="/sites/js/js_26ipVBUXrozPC5ymMiqmo3C-TY2e8A1kQmEgjsyrBkc.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script src="//stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="/sites/js/js_-DyQQfPuzFUeY0djEnEswHd2lUujFisoJalW_H2ZaNg.js"></script>
-
-
-</body>
-</html>
+{% block javascript %}
+    {{ parent() }}
+<script type="text/javascript">
+   jQuery(document).ready(function ($) {
+    });
+</script>
+{% endblock %}

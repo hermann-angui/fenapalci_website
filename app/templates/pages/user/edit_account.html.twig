@@ -1,0 +1,165 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <style>
+    </style>
+{% endblock %}
+
+{% block page_title %}
+    {{ include('_partials/page_title.html.twig') }}
+{% endblock %}
+
+{% block body %}
+    <div id="main-wrapper" class="layout-main-wrapper clearfix">
+        <div id="main" class="container">
+            <div class="row row-offcanvas row-offcanvas-left clearfix mt-5">
+                <main class="main-content col" id="content" role="main">
+                    <section class="section">
+                        <a id="main-content" tabindex="-1"></a>
+                        <div id="block-pagetitle" class="block block-core block-page-title-block">
+                            <div class="content">
+                                <h1 class="title">Nous joindre</h1>
+                            </div>
+                        </div>
+                        <div id="block-nafr-content" class="block block-system block-system-main-block">
+                            <div class="content">
+                                <div class="col-auto mt-4 mt-md-0">
+                                    <div class="avatar avatar-xxl mt-n3">
+                                        {% if user.photo is not null %}
+                                            <label for="user_form_photo">
+                                                <img id="imagePreview" src="{{ asset('users/') }}{{ user.photo }}" alt="" width="150" class="avatar-img rounded-circle border border-white border-3 shadow">
+                                                <span class="d-block position-relative text-dark" style="top:-30px;left:90px"><i class="fa fa-camera fa-2x"></i></span>
+                                                {{ form_widget(userForm.photo, {'attr': {'class': 'visually-hidden', 'id':'user_form_photo' }}) }}
+                                            </label>
+                                        {% else %}
+                                            <label for="user_form_photo">
+                                                <img id="imagePreview" class="avatar-img rounded-circle border border-white border-3 shadow" src="{{ asset('assets/images/avatar/avatar.jpg') }}" alt="">
+                                                <span class="d-block position-relative text-dark" style="top:-30px;left:90px"><i class="fa fa-camera fa-2x"></i></span>
+                                                {{ form_widget(userForm.photo, {'attr': {'class': 'visually-hidden', 'id': 'user_form_photo'}}) }}
+                                            </label>
+                                        {% endif %}
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="nafr-dynamics-contact-us-form block block-nafr-dynamics block-nafr-dynamics-contact-us-block" data-drupal-selector="nafr-dynamics-contact-us-form" id="block-contactusblock">
+
+                            <div class="content">
+                                {{ form_start(userForm) }}
+                                <div class="row g-4">
+                                    <!-- Full name -->
+                                    <div class="col-12">
+                                        <label class="form-label">Nom complet</label>
+                                        <div class="input-group">
+                                            {{ form_widget(userForm.firstname, {'attr': {'class': 'form-control'}}) }}
+                                            {{ form_widget(userForm.lastname, {'attr': {'class': 'form-control'}}) }}
+                                        </div>
+                                    </div>
+
+                                    <!-- Email id -->
+                                    <div class="col-md-6">
+                                        <label class="form-label">Email</label>
+                                        {{ form_widget(userForm.email, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+
+                                    <!-- Username -->
+                                    <div class="col-md-6">
+                                        <label class="form-label">Sexe</label>
+                                        {{ form_widget(userForm.sex, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+
+                                    <!-- Phone number -->
+                                    <div class="col-md-6">
+                                        <label class="form-label">Téléphone</label>
+                                        {{ form_widget(userForm.phone_number, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label">Nationalité</label>
+                                        {{ form_widget(userForm.nationality, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label">Date de naissance</label>
+                                        {{ form_widget(userForm.date_of_birth, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+
+                                    <!-- About me -->
+                                    <div class="col-md-6">
+                                        <label class="form-label">Lieu de naissance</label>
+                                        {{ form_widget(userForm.place_of_birth, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+
+                                    <!-- About me -->
+                                    <div class="col-md-6">
+                                        <label class="form-label">Ville</label>
+                                        {{ form_widget(userForm.city, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label">Commune</label>
+                                        {{ form_widget(userForm.commune, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label">Quartier</label>
+                                        {{ form_widget(userForm.quartier, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label">N° Passeport </label>
+                                        {{ form_widget(userForm.passport, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label">N° Carte d'identité </label>
+                                        {{ form_widget(userForm.cni, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label">Adresse </label>
+                                        {{ form_widget(userForm.address, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <input type="submit" class="btn btn-primary mb-0 rounded-0" value="Mettre à jour">
+                                    </div>
+                                </div>
+                                {{ form_end(userForm) }}
+                            </div>
+                        </div>
+
+
+                    </section>
+                </main>
+                {{ include('pages/_partials/user_profile_menu.html.twig', {active : 'edit_account'}) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block javascript %}
+   {{ parent() }}
+  <script>
+      $('document').ready(function() {
+			$("#user_form_photo").change(function(data){
+				var imageFile = data.target.files[0];
+				var reader = new FileReader();
+				reader.readAsDataURL(imageFile);
+
+				reader.onload = function(evt){
+					$('#imagePreview').attr('src', evt.target.result);
+					$('#imagePreview').hide();
+					$('#imagePreview').fadeIn(650);
+				}
+        	});
+      });
+   </script>
+{% endblock %}

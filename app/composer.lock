@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5aa4ad661aa5208dc42f2c39712c4ff5",
+    "content-hash": "7ee4882ceb7560054c8c71dede245faa",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -8386,40 +8386,40 @@
         },
         {
             "name": "nelmio/alice",
-            "version": "3.12.1",
+            "version": "v3.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/alice.git",
-                "reference": "e7d3275a9137bea1436b89f0fea770d0feca5358"
+                "reference": "e8646698ad50fea75551a14a43c0757814e09cea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/alice/zipball/e7d3275a9137bea1436b89f0fea770d0feca5358",
-                "reference": "e7d3275a9137bea1436b89f0fea770d0feca5358",
+                "url": "https://api.github.com/repos/nelmio/alice/zipball/e8646698ad50fea75551a14a43c0757814e09cea",
+                "reference": "e8646698ad50fea75551a14a43c0757814e09cea",
                 "shasum": ""
             },
             "require": {
                 "fakerphp/faker": "^1.10",
                 "myclabs/deep-copy": "^1.10",
-                "php": "^8.1",
+                "php": "^8.0",
                 "sebastian/comparator": "^3.0 || ^4.0",
-                "symfony/property-access": "^5.4 || ^6.0",
-                "symfony/yaml": "^5.4 || ^6.0"
+                "symfony/property-access": "^4.4 || ^5.4 || ^6.0",
+                "symfony/yaml": "^4.4 || ^5.4 || ^6.0"
             },
             "conflict": {
-                "symfony/framework-bundle": "<5.4.0"
+                "symfony/framework-bundle": "<4.4 || >=5.0.0,<5.2.0"
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.4.1",
                 "phpspec/prophecy": "^1.6",
                 "phpspec/prophecy-phpunit": "^2.0",
                 "phpunit/phpunit": "^9.3",
-                "symfony/config": "^5.4 || ^6.0",
-                "symfony/dependency-injection": "^5.4 || ^6.0",
-                "symfony/finder": "^5.4 || ^6.0",
-                "symfony/http-kernel": "^5.4 || ^6.0",
+                "symfony/config": "^4.4 || ^5.4 || ^6.0",
+                "symfony/dependency-injection": "^4.4 || ^5.4 || ^6.0",
+                "symfony/finder": "^4.4 || ^5.4 || ^6.0",
+                "symfony/http-kernel": "^4.4 || ^5.4 || ^6.0",
                 "symfony/phpunit-bridge": "^5.4 || ^6.0",
-                "symfony/var-dumper": "^5.4 || ^6.0"
+                "symfony/var-dumper": "^4.4 || ^5.4 || ^6.0"
             },
             "suggest": {
                 "theofidry/alice-data-fixtures": "Wrapper for Alice to provide a persistence layer."
@@ -8468,7 +8468,7 @@
             ],
             "support": {
                 "issues": "https://github.com/nelmio/alice/issues",
-                "source": "https://github.com/nelmio/alice/tree/3.12.1"
+                "source": "https://github.com/nelmio/alice/tree/v3.10.0"
             },
             "funding": [
                 {
@@ -8476,7 +8476,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-11-14T18:45:17+00:00"
+            "time": "2021-12-10T08:07:10+00:00"
         },
         {
             "name": "nikic/php-parser",
