@@ -22,6 +22,51 @@ class UserController extends AbstractController
 {
     use UserTrait;
 
+    #[Route('/testedit', name: 'app_testuser_edit_account', methods: ['GET', 'POST'])]
+    public function testEdit(Request $request,
+                            UserHelper $userHelper,
+                            UserPasswordHasherInterface $userPasswordHasher,
+                            UserRepository $userRepository): Response
+    {
+
+        $user = $this->getUser();
+
+        $session = $request->getSession();
+        $session->set('previous_photo', $this->getUser()->getPhoto());
+
+        $user->setPlainPassword($user->getPassword());
+        $form = $this->createForm(UserFormType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            if(!$user->getPlainPassword()) {
+                $user->setPassword($this->getUser()->getPassword());
+            }else{
+                $user->setPassword(
+                    $userPasswordHasher->hashPassword($user, $user->getPlainPassword())
+                );
+            }
+
+            $photo = $form->get('photo')->getData();
+            $fileName = $userHelper->uploadAsset($photo, $user);
+            if($fileName){
+                $user->setPhoto($fileName);
+            }else{
+                if($session->get('previous_photo')) $user->setPhoto($session->get('previous_photo'));
+            }
+
+            $userRepository->add($user, true);
+        }
+
+        return $this->render('user/edit_account.html.twig', [
+            'user' => $this->getUser(),
+            'active' => 'edit_account',
+            'userForm' => $form->createView(),
+        ]);
+    }
+
+
     #[Route('/edit_account', name: 'app_user_edit_account', methods: ['GET', 'POST'])]
     public function profile(Request $request,
                             UserHelper $userHelper,
@@ -75,9 +120,6 @@ class UserController extends AbstractController
                             PaymentTransactionRepository $paymentTransactionRepository): Response
     {
 
-//        $response = $this->redirectIfNotAllow();
-//        if($response) return $response;
-
         $dql = "SELECT SUM(p.amount) AS balance, p.payment_status, p.payment_for FROM App\Entity\PaymentTransaction p  WHERE p.payer = ?1 GROUP BY p.payment_for, p.payment_status";
         $paymentStats = $em->createQuery($dql)
                     ->setParameter(1, $this->getUser())
@@ -109,9 +151,6 @@ class UserController extends AbstractController
     #[Route('/order', name: 'app_user_order', methods: ['GET'])]
     public function order(Request $request): Response
     {
-//        $response = $this->redirectIfNotAllow();
-//        if($response) return $response;
-
         return $this->render('user/order.html.twig', [
             'user' => $this->getUser(),
             'active' => 'order',
@@ -121,9 +160,6 @@ class UserController extends AbstractController
     #[Route('/company', name: 'app_user_company', methods: ['GET'])]
     public function company(Request $request, CompanyRepository $companyRepository): Response
     {
-//        $response = $this->redirectIfNotAllow();
-//        if($response) return $response;
-
         return $this->render('pages/user/company.html.twig', [
             'user' => $this->getUser(),
             'active' => 'company',
@@ -134,9 +170,6 @@ class UserController extends AbstractController
     #[Route('/employee', name: 'app_user_employee', methods: ['GET'])]
     public function employee(Request $request, StaffRepository $staffRepository): Response
     {
-//        $response = $this->redirectIfNotAllow();
-//        if($response) return $response;
-
         $user = $this->getUser();
         $companies = $user->getCompanies();
         $staffList = [];
@@ -153,8 +186,6 @@ class UserController extends AbstractController
     #[Route('/dashboard', name: 'app_user_dashboard', methods: ['GET'])]
     public function dashboard(Request $request): Response
     {
-//        $response = $this->redirectIfNotAllow();
-//        if($response) return $response;
 
         return $this->render('pages/user/dashboard.html.twig', [
             'user' => $this->getUser(),
@@ -165,9 +196,6 @@ class UserController extends AbstractController
     #[Route('/configuration', name: 'app_user_configuration', methods: ['GET'])]
     public function configuration(Request $request): Response
     {
-//        $response = $this->redirectIfNotAllow();
-//        if($response) return $response;
-
         return $this->render('pages/user/configuration.html.twig', [
             'user' => $this->getUser(),
             'active' => 'configuration',
@@ -177,9 +205,6 @@ class UserController extends AbstractController
     #[Route('/', name: 'app_user_index', methods: ['GET'])]
     public function index(Request $request, UserRepository $userRepository): Response
     {
-//        $response = $this->redirectIfNotAllow();
-//        if($response) return $response;
-
         return $this->render('pages/user/index.html.twig', [
             'users' => $userRepository->findAll(),
         ]);
@@ -189,9 +214,6 @@ class UserController extends AbstractController
     #[Route('/{id}', name: 'app_user_show', methods: ['GET'])]
     public function show(Request $request, User $user): Response
     {
-//        $response = $this->redirectIfNotAllow();
-//        if($response) return $response;
-
         return $this->render('pages/user/show.html.twig', [
             'user' => $user,
         ]);
@@ -200,9 +222,6 @@ class UserController extends AbstractController
     #[Route('/{id}/edit', name: 'app_user_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, User $user, UserRepository $userRepository): Response
     {
-//        $response = $this->redirectIfNotAllow();
-//        if($response) return $response;
-
         $form = $this->createForm(UserFormType::class, $user);
         $form->handleRequest($request);
 
@@ -221,9 +240,6 @@ class UserController extends AbstractController
     #[Route('/{id}', name: 'app_user_delete', methods: ['POST'])]
     public function delete(Request $request, User $user, UserRepository $userRepository): Response
     {
-//        $response = $this->redirectIfNotAllow();
-//        if($response) return $response;
-
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
             $userRepository->remove($user, true);
         }
