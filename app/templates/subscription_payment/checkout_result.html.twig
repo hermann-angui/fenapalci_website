@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+{% block stylesheet %}
+    {{ parent() }}
+    <style>
+        .btn:hover {
+            color: var(--bs-btn-hover-color);
+            background-color: #4f2470;
+            border-color:  #4f2470;
+        }
+    </style>
+{% endblock %}
+{% block body %}
+    <!-- **************** MAIN CONTENT START **************** -->
+    <main>
+        <section class="container">
+            {% if status == 'success' %}
+                <div class="row justify-content-md-center">
+                    <!-- Right -->
+                    <div class="col-md-6 col-lg-6 text-center">
+                        <div class="card mb-3 shadow-sm">
+                            <div class="card-header">
+                                <img class="py-3" src="{{ asset('assets/images/misc/payment_successful.gif') }}" width="130" alt="payment successful">
+                            </div>
+                            <div class="card-body">
+                                <p class="fs-6 text-success fw-bolder">Transaction effectuée avec succès</p>
+                                <p class="small">Vous serez redirigé dans quelques instants sinon <a href="{{ path('member__edit_account') }}">cliquez sur ce lien</a></p>
+                                <div>
+                                    <p class="border-1 border-top border-bottom border-light">
+                                        <span>Date transaction </span>
+                                        <span>{{ 'now'|date('d/m/Y H:i:s') }}</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="row justify-content-md-center">
+                    <div class="col-md-6 col-lg-6 text-center">
+                        <div class="card mb-3 shadow-sm">
+                            <div class="card-header">
+                                <img class="py-3" src="{{ asset('assets/images/misc/failed.png') }}" width="130" alt="payment successful">
+                            </div>
+                            <div class="card-body">
+                                <p class="fs-6 text-success fw-bolder">Transaction a échoué, veuillez reprendre le processus de paiement</p>
+                                <p class="small">Vous serez redirigé dans quelques instants sinon <a href="{{ path('app_home') }}">cliquez sur ce lien</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </section>
+    </main>
+    <!-- **************** MAIN CONTENT END **************** -->
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block javascript %}
+  {{ parent() }}
+    <script>
+        $('document').ready(function() {
+           var timer = setTimeout(function(){
+               window.location.href = '{{ path('member__edit_account') }}';
+           }, 5000);
+        });
+ 	</script>
+{% endblock %}

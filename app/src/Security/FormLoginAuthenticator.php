@@ -19,7 +19,7 @@ class FormLoginAuthenticator extends AbstractLoginFormAuthenticator
 {
     use TargetPathTrait;
 
-    public const LOGIN_ROUTE = 'app_login';
+    public const LOGIN_ROUTE = 'login';
 
     public function __construct(private UrlGeneratorInterface $urlGenerator)
     {
@@ -28,7 +28,6 @@ class FormLoginAuthenticator extends AbstractLoginFormAuthenticator
     public function authenticate(Request $request): Passport
     {
         $email = $request->request->get('email', '');
-
         $request->getSession()->set(Security::LAST_USERNAME, $email);
 
         return new Passport(
@@ -46,12 +45,10 @@ class FormLoginAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-
         if($request->request->get('registration')){
-            return new RedirectResponse($this->urlGenerator->generate('app_payment_howto'));
+            return new RedirectResponse($this->urlGenerator->generate('subscription_agrement'));
         }
-        // For example:
-        return new RedirectResponse($this->urlGenerator->generate('app_user_edit_account'));
+        return new RedirectResponse($this->urlGenerator->generate('member_edit_profile'));
        // throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 

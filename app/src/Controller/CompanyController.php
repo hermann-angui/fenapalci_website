@@ -3,11 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Company;
-use App\Entity\Staff;
+use App\Entity\Employee;
 use App\Form\CompanyType;
 use App\Form\StaffType;
 use App\Repository\CompanyRepository;
-use App\Repository\StaffRepository;
+use App\Repository\EmployeeRepository;
 use App\Traits\UserTrait;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,7 +19,7 @@ class CompanyController extends AbstractController
 {
     use UserTrait;
 
-    #[Route('/', name: 'app_company_index', methods: ['GET'])]
+    #[Route('/', name: 'company_index', methods: ['GET'])]
     public function index(CompanyRepository $companyRepository): Response
     {
         return $this->render('company/index.html.twig', [
@@ -59,10 +59,10 @@ class CompanyController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_company_new', methods: ['GET', 'POST'])]
-    public function new(Request $request,
-                        CompanyRepository $companyRepository,
-                        StaffRepository $staffRepository): Response
+    #[Route('/new', name: 'company_new', methods: ['GET', 'POST'])]
+    public function new(Request            $request,
+                        CompanyRepository  $companyRepository,
+                        EmployeeRepository $staffRepository): Response
     {
 
         $session = $request->getSession();
@@ -71,7 +71,7 @@ class CompanyController extends AbstractController
         $companyForm = $this->createForm(CompanyType::class, $company);
         $companyForm->handleRequest($request);
 
-        $staff = new Staff();
+        $staff = new Employee();
         $staffForm = $this->createForm(StaffType::class, $staff);
         $staffForm->handleRequest($request);
 
@@ -101,7 +101,7 @@ class CompanyController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_company_show', methods: ['GET'])]
+    #[Route('/{id}', name: 'company_show', methods: ['GET'])]
     public function show(Company $company): Response
     {
         return $this->render('company/show.html.twig', [
@@ -109,7 +109,7 @@ class CompanyController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_company_edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}/edit', name: 'company_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Company $company, CompanyRepository $companyRepository): Response
     {
         $form = $this->createForm(CompanyType::class, $company);
@@ -118,7 +118,7 @@ class CompanyController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $companyRepository->add($company, true);
 
-            return $this->redirectToRoute('app_company_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('company_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('company/edit.html.twig', [
@@ -127,13 +127,13 @@ class CompanyController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_company_delete', methods: ['POST'])]
+    #[Route('/{id}', name: 'company_delete', methods: ['POST'])]
     public function delete(Request $request, Company $company, CompanyRepository $companyRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$company->getId(), $request->request->get('_token'))) {
             $companyRepository->remove($company, true);
         }
 
-        return $this->redirectToRoute('app_company_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('company_index', [], Response::HTTP_SEE_OTHER);
     }
 }

@@ -1394,7 +1394,9 @@ table img {
     }
 
     #block-quicklinks, #block-liensrapides {
-        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .container {

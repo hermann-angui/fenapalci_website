@@ -123,3 +123,8 @@
 .custom-file {
     display: none;
 }
+
+#user_avatar {
+    width: 20px;
+    height: 20px;
+}

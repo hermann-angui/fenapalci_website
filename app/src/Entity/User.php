@@ -82,31 +82,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $status;
 
     #[ORM\Column(type: 'datetime', nullable: true)]
-    private $subscription_start_date;
-
-    #[ORM\Column(type: 'datetime', nullable: true)]
-    private $subscription_expire_date;
-
-    #[ORM\Column(type: 'datetime', nullable: true)]
     private $created_at;
 
     #[ORM\Column(type: 'datetime', nullable: true)]
     private $modified_at;
 
-    #[ORM\OneToMany(mappedBy: 'payer', targetEntity: PaymentTransaction::class, orphanRemoval: true)]
-    private Collection $payments;
+    #[ORM\OneToMany(mappedBy: 'subscriber', targetEntity: Subscription::class, orphanRemoval: true)]
+    private Collection $subscriptions;
 
     #[ORM\OneToMany(mappedBy: 'owner', targetEntity: Company::class, orphanRemoval: true)]
     private Collection $companies;
 
-    #[ORM\OneToMany(mappedBy: 'payer', targetEntity: PaymentTransaction::class, orphanRemoval: true)]
-    private Collection $paymentTransactions;
 
     public function __construct()
     {
-        $this->payments = new ArrayCollection();
+        $this->subscriptions = new ArrayCollection();
         $this->companies = new ArrayCollection();
-        $this->paymentTransactions = new ArrayCollection();
     }
 
     /**
@@ -324,29 +315,39 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection<int, PaymentTransaction>
+     * @param ArrayCollection|Collection $subscriptions
+     * @return User
      */
-    public function getPaymentTransactions(): Collection
+    public function setSubscriptions(ArrayCollection|Collection $subscriptions): User
     {
-        return $this->payments;
+        $this->subscriptions = $subscriptions;
+        return $this;
     }
 
-    public function addPaymentTransaction(PaymentTransaction $PaymentTransaction): self
+    /**
+     * @return Collection<int, Subscription>
+     */
+    public function getSubscriptions(): Collection
     {
-        if (!$this->payments->contains($PaymentTransaction)) {
-            $this->payments[] = $PaymentTransaction;
-            $PaymentTransaction->setPayer($this);
+        return $this->subscriptions;
+    }
+
+    public function addSubscription(Subscription $subscription): self
+    {
+        if (!$this->subscriptions->contains($subscription)) {
+            $this->subscriptions[] = $subscription;
+            $subscription->setSubscriber($this);
         }
 
         return $this;
     }
 
-    public function removePaymentTransaction(PaymentTransaction $PaymentTransaction): self
+    public function removeSubscription(Subscription $subscription): self
     {
-        if ($this->payments->removeElement($PaymentTransaction)) {
+        if ($this->subscriptions->removeElement($subscription)) {
             // set the owning side to null (unless already changed)
-            if ($PaymentTransaction->getPayer() === $this) {
-                $PaymentTransaction->setPayer(null);
+            if ($subscription->getSubscriber() === $this) {
+                $subscription->setSubscriber(null);
             }
         }
 
@@ -492,24 +493,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return ArrayCollection|Collection
-     */
-    public function getPayments(): ArrayCollection|Collection
-    {
-        return $this->payments;
-    }
-
-    /**
-     * @param ArrayCollection|Collection $payments
-     * @return User
-     */
-    public function setPayments(ArrayCollection|Collection $payments): User
-    {
-        $this->payments = $payments;
-        return $this;
-    }
-
-    /**
      * @return mixed
      */
     public function getQuartier()
@@ -524,42 +507,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setQuartier($quartier)
     {
         $this->quartier = $quartier;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSubscriptionStartDate()
-    {
-        return $this->subscription_start_date;
-    }
-
-    /**
-     * @param mixed $subscription_start_date
-     * @return User
-     */
-    public function setSubscriptionStartDate($subscription_start_date)
-    {
-        $this->subscription_start_date = $subscription_start_date;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSubscriptionExpireDate()
-    {
-        return $this->subscription_expire_date;
-    }
-
-    /**
-     * @param mixed $subscription_expire_date
-     * @return User
-     */
-    public function setSubscriptionExpireDate($subscription_expire_date)
-    {
-        $this->subscription_expire_date = $subscription_expire_date;
         return $this;
     }
 

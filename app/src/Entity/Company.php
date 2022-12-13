@@ -61,7 +61,7 @@ class Company
     #[ORM\JoinColumn(nullable: false)]
     private ?User $owner = null;
 
-    #[ORM\OneToMany(mappedBy: 'company', targetEntity: Staff::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'company', targetEntity: Employee::class, orphanRemoval: true)]
     private Collection $staff;
 
     public function __construct()
@@ -82,14 +82,14 @@ class Company
     }
 
     /**
-     * @return Collection<int, Staff>
+     * @return Collection<int, Employee>
      */
     public function getStaff(): Collection
     {
         return $this->staff;
     }
 
-    public function addStaff(Staff $staff): self
+    public function addStaff(Employee $staff): self
     {
         if (!$this->staff->contains($staff)) {
             $this->staff[] = $staff;
@@ -99,7 +99,7 @@ class Company
         return $this;
     }
 
-    public function removeStaff(Staff $staff): self
+    public function removeStaff(Employee $staff): self
     {
         if ($this->staff->removeElement($staff)) {
             // set the owning side to null (unless already changed)

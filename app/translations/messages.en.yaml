@@ -13,6 +13,4 @@ password_is_blank: Mot de passe est requis
 invalid_password: Mot de passe est invalide
 general_term_gdpr: J'accepte les termes et conditions d'utilisation (GDPR).
 agreement: J'accepte les termes conditions.
-"Invalid credentials.": Votre mot de passe n'est pas valide.
 Invalid credentials: Votre mot de passe n'est pas valide.
-invalid_credentials: Votre mot de passe n'est pas valide.

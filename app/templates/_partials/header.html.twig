@@ -5,21 +5,30 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <section class="row region region-secondary-menu">
-                <nav role="navigation" aria-labelledby="block-liensrapides-menu" id="block-liensrapides" class="block block-menu navigation menu--liens-rapides">
+                <nav role="navigation" class="block block-menu navigation menu--liens-rapides">
                     <h2 class="sr-only" id="block-liensrapides-menu">Liens Rapides</h2>
-                    <ul class="clearfix nav">
+                    <ul class="clearfix nav mt-1">
                         <li class="nav-item">
-                            <a href="" class="nav-link nav-link--fr-acheter-adhesion">Devenir membre</a>
+                            <a href="{{ path('register') }}" class="nav-link nav-link--fr-acheter-adhesion">Devenir membre</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="">Nous contacter</a>
+                            <a href="{{ path('contact_us') }}" class="">Nous contacter</a>
                         </li>
                     </ul>
                 </nav>
-                <nav role="navigation" aria-labelledby="block-useraccountmenu-menu" id="block-useraccountmenu" class="block block-menu navigation menu--account">
-                    <h2 class="sr-only" id="block-useraccountmenu-menu">User account menu</h2>
-                    <div block="block-useraccountmenu" class="clearfix nav">
-                        <a href="{{ path('app_login') }}" class="nav-link nav-link--fr-user-login" data-drupal-link-system-path="user/login">Se connecter</a>
+                <nav role="navigation" class="block block-menu navigation menu--account">
+                    <h2 class="sr-only" id="block-useraccountmenu-menu">Menu Compte</h2>
+                    <div class="clearfix nav">
+                        {%  if app.user is null %}
+                            <a href="{{ path('login') }}" class="nav-link nav-link--fr-user-login mt-1">Se connecter</a>
+                        {% else %}
+                            <a href="{{ path('logout') }}" class="nav-link nav-link--fr-user-login mt-1">Se deconnecter</a>
+                                {% if app.user.photo is not null %}
+                                    <img width="30" height="30" src="{{ asset('users/') }}{{ user.photo }}" id="user_avatar" alt="user profile picture" class="rounded-circle"/>
+                                {% else %}
+                                    <img width="30" height="30" src="{{ asset('assets/images/avatar/avatar.jpg') }}" id="user_avatar" alt="user profile picture" class="rounded-circle"/>
+                                {% endif %}
+                            {% endif %}
                     </div>
                 </nav>
 
@@ -66,37 +75,23 @@
                             <ul class="dropdown-menu">
 
                                 <li class="dropdown-item">
-                                    <a href="">Qui sommes-nous ?</a>
+                                    <a href="{{ path('about_us') }}">Qui sommes-nous ?</a>
                                 </li>
                                 <li class="dropdown-item menu-item--collapsed">
-                                    <a href="">Le bureau</a>
+                                    <a href="{{ path('about_us') }}">Le bureau</a>
                                 </li>
                                 <li class="dropdown-item">
-                                    <a href="">Nos missions</a>
+                                    <a href="{{ path('about_us') }}">Nos missions</a>
                                 </li>
                                 <li class="dropdown-item">
-                                    <a href="">Nos activités</a>
+                                    <a href="{{ path('about_us') }}">Nos activités</a>
                                 </li>
                             </ul>
 
                         </li>
-                        <li class="nav-item menu-item--expanded dropdown">
-                            <a href="" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Services aux membres</a>
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-item">
-                                    <a href="">Assurances</a>
-                                </li>
-                                <li class="dropdown-item">
-                                    <a href="">Conseils et protection juridiques</a>
-                                </li>
-                                <li class="dropdown-item">
-                                    <a href="">Cotisation sociales</a>
-                                </li>
-                            </ul>
 
-                        </li>
                         <li class="nav-item menu-item--expanded dropdown">
-                            <a href="" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Nos ventes</a>
+                            <a href="" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">e-Boutique</a>
                             <ul class="dropdown-menu">
                                 <li class="dropdown-item">
                                     <a href="">Refrigérateur</a>
@@ -113,20 +108,45 @@
                                 <li class="dropdown-item">
                                     <a href="">Immobilier</a>
                                 </li>
+                                <li class="dropdown-item">
+                                    <a href="">Chaises</a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="">Tables</a>
+                                </li>
                             </ul>
 
                         </li>
+
+                        <li class="nav-item menu-item--expanded dropdown">
+                            <a href="" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Services aux membres</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item">
+                                    <a href="">Assurances</a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="">Conseils et protection juridiques</a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="">Cotisation sociales</a>
+                                </li>
+                            </ul>
+                        </li>
+
                         <li class="nav-item menu-item--expanded dropdown">
                             <a href="" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown"
                                aria-expanded="false" aria-haspopup="true">Formations</a>
                         </li>
+
                         <li class="nav-item menu-item--expanded dropdown">
                             <a href="" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown"
                                aria-expanded="false" aria-haspopup="true">Actualités</a>
                         </li>
+
                         <li class="nav-item menu-item--expanded dropdown">
                             <a href="" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Médiathèque</a>
                         </li>
+
                         <li class="nav-item menu-item--expanded dropdown">
                             <a href="" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown"
                                aria-expanded="false" aria-haspopup="true">FAQ</a>

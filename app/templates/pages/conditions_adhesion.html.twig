@@ -1,44 +1,76 @@
-{% extends 'base.html.twig' %}
+{% extends 'main.html.twig' %}
 
-{% block title %}Connexion{% endblock %}
+{% block stylesheet %}
+    {{ parent() }}
+{% endblock %}
 
-{% block body %}
-    <!-- **************** MAIN CONTENT START **************** -->
-    <main>
-        <section class="pt-0">
-            <div class="container-fluid px-0">
-                <div class="bg-light h-70px h-md-70px rounded-0">
-                </div>
-            </div>
-            <div class="container mt-4">
-                <div class="row">
-                    <!-- left -->
-                    <div class="col-sm-12 col-lg-6 d-md-flex align-items-center justify-content-center bg-primary bg-opacity-10 vh-lg-50">
-                        <div class="p-3 p-lg-3">
-                            <!-- Title -->
-                            <div class="text-center">
-                                <h2 class="fw-bold">BIENVENUE SUR LE SITE DE VOTRE FEDERATION</h2>
-                                <p class="mb-0 h6 fw-light">Construisons une solidarité solide!</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Right -->
-                    <div class="col-sm-12 col-lg-6 m-auto">
-                        <div class="row px-3 py-5">
-                            <div class="col-sm-12 col-xl-12 m-auto">
-                            </div>
-                        </div> <!-- Row END -->
-                    </div>
-                </div> <!-- Row END -->
-            </div>
-        </section>
-    </main>
-    <!-- **************** MAIN CONTENT END **************** -->
-
-
+{% block page_title %}
+    {{ include('_partials/page_title.html.twig', {'title': 'Conditions générales d\'adhésion a la FENAPALCI'}) }}
 {% endblock %}
 
 
-{% block footer %}
+{% block body %}
+    <div id="main-wrapper" class="layout-main-wrapper clearfix">
+        <div id="main" class="container">
+            <div class="row row-offcanvas row-offcanvas-left clearfix">
+                <main class="main-content col" id="content" role="main">
+                    <div class="row mt-5">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+                            <p style="text-align: justify;">Les présentes Conditions Générales d'Adhésion s'appliquent à
+                                toutes les personnes souhaitant adhérer au CLUSTER BIO et souscrire, le cas échéant, aux
+                                services proposés par le CLUSTER BIO.</p>
+
+                            <hr>
+                            <p style="text-align: justify;"><br>
+                                <strong>ARTICLE 1. OBJET – OPPOSABILITÉ DES CONDITIONS GÉNÉRALES D’ADHÉSION</strong></p>
+
+                            <p style="text-align: justify;"><u>1.1 Objet des Conditions Générales d'Adhésion</u></p>
+
+                            <p style="text-align: justify;">Les présentes Conditions Générales d'Adhésion définissent
+                                les droits et obligations des Parties dans le cadre de l'adhésion au CLUSTER BIO et de
+                                la souscription aux services de ce dernier, dans le cadre de son activité telle que
+                                décrite ci-dessous.</p>
+
+                        </div>
+
+
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+                            <p style="text-align: justify;"><strong>ARTICLE 2. RESPONSABILITÉ – GARANTIES</strong></p>
+
+                            <p style="text-align: justify;">Le CLUSTER BIO est soumis à une obligation de moyens dans le
+                                cadre des services qu’il fournit à ses Membres Adhérents.<br>
+                                <br>
+                                Le CLUSTER BIO n'accorde aucune garantie à l'égard des informations transmises ou
+                                obtenues par le Membre Adhérent dans le cadre des Services proposés, tels que définis
+                                par les Présentes. La responsabilité du CLUSTER BIO ne saurait être engagée, à quelque
+                                titre que ce soit, au titre du contenu desdits Services ou des informations contenues
+                                sur le Site.<br>
+                                L'utilisation de toutes informations par le Membre Adhérent se fait sous sa seule
+                                responsabilité et à ses risques et périls.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-md-12 text-center">
+                            <hr />
+                            <h3><i class="fa fa-1x fa-lightbulb ql-color-yellow"></i>   NB: L'accès à votre espace membre n'est possible qu'après validation du paiement du droit d'adhésion via l'application mobile wave </h3>
+                            <a href="{{ path('subscrption_payment_summary')}}" class="btn btn-primary btn-lg">J'accepte</a>
+                        </div>
+
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+{{ parent() }}
+<script type="text/javascript">
+jQuery(document).ready(function ($) {
+});
+</script>
 {% endblock %}
