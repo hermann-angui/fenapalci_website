@@ -3,11 +3,12 @@
 {% block stylesheet %}
     {{ parent() }}
     <style>
-         .ts-title{
-             border-bottom: 3px solid #23013a;
-             display: block;
-         }
-         .title-text {
+        .ts-title {
+            border-bottom: 3px solid #23013a;
+            display: block;
+        }
+
+        .title-text {
             position: relative;
             font-size: 14px;
             background: #23013a;
@@ -21,26 +22,29 @@
             margin-right: 20px;
             font-weight: 700;
         }
-        .block-bg-gray{
+
+        .block-bg-gray {
+            color: #a9a8a8;
+            background-color:
+            background-color: #f7f7f7;
+            padding: 15px 20px 15px 15px;
+            text-align: justify;
+        }
+
+        .block-bg-gray {
             color: #a9a8a8;
             background-color: #f6f4f4;
             padding: 15px 20px 15px 15px;
-            text-align: justify ;
+            text-align: justify;
         }
 
-         .block-bg-gray{
-             color: #a9a8a8;
-             background-color: #f6f4f4;
-             padding: 15px 20px 15px 15px;
-             text-align: justify ;
-         }
-         .post-list-box .post-content img {
-             width: 128px;
-             height: 85px;
-             margin-right: 15px;
-             -o-object-fit: cover;
-             object-fit: cover;
-         }
+        .post-list-box .post-content img {
+            width: 128px;
+            height: 85px;
+            margin-right: 15px;
+            -o-object-fit: cover;
+            object-fit: cover;
+        }
     </style>
 {% endblock %}
 
@@ -54,50 +58,100 @@
             <div class="row row-offcanvas row-offcanvas-left clearfix">
                 <main class="main-content col" id="content" role="main">        <!-- ======== START -->
                     <section class="py-3 py-xl-5">
-                            <div class="row">
-                                <!-- START -->
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <h2 class="ts-title">
-                                        <span class="title-text"> Qui sommes nous ?</span>
-                                    </h2>
-                                    <div class="block-bg-gray">
-                                        <p>
-                                            La <strong>FENAPAL-CI</strong> est une fédération nationale qui regroupe des associations: d'espaces d'animation, de restaurations et de loisirs (restaurants, bars, night-club, hôtels, maquis, caves etc.). La FENAPAL CI est un réseau professionnel permettant la mise en commun de ressources dans un esprit de solidarité et d'amitié. Cela se traduit par des avantages matériel, économique, le partage d'expérience et de savoir-faire, de conseils et des solutions adaptés.
-                                            <p>Créée depuis le 23 juillet 2020 par Monsieur MOBIO Arsène qui en est le Président, la Fédération des Acteurs et Professionnels des Espaces d’Animation, Restauration et Loisir de Côte d’Ivoire (FENAPAL-CI) poursuit un objectif simple : guider et servir notre communauté pour l’aider à se développer. Nous sommes une des rares fédération à permettre à nos membres de bénéficier de l’aménagement de leurs espaces à crédit. c’est-à-dire, La logistique : chaises, tables etc..., l’électroménager : télévisions, climatiseur, ventilateur, réfrigérateur, gazinière, cuisine professionnelle et bien d’autres. La FENAPAL-CI est une fédération nationale qui réunit tous les acteurs des espaces d'animations tels que les restaurants, bars, night-club, hôtels, maquis, caves. La FENAPAL CI est un réseau professionnel permettant la mise en commun de ressources dans un esprit de solidarité et d'amitié. Cela se traduit par des avantages matériel, économique, le partage d'expérience et de savoir-faire, de conseils et des solutions adaptés.</p>
-                                        </p>
-                                    </div>
+                        <div class="row">
+                            <!-- START -->
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <h2 class="ts-title">
+                                    <span class="title-text"> Qui sommes nous ?</span>
+                                </h2>
+                                <div class="block-bg-gray">
+                                    <p>
+                                        La <strong>FENAPAL-CI</strong> est une fédération nationale qui regroupe des
+                                        associations: d'espaces d'animation, de restaurations et de loisirs
+                                        (restaurants, bars, night-club, hôtels, maquis, caves etc.). La FENAPAL CI est
+                                        un réseau professionnel permettant la mise en commun de ressources dans un
+                                        esprit de solidarité et d'amitié. Cela se traduit par des avantages matériel,
+                                        économique, le partage d'expérience et de savoir-faire, de conseils et des
+                                        solutions adaptés.
+                                    <p>Créée depuis le 23 juillet 2020 par Monsieur MOBIO Arsène qui en est le
+                                        Président, la Fédération des Acteurs et Professionnels des Espaces d’Animation,
+                                        Restauration et Loisir de Côte d’Ivoire (FENAPAL-CI) poursuit un objectif simple
+                                        : guider et servir notre communauté pour l’aider à se développer. Nous sommes
+                                        une des rares fédération à permettre à nos membres de bénéficier de
+                                        l’aménagement de leurs espaces à crédit. c’est-à-dire, La logistique : chaises,
+                                        tables etc..., l’électroménager : télévisions, climatiseur, ventilateur,
+                                        réfrigérateur, gazinière, cuisine professionnelle et bien d’autres. La
+                                        FENAPAL-CI est une fédération nationale qui réunit tous les acteurs des espaces
+                                        d'animations tels que les restaurants, bars, night-club, hôtels, maquis, caves.
+                                        La FENAPAL CI est un réseau professionnel permettant la mise en commun de
+                                        ressources dans un esprit de solidarité et d'amitié. Cela se traduit par des
+                                        avantages matériel, économique, le partage d'expérience et de savoir-faire, de
+                                        conseils et des solutions adaptés.</p>
+                                    </p>
                                 </div>
-                                <!-- END -->
+                            </div>
+                            <!-- END -->
 
-                                <!-- START -->
-                                <div class="col-md-3 col-sm-6 col-xs-12">
-                                    <div class="d-flex mt-4">
-                                        <a href="">
-                                           <img src="{{ asset('sites/img/misc/espace_loisir_1.png') }}" alt="" />
-                                        </a>
-                                        <div class="ml-2">
-                                            <h4 class="mt-0 mb-1">
-                                                <span class="fw-bolder">Espace de loisir</span>
-                                            </h4>
-                                            <div class="d-block text-align-justify">
-                                                <span class="small">Les espaces de loisir ou parcs de loisir sont des centres de loisirs clos ou en plein air. Ils sont à vocation récréative et/ou éducative</span>
-                                                <span class="btn btn-outline-orange btn-xs">voir +</span>
-                                            </div>
+                            <!-- START -->
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="mt-4">
+                                    <a href="">
+                                        <img src="{{ asset('/sites/img/misc/espace_loisir_2.png') }}" alt="" style=" height: 212px;">
+                                    </a>
+                                    <div>
+                                        <h3 class="fw-bolder">
+                                            <span class="fw-bolder">Espaces de loisirs</span>
+                                        </h3>
+                                        <div class="d-block text-align-justify">
+                                            <span class="small">Les espaces de loisir ou parcs de loisir sont des centres de loisirs clos ou en plein air. Ils sont à vocation récréative et/ou éducative</span>
+                                            <span class="btn btn-primary btn-xs">voir +</span>
                                         </div>
                                     </div>
+                                    <hr>
                                 </div>
-                                <!-- END -->
-
-                                <!-- START -->
-                                <div class="col-md-3 col-sm-6 col-xs-12">
-                                    <h2 class="ts-title">
-                                        <span class="title-text">Suivez nous</span>
-                                    </h2>
-                                    <div class="">
+                                <div class="mt-1">
+                                    <a href="">
+                                        <img src="{{ asset('/sites/img/misc/espace_animation_1.jpg') }}" alt="" style=" height: 167px;">
+                                    </a>
+                                    <div>
+                                        <h3 class="fw-bolder">
+                                            <span class="fw-bolder">Espaces d'animations</span>
+                                        </h3>
+                                        <div class="d-block text-align-justify">
+                                            <span class="small">Les espaces de loisir ou parcs de loisir sont des centres de loisirs clos ou en plein air. Ils sont à vocation récréative et/ou éducative</span>
+                                            <span class="btn btn-primary btn-xs">voir +</span>
+                                        </div>
                                     </div>
+                                    <hr>
                                 </div>
-                                <!-- END -->
+                                <div class="mt-1">
+                                    <a href="">
+                                        <img src="{{ asset('/sites/img/misc/barman2.jpg') }}" alt="" style=" height: 167px;">
+                                    </a>
+                                    <div>
+                                        <h3 class="fw-bolder">
+                                            <span class="fw-bolder">Restaurants/Bars</span>
+                                        </h3>
+                                        <div class="d-block text-align-justify">
+                                            <span class="small">Les espaces de loisir ou parcs de loisir sont des centres de loisirs clos ou en plein air. Ils sont à vocation récréative et/ou éducative</span>
+                                            <span class="btn btn-primary btn-xs">voir +</span>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div>
                             </div>
+                            <!-- END -->
+
+                            <!-- START -->
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <h2>
+                                    <span>Suivez nous</span>
+                                </h2>
+                                <div class="">
+                                </div>
+                            </div>
+                            <!-- END -->
+                        </div>
                     </section>
                     <section>
                         <div class="row">
@@ -125,9 +179,9 @@
 {% endblock %}
 
 {% block javascript %}
-    {{ parent() }}
+{{ parent() }}
 <script type="text/javascript">
-   jQuery(document).ready(function ($) {
-    });
+jQuery(document).ready(function ($) {
+});
 </script>
 {% endblock %}
