@@ -7,6 +7,7 @@ use App\Repository\UserRepository;
 use App\Service\Wave\WaveService;
 use App\Traits\UserTrait;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,51 +29,22 @@ class SubscriptionController extends AbstractController
         $this->userRepository = $userRepository;
     }
 
-    #[Route('/payment', name: 'subscription_payment', methods: ['GET'])]
-    public function payment(Request $request
-                            ): Response
+    #[Route('/payment/categorie', name: 'subscription_payment', methods: ['GET'])]
+    public function paymentSelectCategory(Request $request, ObjectManager $em): Response
     {
-
-        $dql = "SELECT SUM(p.amount) AS balance, p.payment_status, p.payment_for FROM App\Entity\Subscription p  WHERE p.payer = ?1 GROUP BY p.payment_for, p.payment_status";
-        $paymentStats = $em->createQuery($dql)
-            ->setParameter(1, $this->getUser())
-            ->getResult();
-
-        $stats = [
-            "FRAIS_ADHESION" => null,
-            "REMBOURSEMENT" => null,
-            "PENALITE" => null,
-        ];
-
-        $stats["total"] = 0;
-        foreach ($paymentStats as $paymentStat){
-            if($paymentStat["payment_status"] ==="SUCCEEDED") $stats["total"]+=$paymentStat["balance"];
-            $stats[$paymentStat["payment_for"]][$paymentStat["payment_status"]] =  $paymentStat["balance"];
-        }
-
-        $payments = $this->subscriptionRepository->findBy(['payer' => $this->getUser()]);
-
-        return $this->render('member/payment.html.twig', [
+        return $this->render('subscription_payment/select_category.html.twig', [
             'user' => $this->getUser(),
-            'active' => 'order',
-            'payments' => $payments,
-            'paymentStats' => $stats,
         ]);
     }
 
-    #[Route(path: '/payment/summary', name: 'subscrption_payment_summary')]
-    public function summaryPayment(Request $request): Response
+    #[Route(path: '/payment/redirect', name: 'subscrption_payment_redirect_to_payment_service')]
+    public function redirectToPaymentService(Request $request): Response
     {
         $user = $this->getUser();
-        $amount = $request->get('amount', 0);
+        $categorie = $request->get('categorie');
+        $payment_redirect_url = $this->payForSubscription(0, $user);
 
-        $payment_redirect_url = $this->payForSubscription($amount, $user);
-
-        return $this->render('subscription_payment/summary.html.twig', [
-            "amount" => $amount,
-            "message" => "Frais unique d’adhésion",
-            "payment_redirect_url" => $payment_redirect_url
-        ]);
+        return $this->redirect($payment_redirect_url);
     }
 
     #[Route(path: '/wave/checkout/{status}', name: 'wave_payment_callback')]

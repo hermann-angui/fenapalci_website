@@ -1,0 +1,77 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <style>
+        .btn:hover {
+            color: var(--bs-btn-hover-color);
+            background-color: #4f2470;
+            border-color:  #4f2470;
+        }
+    </style>
+{% endblock %}
+
+{% block page_title %}
+    {{ include('_partials/page_title.html.twig', {'title': 'Frais d\'adhesion de membre'}) }}
+{% endblock %}
+
+{% block body %}
+    <!-- **************** MAIN CONTENT START **************** -->
+    <main>
+        <section class="container px-2 mt-5">
+                <div class="row justify-content-md-center">
+                    <!-- Right -->
+                    <form action="{{ path('subscrption_payment_redirect_to_payment_service') }}">
+                        <div class="border-1 border-light bg-light pt-4 text-center">
+                                <img class="mb-5" src="{{ asset("sites/img/wave-logo.png") }}" width="150" alt="logo wave"><br>
+                                <div>
+                                    Cette cotisation vous donne aux avantages accordés par nos partenaires aux memebres de la fédération.
+                                    NB: Les frais de cotisations mensuelles sont définis par type d'établissement :
+                                </div>
+
+                                <div class="my-4">
+                                    <label for="pet-select">Choisir votre type d'etablissement :</label>
+                                    <select name="categorie" id="category">
+                                        <option value="0">--Please choose an option--</option>
+                                        <option value="1">GLACIER</option>
+                                        <option value="2">BAR</option>
+                                        <option value="3">MAQUIS : 1-50 Places</option>
+                                        <option value="4">MAQUIS : 50-100 Places</option>
+                                        <option value="5">MAQUIS : 101 Places et Plus	</option>
+                                        <option value="6">RESTAURANT : 1-50 Places</option>
+                                        <option value="7">RESTAURANT : 51 Places et Plus</option>
+                                        <option value="8">MAQUIS/RESTAURANT</option>
+                                        <option value="9">RESTAURANT VIP</option>
+                                        <option value="10">DEPOT DE BOISSON</option>
+                                        <option value="11">HOTEL</option>
+                                        <option value="12">NIGHT CLUB</option>
+                                        <option value="13">EVENEMENTIEL</option>
+                                        <option value="14">PATISSERIE</option>
+                                        <option value="15">CAVE : 1-50 Places</option>
+                                        <option value="16">CAVE : 51 Places et Plus</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <p class="fs-2 mt-2 mb-3 mt-3">Frais unique d’adhésion</p>
+                                    <p class="fw-bolder text-dark">
+                                        <span id="subscription_amount">0</span> <span>F CFA</span>
+                                    </p>
+                                </div>
+
+                                <div class="mx-5 pt-3 text-center">
+                                    <button type="submit" class="btn bg-dark-purple text-white btn-lg my-5 w-75 rounded-5">Payer maintenant</button>
+                                </div>
+                        </div>
+                    </form>
+                </div>
+        </section>
+    </main>
+    <!-- **************** MAIN CONTENT END **************** -->
+{% endblock %}
+
+
+{% block footer %}
+{% endblock %}

@@ -3,9 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EmployeeRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: EmployeeRepository::class)]
 #[ORM\HasLifecycleCallbacks()]
@@ -51,17 +50,17 @@ class Employee
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $status;
 
-    #[ORM\Column(type: 'datetime', nullable: true)]
-    private $subscription_start_date;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $subscription_start_date;
 
-    #[ORM\Column(type: 'datetime', nullable: true)]
-    private $subscription_expire_date;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $subscription_expire_date;
 
-    #[ORM\Column(type: 'datetime', nullable: true)]
-    private $created_at;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $created_at;
 
-    #[ORM\Column(type: 'datetime', nullable: true)]
-    private $modified_at;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $modified_at;
 
     #[ORM\ManyToOne(inversedBy: 'staff', cascade: ['persist'])]
     #[ORM\JoinColumn(nullable: false)]
@@ -89,167 +88,182 @@ class Employee
     }
 
     /**
-     * @see PasswordAuthenticatedUserInterface
+     * @return mixed
      */
-    public function getPassword(): string
-    {
-        return $this->password;
-    }
-
-    public function setPassword(?string $password): self
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    public function getFirstname(): ?string
-    {
-        return $this->firstname;
-    }
-
-    public function setFirstname(?string $firstname): self
-    {
-        $this->firstname = $firstname;
-
-        return $this;
-    }
-
-    public function getLastname(): ?string
-    {
-        return $this->lastname;
-    }
-
-    public function setLastname(?string $lastname): self
-    {
-        $this->lastname = $lastname;
-
-        return $this;
-    }
-
-    public function getCreatedAt(): ?\DateTime
-    {
-        return $this->created_at;
-    }
-
-    public function setCreatedAt(?\DateTime $createAt): self
-    {
-        $this->created_at = $createAt;
-
-        return $this;
-    }
-
-    public function getModifiedAt(): ?\DateTime
-    {
-        return $this->modified_at;
-    }
-
-    public function setPlaceOfBirth(?string $placeofbirth): self
-    {
-        $this->place_of_birth = $placeofbirth;
-
-        return $this;
-    }
-
-    public function getPlaceOfBirth(): ?string
-    {
-        return $this->place_of_birth;
-    }
-
-    public function getDateOfBirth(): ?\DateTime
-    {
-        return $this->date_of_birth;
-    }
-
-    public function setDateofBirth(?\DateTime $dateofbirth): self
-    {
-        $this->date_of_birth = $dateofbirth;
-
-        return $this;
-    }
-
-    public function getNationality(): ?string
-    {
-        return $this->nationality;
-    }
-
-    public function setNationality(?string $nationality): self
-    {
-        $this->nationality = $nationality;
-
-        return $this;
-    }
-
-    public function getSex(): ?string
-    {
-        return $this->sex;
-    }
-
-    public function setSex(?string $sex): self
-    {
-        $this->sex = $sex;
-
-        return $this;
-    }
-
-    public function getEmail(): ?string
+    public function getEmail()
     {
         return $this->email;
     }
 
-    public function setEmail(?string $email): self
+    /**
+     * @param mixed $email
+     * @return Employee
+     */
+    public function setEmail($email)
     {
         $this->email = $email;
-
         return $this;
     }
 
-    public function getPhoto(): ?string
+    /**
+     * @return mixed
+     */
+    public function getFirstname()
     {
-        return $this->photo;
+        return $this->firstname;
     }
 
-    public function setPhoto(?string $photo): self
+    /**
+     * @param mixed $firstname
+     * @return Employee
+     */
+    public function setFirstname($firstname)
     {
-        $this->photo = $photo;
-
+        $this->firstname = $firstname;
         return $this;
     }
 
-
-    public function getAddress(): ?string
+    /**
+     * @return mixed
+     */
+    public function getLastname()
     {
-        return $this->address;
+        return $this->lastname;
     }
 
-    public function setAddress(?string $address): self
+    /**
+     * @param mixed $lastname
+     * @return Employee
+     */
+    public function setLastname($lastname)
     {
-        $this->address = $address;
-
+        $this->lastname = $lastname;
         return $this;
     }
 
-    public function getPhoneNumber(): ?string
+    /**
+     * @return mixed
+     */
+    public function getPlaceOfBirth()
+    {
+        return $this->place_of_birth;
+    }
+
+    /**
+     * @param mixed $place_of_birth
+     * @return Employee
+     */
+    public function setPlaceOfBirth($place_of_birth)
+    {
+        $this->place_of_birth = $place_of_birth;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateOfBirth()
+    {
+        return $this->date_of_birth;
+    }
+
+    /**
+     * @param mixed $date_of_birth
+     * @return Employee
+     */
+    public function setDateOfBirth($date_of_birth)
+    {
+        $this->date_of_birth = $date_of_birth;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNationality()
+    {
+        return $this->nationality;
+    }
+
+    /**
+     * @param mixed $nationality
+     * @return Employee
+     */
+    public function setNationality($nationality)
+    {
+        $this->nationality = $nationality;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCni()
+    {
+        return $this->cni;
+    }
+
+    /**
+     * @param mixed $cni
+     * @return Employee
+     */
+    public function setCni($cni)
+    {
+        $this->cni = $cni;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSex()
+    {
+        return $this->sex;
+    }
+
+    /**
+     * @param mixed $sex
+     * @return Employee
+     */
+    public function setSex($sex)
+    {
+        $this->sex = $sex;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPhoneNumber()
     {
         return $this->phone_number;
     }
 
-    public function setPhoneNumber(?string $phonenumber): self
+    /**
+     * @param mixed $phone_number
+     * @return Employee
+     */
+    public function setPhoneNumber($phone_number)
     {
-        $this->phone_number = $phonenumber;
-
+        $this->phone_number = $phone_number;
         return $this;
     }
 
-    public function getCompany(): ?Company
+    /**
+     * @return mixed
+     */
+    public function getPhoto()
     {
-        return $this->company;
+        return $this->photo;
     }
 
-    public function setCompany(?Company $company): self
+    /**
+     * @param mixed $photo
+     * @return Employee
+     */
+    public function setPhoto($photo)
     {
-        $this->company = $company;
-
+        $this->photo = $photo;
         return $this;
     }
 
@@ -262,66 +276,102 @@ class Employee
     }
 
     /**
-     * @param string $status
+     * @param mixed $status
      * @return Employee
      */
-    public function setStatus(?string $status): self
+    public function setStatus($status)
     {
         $this->status = $status;
         return $this;
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface|null
      */
-    public function getSubscriptionStartDate(): ?\DateTime
+    public function getSubscriptionStartDate(): ?\DateTimeInterface
     {
         return $this->subscription_start_date;
     }
 
     /**
-     * @param \DateTime $subscription_start_date
+     * @param \DateTimeInterface|null $subscription_start_date
      * @return Employee
      */
-    public function setSubscriptionStartDate(?\DateTime $subscription_start_date): self
+    public function setSubscriptionStartDate(?\DateTimeInterface $subscription_start_date): Employee
     {
         $this->subscription_start_date = $subscription_start_date;
         return $this;
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface|null
      */
-    public function getSubscriptionExpireDate(): ?\DateTime
+    public function getSubscriptionExpireDate(): ?\DateTimeInterface
     {
         return $this->subscription_expire_date;
     }
 
     /**
-     * @param ?\DateTime $subscription_expire_date
+     * @param \DateTimeInterface|null $subscription_expire_date
      * @return Employee
      */
-    public function setSubscriptionExpireDate(?\DateTime $subscription_expire_date): self
+    public function setSubscriptionExpireDate(?\DateTimeInterface $subscription_expire_date): Employee
     {
         $this->subscription_expire_date = $subscription_expire_date;
         return $this;
     }
 
     /**
-     * @return string
+     * @return \DateTimeInterface|null
      */
-    public function getCni() : ?string
+    public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->cni;
+        return $this->created_at;
     }
 
     /**
-     * @param string $cni
+     * @param \DateTimeInterface|null $created_at
      * @return Employee
      */
-    public function setCni(?string $cni)
+    public function setCreatedAt(?\DateTimeInterface $created_at): Employee
     {
-        $this->cni = $cni;
+        $this->created_at = $created_at;
+        return $this;
+    }
+
+    /**
+     * @return \DateTimeInterface|null
+     */
+    public function getModifiedAt(): ?\DateTimeInterface
+    {
+        return $this->modified_at;
+    }
+
+    /**
+     * @param \DateTimeInterface|null $modified_at
+     * @return Employee
+     */
+    public function setModifiedAt(?\DateTimeInterface $modified_at): Employee
+    {
+        $this->modified_at = $modified_at;
+        return $this;
+    }
+
+    /**
+     * @return Company|null
+     */
+    public function getCompany(): ?Company
+    {
+        return $this->company;
+    }
+
+    /**
+     * @param Company|null $company
+     * @return Employee
+     */
+    public function setCompany(?Company $company): Employee
+    {
+        $this->company = $company;
         return $this;
     }
 
@@ -336,4 +386,5 @@ class Employee
         else return 0;
 
     }
+
 }

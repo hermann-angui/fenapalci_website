@@ -5,8 +5,8 @@ namespace App\Entity;
 use App\Repository\CompanyRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: CompanyRepository::class)]
 #[ORM\HasLifecycleCallbacks()]
@@ -48,14 +48,14 @@ class Company
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $status;
 
-    #[ORM\Column(type: 'datetime', nullable: true)]
-    private $subscription_start_date;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $subscription_start_date;
 
-    #[ORM\Column(type: 'datetime', nullable: true)]
-    private $subscription_expire_date;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $subscription_expire_date;
 
-    #[ORM\Column(type: 'datetime', nullable: true)]
-    private $date_created = null;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $date_created = null;
 
     #[ORM\ManyToOne(inversedBy: 'companies')]
     #[ORM\JoinColumn(nullable: false)]

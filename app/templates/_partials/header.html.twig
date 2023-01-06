@@ -24,7 +24,7 @@
                         {% else %}
                             <a href="{{ path('logout') }}" class="nav-link nav-link--fr-user-login mt-1">Se deconnecter</a>
                                 {% if app.user.photo is not null %}
-                                    <img width="30" height="30" src="{{ asset('users/') }}{{ user.photo }}" id="user_avatar" alt="user profile picture" class="rounded-circle"/>
+                                    <img width="30" height="30" src="{{ asset('users/') }}{{ app.user.photo }}" id="user_avatar" alt="user profile picture" class="rounded-circle"/>
                                 {% else %}
                                     <img width="30" height="30" src="{{ asset('assets/images/avatar/avatar.jpg') }}" id="user_avatar" alt="user profile picture" class="rounded-circle"/>
                                 {% endif %}

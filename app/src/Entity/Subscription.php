@@ -43,11 +43,11 @@ class Subscription
     #[ORM\Column(type: 'string', nullable: true)]
     private string $payment_type;
 
-    #[ORM\Column(type: 'datetime', nullable: true)]
-    private $subscription_start_date;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $subscription_start_date;
 
-    #[ORM\Column(type: 'datetime', nullable: true)]
-    private $subscription_expire_date;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface$subscription_expire_date;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $payment_date = null;
@@ -82,19 +82,6 @@ class Subscription
         $this->modified_at =  new \DateTime('now');
     }
 
-    public function getSubscriber(): ?User
-    {
-        return $this->subscriber;
-    }
-
-    public function setSubscriber(?User $subscriber): self
-    {
-        $this->subscriber = $subscriber;
-
-        return $this;
-    }
-
-
     /**
      * @return string
      */
@@ -107,7 +94,7 @@ class Subscription
      * @param string $payment_reference
      * @return Subscription
      */
-    public function setPaymentReference(?string $payment_reference): Subscription
+    public function setPaymentReference(string $payment_reference): Subscription
     {
         $this->payment_reference = $payment_reference;
         return $this;
@@ -125,7 +112,7 @@ class Subscription
      * @param string $checkout_session_id
      * @return Subscription
      */
-    public function setCheckoutSessionId(?string $checkout_session_id): Subscription
+    public function setCheckoutSessionId(string $checkout_session_id): Subscription
     {
         $this->checkout_session_id = $checkout_session_id;
         return $this;
@@ -133,6 +120,24 @@ class Subscription
 
     /**
      * @return string
+     */
+    public function getOperatorTransactionId(): string
+    {
+        return $this->operator_transaction_id;
+    }
+
+    /**
+     * @param string $operator_transaction_id
+     * @return Subscription
+     */
+    public function setOperatorTransactionId(string $operator_transaction_id): Subscription
+    {
+        $this->operator_transaction_id = $operator_transaction_id;
+        return $this;
+    }
+
+    /**
+     * @return int
      */
     public function getAmount(): int
     {
@@ -143,7 +148,7 @@ class Subscription
      * @param int $amount
      * @return Subscription
      */
-    public function setAmount(?int $amount): Subscription
+    public function setAmount(int $amount): Subscription
     {
         $this->amount = $amount;
         return $this;
@@ -161,9 +166,27 @@ class Subscription
      * @param string $currency
      * @return Subscription
      */
-    public function setCurrency(?string $currency): Subscription
+    public function setCurrency(string $currency): Subscription
     {
         $this->currency = $currency;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOperator(): string
+    {
+        return $this->operator;
+    }
+
+    /**
+     * @param string $operator
+     * @return Subscription
+     */
+    public function setOperator(string $operator): Subscription
+    {
+        $this->operator = $operator;
         return $this;
     }
 
@@ -179,7 +202,7 @@ class Subscription
      * @param string $payment_mode
      * @return Subscription
      */
-    public function setPaymentMode(?string $payment_mode): Subscription
+    public function setPaymentMode(string $payment_mode): Subscription
     {
         $this->payment_mode = $payment_mode;
         return $this;
@@ -197,7 +220,7 @@ class Subscription
      * @param string $payment_status
      * @return Subscription
      */
-    public function setPaymentStatus(?string $payment_status): Subscription
+    public function setPaymentStatus(string $payment_status): Subscription
     {
         $this->payment_status = $payment_status;
         return $this;
@@ -206,7 +229,7 @@ class Subscription
     /**
      * @return string
      */
-    public function getPaymentType(): ?string
+    public function getPaymentType(): string
     {
         return $this->payment_type;
     }
@@ -215,9 +238,45 @@ class Subscription
      * @param string $payment_type
      * @return Subscription
      */
-    public function setPaymentType(?string $payment_type): Subscription
+    public function setPaymentType(string $payment_type): Subscription
     {
         $this->payment_type = $payment_type;
+        return $this;
+    }
+
+    /**
+     * @return \DateTimeInterface|null
+     */
+    public function getSubscriptionStartDate(): ?\DateTimeInterface
+    {
+        return $this->subscription_start_date;
+    }
+
+    /**
+     * @param \DateTimeInterface|null $subscription_start_date
+     * @return Subscription
+     */
+    public function setSubscriptionStartDate(?\DateTimeInterface $subscription_start_date): Subscription
+    {
+        $this->subscription_start_date = $subscription_start_date;
+        return $this;
+    }
+
+    /**
+     * @return \DateTimeInterface|null
+     */
+    public function getSubscriptionExpireDate(): ?\DateTimeInterface
+    {
+        return $this->subscription_expire_date;
+    }
+
+    /**
+     * @param \DateTimeInterface|null $subscription_expire_date
+     * @return Subscription
+     */
+    public function setSubscriptionExpireDate(?\DateTimeInterface $subscription_expire_date): Subscription
+    {
+        $this->subscription_expire_date = $subscription_expire_date;
         return $this;
     }
 
@@ -276,75 +335,22 @@ class Subscription
     }
 
     /**
-     * @return string
+     * @return User|null
      */
-    public function getOperator(): ?string
+    public function getSubscriber(): ?User
     {
-        return $this->operator;
+        return $this->subscriber;
     }
 
     /**
-     * @param string $operator
+     * @param User|null $subscriber
      * @return Subscription
      */
-    public function setOperator(?string $operator): Subscription
+    public function setSubscriber(?User $subscriber): Subscription
     {
-        $this->operator = $operator;
+        $this->subscriber = $subscriber;
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getOperatorTransactionId(): ?string
-    {
-        return $this->operator_transaction_id;
-    }
-
-    /**
-     * @param string $operator_transaction_id
-     * @return Subscription
-     */
-    public function setOperatorTransactionId(?string $operator_transaction_id): Subscription
-    {
-        $this->operator_transaction_id = $operator_transaction_id;
-        return $this;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getSubscriptionStartDate() : ?\DateTime
-    {
-        return $this->subscription_start_date;
-    }
-
-    /**
-     * @param \DateTime $subscription_start_date
-     * @return \DateTime
-     */
-    public function setSubscriptionStartDate(?\DateTime $subscription_start_date): self
-    {
-        $this->subscription_start_date = $subscription_start_date;
-        return $this;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getSubscriptionExpireDate() : ?\DateTime
-    {
-        return $this->subscription_expire_date;
-    }
-
-    /**
-     * @param \DateTime $subscription_expire_date
-     * @return Subscription
-     */
-    public function setSubscriptionExpireDate(?\DateTime $subscription_expire_date)
-    {
-        $this->subscription_expire_date = $subscription_expire_date;
-        return $this;
-    }
 
 }

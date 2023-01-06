@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProductRepository;
+use Doctrine\DBAL\Types\Type;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
@@ -48,12 +50,11 @@ class Product
     #[ORM\JoinColumn(nullable: false)]
     private ?ProductCategory $category = null;
 
-    #[ORM\Column(type: 'datetime', nullable: true)]
-    private $created_at;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $created_at;
 
-    #[ORM\Column(type: 'datetime', nullable: true)]
-    private $modified_at;
-
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $modified_at;
 
     public function __construct()
     {
@@ -71,8 +72,239 @@ class Product
         $this->modified_at =  new \DateTime('now');
     }
 
-    public function getId(): ?int
+    /**
+     * @return mixed
+     */
+    public function getId()
     {
         return $this->id;
     }
+
+    /**
+     * @param mixed $id
+     * @return Product
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProductSku()
+    {
+        return $this->product_sku;
+    }
+
+    /**
+     * @param mixed $product_sku
+     * @return Product
+     */
+    public function setProductSku($product_sku)
+    {
+        $this->product_sku = $product_sku;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProductName()
+    {
+        return $this->product_name;
+    }
+
+    /**
+     * @param mixed $product_name
+     * @return Product
+     */
+    public function setProductName($product_name)
+    {
+        $this->product_name = $product_name;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProductSupplier()
+    {
+        return $this->product_supplier;
+    }
+
+    /**
+     * @param mixed $product_supplier
+     * @return Product
+     */
+    public function setProductSupplier($product_supplier)
+    {
+        $this->product_supplier = $product_supplier;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProductDescription()
+    {
+        return $this->product_description;
+    }
+
+    /**
+     * @param mixed $product_description
+     * @return Product
+     */
+    public function setProductDescription($product_description)
+    {
+        $this->product_description = $product_description;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProductUnitPrice()
+    {
+        return $this->product_unit_price;
+    }
+
+    /**
+     * @param mixed $product_unit_price
+     * @return Product
+     */
+    public function setProductUnitPrice($product_unit_price)
+    {
+        $this->product_unit_price = $product_unit_price;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProductUnitInStock()
+    {
+        return $this->product_unit_in_stock;
+    }
+
+    /**
+     * @param mixed $product_unit_in_stock
+     * @return Product
+     */
+    public function setProductUnitInStock($product_unit_in_stock)
+    {
+        $this->product_unit_in_stock = $product_unit_in_stock;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProductSellPrice()
+    {
+        return $this->product_sell_price;
+    }
+
+    /**
+     * @param mixed $product_sell_price
+     * @return Product
+     */
+    public function setProductSellPrice($product_sell_price)
+    {
+        $this->product_sell_price = $product_sell_price;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProductSupplierPrice()
+    {
+        return $this->product_supplier_price;
+    }
+
+    /**
+     * @param mixed $product_supplier_price
+     * @return Product
+     */
+    public function setProductSupplierPrice($product_supplier_price)
+    {
+        $this->product_supplier_price = $product_supplier_price;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProductPictures()
+    {
+        return $this->product_pictures;
+    }
+
+    /**
+     * @param mixed $product_pictures
+     * @return Product
+     */
+    public function setProductPictures($product_pictures)
+    {
+        $this->product_pictures = $product_pictures;
+        return $this;
+    }
+
+    /**
+     * @return ProductCategory|null
+     */
+    public function getCategory(): ?ProductCategory
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param ProductCategory|null $category
+     * @return Product
+     */
+    public function setCategory(?ProductCategory $category): Product
+    {
+        $this->category = $category;
+        return $this;
+    }
+
+    /**
+     * @return \DateTimeInterface|null
+     */
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * @param \DateTimeInterface|null $created_at
+     * @return Product
+     */
+    public function setCreatedAt(?\DateTimeInterface $created_at): Product
+    {
+        $this->created_at = $created_at;
+        return $this;
+    }
+
+    /**
+     * @return \DateTimeInterface|null
+     */
+    public function getModifiedAt(): ?\DateTimeInterface
+    {
+        return $this->modified_at;
+    }
+
+    /**
+     * @param \DateTimeInterface|null $modified_at
+     * @return Product
+     */
+    public function setModifiedAt(?\DateTimeInterface $modified_at): Product
+    {
+        $this->modified_at = $modified_at;
+        return $this;
+    }
+
+
 }
