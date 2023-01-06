@@ -56,12 +56,12 @@ class UserFormType extends AbstractType
                 'label' => 'Nom',
                 'mapped' => true
             ])
-            ->add('city',ChoiceType::class,[
+            ->add('city',TextType::class,[
                 'required' => false,
                 'label' => 'Ville',
                 'mapped' => true
             ])
-            ->add('commune',ChoiceType::class, [
+            ->add('commune',TextType::class, [
                 'required' => false,
                 'label' => 'Commune',
                 'mapped' => true

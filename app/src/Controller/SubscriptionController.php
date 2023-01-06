@@ -7,7 +7,6 @@ use App\Repository\UserRepository;
 use App\Service\Wave\WaveService;
 use App\Traits\UserTrait;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,28 +28,30 @@ class SubscriptionController extends AbstractController
         $this->userRepository = $userRepository;
     }
 
-    #[Route('/payment/categorie', name: 'subscription_payment', methods: ['GET'])]
-    public function paymentSelectCategory(Request $request, ObjectManager $em): Response
+    #[Route('/payment/category', name: 'subscription_payment_category', methods: ['GET'])]
+    public function paymentSelectCategory(Request $request, EntityManagerInterface $em): Response
     {
-        return $this->render('subscription_payment/select_category.html.twig', [
-            'user' => $this->getUser(),
-        ]);
+        return $this->render('subscription_payment/select_category.html.twig');
     }
 
     #[Route(path: '/payment/redirect', name: 'subscrption_payment_redirect_to_payment_service')]
     public function redirectToPaymentService(Request $request): Response
     {
         $user = $this->getUser();
-        $categorie = $request->get('categorie');
-        $payment_redirect_url = $this->payForSubscription(0, $user);
+        $category = $request->get('company_category');
+        $amount = $this->getSubscriptionFee($category);
+        $payment_redirect_url = $this->payForSubscription($amount, $user);
 
-        return $this->redirect($payment_redirect_url);
+        if($payment_redirect_url) return $this->redirect($payment_redirect_url);
+        else return $this->redirectToRoute('subscription_payment_category');
+
     }
 
     #[Route(path: '/wave/checkout/{status}', name: 'wave_payment_callback')]
     public function wavePaymentCheckoutStatusCallback($status, Request $request): Response
     {
-        return $this->render('subscription/checkout_result.html.twig', ['status' => $status]);
+        return $this->render('subscription/checkout_result.html.twig', [
+            'status' => $status]);
     }
 
     #[Route(path: '/wave', name: 'wave_payment_checkout_webhook')]
@@ -61,7 +62,7 @@ class SubscriptionController extends AbstractController
         return $this->json($payload);
     }
 
-    #[Route(path: '/agrement', name: 'subscription_agrement')]
+    #[Route(path: '/agreement', name: 'subscription_agreement')]
     public function howToPayment(Request $request): Response
     {
         $user = $this->getUser();
@@ -71,5 +72,27 @@ class SubscriptionController extends AbstractController
     }
 
 
+    private function getSubscriptionFee (int $index) : ?int
+    {
+        $fees =     [
+            5000, // "GLACIER" => 5000,
+            5000, // "BAR"  => 5000,
+            2000, // "MAQUIS : 1-50 Places" => 2000,
+            3000, // "MAQUIS : 50-100 Places"=> 3000,
+            5000, // "MAQUIS : 101 Places et Plus" => 5000,
+            2000, // "RESTAURANT : 1-50 Places" => 2000,
+            3000, // "RESTAURANT : 51 Places et Plus"=> 3000,
+            5000, // "MAQUIS/RESTAURANT"  => 5000,
+            5000, // "RESTAURANT VIP" => 5000,
+            5000, // "DEPOT DE BOISSON"  => 5000,
+            5000, // "HOTEL"   => 5000,
+            5000, // "NIGHT CLUB" => 5000,
+            5000, // "EVENEMENTIEL" => 5000,
+            5000, // "PATISSERIE" => 5000,
+            2000, // "CAVE : 1-50 Places"  => 2000,
+            3000, // "CAVE : 51 Places et Plus" => 3000
+        ];
+        return $fees[$index];
+    }
 
 }

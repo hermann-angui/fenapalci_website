@@ -22,7 +22,7 @@
                         {%  if app.user is null %}
                             <a href="{{ path('login') }}" class="nav-link nav-link--fr-user-login mt-1">Se connecter</a>
                         {% else %}
-                            <a href="{{ path('logout') }}" class="nav-link nav-link--fr-user-login mt-1">Se deconnecter</a>
+                            <a href="{{ path('logout') }}" class="nav-link nav-link--fr-user-login mt-1">Se déconnecter</a>
                                 {% if app.user.photo is not null %}
                                     <img width="30" height="30" src="{{ asset('users/') }}{{ app.user.photo }}" id="user_avatar" alt="user profile picture" class="rounded-circle"/>
                                 {% else %}
@@ -38,7 +38,7 @@
     <nav class="navbar navbar-expand-lg" id="navbar-main">
         <div class="container">
             <section class="region region-header">
-                <a href="/fr" title="Accueil" rel="home" class="navbar-brand">
+                <a href="{{ path('home') }}" title="Accueil" rel="home" class="navbar-brand">
                     <img src="{{ asset('assets/images/logo-new.png') }}" style="width: 250px;height: 114px;" alt="Accueil" class="img-fluid d-inline-block align-top"/>
                 </a>
             </section>
@@ -91,52 +91,52 @@
                         </li>
 
                         <li class="nav-item menu-item--expanded dropdown">
-                            <a href="" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">e-Boutique</a>
+                            <a href="{{ path('ecommerce_index') }}" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">e-Boutique</a>
                             <ul class="dropdown-menu">
                                 <li class="dropdown-item">
-                                    <a href="">Refrigérateur</a>
+                                    <a href="{{ path('ecommerce_index') }}">Refrigérateur</a>
                                 </li>
                                 <li class="dropdown-item">
-                                    <a href="">Split</a>
+                                    <a href="{{ path('ecommerce_index') }}">Split</a>
                                 </li>
                                 <li class="dropdown-item">
-                                    <a href="">Chaise</a>
+                                    <a href="{{ path('ecommerce_index') }}">Chaise</a>
                                 </li>
                                 <li class="dropdown-item">
-                                    <a href="">Sono</a>
+                                    <a href="{{ path('ecommerce_index') }}">Sono</a>
                                 </li>
                                 <li class="dropdown-item">
-                                    <a href="">Immobilier</a>
+                                    <a href="{{ path('ecommerce_index') }}">Immobilier</a>
                                 </li>
                                 <li class="dropdown-item">
-                                    <a href="">Chaises</a>
+                                    <a href="{{ path('ecommerce_index') }}">Chaises</a>
                                 </li>
                                 <li class="dropdown-item">
-                                    <a href="">Tables</a>
+                                    <a href="{{ path('ecommerce_index') }}">Tables</a>
                                 </li>
                             </ul>
 
                         </li>
 
                         <li class="nav-item menu-item--expanded dropdown">
-                            <a href="" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Services aux membres</a>
+                            <a href="#" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Services aux membres</a>
                             <ul class="dropdown-menu">
                                 <li class="dropdown-item">
-                                    <a href="">Assurances</a>
+                                    <a href="{{ path('members_training') }}">Formations</a>
+                                </li>
+
+                                <li class="dropdown-item">
+                                    <a href="{{ path('insurance') }}">Assurances</a>
                                 </li>
                                 <li class="dropdown-item">
-                                    <a href="">Conseils et protection juridiques</a>
+                                    <a href="{{ path('lawyer_protection') }}">Conseils et protection juridiques</a>
                                 </li>
                                 <li class="dropdown-item">
-                                    <a href="">Cotisation sociales</a>
+                                    <a href="{{ path('social_care') }}">Cotisations sociales</a>
                                 </li>
                             </ul>
                         </li>
 
-                        <li class="nav-item menu-item--expanded dropdown">
-                            <a href="" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown"
-                               aria-expanded="false" aria-haspopup="true">Formations</a>
-                        </li>
 
                         <li class="nav-item menu-item--expanded dropdown">
                             <a href="" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown"
@@ -150,6 +150,12 @@
                         <li class="nav-item menu-item--expanded dropdown">
                             <a href="" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown"
                                aria-expanded="false" aria-haspopup="true">FAQ</a>
+                        </li>
+
+
+                        <li class="nav-item menu-item--expanded dropdown">
+                            <a href="" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown"
+                               aria-expanded="false" aria-haspopup="true">Nous contacter</a>
                         </li>
                     </ul>
                 </nav>

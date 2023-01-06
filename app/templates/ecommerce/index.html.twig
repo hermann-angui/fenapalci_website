@@ -1,7 +1,597 @@
-{% extends 'base.html.twig' %}
+{% extends 'main.html.twig' %}
 
-{% block title %}
+{% block title %}E-boutique fenalpaci{% endblock %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <style>
+    </style>
+{% endblock %}
+
+{% block profile_picture %}
+{% endblock %}
+
+{% block page_title %}
+    {{ include('_partials/page_title.html.twig', {'title': 'Votre boutique FENAPALCI'}) }}
 {% endblock %}
 
 {% block body %}
+    <div id="primary" class="container">
+        <main id="main" class="site-main">
+            <div class="row categories-with-product">
+                <div class="d-none d-xl-block col-xl-auto mb-6 mb-md-0">
+                    <div class="categories-list-menu bg-white">
+                        <div class="departments-menu-v2 animated-dropdown">
+                            <div class="dropdown show-dropdown">
+                                <div class="departments-menu-v2-title">
+                                    <section class="w-100 mb-0">
+                                        <header class="mb-0">
+                                            <h2 class="h1 fw-bold">Boutique</h2>
+                                        </header>
+                                    </section>
+                                </div>
+                                <ul id="menu-all-departments-menu-2" class="dropdown-menu yamm">
+                                    <li id="menu-item-5220"
+                                        class="yamm-tfw menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5220 dropdown">
+                                        <a title="Ordinateurs &amp; Accessoires" href="#" data-bs-toggle="dropdown-hover"
+                                           class="dropdown-toggle" aria-haspopup="true">Ordinateurs &amp; Accessoires</a>
+                                        <ul role="menu" class=" dropdown-menu">
+                                            <li id="menu-item-5310"
+                                                class="menu-item menu-item-type-post_type menu-item-object-mas_static_content menu-item-5310">
+                                                <div class="yamm-content">
+                                                    <div class="vc_row wpb_row vc_row-fluid bg-yamm-content bg-yamm-content-bottom bg-yamm-content-right">
+                                                        <div class="wpb_column vc_column_container vc_col-sm-12">
+                                                            <div class="vc_column-inner">
+                                                                <div class="wpb_wrapper">
+                                                                    <div class="wpb_single_image wpb_content_element vc_align_left">
+                                                                        <figure class="wpb_wrapper vc_figure">
+                                                                            <div class="vc_single_image-wrapper   vc_box_border_grey">
+                                                                                <img width="540" height="460"
+                                                                                     src="https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-2.png"
+                                                                                     class="vc_single_image-img attachment-full"
+                                                                                     alt="" loading="lazy"
+                                                                                     title="megamenu-2"
+                                                                                     srcset="https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-2.png 540w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-2-300x256.png 300w"
+                                                                                     sizes="(max-width: 540px) 100vw, 540px">
+                                                                            </div>
+                                                                        </figure>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="vc_row wpb_row vc_row-fluid">
+                                                        <div class="wpb_column vc_column_container vc_col-sm-6">
+                                                            <div class="vc_column-inner">
+                                                                <div class="wpb_wrapper">
+                                                                    <div class="wpb_text_column wpb_content_element ">
+                                                                        <div class="wpb_wrapper">
+                                                                            <ul>
+                                                                                <li class="nav-title">Ordinateurs &amp;
+                                                                                    Accessoires
+                                                                                </li>
+                                                                                <li><a href="#">Tous Ordinateurs &amp;
+                                                                                        Accessoires</a></li>
+                                                                                <li><a href="#">Portable, Bureau &amp;
+                                                                                        Ecran</a></li>
+                                                                                <li><a href="#">Imprimantes &amp; Cartouches</a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="wpb_column vc_column_container vc_col-sm-6">
+                                                            <div class="vc_column-inner">
+                                                                <div class="wpb_wrapper">
+                                                                    <div class="wpb_text_column wpb_content_element ">
+                                                                        <div class="wpb_wrapper">
+                                                                            <ul>
+                                                                                <li class="nav-title">Office &amp;Stationery</li>
+                                                                                <li><a href="#">All Office &amp;Stationery</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li id="menu-item-5221"
+                                        class="yamm-tfw menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5221 dropdown">
+                                        <a title="Cameras, Audio &amp; Video" href="#" data-bs-toggle="dropdown-hover"
+                                           class="dropdown-toggle" aria-haspopup="true">Cameras, Audio &amp; Video</a>
+                                        <ul role="menu" class=" dropdown-menu">
+                                            <li id="menu-item-5309"
+                                                class="menu-item menu-item-type-post_type menu-item-object-mas_static_content menu-item-5309">
+                                                <div class="yamm-content">
+                                                    <div class="vc_row wpb_row vc_row-fluid bg-yamm-content">
+                                                        <div class="wpb_column vc_column_container vc_col-sm-12">
+                                                            <div class="vc_column-inner">
+                                                                <div class="wpb_wrapper">
+                                                                    <div class="wpb_single_image wpb_content_element vc_align_left">
+                                                                        <figure class="wpb_wrapper vc_figure">
+                                                                            <div class="vc_single_image-wrapper   vc_box_border_grey">
+                                                                                <img width="540" height="460"
+                                                                                     src="https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-3.png"
+                                                                                     class="vc_single_image-img attachment-full"
+                                                                                     alt="" loading="lazy"
+                                                                                     title="megamenu-3"
+                                                                                     srcset="https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-3.png 540w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-3-300x256.png 300w"
+                                                                                     sizes="(max-width: 540px) 100vw, 540px">
+                                                                            </div>
+                                                                        </figure>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="vc_row wpb_row vc_row-fluid">
+                                                        <div class="wpb_column vc_column_container vc_col-sm-6">
+                                                            <div class="vc_column-inner">
+                                                                <div class="wpb_wrapper">
+                                                                    <div class="wpb_text_column wpb_content_element ">
+                                                                        <div class="wpb_wrapper">
+                                                                            <ul>
+                                                                                <li class="nav-title"><a href="#">Cameras &amp; Photographie</a></li>
+                                                                                <li><a href="#">Accessoires caméras</a>
+                                                                                </li>
+                                                                                <li><a href="#">Securité &amp;Surveillance</a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="wpb_column vc_column_container vc_col-sm-6">
+                                                            <div class="vc_column-inner">
+                                                                <div class="wpb_wrapper">
+                                                                    <div class="wpb_text_column wpb_content_element ">
+                                                                        <div class="wpb_wrapper">
+                                                                            <ul>
+                                                                                <li class="nav-title">Audio &amp;
+                                                                                    Video
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li id="menu-item-5222"
+                                        class="yamm-tfw menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5222 dropdown">
+                                        <a title="Mobiles &amp; Tablets" href="#" data-bs-toggle="dropdown-hover"
+                                           class="dropdown-toggle" aria-haspopup="true">Téléphones &amp; Tablettes</a>
+                                        <ul role="menu" class="dropdown-menu bg-yamm-extend">
+                                            <li id="menu-item-5311"
+                                                class="menu-item menu-item-type-post_type menu-item-object-mas_static_content menu-item-5311">
+                                                <div class="yamm-content">
+                                                    <div class="vc_row wpb_row vc_row-fluid bg-yamm-content">
+                                                        <div class="wpb_column vc_column_container vc_col-sm-12">
+                                                            <div class="vc_column-inner">
+                                                                <div class="wpb_wrapper">
+                                                                    <div class="wpb_single_image wpb_content_element vc_align_left   bg-yamm-extend-outside">
+                                                                        <figure class="wpb_wrapper vc_figure">
+                                                                            <div class="vc_single_image-wrapper   vc_box_border_grey">
+                                                                                <img width="540" height="495"
+                                                                                     src="https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-.png"
+                                                                                     class="vc_single_image-img attachment-full"
+                                                                                     alt="" loading="lazy"
+                                                                                     title="megamenu-"
+                                                                                     srcset="https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-.png 540w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu--300x275.png 300w"
+                                                                                     sizes="(max-width: 540px) 100vw, 540px">
+                                                                            </div>
+                                                                        </figure>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="vc_row wpb_row vc_row-fluid">
+                                                        <div class="wpb_column vc_column_container vc_col-sm-6">
+                                                            <div class="vc_column-inner">
+                                                                <div class="wpb_wrapper">
+                                                                    <div class="wpb_text_column wpb_content_element ">
+                                                                        <div class="wpb_wrapper">
+                                                                            <ul>
+                                                                                <li class="nav-title">Mobiles &amp;
+                                                                                    Tablettes
+                                                                                </li>
+                                                                                <li><a href="#">All Mobile Phones</a>
+                                                                                </li>
+                                                                                <li><a href="#">Smartphones</a></li>
+                                                                                <li><a href="#">Refurbished Mobiles</a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="wpb_column vc_column_container vc_col-sm-6">
+                                                            <div class="vc_column-inner">
+                                                                <div class="wpb_wrapper">
+                                                                    <div class="wpb_text_column wpb_content_element ">
+                                                                        <div class="wpb_wrapper">
+                                                                            <ul>
+                                                                                <li class="nav-title"></li>
+                                                                                <li><a href="#">Toutes les Tablettes</a></li>
+                                                                                <li><a href="#">Tablettes Accessoires</a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li id="menu-item-5223"
+                                        class="yamm-tfw menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5223 dropdown">
+                                        <a title="Climatiseurs, &amp; Ventilateurs" href="#"
+                                           data-bs-toggle="dropdown-hover" class="dropdown-toggle" aria-haspopup="true">Climatiseurs
+                                             &amp; Ventillateurs</a>
+                                        <ul role="menu" class=" dropdown-menu">
+                                            <li id="menu-item-5312"
+                                                class="menu-item menu-item-type-post_type menu-item-object-mas_static_content menu-item-5312">
+                                                <div class="yamm-content">
+                                                    <div class="vc_row wpb_row vc_row-fluid bg-yamm-content">
+                                                        <div class="wpb_column vc_column_container vc_col-sm-12">
+                                                            <div class="vc_column-inner">
+                                                                <div class="wpb_wrapper">
+                                                                    <div class="wpb_single_image wpb_content_element vc_align_left">
+                                                                        <figure class="wpb_wrapper vc_figure">
+                                                                            <div class="vc_single_image-wrapper   vc_box_border_grey">
+                                                                                <img width="540" height="485"
+                                                                                     src="https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-8.png"
+                                                                                     class="vc_single_image-img attachment-full"
+                                                                                     alt="" loading="lazy"
+                                                                                     title="megamenu-8"
+                                                                                     srcset="https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-8.png 540w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-8-300x269.png 300w"
+                                                                                     sizes="(max-width: 540px) 100vw, 540px">
+                                                                            </div>
+                                                                        </figure>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="vc_row wpb_row vc_row-fluid">
+                                                        <div class="wpb_column vc_column_container vc_col-sm-6">
+                                                            <div class="vc_column-inner">
+                                                                <div class="wpb_wrapper">
+                                                                    <div class="wpb_text_column wpb_content_element ">
+                                                                        <div class="wpb_wrapper">
+                                                                            <ul>
+                                                                                <li class="nav-title">Movies &amp; TV
+                                                                                    Shows
+                                                                                </li>
+                                                                                <li><a href="#">All Movies &amp; TV
+                                                                                        Shows</a></li>
+                                                                                <li><a href="#">All English</a></li>
+                                                                                <li><a href="#">All Hindi</a></li>
+                                                                                <li class="nav-divider"></li>
+                                                                                <li class="nav-title">Video Games</li>
+                                                                                <li><a href="#">PC Games</a></li>
+                                                                                <li><a href="#">Consoles</a></li>
+                                                                                <li><a href="#">Accessories</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="wpb_column vc_column_container vc_col-sm-6">
+                                                            <div class="vc_column-inner">
+                                                                <div class="wpb_wrapper">
+                                                                    <div class="wpb_text_column wpb_content_element ">
+                                                                        <div class="wpb_wrapper">
+                                                                            <ul>
+                                                                                <li class="nav-title">Music</li>
+                                                                                <li><a href="#">All Music</a></li>
+                                                                                <li><a href="#">Indian Classical</a>
+                                                                                </li>
+                                                                                <li><a href="#">Musical Instruments</a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li id="menu-item-5226"
+                                        class="yamm-tfw menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5226 dropdown">
+                                        <a title="TV &amp; Audio" href="#" data-bs-toggle="dropdown-hover"
+                                           class="dropdown-toggle" aria-haspopup="true">TV &amp; Audio</a>
+                                        <ul role="menu" class=" dropdown-menu">
+                                            <li id="menu-item-5314"
+                                                class="menu-item menu-item-type-post_type menu-item-object-mas_static_content menu-item-5314">
+                                                <div class="yamm-content">
+                                                    <div class="vc_row wpb_row vc_row-fluid bg-yamm-content">
+                                                        <div class="wpb_column vc_column_container vc_col-sm-12">
+                                                            <div class="vc_column-inner">
+                                                                <div class="wpb_wrapper">
+                                                                    <div class="wpb_single_image wpb_content_element vc_align_left">
+                                                                        <figure class="wpb_wrapper vc_figure">
+                                                                            <div class="vc_single_image-wrapper   vc_box_border_grey">
+                                                                                <img width="540" height="460"
+                                                                                     src="https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-4.png"
+                                                                                     class="vc_single_image-img attachment-full"
+                                                                                     alt="" loading="lazy"
+                                                                                     title="megamenu-4"
+                                                                                     srcset="https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-4.png 540w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-4-300x256.png 300w"
+                                                                                     sizes="(max-width: 540px) 100vw, 540px">
+                                                                            </div>
+                                                                        </figure>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="vc_row wpb_row vc_row-fluid">
+                                                        <div class="wpb_column vc_column_container vc_col-sm-6">
+                                                            <div class="vc_column-inner">
+                                                                <div class="wpb_wrapper">
+                                                                    <div class="wpb_text_column wpb_content_element ">
+                                                                        <div class="wpb_wrapper">
+                                                                            <ul>
+                                                                                <li class="nav-title">Audio &amp;
+                                                                                    Video
+                                                                                </li>
+                                                                                <li><a href="#">All Audio &amp;
+                                                                                        Video</a></li>
+                                                                                <li><a href="#">Televisions</a></li>
+                                                                                <li><a href="#">Headphones</a></li>
+                                                                                <li><a href="#">Speakers</a></li>
+                                                                                <li><a href="#">Audio &amp; Video
+                                                                                        Accessories</a></li>
+                                                                                <li class="nav-divider"></li>
+                                                                                <li><a href="#"><span class="nav-text">Electro Home Appliances</span><span
+                                                                                                class="nav-subtext">Available in select cities</span></a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="wpb_column vc_column_container vc_col-sm-6">
+                                                            <div class="vc_column-inner">
+                                                                <div class="wpb_wrapper">
+                                                                    <div class="wpb_text_column wpb_content_element ">
+                                                                        <div class="wpb_wrapper">
+                                                                            <ul>
+                                                                                <li class="nav-title">Music</li>
+                                                                                <li><a href="#">Televisions</a></li>
+                                                                                <li><a href="#">Headphones</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li id="menu-item-5225"
+                                        class="yamm-tfw menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5225 dropdown">
+                                        <a title="Car, Motorbike &amp; Industrial" href="#"
+                                           data-bs-toggle="dropdown-hover" class="dropdown-toggle" aria-haspopup="true">Réfrigérateurs &
+                                            Congélateurs</a>
+                                        <ul role="menu" class=" dropdown-menu">
+                                            <li id="menu-item-5315"
+                                                class="menu-item menu-item-type-post_type menu-item-object-mas_static_content menu-item-5315">
+                                                <div class="yamm-content">
+                                                    <div class="vc_row wpb_row vc_row-fluid bg-yamm-content">
+                                                        <div class="wpb_column vc_column_container vc_col-sm-12">
+                                                            <div class="vc_column-inner">
+                                                                <div class="wpb_wrapper">
+                                                                    <div class="wpb_single_image wpb_content_element vc_align_left">
+                                                                        <figure class="wpb_wrapper vc_figure">
+                                                                            <div class="vc_single_image-wrapper   vc_box_border_grey">
+                                                                                <img width="540" height="523"
+                                                                                     src="https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-9.png"
+                                                                                     class="vc_single_image-img attachment-full"
+                                                                                     alt="" loading="lazy"
+                                                                                     title="megamenu-9"
+                                                                                     srcset="https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-9.png 540w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-9-300x291.png 300w"
+                                                                                     sizes="(max-width: 540px) 100vw, 540px">
+                                                                            </div>
+                                                                        </figure>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="vc_row wpb_row vc_row-fluid">
+                                                        <div class="wpb_column vc_column_container vc_col-sm-6">
+                                                            <div class="vc_column-inner">
+                                                                <div class="wpb_wrapper">
+                                                                    <div class="wpb_text_column wpb_content_element ">
+                                                                        <div class="wpb_wrapper">
+                                                                            <ul>
+                                                                                <li class="nav-title">Car &amp;
+                                                                                    Motorbike
+                                                                                </li>
+                                                                                <li><a href="#">All Cars &amp; Bikes</a>
+                                                                                </li>
+                                                                                <li><a href="#">Car &amp; Bike Care</a>
+                                                                                </li>
+                                                                                <li><a href="#">Lubricants</a></li>
+                                                                                <li class="nav-divider"></li>
+                                                                                <li class="nav-title">Shop for Bike</li>
+                                                                                <li><a href="#">Helmets &amp; Gloves</a>
+                                                                                </li>
+                                                                                <li><a href="#">Bike Parts</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="wpb_column vc_column_container vc_col-sm-6">
+                                                            <div class="vc_column-inner">
+                                                                <div class="wpb_wrapper">
+                                                                    <div class="wpb_text_column wpb_content_element ">
+                                                                        <div class="wpb_wrapper">
+                                                                            <ul>
+                                                                                <li class="nav-title">Industrial
+                                                                                    Supplies
+                                                                                </li>
+                                                                                <li><a href="#">All Industrial
+                                                                                        Supplies</a></li>
+                                                                                <li><a href="#">Lab &amp; Scientific</a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li id="menu-item-5227"
+                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5227 dropdown">
+                                        <a title="Accessories" href="#" data-bs-toggle="dropdown-hover"
+                                           class="dropdown-toggle" aria-haspopup="true">Tables, Chaises</a>
+                                        <ul role="menu" class=" dropdown-menu">
+                                            <li id="menu-item-5228"
+                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5228">
+                                                <a title="Tables" href="#">Tables</a>
+                                            </li>
+                                            <li id="menu-item-5229"
+                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5229">
+                                                <a title="Chaises" href="#">Chaises</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="media_image-5" class="widget mb-5 widget_media_image"><a
+                                href="https://electro.madrasthemes.com/shop/"><img width="270" height="428"
+                                                                                   src="https://electro.madrasthemes.com/wp-content/uploads/2016/03/ad-banner-sidebar.jpg"
+                                                                                   class="image wp-image-2847  attachment-full size-full"
+                                                                                   alt="" loading="lazy"
+                                                                                   style="max-width: 100%; height: auto;"
+                                                                                   srcset="https://electro.madrasthemes.com/wp-content/uploads/2016/03/ad-banner-sidebar.jpg 270w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/ad-banner-sidebar-189x300.jpg 189w"
+                                                                                   sizes="(max-width: 270px) 100vw, 270px"></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <section class="w-100 mb-0">
+                        <header class="mb-0">
+                            <h2 class="h1">Nos produits en stock</h2>
+                        </header>
+                        <div class="woocommerce columns-5 ">
+                            <div class="woocommerce-notices-wrapper"></div>
+                            <ul data-view="grid" data-bs-toggle="regular-products" class="products products list-unstyled row g-0 row-cols-2 row-cols-md-3 row-cols-lg-5 row-cols-xl-5 row-cols-xxl-5">
+                                {% for product in products %}
+                                    <li class="product type-product post-2630 status-publish first instock product_cat-smartwatches has-post-thumbnail sale shipping-taxable purchasable product-type-simple">
+                                        <div class="product-outer product-item__outer">
+                                            <div class="product-inner product-item__inner">
+                                                <div class="product-loop-header product-item__header">
+                                                    <span class="loop-product-categories">
+                                                        <a href="" rel="tag">Climatiseurs</a>
+                                                    </span>
+                                                    <a href="" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                                                        <h2 class="woocommerce-loop-product__title">AIRWELL Split Mural 1.5CV Multifonction - Blanc 01</h2>
+                                                        <div class="product-thumbnail product-item__thumbnail">
+                                                            <img width="300" height="300" src="{{  asset('sites/img/ecommerce/airwell/congelateur/AIRWELL Split Mural 1.5CV Multifonction - Blanc 01.jpg') }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="product-loop-body product-item__body">
+                                                    <span class="loop-product-categories">
+                                                        <a href="" rel="tag">Climatiseurs</a>
+                                                    </span>
+                                                    <a href="" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                                                        <h2 class="woocommerce-loop-product__title">Smartwatch 2.0 LTE Wifi Waterproof</h2>
+                                                        <div class="product-rating">
+                                                            <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
+                                                                <span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span>
+                                                            </div>
+                                                            (3)
+                                                        </div>
+                                                        <div class="product-short-description">
+                                                            <ul>
+                                                                <li><span class="a-list-item">Water protected, dust and scratch-resistant</span>
+                                                                </li>
+                                                                <li><span class="a-list-item">Easy calling</span></li>
+                                                                <li><span class="a-list-item">One-touch SmartWatch</span>
+                                                                </li>
+                                                                <li><span class="a-list-item">New software update</span>
+                                                                </li>
+                                                                <li><span class="a-list-item">Anywhere. Any weather<br>
+    </span></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="product-sku">SKU: 5487FB8/10</div>
+                                                    </a></div>
+                                                <div class="product-loop-footer product-item__footer">
+                                                    <div class="price-add-to-cart">
+                                                        <button class="btn btn-primary">Commander</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            <div class="shop-control-bar-bottom">
+                                <p class="woocommerce-result-count">
+                                    Showing 16–30 of 62 results</p>
+                                <nav class="woocommerce-pagination">
+                                    <ul class="page-numbers">
+                                        <li><a class="prev page-numbers" href="">←</a></li>
+                                        <li><a class="page-numbers" href="">1</a></li>
+                                        <li><span aria-current="page" class="page-numbers current">2</span></li>
+                                        <li><a class="page-numbers" href="">3</a></li>
+                                        <li><a class="page-numbers" href="">4</a></li>
+                                        <li><a class="page-numbers" href="">5</a></li>
+                                        <li><a class="next page-numbers" href="/">→</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block javascript %}
+{{ parent() }}
+  <script>
+      $('document').ready(function() {
+      });
+   </script>
 {% endblock %}

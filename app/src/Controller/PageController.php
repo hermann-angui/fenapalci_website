@@ -8,7 +8,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/')]
 class PageController extends AbstractController
 {
     use UserTrait;
@@ -19,18 +18,39 @@ class PageController extends AbstractController
         return $this->render('pages/accueil.html.twig');
     }
 
-    #[Route(path: '/aboutus', name: 'about_us')]
+    #[Route(path: '/a-propos-de-nous', name: 'about_us')]
     public function aboutUs(Request $request): Response
     {
         return $this->render('pages/aboutus.html.twig');
     }
 
-    #[Route(path: '/contactus', name: 'contact_us')]
+    #[Route(path: '/nous-contacter', name: 'contact_us')]
     public function contactUs(Request $request): Response
     {
         return $this->render('pages/contactus.html.twig');
     }
 
+    #[Route(path: '/assurcae-maladie', name: 'insurance')]
+    public function insurance(Request $request): Response
+    {
+        return $this->render('pages/contactus.html.twig');
+    }
 
+    #[Route(path: '/conseil-juridique', name: 'lawyer_protection')]
+    public function lawyerProtection(Request $request): Response
+    {
+        return $this->render('pages/lawyer_protection.html.twig');
+    }
 
+    #[Route(path: '/formation-aux-membres', name: 'members_training')]
+    public function memberTraining(Request $request): Response
+    {
+        return $this->render('pages/lawyer_protection.html.twig');
+    }
+
+    #[Route(path: '/cotisations-sociales', name: 'social_care')]
+    public function socialCare(Request $request): Response
+    {
+        return $this->render('pages/social_care.html.twig');
+    }
 }

@@ -2,14 +2,13 @@
 namespace App\Traits;
 
 use App\Entity\Subscription;
-use App\Entity\User;
 use App\Repository\CompanyRepository;
 use App\Repository\EmployeeRepository;
 use App\Repository\SubscriptionRepository;
 use App\Repository\UserRepository;
 use App\Service\Wave\WaveCheckoutRequest;
-use App\Service\Wave\WaveService;
 use Symfony\Component\Routing\Generator\UrlGenerator;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Uid\Uuid;
 
 trait UserTrait
@@ -17,10 +16,10 @@ trait UserTrait
 
     /**
      * @param string $amount
-     * @param User|null $user
+     * @param UserInterface|null $user
      * @return string|void
      */
-    public function payForSubscription(string $amount, ?User $user)
+    public function payForSubscription(string $amount, ?UserInterface $user)
     {
         $waveCheckoutRequest = new WaveCheckoutRequest();
         $waveCheckoutRequest->setCurrency("XOF")

@@ -6,6 +6,8 @@ use App\Entity\User;
 use App\Form\UserFormType;
 use App\Helper\UserHelper;
 use App\Repository\CompanyRepository;
+use App\Repository\OrderPaymentRepository;
+use App\Repository\OrderRepository;
 use App\Repository\SubscriptionRepository;
 use App\Repository\EmployeeRepository;
 use App\Repository\UserRepository;
@@ -55,19 +57,35 @@ class MemberController extends AbstractController
 
         return $this->render('member/edit_account.html.twig', [
             'user' => $this->getUser(),
-            'active' => 'edit_account',
             'userForm' => $form->createView(),
         ]);
     }
 
 
+    #[Route('/dashboard', name: 'member_dashboard', methods: ['GET'])]
+    public function dashboard(Request $request): Response
+    {
+        return $this->render('member/dashboard.html.twig', [
+            'user' => $this->getUser()
+        ]);
+    }
+
+
+    #[Route('/payment', name: 'member_payment', methods: ['GET'])]
+    public function payment(Request $request, OrderPaymentRepository $orderPaymentRepository): Response
+    {
+        return $this->render('member/payment.html.twig', [
+            'user' => $this->getUser(),
+            'payments' => $orderPaymentRepository->findAll()
+        ]);
+    }
 
     #[Route('/order', name: 'member_order', methods: ['GET'])]
-    public function order(Request $request): Response
+    public function order(Request $request, OrderRepository $orderRepository): Response
     {
         return $this->render('member/order.html.twig', [
             'user' => $this->getUser(),
-            'active' => 'order',
+            'orders' => $orderRepository->findAll()
         ]);
     }
 
@@ -76,8 +94,7 @@ class MemberController extends AbstractController
     {
         return $this->render('member/company.html.twig', [
             'user' => $this->getUser(),
-            'active' => 'company',
-            'companies' => $companyRepository->findBy(['owner' => $this->getUser()])
+            'companies' => $companyRepository->findAll()
         ]);
     }
 
@@ -92,27 +109,16 @@ class MemberController extends AbstractController
         }
         return $this->render('member/employee.html.twig', [
             'user' => $this->getUser(),
-            'active' => 'employee',
             'employees' => $staffList
         ]);
     }
 
-    #[Route('/dashboard', name: 'member_dashboard', methods: ['GET'])]
-    public function dashboard(Request $request): Response
-    {
-
-        return $this->render('member/dashboard.html.twig', [
-            'user' => $this->getUser(),
-            'active' => 'dashboard',
-        ]);
-    }
 
     #[Route('/configuration', name: 'member_configuration', methods: ['GET'])]
     public function configuration(Request $request): Response
     {
         return $this->render('member/configuration.html.twig', [
-            'user' => $this->getUser(),
-            'active' => 'configuration',
+            'user' => $this->getUser()
         ]);
     }
 
@@ -123,7 +129,6 @@ class MemberController extends AbstractController
             'users' => $userRepository->findAll(),
         ]);
     }
-
 
     #[Route('/{id}', name: 'member_show', methods: ['GET'])]
     public function show(Request $request, User $user): Response
@@ -160,6 +165,5 @@ class MemberController extends AbstractController
 
         return $this->redirectToRoute('member_index', [], Response::HTTP_SEE_OTHER);
     }
-
 
 }

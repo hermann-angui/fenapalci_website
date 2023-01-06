@@ -25,15 +25,15 @@
                     <!-- Right -->
                     <form action="{{ path('subscrption_payment_redirect_to_payment_service') }}">
                         <div class="border-1 border-light bg-light pt-4 text-center">
-                                <img class="mb-5" src="{{ asset("sites/img/wave-logo.png") }}" width="150" alt="logo wave"><br>
+                                <img class="mb-5" src="{{ asset('sites/img/wave-logo.png') }}" width="150" alt="logo wave"><br>
                                 <div>
                                     Cette cotisation vous donne aux avantages accordés par nos partenaires aux memebres de la fédération.
                                     NB: Les frais de cotisations mensuelles sont définis par type d'établissement :
                                 </div>
 
                                 <div class="my-4">
-                                    <label for="pet-select">Choisir votre type d'etablissement :</label>
-                                    <select name="categorie" id="category">
+                                    <label for="company_category">Choisir votre type d'etablissement :</label>
+                                    <select name="company_category" id="company_category">
                                         <option value="0">--Please choose an option--</option>
                                         <option value="1">GLACIER</option>
                                         <option value="2">BAR</option>
@@ -55,9 +55,11 @@
                                 </div>
 
                                 <div>
-                                    <p class="fs-2 mt-2 mb-3 mt-3">Frais unique d’adhésion</p>
-                                    <p class="fw-bolder text-dark">
-                                        <span id="subscription_amount">0</span> <span>F CFA</span>
+                                    <p>
+                                        <strong>Frais unique d’adhésion</strong>
+                                    </p>
+                                    <p>
+                                        <span id="subscription_amount"  style="font-size:2.5em;font-weight: bolder">0</span> <span  style="font-size:0.96em;font-weight: bolder">F CFA</span>
                                     </p>
                                 </div>
 
@@ -74,4 +76,33 @@
 
 
 {% block footer %}
+{% endblock %}
+
+
+{% block javascript %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $( "#company_category" ).change(function() {
+           var fees =     [
+            5000, // "GLACIER" => 5000,
+            5000, // "BAR"  => 5000,
+            2000, // "MAQUIS : 1-50 Places" => 2000,
+            3000, // "MAQUIS : 50-100 Places"=> 3000,
+            5000, // "MAQUIS : 101 Places et Plus" => 5000,
+            2000, // "RESTAURANT : 1-50 Places" => 2000,
+            3000, // "RESTAURANT : 51 Places et Plus"=> 3000,
+            5000, // "MAQUIS/RESTAURANT"  => 5000,
+            5000, // "RESTAURANT VIP" => 5000,
+            5000, // "DEPOT DE BOISSON"  => 5000,
+            5000, // "HOTEL"   => 5000,
+            5000, // "NIGHT CLUB" => 5000,
+            5000, // "EVENEMENTIEL" => 5000,
+            5000, // "PATISSERIE" => 5000,
+            2000, // "CAVE : 1-50 Places"  => 2000,
+            3000, // "CAVE : 51 Places et Plus" => 3000
+        ];
+           var index = $(this).val();
+           $('#subscription_amount').text(fees[index]);
+        });
+    </script>
 {% endblock %}

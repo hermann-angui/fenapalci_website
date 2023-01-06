@@ -1,6 +1,7 @@
-{% extends 'base.html.twig' %}
+{% extends 'main.html.twig' %}
 
-{% block title %}Connexion{% endblock %}
+{% block title %}Ajouter un établissement{% endblock %}
+
 {% block stylesheet %}
     {{ parent() }}
     <style>
@@ -20,204 +21,215 @@
         }
     </style>
 {% endblock %}
+
+{% block profile_picture %}
+{% endblock %}
+
+{% block page_title %}
+    {{ include('_partials/page_title.html.twig', {'title': 'Enregistrement entreprise'}) }}
+{% endblock %}
+
+
 {% block body %}
-    <!-- **************** MAIN CONTENT START **************** -->
-    <main>
-        <!-- ======= START -->
-        <section class="py-0 bg-light align-items-center d-flex h-100px rounded-0">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <h3 class="text-dark">Enregistrement entreprise</h3>
-                        <p class="text-dark mb-0">En tant que membre, vous pouvez déclarer un établissement dont vous êtes le gérant ou le propriétaire</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- ==== END -->
-
-        <!-- ==== START -->
-        <section>
-            <div class="container px-1">
-                <div class="card bg-transparent border rounded-3 mb-5">
-                    <div id="stepper" class="bs-stepper stepper-outline">
-                        <!-- Card header -->
-                        <div class="card-header bg-light border-bottom px-lg-5">
-
-                            <div class="bs-stepper-header" role="tablist">
-                                <!-- Step 1 -->
-                                <div class="step" data-target="#step-1">
-                                    <div class="d-grid text-center align-items-center">
-                                        <button type="button" class="btn btn-link step-trigger mb-0" role="tab"
-                                                id="steppertrigger1" aria-controls="step-1">
-                                            <span class="bs-stepper-circle">1</span>
-                                        </button>
-                                        <h6 class="bs-stepper-label d-none d-md-block">Information sur l'établissement</h6>
-                                    </div>
-                                </div>
-                                <div class="line"></div>
-
-                                <!-- Step 2 -->
-                                <div class="step" data-target="#step-2">
-                                    <div class="d-grid text-center align-items-center">
-                                        <button type="button" class="btn btn-link step-trigger mb-0" role="tab"
-                                                id="steppertrigger2" aria-controls="step-2">
-                                            <span class="bs-stepper-circle">2</span>
-                                        </button>
-                                        <h6 class="bs-stepper-label d-none d-md-block">Enregistrement des employés</h6>
-                                    </div>
-                                </div>
-                                <div class="line"></div>
-
-                                <!-- Step 3 -->
-                                <div class="step" data-target="#step-3">
-                                    <div class="d-grid text-center align-items-center">
-                                        <button type="button" class="btn btn-link step-trigger mb-0" role="tab" id="steppertrigger3" aria-controls="step-3">
-                                            <span class="bs-stepper-circle">3</span>
-                                        </button>
-                                        <h6 class="bs-stepper-label d-none d-md-block">Résumé des informations</h6>
-                                    </div>
-                                </div>
-                                <div class="line"></div>
-
+    <div id="main-wrapper" class="clearfix">
+        <div id="main" class="container">
+            <div class="row row-offcanvas clearfix mt-5">
+                <main class="main-content col" id="content" role="main">
+                    <!-- ======= START -->
+                    <section class="py-3 bg-light align-items-center d-flex h-100px rounded-0">
+                        <div class="container">
+                            <div class="col-12 text-center">
+                                <p class="text-dark mb-0">En tant que membre, vous pouvez déclarer un établissement dont vous êtes le gérant ou le propriétaire</p>
                             </div>
-                            <!-- Step Buttons END -->
                         </div>
+                    </section>
+                    <!-- ==== END -->
 
-                        <!-- Card body START -->
-                        <div class="card-body">
-                            <!-- Step content START -->
-                            <div class="bs-stepper-content">
-                                <!-- Step 1 ENTREPRISE content START -->
-                                <div id="step-1" role="tabpanel" class="content fade" aria-labelledby="steppertrigger1">
-                                    <!-- Title -->
-                                    <p class="fs-5 fw-bold d-block border-start border-5 border-orange px-2">Déclarez votre établissement</p>
-                                    <!-- Basic information START -->
-                                    {{ include('company/_form.html.twig') }}
-                                    <!-- Basic information START -->
-                                </div>
-                                <!-- Step 1 content END -->
+                    <!-- ==== START -->
+                    <section>
+                        <div class="container px-1">
+                            <div class="card bg-transparent border rounded-3 mb-5">
+                                <div id="stepper" class="bs-stepper stepper-outline">
+                                    <!-- Card header -->
+                                    <div class="card-header bg-light border-bottom px-lg-5">
 
-                                <!-- Step 2 ADD EMPLOYEE content START -->
-                                <div id="step-2" role="tabpanel" class="content fade" aria-labelledby="steppertrigger2">
-                                    <!-- Title -->
-                                    <p class="fs-5 fw-bold d-block border-start border-5 border-orange px-2">Enregistrement des employés de votre établissement</p>
-                                    <p>En tant que membre de la fenapalci, vous pouvez déclarer et payer les frais d'adhésion de chaque employé de votre établissement.</p>
-                                    <hr> <!-- Divider -->
-
-                                    <div class="row">
-                                        <!-- Modal button -->
-                                        <div class="d-sm-flex justify-content-sm-end align-items-end mb-3">
-                                            <a href="#" class="btn btn-xs btn-primary mb-0" data-bs-toggle="modal" data-bs-target="#addEmployee"><i class="bi bi-plus-circle me-2"></i>Ajouter</a>
-                                        </div>
-
-                                        <!--  START -->
-                                        <div class="accordion accordion-icon accordion-bg-light" id="accordionExample2">
-                                            <!-- Item START -->
-                                            <div class="accordion-item mb-3">
-                                                <h6 class="accordion-header font-base" id="heading-1">
-                                                    <button class="accordion-button fw-bold rounded d-inline-block collapsed d-block pe-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="false" aria-controls="collapse-1"></button>
-                                                </h6>
-                                                <div id="staff_list">
+                                        <div class="bs-stepper-header" role="tablist">
+                                            <!-- Step 1 -->
+                                            <div class="step" data-target="#step-1">
+                                                <div class="d-grid text-center align-items-center">
+                                                    <button type="button" class="btn btn-link step-trigger mb-0" role="tab"
+                                                            id="steppertrigger1" aria-controls="step-1">
+                                                        <span class="bs-stepper-circle">1</span>
+                                                    </button>
+                                                    <h6 class="bs-stepper-label d-none d-md-block">Information sur l'établissement</h6>
                                                 </div>
                                             </div>
-                                            <!-- Item END -->
-                                        </div>
-                                        <!-- END -->
-                                        <!-- Step button -->
-                                        <div class="d-flex d-flex justify-content-end mt-5">
-                                            <button id="btn-fee-summary" class="btn btn-primary btn-sm bg-dark-purple next-btn mb-0">Suivant</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Step 2 content END -->
+                                            <div class="line"></div>
 
-                                <!-- Step 3 FRAIS ADHESION content START -->
-                                <div id="step-3" role="tabpanel" class="content fade" aria-labelledby="steppertrigger3">
-                                    <!-- Title -->
-                                    <h4>Votre établissement et ses employés</h4>
-                                    <hr> <!-- Divider -->
-                                    <div class="row">
-                                        <div id="registration_resume"></div>
+                                            <!-- Step 2 -->
+                                            <div class="step" data-target="#step-2">
+                                                <div class="d-grid text-center align-items-center">
+                                                    <button type="button" class="btn btn-link step-trigger mb-0" role="tab"
+                                                            id="steppertrigger2" aria-controls="step-2">
+                                                        <span class="bs-stepper-circle">2</span>
+                                                    </button>
+                                                    <h6 class="bs-stepper-label d-none d-md-block">Enregistrement des employés</h6>
+                                                </div>
+                                            </div>
+                                            <div class="line"></div>
+
+                                            <!-- Step 3 -->
+                                            <div class="step" data-target="#step-3">
+                                                <div class="d-grid text-center align-items-center">
+                                                    <button type="button" class="btn btn-link step-trigger mb-0" role="tab" id="steppertrigger3" aria-controls="step-3">
+                                                        <span class="bs-stepper-circle">3</span>
+                                                    </button>
+                                                    <h6 class="bs-stepper-label d-none d-md-block">Résumé des informations</h6>
+                                                </div>
+                                            </div>
+                                            <div class="line"></div>
+
+                                        </div>
+                                        <!-- Step Buttons END -->
                                     </div>
+
+                                    <!-- Card body START -->
+                                    <div class="card-body">
+                                        <!-- Step content START -->
+                                        <div class="bs-stepper-content">
+                                            <!-- Step 1 ENTREPRISE content START -->
+                                            <div id="step-1" role="tabpanel" class="content fade" aria-labelledby="steppertrigger1">
+                                                <!-- Title -->
+                                                <p class="fs-5 fw-bold d-block border-start border-5 border-orange px-2">Déclarez votre établissement</p>
+                                                <!-- Basic information START -->
+                                                {{ include('company/_form.html.twig') }}
+                                                <!-- Basic information START -->
+                                            </div>
+                                            <!-- Step 1 content END -->
+
+                                            <!-- Step 2 ADD EMPLOYEE content START -->
+                                            <div id="step-2" role="tabpanel" class="content fade" aria-labelledby="steppertrigger2">
+                                                <!-- Title -->
+                                                <p class="fs-5 fw-bold d-block border-start border-5 border-orange px-2">Enregistrement des employés de votre établissement</p>
+                                                <p>En tant que membre de la fenapalci, vous pouvez déclarer et payer les frais d'adhésion de chaque employé de votre établissement.</p>
+                                                <hr> <!-- Divider -->
+
+                                                <div class="row">
+                                                    <!-- Modal button -->
+                                                    <div class="d-sm-flex justify-content-sm-end align-items-end mb-3">
+                                                        <a href="#" class="btn btn-xs btn-primary mb-0" data-bs-toggle="modal" data-bs-target="#addEmployee"><i class="bi bi-plus-circle me-2"></i>Ajouter</a>
+                                                    </div>
+
+                                                    <!--  START -->
+                                                    <div class="accordion accordion-icon accordion-bg-light" id="accordionExample2">
+                                                        <!-- Item START -->
+                                                        <div class="accordion-item mb-3">
+                                                            <h6 class="accordion-header font-base" id="heading-1">
+                                                                <button class="accordion-button fw-bold rounded d-inline-block collapsed d-block pe-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="false" aria-controls="collapse-1"></button>
+                                                            </h6>
+                                                            <div id="staff_list">
+                                                            </div>
+                                                        </div>
+                                                        <!-- Item END -->
+                                                    </div>
+                                                    <!-- END -->
+                                                    <!-- Step button -->
+                                                    <div class="text-center">
+                                                        <button id="btn-fee-summary" class="btn btn-primary btn-sm bg-dark-purple next-btn mb-0">Suivant</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Step 2 content END -->
+
+                                            <!-- Step 3 FRAIS ADHESION content START -->
+                                            <div id="step-3" role="tabpanel" class="content fade" aria-labelledby="steppertrigger3">
+                                                <!-- Title -->
+                                                <h4>Votre établissement et ses employés</h4>
+                                                <hr> <!-- Divider -->
+                                                <div class="row">
+                                                    <div id="registration_resume"></div>
+                                                </div>
+                                            </div>
+                                            <!-- Step 3 content END -->
+                                        </div>
+                                    </div>
+                                    <!-- Card body END -->
                                 </div>
-                                <!-- Step 3 content END -->
                             </div>
                         </div>
-                        <!-- Card body END -->
+                    </section>
+                    <!-- ========== Steps END -->
+
+                    <div class="modal fade modal-lg" id="addEmployee" tabindex="-1" aria-labelledby="addEmployeeLabel"
+                         style="display: none;" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header bg-dark">
+                                    <h5 class="modal-title text-white" id="addTopicLabel">Enregister employé</h5>
+                                    <button type="button" class="btn btn-sm btn-primary bg-dark-purple mb-0" data-bs-dismiss="modal"
+                                            aria-label="Close"><i class="bi bi-x-lg"></i></button>
+                                </div>
+                                {{ form_start(staffForm, {'attr': {'id': 'staff-form', 'novalidate': ''}}) }}
+                                <div class="modal-body row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Pr&eacutenoms</label>
+                                        {{ form_widget(staffForm.firstname, {'attr': {'class': 'form-control', 'placeholder': 'Nom de votre établissemnt'}}) }}
+
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Nom</label>
+                                        {{ form_widget(staffForm.lastname, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Email</label>
+                                        {{ form_widget(staffForm.email, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Sexe</label>
+                                        {{ form_widget(staffForm.sex, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Tel</label>
+                                        {{ form_widget(staffForm.phone_number, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Date de naissance</label>
+                                        {{ form_widget(staffForm.date_of_birth, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">N° CNI</label>
+                                        {{ form_widget(staffForm.cni, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Nationalité</label>
+                                        {{ form_widget(staffForm.nationality, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Lieu de naissance</label>
+                                        {{ form_widget(staffForm.place_of_birth, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger-soft btn-sm my-0" id="cancel-btn" data-bs-dismiss="modal">Fermer</button>
+                                    <button type="submit" class="btn btn-success btn-sm my-0"><i class="ajaxloader fa fa-spin fa-spinner visually-hidden"></i> Enregistrer</button>
+                                </div>
+                                {{ form_end(staffForm) }}
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
-        <!-- ========== Steps END -->
 
-        <div class="modal fade modal-lg" id="addEmployee" tabindex="-1" aria-labelledby="addEmployeeLabel"
-             style="display: none;" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header bg-dark">
-                        <h5 class="modal-title text-white" id="addTopicLabel">Enregister employé</h5>
-                        <button type="button" class="btn btn-sm btn-primary bg-dark-purple mb-0" data-bs-dismiss="modal"
-                                aria-label="Close"><i class="bi bi-x-lg"></i></button>
-                    </div>
-                    {{ form_start(staffForm, {'attr': {'id': 'staff-form', 'novalidate': ''}}) }}
-                    <div class="modal-body row">
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Pr&eacutenoms</label>
-                            {{ form_widget(staffForm.firstname, {'attr': {'class': 'form-control', 'placeholder': 'Nom de votre établissemnt'}}) }}
-
-                        </div>
-
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Nom</label>
-                            {{ form_widget(staffForm.lastname, {'attr': {'class': 'form-control'}}) }}
-                        </div>
-
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Email</label>
-                            {{ form_widget(staffForm.email, {'attr': {'class': 'form-control'}}) }}
-                        </div>
-
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Sexe</label>
-                            {{ form_widget(staffForm.sex, {'attr': {'class': 'form-control'}}) }}
-                        </div>
-
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Tel</label>
-                            {{ form_widget(staffForm.phone_number, {'attr': {'class': 'form-control'}}) }}
-                        </div>
-
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Date de naissance</label>
-                            {{ form_widget(staffForm.date_of_birth, {'attr': {'class': 'form-control'}}) }}
-                        </div>
-
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">N° CNI</label>
-                            {{ form_widget(staffForm.cni, {'attr': {'class': 'form-control'}}) }}
-                        </div>
-
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Nationalité</label>
-                            {{ form_widget(staffForm.nationality, {'attr': {'class': 'form-control'}}) }}
-                        </div>
-
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Lieu de naissance</label>
-                            {{ form_widget(staffForm.place_of_birth, {'attr': {'class': 'form-control'}}) }}
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger-soft btn-sm my-0" id="cancel-btn" data-bs-dismiss="modal">Fermer</button>
-                        <button type="submit" class="btn btn-success btn-sm my-0"><i class="ajaxloader fa fa-spin fa-spinner visually-hidden"></i> Enregistrer</button>
-                    </div>
-                    {{ form_end(staffForm) }}
-                </div>
+                </main>
             </div>
         </div>
-
-    </main>
+    </div>
     <!-- **************** MAIN CONTENT END **************** -->
 {% endblock %}
 

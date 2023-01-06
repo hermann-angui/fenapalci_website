@@ -1,6 +1,6 @@
 {% extends 'main.html.twig' %}
 
-{% block title %}Connexion{% endblock %}
+{% block title %}Tableau de board{% endblock %}
 {% block stylesheet %}
     {{ parent() }}
     <style>
@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block page_title %}
-    {{ include('_partials/page_title.html.twig') }}
+    {{ include('_partials/page_title.html.twig', {title : 'Tableau de bord'}) }}
 {% endblock %}
 
 {% block profile_picture %}
@@ -54,7 +54,7 @@
                                     </div>
                                     <!-- Button -->
                                     <div class="d-flex align-items-center mt-2 mt-md-0">
-                                        <a href="{{ path('app_company_new') }}" class="btn btn-success mb-0 rounded-5 btn-sm">Enregistrer un établissement</a>
+                                        <a href="{{ path('company_new') }}" class="btn btn-success mb-0 rounded-5 btn-sm">Enregistrer un établissement</a>
                                     </div>
                                 </div>
                             </div>
@@ -83,14 +83,9 @@
         <section class="pt-0 px-1">
             <div class="container-fluid">
                 <div class="row">
-
                     <!-- Left sidebar START -->
-                    {{ include('partials/user_profile_menu.html.twig', {active : 'dashboard'}) }}
+                    {{ include('_partials/user_profile_menu.html.twig', {active : 'dashboard'}) }}
                     <!-- Left sidebar END -->
-
-                    <!-- Main content START -->
-
-                    <!-- Main content END -->
                 </div><!-- Row END -->
             </div>
         </section>

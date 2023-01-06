@@ -25,7 +25,7 @@
                             </div>
                             <div class="card-body">
                                 <p class="fs-6 text-success fw-bolder">Transaction effectuée avec succès</p>
-                                <p class="small">Vous serez redirigé dans quelques instants sinon <a href="{{ path('member__edit_account') }}">cliquez sur ce lien</a></p>
+                                <p class="small">Vous serez redirigé dans quelques instants sinon <a href="{{ path('member_edit_profile') }}">cliquez sur ce lien</a></p>
                                 <div>
                                     <p class="border-1 border-top border-bottom border-light">
                                         <span>Date transaction </span>
@@ -64,7 +64,7 @@
     <script>
         $('document').ready(function() {
            var timer = setTimeout(function(){
-               window.location.href = '{{ path('member__edit_account') }}';
+               window.location.href = '{{ path('member_edit_profile') }}';
            }, 5000);
         });
  	</script>

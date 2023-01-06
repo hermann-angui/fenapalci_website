@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block page_title %}
-    {{ include('_partials/page_title.html.twig') }}
+    {{ include('_partials/page_title.html.twig', {title : 'Paramètres'}) }}
 {% endblock %}
 
 {% block profile_picture %}
@@ -53,7 +53,7 @@
                                     </div>
                                     <!-- Button -->
                                     <div class="d-flex align-items-center mt-2 mt-md-0">
-                                        <a href="{{ path('app_company_new') }}" class="btn btn-success mb-0 rounded-5 btn-sm">Enregistrer une entreprise</a>
+                                        <a href="{{ path('company_new') }}" class="btn btn-success mb-0 rounded-5 btn-sm">Enregistrer une entreprise</a>
                                     </div>
                                 </div>
                             </div>
@@ -82,13 +82,9 @@
         <section class="pt-0 px-1">
             <div class="container-fluid">
                 <div class="row">
-
                     <!-- Left sidebar START -->
-                    {{ include('partials/user_profile_menu.html.twig', {active : 'configuration'}) }}
+                    {{ include('_partials/user_profile_menu.html.twig', {active : 'configuration'}) }}
                     <!-- Left sidebar END -->
-
-                    <!-- Main content START -->
-                    <!-- Main content END -->
                 </div><!-- Row END -->
             </div>
         </section>

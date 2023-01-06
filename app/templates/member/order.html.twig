@@ -1,6 +1,6 @@
 {% extends 'main.html.twig' %}
 
-{% block title %}Connexion{% endblock %}
+{% block title %}Commandes{% endblock %}
 {% block stylesheet %}
     {{ parent() }}
     <style>
@@ -102,7 +102,7 @@
 
                     </section>
                 </main>
-                {{ include('_partials/user_profile_menu.html.twig', {active : 'edit_account'}) }}
+                {{ include('_partials/user_profile_menu.html.twig', {active : 'order'}) }}
             </div>
         </div>
     </div>
@@ -115,17 +115,6 @@
 {{ parent() }}
   <script>
       $('document').ready(function() {
-			$("#registration_form_photo").change(function(data){
-				var imageFile = data.target.files[0];
-				var reader = new FileReader();
-				reader.readAsDataURL(imageFile);
-
-				reader.onload = function(evt){
-					$('#imagePreview').attr('src', evt.target.result);
-					$('#imagePreview').hide();
-					$('#imagePreview').fadeIn(650);
-				}
-        	});
       });
    </script>
 {% endblock %}
