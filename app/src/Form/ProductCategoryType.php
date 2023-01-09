@@ -12,7 +12,7 @@ class ProductCategoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('category_name')
+            ->add('name')
             ->add('description')
             ->add('created_at')
             ->add('modified_at')

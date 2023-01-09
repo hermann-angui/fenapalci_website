@@ -3,18 +3,16 @@
 namespace App\Entity;
 
 use App\Repository\ProductRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
-#[ORM\Table(name: '`product`')]
+#[ORM\Table(name: '`digital_asset`')]
 #[ORM\HasLifecycleCallbacks()]
-#[UniqueEntity(fields: ['sku'], message: 'There is already an product with this sku')]
-class Product
+#[UniqueEntity(fields: ['id'], message: 'There is already an product with this id')]
+class DigitalAsset
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -22,31 +20,16 @@ class Product
     private $id;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private string $sku;
-
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private string $name;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private string $marque;
-
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private string $supplier;
+    private string $path;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private string $description;
 
-    #[ORM\Column(type: 'integer', length: 255, nullable: true)]
-    private int $unit_price;
-
-    #[ORM\Column(type: 'integer', length: 255, nullable: true)]
-    private int $unit_in_stock;
-
-    #[ORM\Column(type: 'integer', length: 255, nullable: true)]
-    private int $sell_price;
-
-    #[ORM\Column(type: 'integer', length: 255, nullable: true)]
-    private int $supplier_price;
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private string $supplier;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $created_at;
@@ -54,14 +37,13 @@ class Product
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $modified_at;
 
-    #[ORM\OneToMany(mappedBy: 'product', targetEntity: DigitalAsset::class, orphanRemoval: true, cascade: ['persist'])]
-    private Collection $digitalAssets;
+    #[ORM\ManyToOne(inversedBy: 'digitalAssets')]
+    private ?Product $product = null;
 
     public function __construct()
     {
         $this->created_at = new \DateTime('now');
         $this->modified_at = new \DateTime('now');
-        $this->digitalAssets = new ArrayCollection();
     }
 
     /**
@@ -160,7 +142,7 @@ class Product
      * @param string $description
      * @return Product
      */
-    public function setDescription(string $description)
+    public function setDescription(?string $description)
     {
         $this->description = $description;
         return $this;
@@ -239,24 +221,6 @@ class Product
     }
 
     /**
-     * @return ProductCategory|null
-     */
-    public function getCategory(): ?ProductCategory
-    {
-        return $this->category;
-    }
-
-    /**
-     * @param ProductCategory|null $category
-     * @return Product
-     */
-    public function setCategory(?ProductCategory $category): Product
-    {
-        $this->category = $category;
-        return $this;
-    }
-
-    /**
      * @return \DateTimeInterface|null
      */
     public function getCreatedAt(): ?\DateTimeInterface
@@ -311,34 +275,35 @@ class Product
     }
 
     /**
-     * @return Collection<int, DigitalAsset>
+     * @return string
      */
-    public function getDigitalAssets(): Collection
+    public function getPath(): string
     {
-        return $this->digitalAssets;
+        return $this->path;
     }
 
-    public function addDigitalAsset(DigitalAsset $digitalAsset): self
+    /**
+     * @param string $path
+     * @return DigitalAsset
+     */
+    public function setPath(string $path): DigitalAsset
     {
-        if (!$this->digitalAssets->contains($digitalAsset)) {
-            $this->digitalAssets[] = $digitalAsset;
-            $digitalAsset->setProduct($this);
-        }
+        $this->path = $path;
+        return $this;
+    }
+
+    public function getProduct(): ?Product
+    {
+        return $this->product;
+    }
+
+    public function setProduct(?Product $product): self
+    {
+        $this->product = $product;
 
         return $this;
     }
 
-    public function removeDigitalAsset(DigitalAsset $digitalAsset): self
-    {
-        if ($this->digitalAssets->removeElement($digitalAsset)) {
-            // set the owning side to null (unless already changed)
-            if ($digitalAsset->getProduct() === $this) {
-                $digitalAsset->setProduct(null);
-            }
-        }
-
-        return $this;
-    }
 
 
 }

@@ -64,6 +64,8 @@ class Subscription
 
     public function __construct()
     {
+        $this->created_at = new \DateTime('now');
+        $this->modified_at = new \DateTime('now');
     }
 
     public function getId(): ?int
@@ -130,7 +132,7 @@ class Subscription
      * @param string $operator_transaction_id
      * @return Subscription
      */
-    public function setOperatorTransactionId(string $operator_transaction_id): Subscription
+    public function setOperatorTransactionId(?string $operator_transaction_id): Subscription
     {
         $this->operator_transaction_id = $operator_transaction_id;
         return $this;
@@ -139,7 +141,7 @@ class Subscription
     /**
      * @return int
      */
-    public function getAmount(): int
+    public function getAmount(): ?int
     {
         return $this->amount;
     }
@@ -157,7 +159,7 @@ class Subscription
     /**
      * @return string
      */
-    public function getCurrency(): string
+    public function getCurrency(): ?string
     {
         return $this->currency;
     }
@@ -175,7 +177,7 @@ class Subscription
     /**
      * @return string
      */
-    public function getOperator(): string
+    public function getOperator(): ?string
     {
         return $this->operator;
     }
@@ -193,7 +195,7 @@ class Subscription
     /**
      * @return string
      */
-    public function getPaymentMode(): string
+    public function getPaymentMode(): ?string
     {
         return $this->payment_mode;
     }

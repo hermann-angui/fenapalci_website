@@ -7,6 +7,8 @@ parameters:
     app.supported_locales: ['fr','en']
     wave_success_url: https://fenapalci.org/payment/wave/checkout/success
     wave_error_url: https://fenapalci.org/payment/wave/checkout/success
+    images_directory: '%kernel.project_dir%/public/uploads'
+
 services:
     # default configuration for services in *this* file
     _defaults:

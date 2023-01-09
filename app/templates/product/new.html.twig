@@ -2,17 +2,26 @@
 
 {% block title %}New Product{% endblock %}
 
+{% block stylesheet %}
+    {{ parent() }}
+    <style>
+        .custom-file {
+            display: block !important;
+        }
+    </style>
+{% endblock %}
+
 {% block body %}
-<main>
-    <section class="container px-2 mt-5">
-        <div class="row justify-content-md-center">
-            <h1>Create new Product</h1>
+    <main>
+        <section class="container px-2 mt-5">
+            <div class="row justify-content-md-center">
+                <h1>Create new Product</h1>
 
-            {{ include('product/_form.html.twig') }}
+                {{ include('product/_form.html.twig') }}
 
-            <a href="{{ path('app_product_index') }}">back to list</a>
-        </div>
-    </section>
-</main>
+                <a href="{{ path('app_product_index') }}">back to list</a>
+            </div>
+        </section>
+    </main>
 
 {% endblock %}

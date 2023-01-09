@@ -19,7 +19,7 @@ class ProductCategory
     private $id;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private $category_name;
+    private $name;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $description;
@@ -53,36 +53,36 @@ class ProductCategory
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getCategoryName()
+    public function getName(): ?string
     {
-        return $this->category_name;
+        return $this->name;
     }
 
     /**
-     * @param mixed $category_name
+     * @param string $name
      * @return ProductCategory
      */
-    public function setCategoryName($category_name)
+    public function setName(?string $name)
     {
-        $this->category_name = $category_name;
+        $this->name = $name;
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return ?string
      */
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
     /**
-     * @param mixed $description
+     * @param string $description
      * @return ProductCategory
      */
-    public function setDescription($description)
+    public function setDescription(?string $description)
     {
         $this->description = $description;
         return $this;
