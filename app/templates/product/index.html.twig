@@ -1,0 +1,62 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Product index{% endblock %}
+
+{% block body %}
+    <main>
+        <section class="container px-2 mt-5">
+            <div class="row justify-content-md-center">
+
+                <h1>Product index</h1>
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Product_sku</th>
+                        <th>Product_name</th>
+                        <th>Product_supplier</th>
+                        <th>Product_description</th>
+                        <th>Product_unit_price</th>
+                        <th>Product_unit_in_stock</th>
+                        <th>Product_sell_price</th>
+                        <th>Product_supplier_price</th>
+                        <th>Created_at</th>
+                        <th>Modified_at</th>
+                        <th>Product_pictures</th>
+                        <th>actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for product in products %}
+                        <tr>
+                            <td>{{ product.id }}</td>
+                            <td>{{ product.productSku }}</td>
+                            <td>{{ product.productName }}</td>
+                            <td>{{ product.productSupplier }}</td>
+                            <td>{{ product.productDescription }}</td>
+                            <td>{{ product.productUnitPrice }}</td>
+                            <td>{{ product.productUnitInStock }}</td>
+                            <td>{{ product.productSellPrice }}</td>
+                            <td>{{ product.productSupplierPrice }}</td>
+                            <td>{{ product.createdAt ? product.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                            <td>{{ product.modifiedAt ? product.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
+                            <td>{{ product.productPictures ? product.productPictures|json_encode : '' }}</td>
+                            <td>
+                                <a href="{{ path('app_product_show', {'id': product.id}) }}">show</a>
+                                <a href="{{ path('app_product_edit', {'id': product.id}) }}">edit</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="13">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+                <a href="{{ path('app_product_new') }}">Create new</a>
+            </div>
+        </section>
+    </main>
+{% endblock %}

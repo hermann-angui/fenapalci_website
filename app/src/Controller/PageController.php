@@ -48,6 +48,24 @@ class PageController extends AbstractController
         return $this->render('pages/lawyer_protection.html.twig');
     }
 
+    #[Route(path: '/nos-missions', name: 'missions')]
+    public function missions(Request $request): Response
+    {
+        return $this->render('pages/lawyer_protection.html.twig');
+    }
+
+    #[Route(path: '/nos-activites', name: 'activities')]
+    public function activities(Request $request): Response
+    {
+        return $this->render('pages/lawyer_protection.html.twig');
+    }
+
+    #[Route(path: '/avantages-aux-membres', name: 'avantages')]
+    public function avantages(Request $request): Response
+    {
+        return $this->render('pages/lawyer_protection.html.twig');
+    }
+
     #[Route(path: '/cotisations-sociales', name: 'social_care')]
     public function socialCare(Request $request): Response
     {

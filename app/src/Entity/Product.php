@@ -43,9 +43,6 @@ class Product
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $product_supplier_price;
 
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private $product_pictures;
-
     #[ORM\ManyToOne(targetEntity: ProductCategory::class, inversedBy: 'category', cascade: ['persist'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?ProductCategory $category = null;
@@ -55,6 +52,9 @@ class Product
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $modified_at;
+
+    #[ORM\Column(nullable: true)]
+    private array $product_pictures = [];
 
     public function __construct()
     {
@@ -235,24 +235,6 @@ class Product
     }
 
     /**
-     * @return mixed
-     */
-    public function getProductPictures()
-    {
-        return $this->product_pictures;
-    }
-
-    /**
-     * @param mixed $product_pictures
-     * @return Product
-     */
-    public function setProductPictures($product_pictures)
-    {
-        $this->product_pictures = $product_pictures;
-        return $this;
-    }
-
-    /**
      * @return ProductCategory|null
      */
     public function getCategory(): ?ProductCategory
@@ -303,6 +285,18 @@ class Product
     public function setModifiedAt(?\DateTimeInterface $modified_at): Product
     {
         $this->modified_at = $modified_at;
+        return $this;
+    }
+
+    public function getProductPictures(): array
+    {
+        return $this->product_pictures;
+    }
+
+    public function setProductPictures(?array $product_pictures): self
+    {
+        $this->product_pictures = $product_pictures;
+
         return $this;
     }
 

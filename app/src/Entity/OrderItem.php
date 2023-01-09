@@ -33,13 +33,13 @@ class OrderItem
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $modified_at;
 
-    #[ORM\ManyToOne(targetEntity: Order::class, inversedBy: 'order', cascade: ['persist'])]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Order $order = null;
-
     #[ORM\ManyToOne(targetEntity: Product::class, inversedBy: 'product', cascade: ['persist'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?Product $product = null;
+
+    #[ORM\ManyToOne(inversedBy: 'items')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Order $parentOrder = null;
 
     public function __construct()
     {
@@ -152,41 +152,16 @@ class OrderItem
         return $this;
     }
 
-    /**
-     * @return Order|null
-     */
-    public function getOrder(): ?Order
+    public function getParentOrder(): ?Order
     {
-        return $this->order;
+        return $this->parentOrder;
     }
 
-    /**
-     * @param Order|null $order
-     * @return OrderItem
-     */
-    public function setOrder(?Order $order): OrderItem
+    public function setParentOrder(?Order $parentOrder): self
     {
-        $this->order = $order;
+        $this->parentOrder = $parentOrder;
+
         return $this;
     }
-
-    /**
-     * @return Product|null
-     */
-    public function getProduct(): ?Product
-    {
-        return $this->product;
-    }
-
-    /**
-     * @param Product|null $product
-     * @return OrderItem
-     */
-    public function setProduct(?Product $product): OrderItem
-    {
-        $this->product = $product;
-        return $this;
-    }
-
 
 }

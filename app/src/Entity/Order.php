@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\OrderRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -36,9 +38,13 @@ class Order
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $modified_at;
 
+    #[ORM\OneToMany(mappedBy: 'parentOrder', targetEntity: OrderItem::class, orphanRemoval: true)]
+    private Collection $items;
+
 
     public function __construct()
     {
+        $this->items = new ArrayCollection();
     }
 
     /**
@@ -166,6 +172,36 @@ class Order
     public function setModifiedAt(?\DateTimeInterface $modified_at): Order
     {
         $this->modified_at = $modified_at;
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, OrderItem>
+     */
+    public function getItems(): Collection
+    {
+        return $this->items;
+    }
+
+    public function addItem(OrderItem $item): self
+    {
+        if (!$this->items->contains($item)) {
+            $this->items[] = $item;
+            $item->setParentOrder($this);
+        }
+
+        return $this;
+    }
+
+    public function removeItem(OrderItem $item): self
+    {
+        if ($this->items->removeElement($item)) {
+            // set the owning side to null (unless already changed)
+            if ($item->getParentOrder() === $this) {
+                $item->setParentOrder(null);
+            }
+        }
+
         return $this;
     }
 
