@@ -1,6 +1,16 @@
 {% extends 'main.html.twig' %}
 
-{% block title %}Product index{% endblock %}
+{% block title %}Boutique fenapalci{% endblock %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('sites/css/style.css') }}">
+    <style>
+        .custom-file {
+            display: block !important;
+        }
+    </style>
+{% endblock %}
 
 {% block body %}
 

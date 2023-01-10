@@ -30,6 +30,8 @@ class ProductCategory
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $modified_at;
 
+    #[ORM\ManyToOne(inversedBy: 'category')]
+    private ?Product $product = null;
 
     public function __construct()
     {
@@ -121,6 +123,18 @@ class ProductCategory
     public function setModifiedAt(?\DateTimeInterface $modified_at): ProductCategory
     {
         $this->modified_at = $modified_at;
+        return $this;
+    }
+
+    public function getProduct(): ?Product
+    {
+        return $this->product;
+    }
+
+    public function setProduct(?Product $product): self
+    {
+        $this->product = $product;
+
         return $this;
     }
 

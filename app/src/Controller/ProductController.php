@@ -36,18 +36,18 @@ class ProductController extends AbstractController
             // On boucle sur les images
             foreach($images as $image){
                 // On génère un nouveau nom de fichier
-                $fichier = md5(uniqid()).'.'.$image->guessExtension();
+                $name = md5(uniqid()).'.'.$image->guessExtension();
 
                 // On copie le fichier dans le dossier uploads
-                $path = $image->move(
+                $image->move(
                     $this->getParameter('images_directory'),
-                    $fichier
+                    $name
                 );
 
                 // On crée l'image dans la base de données
                 $asset = new DigitalAsset();
-                $asset->setName($fichier);
-                $asset->setPath($path);
+                $asset->setName($name);
+                $asset->setPath('/uploads/' . $name);
                 $product->addDigitalAsset($asset);
             }
 

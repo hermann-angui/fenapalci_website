@@ -1,13 +1,29 @@
-{% extends 'base.html.twig' %}
+{% extends 'main.html.twig' %}
 
 {% block title %}Edit Product{% endblock %}
 
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('sites/css/style.css') }}">
+    <style>
+        .custom-file {
+            display: block !important;
+        }
+    </style>
+{% endblock %}
+
 {% block body %}
-    <h1>Edit Product</h1>
+    <main>
+        <section class="container px-2 mt-5">
+            <div class="row justify-content-md-center">
+                <h1>Edit Product</h1>
 
-    {{ include('product/_form.html.twig', {'button_label': 'Update'}) }}
+                {{ include('product/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('app_product_index') }}">back to list</a>
+                <a href="{{ path('app_product_index') }}">back to list</a>
 
-    {{ include('product/_delete_form.html.twig') }}
+                {{ include('product/_delete_form.html.twig') }}
+            </div>
+        </section>
+    </main>
 {% endblock %}

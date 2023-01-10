@@ -1,5 +1,15 @@
 {% extends 'main.html.twig' %}
 
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('sites/css/style.css') }}">
+    <style>
+        .custom-file {
+            display: block !important;
+        }
+    </style>
+{% endblock %}
+
 {% block title %}Product{% endblock %}
 
 {% block body %}

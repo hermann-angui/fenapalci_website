@@ -25,6 +25,15 @@ class Product
     private string $sku;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private string $type;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private string $mime;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private string $size;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private string $name;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
@@ -57,11 +66,15 @@ class Product
     #[ORM\OneToMany(mappedBy: 'product', targetEntity: DigitalAsset::class, orphanRemoval: true, cascade: ['persist'])]
     private Collection $digitalAssets;
 
+    #[ORM\OneToMany(mappedBy: 'product', targetEntity: ProductCategory::class)]
+    private Collection $categories;
+
     public function __construct()
     {
         $this->created_at = new \DateTime('now');
         $this->modified_at = new \DateTime('now');
         $this->digitalAssets = new ArrayCollection();
+        $this->categories = new ArrayCollection();
     }
 
     /**
@@ -169,7 +182,7 @@ class Product
     /**
      * @return int
      */
-    public function getUnitPrice() :? int
+    public function getUnitPrice() : ?int
     {
         return $this->unit_price;
     }
@@ -178,7 +191,7 @@ class Product
      * @param int $unit_price
      * @return Product
      */
-    public function setUnitPrice(int $unit_price)
+    public function setUnitPrice(?int $unit_price)
     {
         $this->unit_price = $unit_price;
         return $this;
@@ -214,7 +227,7 @@ class Product
      * @param int $sell_price
      * @return Product
      */
-    public function setSellPrice(int $sell_price)
+    public function setSellPrice(?int $sell_price)
     {
         $this->sell_price = $sell_price;
         return $this;
@@ -232,29 +245,12 @@ class Product
      * @param int $supplier_price
      * @return Product
      */
-    public function setSupplierPrice(int $supplier_price)
+    public function setSupplierPrice(?int $supplier_price)
     {
         $this->supplier_price = $supplier_price;
         return $this;
     }
 
-    /**
-     * @return ProductCategory|null
-     */
-    public function getCategory(): ?ProductCategory
-    {
-        return $this->category;
-    }
-
-    /**
-     * @param ProductCategory|null $category
-     * @return Product
-     */
-    public function setCategory(?ProductCategory $category): Product
-    {
-        $this->category = $category;
-        return $this;
-    }
 
     /**
      * @return \DateTimeInterface|null
@@ -339,6 +335,91 @@ class Product
 
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     * @return Product
+     */
+    public function setType(?string $type): Product
+    {
+        $this->type = $type;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMime(): ?string
+    {
+        return $this->mime;
+    }
+
+    /**
+     * @param string $mime
+     * @return Product
+     */
+    public function setMime(?string $mime): Product
+    {
+        $this->mime = $mime;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSize(): ?string
+    {
+        return $this->size;
+    }
+
+    /**
+     * @param string $size
+     * @return Product
+     */
+    public function setSize(?string $size): Product
+    {
+        $this->size = $size;
+        return $this;
+    }
+
+    /**
+     * @return Collection|null
+     */
+    public function getCategories(): ?Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategory(ProductCategory $category): self
+    {
+        if (!$this->categories->contains($category)) {
+            $this->categories[] = $category;
+            $category->setProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(ProductCategory $category): self
+    {
+        if ($this->categories->removeElement($category)) {
+            // set the owning side to null (unless already changed)
+            if ($category->getProduct() === $this) {
+                $category->setProduct(null);
+            }
+        }
+
+        return $this;
+    }
+
 
 
 }
