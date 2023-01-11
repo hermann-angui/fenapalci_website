@@ -20,6 +20,7 @@ class ECommerceController extends AbstractController
             $assets = $product->getDigitalAssets()->get(0);
             $categories = $product->getCategories()->get(0);
             $datas[] = [
+                'id' => $product->getId(),
                 'name' => $product->getName(),
                 'path' =>  $assets ? $assets->getPath() : '',
                 'category' => $categories ? $categories->getName() : ''

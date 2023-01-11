@@ -13,8 +13,25 @@
         .site-footer {
             background: initial;
             padding-bottom: 0px;
-            color: none;
+            color: initial;
         }
+
+        section header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 0;
+        }
+        section header .h1:after, section header h1:after {
+            content: ' ';
+            border-bottom: 2px solid transparent;
+            display: block;
+            position: absolute;
+            bottom: -1px;
+            width: 100%;
+        }
+
     </style>
 {% endblock %}
 
@@ -59,12 +76,9 @@
                                                                         <figure class="wpb_wrapper vc_figure">
                                                                             <div class="vc_single_image-wrapper   vc_box_border_grey">
                                                                                 <img width="540" height="460"
-                                                                                     src="https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-2.png"
+                                                                                     src="{{ asset('sites/img/ecommerce/megamenu-2.png') }}"
                                                                                      class="vc_single_image-img attachment-full"
-                                                                                     alt="" loading="lazy"
-                                                                                     title="megamenu-2"
-                                                                                     srcset="https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-2.png 540w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-2-300x256.png 300w"
-                                                                                     sizes="(max-width: 540px) 100vw, 540px">
+                                                                                     alt="" loading="lazy">
                                                                             </div>
                                                                         </figure>
                                                                     </div>
@@ -131,12 +145,9 @@
                                                                         <figure class="wpb_wrapper vc_figure">
                                                                             <div class="vc_single_image-wrapper   vc_box_border_grey">
                                                                                 <img width="540" height="460"
-                                                                                     src="https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-3.png"
+                                                                                     src="{{  asset('sites/img/ecommerce/megamenu-3.png') }}"
                                                                                      class="vc_single_image-img attachment-full"
-                                                                                     alt="" loading="lazy"
-                                                                                     title="megamenu-3"
-                                                                                     srcset="https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-3.png 540w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-3-300x256.png 300w"
-                                                                                     sizes="(max-width: 540px) 100vw, 540px">
+                                                                                     alt="" loading="lazy">
                                                                             </div>
                                                                         </figure>
                                                                     </div>
@@ -199,12 +210,9 @@
                                                                         <figure class="wpb_wrapper vc_figure">
                                                                             <div class="vc_single_image-wrapper   vc_box_border_grey">
                                                                                 <img width="540" height="495"
-                                                                                     src="https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-.png"
+                                                                                     src="{{  asset('sites/img/ecommerce/megamenu-.png') }}"
                                                                                      class="vc_single_image-img attachment-full"
-                                                                                     alt="" loading="lazy"
-                                                                                     title="megamenu-"
-                                                                                     srcset="https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-.png 540w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu--300x275.png 300w"
-                                                                                     sizes="(max-width: 540px) 100vw, 540px">
+                                                                                     alt="" loading="lazy">
                                                                             </div>
                                                                         </figure>
                                                                     </div>
@@ -273,12 +281,9 @@
                                                                         <figure class="wpb_wrapper vc_figure">
                                                                             <div class="vc_single_image-wrapper   vc_box_border_grey">
                                                                                 <img width="540" height="485"
-                                                                                     src="https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-8.png"
+                                                                                     src="{{  asset('sites/img/ecommerce/megamenu-8.png') }}"
                                                                                      class="vc_single_image-img attachment-full"
-                                                                                     alt="" loading="lazy"
-                                                                                     title="megamenu-8"
-                                                                                     srcset="https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-8.png 540w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-8-300x269.png 300w"
-                                                                                     sizes="(max-width: 540px) 100vw, 540px">
+                                                                                     alt="" loading="lazy">
                                                                             </div>
                                                                         </figure>
                                                                     </div>
@@ -428,12 +433,9 @@
                                                                         <figure class="wpb_wrapper vc_figure">
                                                                             <div class="vc_single_image-wrapper   vc_box_border_grey">
                                                                                 <img width="540" height="523"
-                                                                                     src="https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-9.png"
+                                                                                     src="{{  asset('sites/img/ecommerce/megamenu-9.png') }}"
                                                                                      class="vc_single_image-img attachment-full"
-                                                                                     alt="" loading="lazy"
-                                                                                     title="megamenu-9"
-                                                                                     srcset="https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-9.png 540w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/megamenu-9-300x291.png 300w"
-                                                                                     sizes="(max-width: 540px) 100vw, 540px">
+                                                                                     alt="" loading="lazy">
                                                                             </div>
                                                                         </figure>
                                                                     </div>
@@ -511,14 +513,8 @@
                         </div>
                     </div>
                     <div id="media_image-5" class="widget mb-5 widget_media_image">
-                        <a href="https://electro.madrasthemes.com/shop/">
-                            <img width="270" height="428"
-                                 src="https://electro.madrasthemes.com/wp-content/uploads/2016/03/ad-banner-sidebar.jpg"
-                                 class="image wp-image-2847  attachment-full size-full"
-                                 alt="" loading="lazy"
-                                 style="max-width: 100%; height: auto;"
-                                 srcset="https://electro.madrasthemes.com/wp-content/uploads/2016/03/ad-banner-sidebar.jpg 270w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/ad-banner-sidebar-189x300.jpg 189w"
-                                 sizes="(max-width: 270px) 100vw, 270px">
+                        <a href="#">
+                            <img width="270" height="428" src="{{  asset('sites/img/ecommerce/ad-banner-sidebar.jpg') }}" class="image wp-image-2847  attachment-full size-full" alt="" loading="lazy" style="max-width: 100%; height: auto;">
                         </a>
                     </div>
                     <ul class="product_list_widget">
@@ -541,7 +537,7 @@
                 <div class="col">
                     <section class="w-100 mb-0">
                         <header class="mb-0">
-                            <h2 class="h1">Nos produits en stock</h2>
+                            <h2 class="h1"></h2>
                         </header>
                         <div class="woocommerce columns-5 ">
                             <div class="woocommerce-notices-wrapper"></div>
@@ -554,7 +550,7 @@
                                                     <span class="loop-product-categories">
                                                         <a href="" rel="tag">{{ product.category }}</a>
                                                     </span>
-                                                    <a href="" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                                                    <a href="{{ path('product_show', { id: product.id }) }}" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
                                                         <h2 class="woocommerce-loop-product__title">{{ product.name }}</h2>
                                                         <div class="product-thumbnail product-item__thumbnail">
                                                             <img width="300" height="300" src="{{ asset(product.path) }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
@@ -572,7 +568,7 @@
                                 {% endfor %}
                             </ul>
                             <div class="shop-control-bar-bottom">
-                                <p class="woocommerce-result-count">Showing 16–30 of 62 results</p>
+                                <p class="woocommerce-result-count">Afficher 1–5 sur 14 résultats</p>
                                 <nav class="woocommerce-pagination">
                                     <ul class="page-numbers">
                                         <li><a class="prev page-numbers" href="">←</a></li>

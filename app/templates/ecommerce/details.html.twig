@@ -1,7 +1,494 @@
-{% extends 'base.html.twig' %}
+{% extends 'main.html.twig' %}
 
-{% block title %}
+{% block title %}E-boutique fenalpaci{% endblock %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('sites/css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('sites/css/ecommerce.css') }}">
+    <style>
+        .custom-file {
+            display: block !important;
+        }
+        .site-footer {
+            background: initial;
+            padding-bottom: 0px;
+            color: initial;
+        }
+
+        section header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 0;
+        }
+        section header .h1:after, section header h1:after {
+            content: ' ';
+            border-bottom: 2px solid transparent;
+            display: block;
+            position: absolute;
+            bottom: -1px;
+            width: 100%;
+        }
+
+    </style>
+{% endblock %}
+
+{% block profile_picture %}
+{% endblock %}
+
+{% block page_title %}
+    {{ include('_partials/page_title.html.twig', {'title': 'Votre boutique FENAPALCI'}) }}
 {% endblock %}
 
 {% block body %}
+    <div id="content" class="site-content" tabindex="-1">
+        <div class="container">
+            <nav class="woocommerce-breadcrumb"><a href="https://electro.madrasthemes.com">Home</a><span class="delimiter"><i class="fa fa-angle-right"></i></span><a href="https://electro.madrasthemes.com/product-category/accessories/">Accessories</a><span class="delimiter"><i class="fa fa-angle-right"></i></span><a href="https://electro.madrasthemes.com/product-category/accessories/headphone-cases/">Headphone Cases</a><span class="delimiter"><i class="fa fa-angle-right"></i></span>Universal Headphones Case in Black</nav><div class="site-content-inner row">
+                <div id="primary" class="content-area">
+                    <main id="main" class="site-main">
+                        <div class="woocommerce-notices-wrapper"></div><div id="product-2440" class="product type-product post-2440 status-publish first instock product_cat-headphone-cases has-post-thumbnail shipping-taxable purchasable product-type-simple">
+                            <div class="single-product-wrapper row">
+                                <div class="product-images-wrapper">
+                                    <div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-5 images electro-carousel-loaded" data-columns="5" style="opacity: 1; transition: opacity 0.25s ease-in-out 0s;"><a href="#" class="woocommerce-product-gallery__trigger">🔍</a>
+                                        <figure class="woocommerce-product-gallery__wrapper">
+                                            <div data-thumb="https://electro.madrasthemes.com/wp-content/uploads/2016/03/headphonecase-100x100.png" data-thumb-alt="" class="woocommerce-product-gallery__image" style="position: relative; overflow: hidden;"><a href="https://electro.madrasthemes.com/wp-content/uploads/2016/03/headphonecase.png"><img width="600" height="550" src="https://electro.madrasthemes.com/wp-content/uploads/2016/03/headphonecase-600x550.png" class="wp-post-image" alt="" loading="lazy" title="headphonecase" data-caption="" data-src="https://electro.madrasthemes.com/wp-content/uploads/2016/03/headphonecase.png" data-large_image="https://electro.madrasthemes.com/wp-content/uploads/2016/03/headphonecase.png" data-large_image_width="720" data-large_image_height="660" srcset="https://electro.madrasthemes.com/wp-content/uploads/2016/03/headphonecase-600x550.png 600w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/headphonecase-300x275.png 300w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/headphonecase.png 720w" sizes="(max-width: 600px) 100vw, 600px"></a><img role="presentation" alt="" src="https://electro.madrasthemes.com/wp-content/uploads/2016/03/headphonecase.png" class="zoomImg" style="position: absolute; top: -214.164px; left: -5.97826px; opacity: 0; width: 720px; height: 660px; border: none; max-width: none; max-height: none;"></div> </figure>
+                                    </div>
+                                </div>
+                                <div class="summary entry-summary">
+                                    <span class="loop-product-categories"><a href="https://electro.madrasthemes.com/product-category/accessories/headphone-cases/" rel="tag">Headphone Cases</a></span><h1 class="product_title entry-title">Universal Headphones Case in Black</h1> <div class="brand">
+                                        <a href="https://electro.madrasthemes.com/brands/apple/"><img src="https://electro.madrasthemes.com/wp-content/uploads/2021/03/themeforest2.png" alt="Apple"></a> </div>
+                                    <div class="availability">
+                                        Availability: <span class="electro-stock-availability"><p class="stock in-stock">14 in stock</p></span>
+                                    </div>
+                                    <hr class="single-product-title-divider">
+                                    <div class="action-buttons">
+                                        <div class="yith-wcwl-add-to-wishlist add-to-wishlist-2440  wishlist-fragment on-first-load" data-fragment-ref="2440" data-fragment-options="{&quot;base_url&quot;:&quot;&quot;,&quot;in_default_wishlist&quot;:false,&quot;is_single&quot;:true,&quot;show_exists&quot;:false,&quot;product_id&quot;:2440,&quot;parent_product_id&quot;:2440,&quot;product_type&quot;:&quot;simple&quot;,&quot;show_view&quot;:true,&quot;browse_wishlist_text&quot;:&quot;Browse&quot;,&quot;already_in_wishslist_text&quot;:&quot;The product is already in your wishlist!&quot;,&quot;product_added_text&quot;:&quot;Product added!&quot;,&quot;heading_icon&quot;:&quot;fa-heart-o&quot;,&quot;available_multi_wishlist&quot;:false,&quot;disable_wishlist&quot;:false,&quot;show_count&quot;:false,&quot;ajax_loading&quot;:false,&quot;loop_position&quot;:&quot;after_add_to_cart&quot;,&quot;item&quot;:&quot;add_to_wishlist&quot;}">
+
+                                            <div class="yith-wcwl-add-button">
+                                                <a href="?add_to_wishlist=2440&amp;_wpnonce=fd598ed29a" class="add_to_wishlist single_add_to_wishlist" data-product-id="2440" data-product-type="simple" data-original-product-id="2440" data-title="Wishlist" rel="nofollow">
+                                                    <i class="yith-wcwl-icon fa fa-heart-o"></i> <span>Wishlist</span>
+                                                </a>
+                                            </div>
+
+                                        </div>
+                                        <a href="https://electro.madrasthemes.com?action=yith-woocompare-add-product&amp;id=2440" class="add-to-compare-link" data-product_id="2440">Compare</a></div><div class="woocommerce-product-details__short-description">
+                                        <ul>
+                                            <li><span class="a-list-item">Brand new and high quality</span></li>
+                                            <li><span class="a-list-item">Made of supreme quality, durable EVA crush resistant, anti-shock material.</span></li>
+                                            <li><span class="a-list-item">Soft inner cloth lining, one mesh pocket inside.</span></li>
+                                            <li><span class="a-list-item">Compact and functional hard case keeps items safe and extremely portable.</span></li>
+                                            <li><span class="a-list-item">Force Touch trackpad (13-inch model)</span></li>
+                                        </ul>
+                                    </div>
+                                    <p class="price"><span class="electro-price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>159.00</bdi></span></span></p>
+                                    <p class="stock in-stock">14 in stock</p>
+                                    <form class="cart" action="https://electro.madrasthemes.com/product/universal-headphones-case-in-black/" method="post" enctype="multipart/form-data">
+                                        <div class="quantity">
+                                            <label for="quantity_63be6f6313164">Quantity</label>
+                                            <input type="number" id="quantity_63be6f6313164" class="input-text qty text" step="1" min="1" max="14" name="quantity" value="1" title="Qty" size="4" inputmode="numeric" aria-labelledby="Universal Headphones Case in Black quantity">
+                                        </div>
+                                        <div id="wc-stripe-payment-request-wrapper" style="clear: both; padding-top: 1.5em;">
+                                            <div id="wc-stripe-payment-request-button" class="StripeElement"><div class="__PrivateStripeElement" style="margin: 0px !important; padding: 0px !important; border: none !important; display: block !important; background: transparent !important; position: relative !important; opacity: 1 !important;"><iframe name="__privateStripeFrame13711" frameborder="0" allowtransparency="true" scrolling="no" role="presentation" allow="payment *" src="https://js.stripe.com/v3/elements-inner-payment-request-a785bb3c7959f24c809d263adab84837.html#locale=en&amp;wait=false&amp;mids[guid]=NA&amp;mids[muid]=58d17ac6-b108-4d62-a686-791a9fdb6eeaa1f06c&amp;mids[sid]=NA&amp;style[paymentRequestButton][type]=buy&amp;style[paymentRequestButton][theme]=dark&amp;style[paymentRequestButton][height]=40px&amp;rtl=false&amp;componentName=paymentRequestButton&amp;keyMode=test&amp;apiKey=pk_test_V9IddNo2cU95fDV7dk4n6aVF&amp;referrer=https%3A%2F%2Felectro.madrasthemes.com%2Fproduct%2Funiversal-headphones-case-in-black%2F&amp;controllerId=__privateStripeController1371" title="Secure payment button frame" style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; user-select: none !important; transform: translate(0px) !important; color-scheme: only light !important; height: 40px; min-height: auto;"></iframe><input class="__PrivateStripeElement-input" aria-hidden="true" aria-label=" " autocomplete="false" maxlength="1" style="border: none !important; display: block !important; position: absolute !important; height: 1px !important; top: -1px !important; left: 0px !important; padding: 0px !important; margin: 0px !important; width: 100% !important; opacity: 0 !important; background: transparent !important; pointer-events: none !important; font-size: 16px !important;"></div></div>
+                                        </div>
+                                        <p id="wc-stripe-payment-request-button-separator" style="margin-top: 1.5em; text-align: center;">— OR —</p>
+                                        <button type="submit" name="add-to-cart" value="2440" class="single_add_to_cart_button button alt">Add to cart</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="woocommerce-tabs wc-tabs-wrapper">
+                                <ul class="tabs wc-tabs" role="tablist">
+                                    <li class="accessories_tab" id="tab-title-accessories" role="tab" aria-controls="tab-accessories">
+                                        <a href="#tab-accessories">
+                                            Accessories </a>
+                                    </li>
+                                    <li class="description_tab" id="tab-title-description" role="tab" aria-controls="tab-description">
+                                        <a href="#tab-description">
+                                            Description </a>
+                                    </li>
+                                    <li class="specification_tab" id="tab-title-specification" role="tab" aria-controls="tab-specification">
+                                        <a href="#tab-specification">
+                                            Specification </a>
+                                    </li>
+                                    <li class="reviews_tab active" id="tab-title-reviews" role="tab" aria-controls="tab-reviews">
+                                        <a href="#tab-reviews">
+                                            Reviews </a>
+                                    </li>
+                                </ul>
+                                <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--accessories panel entry-content wc-tab" id="tab-accessories" role="tabpanel" aria-labelledby="tab-title-accessories" style="display: none;">
+                                    <div class="accessories">
+                                        <div class="electro-wc-message"></div>
+                                        <div class="row">
+                                            <div class="col-md-9 col-left">
+                                                <ul data-view="grid" data-bs-toggle="regular-products" class="products products list-unstyled row g-0 row-cols-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-3 row-cols-xxl-5">
+                                                    <li class="product type-product post-2440 status-publish first instock product_cat-headphone-cases has-post-thumbnail shipping-taxable purchasable product-type-simple">
+                                                        <div class="product-outer product-item__outer"><div class="product-inner product-item__inner"><div class="product-loop-header product-item__header"><span class="loop-product-categories"><a href="https://electro.madrasthemes.com/product-category/accessories/headphone-cases/" rel="tag">Headphone Cases</a></span><a href="https://electro.madrasthemes.com/product/universal-headphones-case-in-black/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><h2 class="woocommerce-loop-product__title">Universal Headphones Case in Black</h2><div class="product-thumbnail product-item__thumbnail"><img width="300" height="300" src="https://electro.madrasthemes.com/wp-content/uploads/2016/03/headphonecase-300x300.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy"></div></a></div><div class="product-loop-body product-item__body"><span class="loop-product-categories"><a href="https://electro.madrasthemes.com/product-category/accessories/headphone-cases/" rel="tag">Headphone Cases</a></span><a href="https://electro.madrasthemes.com/product/universal-headphones-case-in-black/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><h2 class="woocommerce-loop-product__title">Universal Headphones Case in Black</h2> <div class="product-rating">
+                                                                            <div class="star-rating" title="Rated 0 out of 5"><span style="width:0%"><strong class="rating">0</strong> out of 5</span></div> (0)
+                                                                        </div>
+                                                                        <div class="product-short-description">
+                                                                            <ul>
+                                                                                <li><span class="a-list-item">Brand new and high quality</span></li>
+                                                                                <li><span class="a-list-item">Made of supreme quality, durable EVA crush resistant, anti-shock material.</span></li>
+                                                                                <li><span class="a-list-item">Soft inner cloth lining, one mesh pocket inside.</span></li>
+                                                                                <li><span class="a-list-item">Compact and functional hard case keeps items safe and extremely portable.</span></li>
+                                                                                <li><span class="a-list-item">Force Touch trackpad (13-inch model)</span></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                        <div class="product-sku">SKU: 5487FB8/28</div></a></div><div class="product-loop-footer product-item__footer"><div class="price-add-to-cart">
+                                                                        <span class="price"><span class="electro-price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>159.00</bdi></span></span></span>
+                                                                        <div class="add-to-cart-wrap" data-bs-toggle="tooltip" data-bs-title="Add to cart" data-bs-original-title="" title=""><a href="?add-to-cart=2440" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="2440" data-product_sku="5487FB8/28" aria-label="Add “Universal Headphones Case in Black” to your cart" rel="nofollow">Add to cart</a></div></div><div class="hover-area"><div class="action-buttons">
+                                                                            <div class="yith-wcwl-add-to-wishlist add-to-wishlist-2440  wishlist-fragment on-first-load" data-fragment-ref="2440" data-fragment-options="{&quot;base_url&quot;:&quot;&quot;,&quot;in_default_wishlist&quot;:false,&quot;is_single&quot;:true,&quot;show_exists&quot;:false,&quot;product_id&quot;:2440,&quot;parent_product_id&quot;:2440,&quot;product_type&quot;:&quot;simple&quot;,&quot;show_view&quot;:true,&quot;browse_wishlist_text&quot;:&quot;Browse&quot;,&quot;already_in_wishslist_text&quot;:&quot;The product is already in your wishlist!&quot;,&quot;product_added_text&quot;:&quot;Product added!&quot;,&quot;heading_icon&quot;:&quot;fa-heart-o&quot;,&quot;available_multi_wishlist&quot;:false,&quot;disable_wishlist&quot;:false,&quot;show_count&quot;:false,&quot;ajax_loading&quot;:false,&quot;loop_position&quot;:&quot;after_add_to_cart&quot;,&quot;item&quot;:&quot;add_to_wishlist&quot;}">
+
+                                                                                <div class="yith-wcwl-add-button">
+                                                                                    <a href="?add_to_wishlist=2440&amp;_wpnonce=fd598ed29a" class="add_to_wishlist single_add_to_wishlist" data-product-id="2440" data-product-type="simple" data-original-product-id="2440" data-title="Wishlist" rel="nofollow">
+                                                                                        <i class="yith-wcwl-icon fa fa-heart-o"></i> <span>Wishlist</span>
+                                                                                    </a>
+                                                                                </div>
+
+                                                                            </div>
+                                                                            <a href="https://electro.madrasthemes.com?action=yith-woocompare-add-product&amp;id=2440" class="add-to-compare-link" data-product_id="2440">Compare</a></div></div></div></div></div></li>
+                                                    <li class="product type-product post-2441 status-publish instock product_cat-headphone-accessories has-post-thumbnail shipping-taxable purchasable product-type-simple">
+                                                        <div class="product-outer product-item__outer"><div class="product-inner product-item__inner"><div class="product-loop-header product-item__header"><span class="loop-product-categories"><a href="https://electro.madrasthemes.com/product-category/accessories/headphone-accessories/" rel="tag">Headphone Accessories</a></span><a href="https://electro.madrasthemes.com/product/headphones-usb-wires/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><h2 class="woocommerce-loop-product__title">Headphones USB Wires</h2><div class="product-thumbnail product-item__thumbnail"><img width="300" height="300" src="https://electro.madrasthemes.com/wp-content/uploads/2016/03/usbheadphone-300x300.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy"></div></a></div><div class="product-loop-body product-item__body"><span class="loop-product-categories"><a href="https://electro.madrasthemes.com/product-category/accessories/headphone-accessories/" rel="tag">Headphone Accessories</a></span><a href="https://electro.madrasthemes.com/product/headphones-usb-wires/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><h2 class="woocommerce-loop-product__title">Headphones USB Wires</h2> <div class="product-rating">
+                                                                            <div class="star-rating" title="Rated 0 out of 5"><span style="width:0%"><strong class="rating">0</strong> out of 5</span></div> (0)
+                                                                        </div>
+                                                                        <div class="product-short-description">
+                                                                            <ul>
+                                                                                <li><span class="a-list-item">High-fidelity stereo music and clear speech</span></li>
+                                                                                <li><span class="a-list-item">100% Stable and Comfortable when exercising, running and other outdoor sports</span></li>
+                                                                                <li><span class="a-list-item">Up to 6 hours music play</span></li>
+                                                                                <li><span class="a-list-item">7 hours talking time</span></li>
+                                                                                <li><span class="a-list-item">Force Touch trackpad (13-inch model)</span></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                        <div class="product-sku">SKU: 5487FB8/27</div></a></div><div class="product-loop-footer product-item__footer"><div class="price-add-to-cart">
+                                                                        <span class="price"><span class="electro-price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>50.00</bdi></span></span></span>
+                                                                        <div class="add-to-cart-wrap" data-bs-toggle="tooltip" data-bs-title="Add to cart" data-bs-original-title="" title=""><a href="?add-to-cart=2441" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="2441" data-product_sku="5487FB8/27" aria-label="Add “Headphones USB Wires” to your cart" rel="nofollow">Add to cart</a></div></div><div class="hover-area"><div class="action-buttons">
+                                                                            <div class="yith-wcwl-add-to-wishlist add-to-wishlist-2441  wishlist-fragment on-first-load" data-fragment-ref="2441" data-fragment-options="{&quot;base_url&quot;:&quot;&quot;,&quot;in_default_wishlist&quot;:false,&quot;is_single&quot;:true,&quot;show_exists&quot;:false,&quot;product_id&quot;:2441,&quot;parent_product_id&quot;:2441,&quot;product_type&quot;:&quot;simple&quot;,&quot;show_view&quot;:true,&quot;browse_wishlist_text&quot;:&quot;Browse&quot;,&quot;already_in_wishslist_text&quot;:&quot;The product is already in your wishlist!&quot;,&quot;product_added_text&quot;:&quot;Product added!&quot;,&quot;heading_icon&quot;:&quot;fa-heart-o&quot;,&quot;available_multi_wishlist&quot;:false,&quot;disable_wishlist&quot;:false,&quot;show_count&quot;:false,&quot;ajax_loading&quot;:false,&quot;loop_position&quot;:&quot;after_add_to_cart&quot;,&quot;item&quot;:&quot;add_to_wishlist&quot;}">
+
+                                                                                <div class="yith-wcwl-add-button">
+                                                                                    <a href="?add_to_wishlist=2441&amp;_wpnonce=fd598ed29a" class="add_to_wishlist single_add_to_wishlist" data-product-id="2441" data-product-type="simple" data-original-product-id="2441" data-title="Wishlist" rel="nofollow">
+                                                                                        <i class="yith-wcwl-icon fa fa-heart-o"></i> <span>Wishlist</span>
+                                                                                    </a>
+                                                                                </div>
+
+                                                                            </div>
+                                                                            <a href="https://electro.madrasthemes.com?action=yith-woocompare-add-product&amp;id=2441" class="add-to-compare-link" data-product_id="2441">Compare</a></div></div></div></div></div></li>
+                                                    <li class="product type-product post-2715 status-publish last instock product_cat-game-consoles has-post-thumbnail shipping-taxable purchasable product-type-simple">
+                                                        <div class="product-outer product-item__outer"><div class="product-inner product-item__inner"><div class="product-loop-header product-item__header"><span class="loop-product-categories"><a href="https://electro.madrasthemes.com/product-category/video-games-consoles/game-consoles/" rel="tag">Game Consoles</a></span><a href="https://electro.madrasthemes.com/product/gameconsole-destiny-special-edition/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><h2 class="woocommerce-loop-product__title">GameConsole Destiny Special Edition</h2><div class="product-thumbnail product-item__thumbnail"><img width="300" height="300" src="https://electro.madrasthemes.com/wp-content/uploads/2016/03/game1-300x300.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy"></div></a></div><div class="product-loop-body product-item__body"><span class="loop-product-categories"><a href="https://electro.madrasthemes.com/product-category/video-games-consoles/game-consoles/" rel="tag">Game Consoles</a></span><a href="https://electro.madrasthemes.com/product/gameconsole-destiny-special-edition/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><h2 class="woocommerce-loop-product__title">GameConsole Destiny Special Edition</h2> <div class="product-rating">
+                                                                            <div class="star-rating" title="Rated 0 out of 5"><span style="width:0%"><strong class="rating">0</strong> out of 5</span></div> (0)
+                                                                        </div>
+                                                                        <div class="product-short-description">
+                                                                            <ul>
+                                                                                <li><span class="a-list-item"> Play online with your friends, get free games, save games online and more with PlayStation</span></li>
+                                                                                <li><span class="a-list-item">Cutting edge graphics bring game worlds to life like never before, and next gen</span></li>
+                                                                                <li><span class="a-list-item">Connect with your friends to broadcast and celebrate your epic moments</span></li>
+                                                                                <li><span class="a-list-item"> Perfect for both new players and players new to PS4</span></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                        <div class="product-sku">SKU: 5487FB8/40</div></a></div><div class="product-loop-footer product-item__footer"><div class="price-add-to-cart">
+                                                                        <span class="price"><span class="electro-price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>789.00</bdi></span></span></span>
+                                                                        <div class="add-to-cart-wrap" data-bs-toggle="tooltip" data-bs-title="Add to cart" data-bs-original-title="" title=""><a href="?add-to-cart=2715" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="2715" data-product_sku="5487FB8/40" aria-label="Add “GameConsole Destiny  Special Edition” to your cart" rel="nofollow">Add to cart</a></div></div><div class="hover-area"><div class="action-buttons">
+                                                                            <div class="yith-wcwl-add-to-wishlist add-to-wishlist-2715  wishlist-fragment on-first-load" data-fragment-ref="2715" data-fragment-options="{&quot;base_url&quot;:&quot;&quot;,&quot;in_default_wishlist&quot;:false,&quot;is_single&quot;:true,&quot;show_exists&quot;:false,&quot;product_id&quot;:2715,&quot;parent_product_id&quot;:2715,&quot;product_type&quot;:&quot;simple&quot;,&quot;show_view&quot;:true,&quot;browse_wishlist_text&quot;:&quot;Browse&quot;,&quot;already_in_wishslist_text&quot;:&quot;The product is already in your wishlist!&quot;,&quot;product_added_text&quot;:&quot;Product added!&quot;,&quot;heading_icon&quot;:&quot;fa-heart-o&quot;,&quot;available_multi_wishlist&quot;:false,&quot;disable_wishlist&quot;:false,&quot;show_count&quot;:false,&quot;ajax_loading&quot;:false,&quot;loop_position&quot;:&quot;after_add_to_cart&quot;,&quot;item&quot;:&quot;add_to_wishlist&quot;}">
+
+                                                                                <div class="yith-wcwl-add-button">
+                                                                                    <a href="?add_to_wishlist=2715&amp;_wpnonce=fd598ed29a" class="add_to_wishlist single_add_to_wishlist" data-product-id="2715" data-product-type="simple" data-original-product-id="2715" data-title="Wishlist" rel="nofollow">
+                                                                                        <i class="yith-wcwl-icon fa fa-heart-o"></i> <span>Wishlist</span>
+                                                                                    </a>
+                                                                                </div>
+
+                                                                            </div>
+                                                                            <a href="https://electro.madrasthemes.com?action=yith-woocompare-add-product&amp;id=2715" class="add-to-compare-link" data-product_id="2715">Compare</a></div></div></div></div></div></li>
+                                                </ul>
+                                                <div class="check-products">
+                                                    <div class="checkbox accessory-checkbox"><label><input checked="" disabled="" type="checkbox" class="product-check" data-price="159" data-price-suffix="0" data-product-id="2440" data-product-type="simple"> <span class="product-title"><strong>This product: </strong>Universal Headphones Case in Black</span> - <span class="accessory-price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>159.00</bdi></span></span></label></div><div class="checkbox accessory-checkbox"><label><input checked="" type="checkbox" class="product-check" data-price="50" data-price-suffix="0" data-product-id="2441" data-product-type="simple"> <span class="product-title">Headphones USB Wires</span> - <span class="accessory-price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>50.00</bdi></span></span></label></div><div class="checkbox accessory-checkbox"><label><input checked="" type="checkbox" class="product-check" data-price="789" data-price-suffix="0" data-product-id="2715" data-product-type="simple"> <span class="product-title">GameConsole Destiny Special Edition</span> - <span class="accessory-price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>789.00</bdi></span></span></label></div> </div>
+                                            </div>
+                                            <div class="col-md-3 col-right">
+                                                <div class="total-price">
+                                                    <span class="total-price-html"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>998.00</span></span> for <span class="total-products">3</span> item(s) </div>
+                                                <div class="accessories-add-all-to-cart">
+                                                    <button type="button" class="button btn btn-primary add-all-to-cart">Add all to cart</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab" id="tab-description" role="tabpanel" aria-labelledby="tab-title-description" style="display: none;">
+                                    <div class="electro-description clearfix">
+                                        <p>&nbsp;</p>
+                                        <p><img class="alignnone wp-image-2995 size-large" src="https://electro.madrasthemes.com/wp-content/uploads/2016/03/overview_hero_title_2x-1024x346.png" alt="overview_hero_title_2x" width="1024" height="346" srcset="https://electro.madrasthemes.com/wp-content/uploads/2016/03/overview_hero_title_2x-1024x346.png 1024w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/overview_hero_title_2x-600x203.png 600w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/overview_hero_title_2x-300x101.png 300w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/overview_hero_title_2x-768x259.png 768w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/overview_hero_title_2x-1536x518.png 1536w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/overview_hero_title_2x.png 1600w" sizes="(max-width: 1024px) 100vw, 1024px"></p>
+                                        <p><img loading="lazy" class="alignnone wp-image-2994 size-large" src="https://electro.madrasthemes.com/wp-content/uploads/2016/03/overview_hero_2x-e1459776153284-1024x430.jpg" alt="overview_hero_2x" width="1024" height="430" srcset="https://electro.madrasthemes.com/wp-content/uploads/2016/03/overview_hero_2x-e1459776153284-1024x430.jpg 1024w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/overview_hero_2x-e1459776153284-600x252.jpg 600w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/overview_hero_2x-e1459776153284-300x126.jpg 300w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/overview_hero_2x-e1459776153284-768x322.jpg 768w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/overview_hero_2x-e1459776153284-1536x645.jpg 1536w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/overview_hero_2x-e1459776153284-2048x860.jpg 2048w" sizes="(max-width: 1024px) 100vw, 1024px"></p>
+                                        <p>A groundbreaking Retina display. Powerful dual-core and quad-core Intel processors. Fast flash storage. High-performance graphics. Great built-in apps. And now in the 13-inch model, a revolutionary new Force Touch trackpad and even longer battery life.1 Whatever you can imagine, MacBook Pro with Retina display gives you the power to create.</p>
+                                        <p>The design of MacBook Pro packs a lot of power into not a lot of space. Because we believe that high performance shouldn’t come at the expense of portability. And despite being so compact, the new 13-inch and 15-inch MacBook Pro with Retina display models now deliver up to 10 hours and nine hours of battery life, respectively — an hour more than the previous models.</p>
+                                        <p><img loading="lazy" class="alignnone wp-image-2993 size-full" src="https://demo.madrasthemes.com/demo-2/wp-content/uploads/sites/7/2016/03/hero_large_2x.jpg" alt="hero_large_2x" width="1956" height="724" srcset="https://electro.madrasthemes.com/wp-content/uploads/2016/03/hero_large_2x.jpg 1956w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/hero_large_2x-600x222.jpg 600w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/hero_large_2x-300x111.jpg 300w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/hero_large_2x-1024x379.jpg 1024w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/hero_large_2x-768x284.jpg 768w, https://electro.madrasthemes.com/wp-content/uploads/2016/03/hero_large_2x-1536x569.jpg 1536w" sizes="(max-width: 1956px) 100vw, 1956px"></p>
+                                        <p>With Multi-Touch in OS X, you can use realistic gestures like swiping or pinching to switch between apps, navigate your content and get the most out of your desktop space.</p>
+                                        <p>The new Force Touch trackpad takes all the capabilities of Multi-Touch and adds force sensors that detect subtle differences in the amount of downward pressure you apply. This lets you have a deeper connection to your content, bringing more functionality to your fingertip. It also introduces haptic feedback to MacBook Pro — allowing you to not just see what’s happening on the screen, but to feel it.</p>
+                                    </div><div class="product_meta">
+                                        <span class="sku_wrapper">SKU: <span class="sku">5487FB8/28</span></span>
+                                        <span class="posted_in">Category: <a href="https://electro.madrasthemes.com/product-category/accessories/headphone-cases/" rel="tag">Headphone Cases</a></span>
+                                    </div>
+                                </div>
+                                <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--specification panel entry-content wc-tab" id="tab-specification" role="tabpanel" aria-labelledby="tab-title-specification" style="display: none;">
+                                    <h3>Technical Specifications</h3>
+                                    <table class="table">
+                                        <tbody>
+                                        <tr>
+                                            <td>Brand</td>
+                                            <td>Apple</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Item Height</td>
+                                            <td>18 Millimeters</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Item Width</td>
+                                            <td>31.4 Centimeters</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Screen Size</td>
+                                            <td>13 Inches</td>
+                                        </tr>
+                                        <tr class="size-weight">
+                                            <td>Item Weight</td>
+                                            <td>1.6 Kg</td>
+                                        </tr>
+                                        <tr class="size-weight">
+                                            <td>Product Dimensions</td>
+                                            <td>21.9 x 31.4 x 1.8 cm</td>
+                                        </tr>
+                                        <tr class="item-model-number">
+                                            <td>Item model number</td>
+                                            <td>MF841HN/A</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Processor Brand</td>
+                                            <td>Intel</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Processor Type</td>
+                                            <td>Core i5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Processor Speed</td>
+                                            <td>2.9 GHz</td>
+                                        </tr>
+                                        <tr>
+                                            <td>RAM Size</td>
+                                            <td>8 GB</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Hard Drive Size</td>
+                                            <td>512 GB</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Hard Disk Technology</td>
+                                            <td>Solid State Drive</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Graphics Coprocessor</td>
+                                            <td>Intel Integrated Graphics</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Graphics Card Description</td>
+                                            <td>Integrated Graphics Card</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Hardware Platform</td>
+                                            <td>Mac</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Operating System</td>
+                                            <td>Mac OS</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Average Battery Life (in hours)</td>
+                                            <td>9</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--reviews panel entry-content wc-tab" id="tab-reviews" role="tabpanel" aria-labelledby="tab-title-reviews" style="">
+                                    <div id="reviews" class="electro-advanced-reviews">
+                                        <div class="advanced-review row">
+                                            <div class="col-xs-12 col-md-6">
+                                                <h2 class="based-title">Based on 0 reviews</h2>
+                                                <div class="avg-rating">
+                                                    <span class="avg-rating-number">0.0</span> overall </div>
+                                                <div class="rating-histogram">
+                                                    <div class="rating-bar">
+                                                        <div class="star-rating" title="Rated 5 out of 5">
+                                                            <span style="width:100%"></span>
+                                                        </div>
+                                                        <div class="rating-percentage-bar">
+                                                            <span style="width:0%" class="rating-percentage"></span>
+                                                        </div>
+                                                        <div class="rating-count zero">0</div>
+                                                    </div>
+                                                    <div class="rating-bar">
+                                                        <div class="star-rating" title="Rated 4 out of 5">
+                                                            <span style="width:80%"></span>
+                                                        </div>
+                                                        <div class="rating-percentage-bar">
+                                                            <span style="width:0%" class="rating-percentage"></span>
+                                                        </div>
+                                                        <div class="rating-count zero">0</div>
+                                                    </div>
+                                                    <div class="rating-bar">
+                                                        <div class="star-rating" title="Rated 3 out of 5">
+                                                            <span style="width:60%"></span>
+                                                        </div>
+                                                        <div class="rating-percentage-bar">
+                                                            <span style="width:0%" class="rating-percentage"></span>
+                                                        </div>
+                                                        <div class="rating-count zero">0</div>
+                                                    </div>
+                                                    <div class="rating-bar">
+                                                        <div class="star-rating" title="Rated 2 out of 5">
+                                                            <span style="width:40%"></span>
+                                                        </div>
+                                                        <div class="rating-percentage-bar">
+                                                            <span style="width:0%" class="rating-percentage"></span>
+                                                        </div>
+                                                        <div class="rating-count zero">0</div>
+                                                    </div>
+                                                    <div class="rating-bar">
+                                                        <div class="star-rating" title="Rated 1 out of 5">
+                                                            <span style="width:20%"></span>
+                                                        </div>
+                                                        <div class="rating-percentage-bar">
+                                                            <span style="width:0%" class="rating-percentage"></span>
+                                                        </div>
+                                                        <div class="rating-count zero">0</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-md-6">
+                                                <div id="review_form_wrapper">
+                                                    <div id="review_form">
+                                                        <div id="respond" class="comment-respond">
+                                                            <h3 id="reply-title" class="comment-reply-title">Be the first to review “Universal Headphones Case in Black” <small><a rel="nofollow" id="cancel-comment-reply-link" href="/product/universal-headphones-case-in-black/#respond" style="display:none;">Cancel reply</a></small></h3><form action="https://electro.madrasthemes.com/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate=""><p class="comment-form-rating"><label for="rating">Your Rating</label><p class="stars">						<span>							<a class="star-1" href="#">1</a>							<a class="star-2" href="#">2</a>							<a class="star-3" href="#">3</a>							<a class="star-4" href="#">4</a>							<a class="star-5" href="#">5</a>						</span>					</p><select name="rating" id="rating" style="display: none;">
+                                                                    <option value="">Rate…</option>
+                                                                    <option value="5">Perfect</option>
+                                                                    <option value="4">Good</option>
+                                                                    <option value="3">Average</option>
+                                                                    <option value="2">Not that bad</option>
+                                                                    <option value="1">Very Poor</option>
+                                                                </select></p><p class="comment-form-comment"><label for="comment">Your Review</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" aria-required="true"></p>
+                                                                <p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" aria-required="true"></p>
+                                                                <p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"> <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+                                                                <p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Add Review"> <input type="hidden" name="comment_post_ID" value="2440" id="comment_post_ID">
+                                                                    <input type="hidden" name="comment_parent" id="comment_parent" value="0">
+                                                                </p></form> </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="comments">
+                                            <p class="woocommerce-noreviews">There are no reviews yet.</p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div> </div>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+                <div id="sidebar" class="sidebar" role="complementary">
+                    <aside id="electro_product_categories_widget-1" class="widget woocommerce widget_product_categories electro_widget_product_categories"><ul class="product-categories category-single"><li class="product_cat"><ul class="show-all-cat"><li class="product_cat"><span class="show-all-cat-dropdown">Show All Categories<span class="child-indicator"><i class="fa fa-angle-right"></i></span></span><ul style="display: none;"> <li class="cat-item cat-item-44"><a href="https://electro.madrasthemes.com/product-category/accessories/"><span class="no-child"></span>Accessories <span class="count">(11)</span></a>
+                                            </li>
+                                            <li class="cat-item cat-item-229"><a href="https://electro.madrasthemes.com/product-category/c-bluetooth-speakers/"><span class="no-child"></span>Bluetooth Speakers <span class="count">(7)</span></a>
+                                            </li>
+                                            <li class="cat-item cat-item-53"><a href="https://electro.madrasthemes.com/product-category/cameras-photography/"><span class="no-child"></span>Cameras &amp; Photography <span class="count">(5)</span></a>
+                                            </li>
+                                            <li class="cat-item cat-item-59"><a href="https://electro.madrasthemes.com/product-category/computer-components/"><span class="no-child"></span>Computer Components <span class="count">(1)</span></a>
+                                            </li>
+                                            <li class="cat-item cat-item-64"><a href="https://electro.madrasthemes.com/product-category/gadgets/"><span class="no-child"></span>Gadgets <span class="count">(3)</span></a>
+                                            </li>
+                                            <li class="cat-item cat-item-230"><a href="https://electro.madrasthemes.com/product-category/headphones-2/"><span class="no-child"></span>Headphones <span class="count">(7)</span></a>
+                                            </li>
+                                            <li class="cat-item cat-item-75"><a href="https://electro.madrasthemes.com/product-category/home-entertainment/"><span class="no-child"></span>Home Entertainment <span class="count">(1)</span></a>
+                                            </li>
+                                            <li class="cat-item cat-item-228"><a href="https://electro.madrasthemes.com/product-category/b-home-theatre/"><span class="no-child"></span>Home Theatre <span class="count">(7)</span></a>
+                                            </li>
+                                            <li class="cat-item cat-item-81"><a href="https://electro.madrasthemes.com/product-category/laptops-computers/"><span class="no-child"></span>Laptops &amp; Computers <span class="count">(13)</span></a>
+                                            </li>
+                                            <li class="cat-item cat-item-105"><a href="https://electro.madrasthemes.com/product-category/printers-ink/"><span class="no-child"></span>Printers &amp; Ink <span class="count">(1)</span></a>
+                                            </li>
+                                            <li class="cat-item cat-item-115"><a href="https://electro.madrasthemes.com/product-category/smart-phones-tablets/"><span class="no-child"></span>Smart Phones &amp; Tablets <span class="count">(26)</span></a>
+                                            </li>
+                                            <li class="cat-item cat-item-231"><a href="https://electro.madrasthemes.com/product-category/speakers-2/"><span class="no-child"></span>Speakers <span class="count">(7)</span></a>
+                                            </li>
+                                            <li class="cat-item cat-item-227"><a href="https://electro.madrasthemes.com/product-category/a-stereo/"><span class="no-child"></span>Stereo <span class="count">(7)</span></a>
+                                            </li>
+                                            <li class="cat-item cat-item-130"><a href="https://electro.madrasthemes.com/product-category/tv-audio/"><span class="no-child"></span>TV &amp; Audio <span class="count">(1)</span></a>
+                                            </li>
+                                            <li class="cat-item cat-item-135"><a href="https://electro.madrasthemes.com/product-category/video-games-consoles/"><span class="no-child"></span>Video Games &amp; Consoles <span class="count">(3)</span></a>
+                                            </li>
+                                        </ul></li></ul><ul> <li class="cat-item cat-item-44 current-cat-parent current-cat-ancestor"><a href="https://electro.madrasthemes.com/product-category/accessories/"><span class="child-indicator open"><i class="fa fa-angle-up"></i></span>Accessories <span class="count">(11)</span></a>
+                                        <ul class="children" style="">
+                                            <li class="cat-item cat-item-55"><a href="https://electro.madrasthemes.com/product-category/accessories/cases/"><span class="no-child"></span>Cases <span class="count">(1)</span></a>
+                                            </li>
+                                            <li class="cat-item cat-item-58"><a href="https://electro.madrasthemes.com/product-category/accessories/chargers/"><span class="no-child"></span>Chargers <span class="count">(1)</span></a>
+                                            </li>
+                                            <li class="cat-item cat-item-72"><a href="https://electro.madrasthemes.com/product-category/accessories/headphone-accessories/"><span class="no-child"></span>Headphone Accessories <span class="count">(1)</span></a>
+                                            </li>
+                                            <li class="cat-item cat-item-73 current-cat"><a href="https://electro.madrasthemes.com/product-category/accessories/headphone-cases/"><span class="no-child"></span>Headphone Cases <span class="count">(1)</span></a>
+                                            </li>
+                                            <li class="cat-item cat-item-74"><a href="https://electro.madrasthemes.com/product-category/accessories/headphones/"><span class="no-child"></span>Headphones <span class="count">(3)</span></a>
+                                            </li>
+                                            <li class="cat-item cat-item-99"><a href="https://electro.madrasthemes.com/product-category/accessories/pendrives/"><span class="no-child"></span>Pendrives <span class="count">(2)</span></a>
+                                            </li>
+                                            <li class="cat-item cat-item-104"><a href="https://electro.madrasthemes.com/product-category/accessories/power-banks/"><span class="no-child"></span>Power Banks <span class="count">(2)</span></a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul></li></ul></aside><aside id="media_image-2" class="widget widget_media_image"><img width="270" height="315" src="https://electro.madrasthemes.com/wp-content/uploads/2016/02/shop-sidebar-ad-banner.jpg" class="image wp-image-2142  attachment-full size-full" alt="" loading="lazy" style="max-width: 100%; height: auto;" srcset="https://electro.madrasthemes.com/wp-content/uploads/2016/02/shop-sidebar-ad-banner.jpg 270w, https://electro.madrasthemes.com/wp-content/uploads/2016/02/shop-sidebar-ad-banner-257x300.jpg 257w" sizes="(max-width: 270px) 100vw, 270px"></aside><aside id="woocommerce_products-2" class="widget woocommerce widget_products"><h3 class="widget-title">Latest Products</h3><ul class="product_list_widget"><li>
+                                <a href="https://electro.madrasthemes.com/product/tablet-thin-elitebook-revolve-810-g2-4/">
+                                    <img width="300" height="300" src="https://electro.madrasthemes.com/wp-content/uploads/2021/11/prodcut6-300x300.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy" srcset="https://electro.madrasthemes.com/wp-content/uploads/2021/11/prodcut6-300x300.png 300w, https://electro.madrasthemes.com/wp-content/uploads/2021/11/prodcut6-150x150.png 150w, https://electro.madrasthemes.com/wp-content/uploads/2021/11/prodcut6-100x100.png 100w" sizes="(max-width: 300px) 100vw, 300px"> <span class="product-title">Tablet Thin EliteBook Revolve 810 G2</span>
+                                </a>
+                                <div class="star-rating" role="img" aria-label="Rated 4.50 out of 5"><span style="width:90%">Rated <strong class="rating">4.50</strong> out of 5</span></div>
+                                <span class="electro-price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>1,347.00</bdi></span></span>
+                            </li>
+                            <li>
+                                <a href="https://electro.madrasthemes.com/product/tablet-thin-elitebook-revolve-810-g2-3/">
+                                    <img width="300" height="300" src="https://electro.madrasthemes.com/wp-content/uploads/2021/11/prodcut5-300x300.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy" srcset="https://electro.madrasthemes.com/wp-content/uploads/2021/11/prodcut5-300x300.png 300w, https://electro.madrasthemes.com/wp-content/uploads/2021/11/prodcut5-150x150.png 150w, https://electro.madrasthemes.com/wp-content/uploads/2021/11/prodcut5-100x100.png 100w" sizes="(max-width: 300px) 100vw, 300px"> <span class="product-title">Tablet Thin EliteBook Revolve 810 G2</span>
+                                </a>
+                                <div class="star-rating" role="img" aria-label="Rated 4.50 out of 5"><span style="width:90%">Rated <strong class="rating">4.50</strong> out of 5</span></div>
+                                <span class="electro-price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>1,347.00</bdi></span></span>
+                            </li>
+                            <li>
+                                <a href="https://electro.madrasthemes.com/product/wireless-audio-system-multiroom-360-2/">
+                                    <img width="300" height="300" src="https://electro.madrasthemes.com/wp-content/uploads/2021/11/prodcut4-300x300.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy" srcset="https://electro.madrasthemes.com/wp-content/uploads/2021/11/prodcut4-300x300.png 300w, https://electro.madrasthemes.com/wp-content/uploads/2021/11/prodcut4-150x150.png 150w, https://electro.madrasthemes.com/wp-content/uploads/2021/11/prodcut4-100x100.png 100w" sizes="(max-width: 300px) 100vw, 300px"> <span class="product-title">Wireless Audio System Multiroom 360</span>
+                                </a>
+                                <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5"><span style="width:80%">Rated <strong class="rating">4.00</strong> out of 5</span></div>
+                                <span class="electro-price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>69.00</bdi></span></span>
+                            </li>
+                            <li>
+                                <a href="https://electro.madrasthemes.com/product/smartphone-6s-32gb-lte-3/">
+                                    <img width="300" height="300" src="https://electro.madrasthemes.com/wp-content/uploads/2021/11/prodcut3-300x300.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy" srcset="https://electro.madrasthemes.com/wp-content/uploads/2021/11/prodcut3-300x300.png 300w, https://electro.madrasthemes.com/wp-content/uploads/2021/11/prodcut3-150x150.png 150w, https://electro.madrasthemes.com/wp-content/uploads/2021/11/prodcut3-100x100.png 100w" sizes="(max-width: 300px) 100vw, 300px"> <span class="product-title">Smartphone 6S 32GB LTE</span>
+                                </a>
+                                <div class="star-rating" role="img" aria-label="Rated 4.50 out of 5"><span style="width:90%">Rated <strong class="rating">4.50</strong> out of 5</span></div>
+                                <span class="electro-price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>799.00</bdi></span></span>
+                            </li>
+                            <li>
+                                <a href="https://electro.madrasthemes.com/product/tablet-thin-elitebook-revolve-810-g2-2/">
+                                    <img width="300" height="300" src="https://electro.madrasthemes.com/wp-content/uploads/2021/11/prodcut2-300x300.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy" srcset="https://electro.madrasthemes.com/wp-content/uploads/2021/11/prodcut2-300x300.png 300w, https://electro.madrasthemes.com/wp-content/uploads/2021/11/prodcut2-150x150.png 150w, https://electro.madrasthemes.com/wp-content/uploads/2021/11/prodcut2-100x100.png 100w" sizes="(max-width: 300px) 100vw, 300px"> <span class="product-title">Tablet Thin EliteBook Revolve 810 G2</span>
+                                </a>
+                                <div class="star-rating" role="img" aria-label="Rated 4.50 out of 5"><span style="width:90%">Rated <strong class="rating">4.50</strong> out of 5</span></div>
+                                <span class="electro-price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>1,347.00</bdi></span></span>
+                            </li>
+                        </ul></aside></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block javascript %}
+{{ parent() }}
+  <script>
+      $('document').ready(function() {
+      });
+   </script>
 {% endblock %}
