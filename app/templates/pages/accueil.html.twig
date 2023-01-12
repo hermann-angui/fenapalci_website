@@ -44,6 +44,25 @@
             -o-object-fit: cover;
             object-fit: cover;
         }
+
+        .donate-content {
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            border-radius: 5px;
+            color: #ffffff;
+            padding: 50px;
+            margin-bottom: 30px;
+        }
+        .primary-bg {
+            background-color: #c2daf5;
+        }
+        .secondary-bg {
+            background-color: #a5c6fa;
+        }
+        .third-bg {
+            background-color: #dafaf7;
+        }
     </style>
 {% endblock %}
 
@@ -53,12 +72,10 @@
 
 {% block body %}
     <div id="main-wrapper" class="layout-main-wrapper clearfix">
-        <div id="main" class="container">
+        <div id="main" class="container-fluid">
             <div class="row row-offcanvas row-offcanvas-left clearfix">
                 <main class="main-content col" id="content" role="main">
                     <div id="block-nafr-content" class="block block-system block-system-main-block">
-
-
                         <div class="content">
                             <div class="row">
                                 <div class="col-lg-4 col-md-5">
@@ -85,7 +102,7 @@
                             </div>
                         </div>
                     </div><!-- ======== START -->
-                    <section class="py-3 py-xl-5">
+                    <section class="py-2 py-xl-2">
                         <div class="row">
                             <!-- START -->
                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -174,13 +191,33 @@
                     </section>
                     <section>
                         <div class="row">
-                            <!-- START -->
-                            <div class="col-md-12 col-sm-6 col-xs-12 bg-yellow">
+                            <div class="col-sm-6 col-lg-4">
+                                <article class="donate-content primary-bg">
+                                    <h3><i aria-hidden="true" class="icon icon-save-money"></i>Donate to support</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                                    <a href="" class="btn btn-primary">Voir plus</a>
+                                </article>
                             </div>
-                            <!-- END -->
+
+                            <div class="col-sm-6 col-lg-4">
+                                <article class="donate-content primary-bg">
+                                    <h3><i aria-hidden="true" class="icon icon-save-money"></i>Donate to support</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                                    <a href="" class="btn btn-primary">Voir plus</a>
+                                </article>
+                            </div>
+
+                            <div class="col-sm-6 col-lg-4">
+                                <article class="donate-content primary-bg">
+                                    <h3><i aria-hidden="true" class="icon icon-save-money"></i>Donate to support</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                                    <a href="" class="btn btn-primary">Voir plus</a>
+                                </article>
+                            </div>
+
                         </div>
                     </section>
-                    <section class="py-3 py-xl-5">
+                    <section class="py-2 py-xl-2">
                         <h2 class="ts-title">
                             <span class="title-text">Nos Services</span>
                         </h2>
