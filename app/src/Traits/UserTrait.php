@@ -50,10 +50,12 @@ trait UserTrait
 
                 $this->subscriptionRepository->add($subscription, true);
 
+
                 return $waveResponse->getWaveLaunchUrl();
             }
         }catch(\Exception $e){
-
+            dump($e);
+            die;
             return null;
         }
     }
