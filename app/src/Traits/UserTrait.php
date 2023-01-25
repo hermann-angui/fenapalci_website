@@ -29,6 +29,8 @@ trait UserTrait
                 ->setErrorUrl($this->generateUrl('wave_payment_callback', ["status" => "error"], UrlGenerator::ABSOLUTE_URL))
                 ->setSuccessUrl($this->generateUrl('wave_payment_callback', ["status" => "success"], UrlGenerator::ABSOLUTE_URL));
 
+            dump($waveCheckoutRequest);
+            die();
             $waveResponse = $this->waveService->checkOutRequest($waveCheckoutRequest);
 
             if ($waveResponse) {
