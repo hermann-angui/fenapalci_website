@@ -9,8 +9,6 @@ services:
     image: mariadb:10.5
     container_name: db
     restart: always
-    labels:
-      - "traefik.enable=false"
     environment:
       MYSQL_ROOT_PASSWORD: QT6e5APtSYaU
       MYSQL_USER: root
@@ -40,6 +38,9 @@ services:
     restart: always
     build:
       context: ./docker
+    environment:
+      - APP_ENV=prod
+      - DATABASE_URL=mysql://root:QT6e5APtSYaU@db:3306/fenapalci_db?serverVersion=14
     depends_on:
       - db
     volumes:
