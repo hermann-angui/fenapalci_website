@@ -19,8 +19,6 @@ class WaveService
                 'error_url' =>  $request->getErrorUrl()
             ]);
 
-            echo $encodedPayload . PHP_EOL;
-
             $curlOptions = [
                 CURLOPT_URL => self::CHECKOUT_URL,
                 CURLOPT_RETURNTRANSFER => true,
