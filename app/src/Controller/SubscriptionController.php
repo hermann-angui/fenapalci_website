@@ -42,6 +42,7 @@ class SubscriptionController extends AbstractController
         $amount = $this->getSubscriptionFee($category);
         $payment_redirect_url = $this->payForSubscription($amount, $user);
 
+        dump($payment_redirect_url);
         if($payment_redirect_url) return $this->redirect($payment_redirect_url);
         else return $this->redirectToRoute('subscription_payment_category');
 
