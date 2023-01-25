@@ -21,33 +21,38 @@ trait UserTrait
      */
     public function payForSubscription(string $amount, ?UserInterface $user)
     {
-        $waveCheckoutRequest = new WaveCheckoutRequest();
-        $waveCheckoutRequest->setCurrency("XOF")
-                            ->setAmount($amount)
-                            ->setClientReference(Uuid::v4()->toRfc4122())
-                            ->setErrorUrl($this->generateUrl('wave_payment_callback', ["status" => "error"], UrlGenerator::ABSOLUTE_URL))
-                            ->setSuccessUrl($this->generateUrl('wave_payment_callback', ["status" => "success"], UrlGenerator::ABSOLUTE_URL));
+        try{
 
-        $waveResponse = $this->waveService->checkOutRequest($waveCheckoutRequest);
+            $waveCheckoutRequest = new WaveCheckoutRequest();
+            $waveCheckoutRequest->setCurrency("XOF")
+                ->setAmount($amount)
+                ->setClientReference(Uuid::v4()->toRfc4122())
+                ->setErrorUrl($this->generateUrl('wave_payment_callback', ["status" => "error"], UrlGenerator::ABSOLUTE_URL))
+                ->setSuccessUrl($this->generateUrl('wave_payment_callback', ["status" => "success"], UrlGenerator::ABSOLUTE_URL));
 
-        if ($waveResponse) {
-            $subscription = new Subscription();
-            $subscription->setAmount($waveResponse->getAmount())
-                        ->setCurrency($waveResponse->getCurrency())
-                        ->setPaymentReference($waveResponse->getClientReference())
-                        ->setCheckoutSessionId($waveResponse->getCheckoutSessionId())
-                        ->setSubscriber($user)
-                        ->setOperator("WAVE")
-                        ->setPaymentMode("WEBSITE")
-                        ->setPaymentType("MOBILE_MONEY")
-                        ->setPaymentDate($waveResponse->getWhenCreated())
-                        ->setCreatedAt(new \DateTime())
-                        ->setModifiedAt(new \DateTime())
-                        ->setPaymentStatus(strtoupper($waveResponse->getPaymentStatus()));
+            $waveResponse = $this->waveService->checkOutRequest($waveCheckoutRequest);
 
-            $this->subscriptionRepository->add($subscription, true);
+            if ($waveResponse) {
+                $subscription = new Subscription();
+                $subscription->setAmount($waveResponse->getAmount())
+                    ->setCurrency($waveResponse->getCurrency())
+                    ->setPaymentReference($waveResponse->getClientReference())
+                    ->setCheckoutSessionId($waveResponse->getCheckoutSessionId())
+                    ->setSubscriber($user)
+                    ->setOperator("WAVE")
+                    ->setPaymentMode("WEBSITE")
+                    ->setPaymentType("MOBILE_MONEY")
+                    ->setPaymentDate($waveResponse->getWhenCreated())
+                    ->setCreatedAt(new \DateTime())
+                    ->setModifiedAt(new \DateTime())
+                    ->setPaymentStatus(strtoupper($waveResponse->getPaymentStatus()));
 
-            return $waveResponse->getWaveLaunchUrl();
+                $this->subscriptionRepository->add($subscription, true);
+
+                return $waveResponse->getWaveLaunchUrl();
+            }
+        }catch(\Exception $e){
+            dump($e);
         }
     }
 
