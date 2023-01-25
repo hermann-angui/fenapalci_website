@@ -45,7 +45,7 @@ class WaveService
                 $waveResponse = new WaveCheckoutResponse();
 
                 echo  'init waveResponse' . PHP_EOL;
-                dump($checkout_session);
+                dump($response);
                 $waveResponse->setAmount($checkout_session["amount"])
                             ->setPaymentStatus($checkout_session["payment_status"])
                             ->setCurrency($checkout_session["currency"])
