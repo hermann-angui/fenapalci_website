@@ -72,7 +72,7 @@ class SubscriptionController extends AbstractController
     }
 
 
-    private function getSubscriptionFee (int $index) : ?int
+   /* private function getSubscriptionFee (int $index) : ?int
     {
         $fees =     [
             5000, // "GLACIER" => 5000,
@@ -94,5 +94,10 @@ class SubscriptionController extends AbstractController
         ];
         return $fees[$index];
     }
+    */
 
+    private function getSubscriptionFee (int $index) : ?int
+    {
+        return 100;
+    }
 }
