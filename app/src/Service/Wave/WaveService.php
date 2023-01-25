@@ -40,9 +40,6 @@ class WaveService
             $err = curl_error($curl);
             curl_close($curl);
             if ($err) {
-                echo  'curl err ' . PHP_EOL;
-                dump($err);
-                die;
                 return null;
             } else {
                 # You can now decode the response and use the checkout session. Happy coding ;)
@@ -50,7 +47,7 @@ class WaveService
                 $waveResponse = new WaveCheckoutResponse();
 
                 echo  'init waveResponse' . PHP_EOL;
-                die;
+
                 $waveResponse->setAmount($checkout_session["amount"])
                             ->setPaymentStatus($checkout_session["payment_status"])
                             ->setCurrency($checkout_session["currency"])
