@@ -26,8 +26,10 @@ trait UserTrait
             $waveCheckoutRequest->setCurrency("XOF")
                 ->setAmount($amount)
                 ->setClientReference(Uuid::v4()->toRfc4122())
-                ->setErrorUrl($this->generateUrl('wave_payment_callback', ["status" => "error"], UrlGenerator::ABSOLUTE_URL))
-                ->setSuccessUrl($this->generateUrl('wave_payment_callback', ["status" => "success"], UrlGenerator::ABSOLUTE_URL));
+                ->setErrorUrl($this->getParameter("wave_error_url"))
+                ->setSuccessUrl($this->getParameter("wave_success_url"));
+            // ->setErrorUrl($this->generateUrl('wave_payment_callback', ["status" => "error"], UrlGenerator::ABSOLUTE_URL))
+            // ->setSuccessUrl($this->generateUrl('wave_payment_callback', ["status" => "success"], UrlGenerator::ABSOLUTE_URL));
 
             $waveResponse = $this->waveService->checkOutRequest($waveCheckoutRequest);
 

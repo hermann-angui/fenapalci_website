@@ -19,14 +19,6 @@ class WaveService
                 'error_url' =>  $request->getErrorUrl()
             ]);
 
-            dump([
-                'amount' => $request->getAmount(),
-                'currency' => $request->getCurrency(),
-                'client_reference' => $request->getClientReference(),
-                'success_url' => $request->getSuccessUrl(),
-                'error_url' =>  $request->getErrorUrl()
-            ]);
-            die;
             $curlOptions = [
                 CURLOPT_URL => self::CHECKOUT_URL,
                 CURLOPT_RETURNTRANSFER => true,
