@@ -28,22 +28,21 @@ class SubscriptionController extends AbstractController
         $this->userRepository = $userRepository;
     }
 
-    #[Route('/payment/category', name: 'subscription_payment_category', methods: ['GET'])]
-    public function paymentSelectCategory(Request $request, EntityManagerInterface $em): Response
+    #[Route('/payment/frais-adhesion', name: 'subscription_payment_frais_adhesion', methods: ['GET'])]
+    public function paymentFraisAdhesion(Request $request, EntityManagerInterface $em): Response
     {
-        return $this->render('subscription_payment/select_category.html.twig');
+        return $this->render('subscription_payment/frais_adhesion.html.twig');
     }
 
     #[Route(path: '/payment/redirect', name: 'subscrption_payment_redirect_to_payment_service')]
     public function redirectToPaymentService(Request $request): Response
     {
         $user = $this->getUser();
-        $category = $request->get('company_category');
-        $amount = $this->getSubscriptionFee($category);
+        $amount = 15000;
         $payment_redirect_url = $this->payForSubscription($amount, $user);
 
         if($payment_redirect_url) return $this->redirect($payment_redirect_url);
-        else return $this->redirectToRoute('subscription_payment_category');
+        else return $this->redirectToRoute('subscription_payment_frais_adhesion');
 
     }
 

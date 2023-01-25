@@ -1,0 +1,60 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <style>
+        .btn:hover {
+            color: var(--bs-btn-hover-color);
+            background-color: #4f2470;
+            border-color:  #4f2470;
+        }
+    </style>
+{% endblock %}
+
+{% block page_title %}
+    {{ include('_partials/page_title.html.twig', {'title': 'Frais d\'adhesion de membre'}) }}
+{% endblock %}
+
+{% block body %}
+    <!-- **************** MAIN CONTENT START **************** -->
+    <main>
+        <section class="container px-2 mt-5">
+                <div class="row justify-content-md-center">
+                    <!-- Right -->
+                        <div class="border-1 border-light bg-light pt-4 text-center">
+                                <img class="mb-5" src="{{ asset('sites/img/wave-logo.png') }}" width="150" alt="logo wave"><br>
+                                <div>
+                                    Cette cotisation vous donne aux avantages accordés par nos partenaires aux memebres de la fédération.
+                                </div>
+
+                                <div>
+                                    <p>
+                                        <strong>Frais unique d’adhésion</strong>
+                                    </p>
+                                    <p>
+                                        <span id="subscription_amount"  style="font-size:2.5em;font-weight: bolder">15000</span> <span  style="font-size:0.96em;font-weight: bolder">F CFA</span>
+                                    </p>
+                                </div>
+
+                                <div class="mx-5 pt-3 text-center">
+                                    <a href="{{ path('subscrption_payment_redirect_to_payment_service') }}" type="submit" class="btn bg-dark-purple text-white btn-lg my-5 w-75 rounded-5">Payer maintenant</a>
+                                </div>
+                        </div>
+                </div>
+        </section>
+    </main>
+    <!-- **************** MAIN CONTENT END **************** -->
+{% endblock %}
+
+
+{% block footer %}
+{% endblock %}
+
+
+{% block javascript %}
+    {{ parent() }}
+    <script type="text/javascript">
+    </script>
+{% endblock %}
