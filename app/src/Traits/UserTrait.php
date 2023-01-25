@@ -35,6 +35,9 @@ trait UserTrait
 
             if ($waveResponse) {
                 $subscription = new Subscription();
+
+                $now = new \DateTime();
+                $endDate = $now->add(new \DateInterval('P1Y'));
                 $subscription->setAmount($waveResponse->getAmount())
                     ->setCurrency($waveResponse->getCurrency())
                     ->setPaymentReference($waveResponse->getClientReference())
@@ -44,6 +47,8 @@ trait UserTrait
                     ->setPaymentMode("WEBSITE")
                     ->setPaymentType("MOBILE_MONEY")
                     ->setPaymentDate($waveResponse->getWhenCreated())
+                    ->setSubscriptionStartDate($now)
+                    ->setSubscriptionExpireDate($endDate)
                     ->setCreatedAt(new \DateTime())
                     ->setModifiedAt(new \DateTime())
                     ->setPaymentStatus(strtoupper($waveResponse->getPaymentStatus()));
