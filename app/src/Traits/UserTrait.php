@@ -22,7 +22,6 @@ trait UserTrait
     public function payForSubscription(string $amount, ?UserInterface $user)
     {
         try{
-
             $waveCheckoutRequest = new WaveCheckoutRequest();
             $waveCheckoutRequest->setCurrency("XOF")
                 ->setAmount($amount)
@@ -53,6 +52,7 @@ trait UserTrait
             }
         }catch(\Exception $e){
             dump($e);
+            die;
         }
     }
 

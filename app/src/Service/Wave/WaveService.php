@@ -61,6 +61,7 @@ class WaveService
            }
 
         }catch(\Exception $e){
+            dump($e);
             return null;
         }
 

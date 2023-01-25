@@ -40,8 +40,6 @@ class SubscriptionController extends AbstractController
         $user = $this->getUser();
         $category = $request->get('company_category');
         $amount = $this->getSubscriptionFee($category);
-        echo $amount;
-        die;
         $payment_redirect_url = $this->payForSubscription($amount, $user);
 
         dump($payment_redirect_url);
