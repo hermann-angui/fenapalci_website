@@ -24,9 +24,13 @@
                         {% else %}
                             <a href="{{ path('logout') }}" class="nav-link nav-link--fr-user-login mt-1">Se déconnecter</a>
                                 {% if app.user.photo is not null %}
-                                    <img width="30" height="30" src="{{ asset('users/') }}{{ app.user.photo }}" id="user_avatar" alt="user profile picture" class="rounded-circle"/>
+                                    <a href="{{ path('member_edit_profile') }}">
+                                       <img width="30" height="30" src="{{ asset('users/') }}{{ app.user.photo }}" id="user_avatar" alt="user profile picture" class="rounded-circle"/>
+                                    </a>
                                 {% else %}
-                                    <img width="30" height="30" src="{{ asset('assets/images/avatar/avatar.jpg') }}" id="user_avatar" alt="user profile picture" class="rounded-circle"/>
+                                    <a href="{{ path('member_edit_profile') }}">
+                                         <img width="30" height="30" src="{{ asset('assets/images/avatar/avatar.jpg') }}" id="user_avatar" alt="user profile picture" class="rounded-circle"/>
+                                    </a>
                                 {% endif %}
                             {% endif %}
                     </div>
