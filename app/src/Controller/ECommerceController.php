@@ -16,6 +16,7 @@ class ECommerceController extends AbstractController
     public function index(Request $request, ProductRepository $productRepository): Response
     {
         $products = $productRepository->findAll();
+        $datas = [];
         foreach($products as $product){
             $assets = $product->getDigitalAssets()->get(0);
             $categories = $product->getCategories()->get(0);
@@ -26,7 +27,6 @@ class ECommerceController extends AbstractController
                 'category' => $categories ? $categories->getName() : ''
             ];
         }
-
         return $this->render('ecommerce/index.html.twig', ['products' => $datas]);
     }
 

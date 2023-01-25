@@ -25,13 +25,7 @@ class Product
     private string $sku;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private string $type;
-
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private string $mime;
-
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private string $size;
+    private ?string $type;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private string $name;
@@ -339,7 +333,7 @@ class Product
     /**
      * @return string
      */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->type;
     }
@@ -351,42 +345,6 @@ class Product
     public function setType(?string $type): Product
     {
         $this->type = $type;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMime(): ?string
-    {
-        return $this->mime;
-    }
-
-    /**
-     * @param string $mime
-     * @return Product
-     */
-    public function setMime(?string $mime): Product
-    {
-        $this->mime = $mime;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSize(): ?string
-    {
-        return $this->size;
-    }
-
-    /**
-     * @param string $size
-     * @return Product
-     */
-    public function setSize(?string $size): Product
-    {
-        $this->size = $size;
         return $this;
     }
 

@@ -25,7 +25,7 @@
 
         .block-bg-gray {
             color: #a9a8a8;
-            background-color: background-color: #f7f7f7;
+            background-color: #f7f7f7;
             padding: 15px 20px 15px 15px;
             text-align: justify;
         }
@@ -45,23 +45,63 @@
             object-fit: cover;
         }
 
-        .donate-content {
-            -webkit-border-radius: 5px;
-            -moz-border-radius: 5px;
-            -ms-border-radius: 5px;
-            border-radius: 5px;
-            color: #ffffff;
-            padding: 50px;
-            margin-bottom: 30px;
+        .block-we-do-2 {
+            padding-left: 80px;
         }
-        .primary-bg {
-            background-color: #c2daf5;
+
+        .mb-50 {
+            margin-bottom: 50px!important;
         }
-        .secondary-bg {
-            background-color: #a5c6fa;
+        .mt-100 {
+            margin-top: 100px!important;
         }
-        .third-bg {
-            background-color: #dafaf7;
+        .mt-30 {
+            margin-top: 30px!important;
+        }
+        .color-gray-600 {
+            color: #475467;
+        }
+        .text-body-lead-large, .text-body-text-md {
+            font-family: Noto Sans,sans-serif;
+            font-weight: 400;
+        }
+        .text-body-lead-large {
+            font-size: 24px;
+            line-height: 32px;
+        }
+        .text-heading-1 {
+            font-weight: 700;
+            line-height: 64px;
+            letter-spacing: -1%;
+            color: #101828;
+        }
+        .text-heading-4, .text-heading-5 {
+            font-family: Chivo,sans-serif;
+            font-weight: 700;
+            letter-spacing: 0;
+        }
+        .text-heading-4 {
+            font-size: 28px;
+            line-height: 32px;
+        }
+        .mt-15 {
+            margin-top: 15px!important;
+        }
+        .color-gray-600 {
+            color: #475467;
+        }
+        .text-body-excerpt {
+            font-family: Noto Sans,sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 26px;
+        }
+        .text-display-4, .text-heading-1 {
+            font-size: 56px;
+        }
+
+        .card-body {
+            padding: 0.81em;
         }
     </style>
 {% endblock %}
@@ -72,162 +112,226 @@
 
 {% block body %}
     <div id="main-wrapper" class="layout-main-wrapper clearfix">
-        <div id="main" class="container-fluid">
+        <div id="main">
             <div class="row row-offcanvas row-offcanvas-left clearfix">
-                <main class="main-content col" id="content" role="main">
-                    <div id="block-nafr-content" class="block block-system block-system-main-block">
-                        <div class="content">
-                            <div class="row">
-                                <div class="col-lg-4 col-md-5">
-                                    <a href="{{ path('register') }}">
-                                        <img alt="" height="80" src="{{ asset('/sites/img/devenez_membre_364.png') }}" width="364">
-                                    </a>
-                                </div>
-                                <div class="col-lg-5 col-md-5 banner-col-left my-auto">
-                                    <p><strong><span style="font-size: 16px;">Toujours influente — joignez près de 170 000 autres membres qui partagent un but commun.</span></strong>
-                                    </p>
-                                </div>
-                                <div class="col-lg-3 col-md-2 banner-col-join-now my-auto">
-                                    <div class="banner-join-now">
-                                        <p>
-                                            <span style="font-size: 18px;">
-                                                <strong>
-                                                    <a href="">
-                                                        <span style="color: #e31837;">Adhérez</span>
-                                                    </a></strong>
-                                            </span>
+                <main class="main-content col container" id="content" role="main">
+                    <div class="container">
+                        <div id="block-nafr-content" class="block block-system block-system-main-block">
+                            <div class="content">
+                                <div class="row mt-3">
+                                    <div class="col-lg-3 col-md-3">
+                                        <a href="/register">
+                                            <img alt="" height="45" src="/sites/img/devenez_membre_364.png" width="180">
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-9 col-md-6 banner-col-left my-auto">
+                                        <p><strong><span style="font-size: 16px;">Toujours influente — joignez près de 170 000 autres membres qui partagent un but commun.</span></strong>
                                         </p>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div><!-- ======== START -->
-                    <section class="py-2 py-xl-2">
+                        </div><!-- ======== START -->
+                        <section class="py-2 py-xl-2">
+                            <div class="row">
+                                <!-- START -->
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <h2 class="ts-title">
+                                        <span class="title-text"> Qui sommes nous ?</span>
+                                    </h2>
+                                    <div class="p-2 text-align-justify">
+                                        <p>
+                                            La <strong>FENAPAL-CI</strong> est une fédération nationale qui regroupe des
+                                            associations: d'espaces d'animation, de restaurations et de loisirs
+                                            (restaurants, bars, night-club, hôtels, maquis, caves etc.). La FENAPAL CI est
+                                            un réseau professionnel permettant la mise en commun de ressources dans un
+                                            esprit de solidarité et d'amitié. Cela se traduit par des avantages matériel,
+                                            économique, le partage d'expérience et de savoir-faire, de conseils et des
+                                            solutions adaptés.
+                                        <p>Créée depuis le 23 juillet 2020 par Monsieur MOBIO Arsène qui en est le
+                                            Président, la Fédération des Acteurs et Professionnels des Espaces d’Animation,
+                                            Restauration et Loisir de Côte d’Ivoire (FENAPAL-CI) poursuit un objectif simple
+                                            : guider et servir notre communauté pour l’aider à se développer. Nous sommes
+                                            une des rares fédération à permettre à nos membres de bénéficier de
+                                            l’aménagement de leurs espaces à crédit. c’est-à-dire, La logistique : chaises,
+                                            tables etc..., l’électroménager : télévisions, climatiseur, ventilateur,
+                                            réfrigérateur, gazinière, cuisine professionnelle et bien d’autres. La
+                                            FENAPAL-CI est une fédération nationale qui réunit tous les acteurs des espaces
+                                            d'animations tels que les restaurants, bars, night-club, hôtels, maquis, caves.
+                                            La FENAPAL CI est un réseau professionnel permettant la mise en commun de
+                                            ressources dans un esprit de solidarité et d'amitié. Cela se traduit par des
+                                            avantages matériel, économique, le partage d'expérience et de savoir-faire, de
+                                            conseils et des solutions adaptés.</p>
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- END -->
+                            </div>
+                        </section>
+                        <section class="my-4">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="card">
+                                        <img class="card-img-top" src="{{ asset('/sites/img/misc/espace_loisir_2.png') }}" height="200" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h3 class="card-title">Espaces de loisirs</h3>
+                                            <div class="d-block">
+                                                <p class="small">Les espaces de loisir ou parcs de loisir sont des centres de loisirs clos ou en plein air. Ils sont à vocation récréative et/ou éducative</p>
+                                                <p><a href="" class="small btn btn-link btn-blue">voir +</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="card">
+                                        <img class="card-img-top" src="{{ asset('/sites/img/misc/espace_animation_1.jpg') }}" height="200" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h3 class="card-title">Espaces d'animations</h3>
+                                            <div class="d-block">
+                                                <p class="small">Les espaces de loisir ou parcs de loisir sont des centres de loisirs clos ou en plein air. Ils sont à vocation récréative et/ou éducative</p>
+                                                <p><a href="" class="small btn btn-link link-blue">voir +</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="card">
+                                        <img class="card-img-top" src="{{ asset('/sites/img/misc/barman2.jpg') }}" height="200" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h3 class="card-title">Restaurants/Bars</h3>
+                                            <div class="d-block">
+                                                <p class="small">Les espaces de loisir ou parcs de loisir sont des centres de loisirs clos ou en plein air. Ils sont à vocation récréative et/ou éducative</p>
+                                                <p><a href="" class="small btn btn-link link-blue">voir +</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="row">
+                                <div class="col-4">
+                                    <div id="node-19" class="p-3 border border-blue border-1">
+                                        <div class="node-mission__img d-flex">
+                                            <img width="95" class="px-2 img-responsive" src="https://www.lesmediasfrancophones.org/sites/default/files/mfp_missions-04_0.svg" alt="">
+                                            <h2 style="color: #df001e;font-weight: bold;letter-spacing: .025em;line-height: 24px;text-transform: uppercase;">Défense des intérêts des membres</h2>
+                                        </div>
+                                        <div class="main px-2 center">
+                                            <div class="content">
+                                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                                    <div class="field-items">
+                                                        <div class="field-item even" property="content:encoded">
+                                                            <ul>
+                                                                <li>Favoriser la connaissance réciproque des modes de production, des initiatives et des projets entrepris par chacun des partenaires</li>
+                                                                <li>Initier et coordonner des coproductions entre les chaînes partenaires en favorisant les modes de diffusion transmédias</li>
+                                                                <li>La ligne éditoriale de ces coproductions devra transcender les cultures respectives des partenaires de l'association en valorisant ce qui les rassemble</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4">
+                                    <div id="node-19" class="p-3 border border-blue border-1">
+                                        <div class="node-mission__img d-flex">
+                                            <img width="95" class="px-2 img-responsive" src="https://www.lesmediasfrancophones.org/sites/default/files/mfp_missions-06_0.svg" alt="">
+                                            <h2 style="color: #df001e;font-weight: bold;letter-spacing: .025em;line-height: 24px;text-transform: uppercase;">Assurance maladie aux membres</h2>
+                                        </div>
+                                        <div class="main px-2 center">
+                                            <div class="content">
+                                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                                    <div class="field-items">
+                                                        <div class="field-item even" property="content:encoded">
+                                                            <ul>
+                                                                <li>Favoriser la connaissance réciproque des modes de production, des initiatives et des projets entrepris par chacun des partenaires</li>
+                                                                <li>Initier et coordonner des coproductions entre les chaînes partenaires en favorisant les modes de diffusion transmédias</li>
+                                                                <li>La ligne éditoriale de ces coproductions devra transcender les cultures respectives des partenaires de l'association en valorisant ce qui les rassemble</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4">
+                                    <div id="node-19" class="p-3 border border-blue border-1">
+                                        <div class="node-mission__img d-flex">
+                                            <img width="95" class="px-2 img-responsive" src="https://www.lesmediasfrancophones.org/sites/default/files/mfp_missions-05_0.svg" alt="">
+                                            <h2 style="color: #df001e;font-weight: bold;letter-spacing: .025em;line-height: 24px;text-transform: uppercase;">Formation continue aux membres</h2>
+                                        </div>
+                                        <div class="main px-2 center">
+                                            <div class="content">
+                                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                                    <div class="field-items">
+                                                        <div class="field-item even" property="content:encoded">
+                                                            <ul>
+                                                                <li>Favoriser la connaissance réciproque des modes de production, des initiatives et des projets entrepris par chacun des partenaires</li>
+                                                                <li>Initier et coordonner des coproductions entre les chaînes partenaires en favorisant les modes de diffusion transmédias</li>
+                                                                <li>La ligne éditoriale de ces coproductions devra transcender les cultures respectives des partenaires de l'association en valorisant ce qui les rassemble</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="my-4">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h2 class="ts-title">
+                                        <span class="title-text">Nos missions</span>
+                                    </h2>
+                                    <div>
+
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <h2 class="ts-title">
+                                        <span class="title-text">Les avantages</span>
+                                    </h2>
+                                    <div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row block-bg-gray mt-5" style="height: 250px">
+                            </div>
+                            <div class="row my-3">
+                                <div class="col-12">
+                                    <h2 class="ts-title">
+                                        <span class="title-text">Localisation</span>
+                                    </h2>
+                                    <div class="mapouter">
+                                        <div class="gmap_canvas">
+                                            <iframe width="100%" height="454" id="gmap_canvas" src="https://maps.google.com/maps?q=yopougon&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                                            </iframe><a href="https://www.whatismyip-address.com/divi-discount/">divi discount</a>
+                                            <br>
+                                            <style>.mapouter{position:relative;text-align:right;height:454px;width:100%;}</style>
+                                            <a href="https://www.embedgooglemap.net"></a>
+                                            <style>.gmap_canvas {overflow:hidden;background:none!important;height:454px;width:100%;}</style>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <section style="background-color: #F8D448; height:550px; padding: 10px 10px;">
                         <div class="row">
-                            <!-- START -->
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <h2 class="ts-title">
-                                    <span class="title-text"> Qui sommes nous ?</span>
-                                </h2>
-                                <div class="block-bg-gray">
-                                    <p>
-                                        La <strong>FENAPAL-CI</strong> est une fédération nationale qui regroupe des
-                                        associations: d'espaces d'animation, de restaurations et de loisirs
-                                        (restaurants, bars, night-club, hôtels, maquis, caves etc.). La FENAPAL CI est
-                                        un réseau professionnel permettant la mise en commun de ressources dans un
-                                        esprit de solidarité et d'amitié. Cela se traduit par des avantages matériel,
-                                        économique, le partage d'expérience et de savoir-faire, de conseils et des
-                                        solutions adaptés.
-                                    <p>Créée depuis le 23 juillet 2020 par Monsieur MOBIO Arsène qui en est le
-                                        Président, la Fédération des Acteurs et Professionnels des Espaces d’Animation,
-                                        Restauration et Loisir de Côte d’Ivoire (FENAPAL-CI) poursuit un objectif simple
-                                        : guider et servir notre communauté pour l’aider à se développer. Nous sommes
-                                        une des rares fédération à permettre à nos membres de bénéficier de
-                                        l’aménagement de leurs espaces à crédit. c’est-à-dire, La logistique : chaises,
-                                        tables etc..., l’électroménager : télévisions, climatiseur, ventilateur,
-                                        réfrigérateur, gazinière, cuisine professionnelle et bien d’autres. La
-                                        FENAPAL-CI est une fédération nationale qui réunit tous les acteurs des espaces
-                                        d'animations tels que les restaurants, bars, night-club, hôtels, maquis, caves.
-                                        La FENAPAL CI est un réseau professionnel permettant la mise en commun de
-                                        ressources dans un esprit de solidarité et d'amitié. Cela se traduit par des
-                                        avantages matériel, économique, le partage d'expérience et de savoir-faire, de
-                                        conseils et des solutions adaptés.</p>
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- END -->
-
-                            <!-- START -->
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="mt-4">
-                                    <h3 class="fw-bolder title-text rounded-right rounded-5">
-                                        Espaces de loisirs
-                                    </h3>
-                                    <img src="{{ asset('/sites/img/misc/espace_loisir_2.png') }}" alt=""
-                                         style=" height: 167px;">
-                                    <div class="d-block">
-                                        <span class="small">Les espaces de loisir ou parcs de loisir sont des centres de loisirs clos ou en plein air. Ils sont à vocation récréative et/ou éducative</span>
-                                        <a href="" class="small link link-orange">voir +</a>
-                                    </div>
-                                    <hr>
-                                </div>
-                                <div class="mt-1">
-                                    <h3 class="fw-bolder title-text rounded-right rounded-5">
-                                        Espaces d'animations
-                                    </h3>
-                                    <img src="{{ asset('/sites/img/misc/espace_animation_1.jpg') }}" alt=""
-                                         style=" height: 167px;">
-                                    <div class="d-block">
-                                        <span class="small">Les espaces de loisir ou parcs de loisir sont des centres de loisirs clos ou en plein air. Ils sont à vocation récréative et/ou éducative</span>
-                                        <a href="" class="small link link-orange">voir +</a>
-                                    </div>
-                                    <hr>
-                                </div>
-                                <div class="mt-1">
-                                    <h3 class="fw-bolder title-text rounded-right rounded-5">
-                                        Restaurants/Bars
-                                    </h3>
-                                    <img src="{{ asset('/sites/img/misc/barman2.jpg') }}" alt=""
-                                         style=" height: 167px;">
-                                    <div class="d-block">
-                                        <span class="small">Les espaces de loisir ou parcs de loisir sont des centres de loisirs clos ou en plein air. Ils sont à vocation récréative et/ou éducative</span>
-                                        <a href="" class="small link link-orange">voir +</a>
-                                    </div>
-                                    <hr>
-                                </div>
-                            </div>
-                            <!-- END -->
-
-                            <!-- START -->
-                            <div class="col-md-3 col-sm-6">
-                                <h2>
-                                    <span>Suivez nous</span>
-                                </h2>
-                                <div class="">
-                                </div>
-                            </div>
-                            <!-- END -->
+                            <div class="col-4"></div>
+                            <div class="col-8"></div>
+                        </div>
+                        <div class="row">
                         </div>
                     </section>
-                    <section>
-                        <div class="row">
-                            <div class="col-sm-6 col-lg-4">
-                                <article class="donate-content primary-bg">
-                                    <h3><i aria-hidden="true" class="icon icon-save-money"></i>Donate to support</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
-                                    <a href="" class="btn btn-primary">Voir plus</a>
-                                </article>
-                            </div>
 
-                            <div class="col-sm-6 col-lg-4">
-                                <article class="donate-content primary-bg">
-                                    <h3><i aria-hidden="true" class="icon icon-save-money"></i>Donate to support</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
-                                    <a href="" class="btn btn-primary">Voir plus</a>
-                                </article>
-                            </div>
-
-                            <div class="col-sm-6 col-lg-4">
-                                <article class="donate-content primary-bg">
-                                    <h3><i aria-hidden="true" class="icon icon-save-money"></i>Donate to support</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
-                                    <a href="" class="btn btn-primary">Voir plus</a>
-                                </article>
-                            </div>
-
-                        </div>
-                    </section>
-                    <section class="py-2 py-xl-2">
-                        <h2 class="ts-title">
-                            <span class="title-text">Nos Services</span>
-                        </h2>
-                        <div class="row">
-                            <div class="card">
-
-                            </div>
-                        </div>
-                    </section>
-                    <!-- ==== END -->
                 </main>
             </div>
         </div>

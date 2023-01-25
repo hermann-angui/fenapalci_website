@@ -23,6 +23,12 @@ class DigitalAsset
     private string $name;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private string $mime;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private ?string $size;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private string $path;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
@@ -302,6 +308,38 @@ class DigitalAsset
         $this->product = $product;
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMime(): string
+    {
+        return $this->mime;
+    }
+
+    /**
+     * @param string $mime
+     */
+    public function setMime(string $mime): void
+    {
+        $this->mime = $mime;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getSize(): ?string
+    {
+        return $this->size;
+    }
+
+    /**
+     * @param string|null $size
+     */
+    public function setSize(?string $size): void
+    {
+        $this->size = $size;
     }
 
 

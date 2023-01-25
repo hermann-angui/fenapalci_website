@@ -30,10 +30,10 @@ class PageController extends AbstractController
         return $this->render('pages/contactus.html.twig');
     }
 
-    #[Route(path: '/assurcae-maladie', name: 'insurance')]
+    #[Route(path: '/assurance-maladie', name: 'insurance')]
     public function insurance(Request $request): Response
     {
-        return $this->render('pages/contactus.html.twig');
+       return $this->render('pages/contactus.html.twig');
     }
 
     #[Route(path: '/conseil-juridique', name: 'lawyer_protection')]

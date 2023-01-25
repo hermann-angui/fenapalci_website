@@ -65,8 +65,21 @@ class ProductController extends AbstractController
     #[Route('/{id}', name: 'product_show', methods: ['GET'])]
     public function show(Product $product): Response
     {
+        $asset = $product->getDigitalAssets()->get(0);
+        $categorie = $product->getCategories()->get(0);
+        $productData = [
+            'id' => $product->getId(),
+            'name' => $product->getName(),
+            'description' => $product->getDescription(),
+            'marque' => $product->getMarque(),
+            'supplier' => $product->getSupplier(),
+            'type' => $product->getType(),
+            'instock' => $product->getUnitInStock(),
+            'path' =>  $asset ? $asset->getPath():'',
+            'category' => $categorie ? $categorie->getName() : ''
+        ];
         return $this->render('product/show.html.twig', [
-            'product' => $product,
+            'product' => $productData,
         ]);
     }
 

@@ -4,6 +4,12 @@
 
 {% block stylesheet %}
     {{ parent() }}
+    <style>
+        div.custom-file{
+            display: none !important;
+            visibility: hidden !important;
+        }
+    </style>
 {% endblock %}
 
 {% block page_title %}
@@ -92,10 +98,14 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="email" class="col-sm-2 col-form-label"> {{ form_label(registrationForm.password) }}</label>
-                                    <div class="col-sm-10">
-                                        {{ form_widget(registrationForm.password, {'attr': {'class': 'form-control required'}}) }}
-                                    </div>
+                                    {% for passwordField in registrationForm.password %}
+                                        <div class="col-sm-3">
+                                            {{ form_label(passwordField, null, { 'attr': {'class': 'col-form-label'} }) }}
+                                        </div>
+                                        <div class="col-sm-8 mt-2">
+                                            {{ form_widget(passwordField, { 'attr': {'class': 'form-control required'} }) }}
+                                        </div>
+                                    {% endfor %}
                                 </div>
 
                                 <div class="row mb-5">
@@ -136,46 +146,9 @@
 
               reader.onload = function(evt){
                   $('#imagePreview').attr('src', evt.target.result);
-                  $('#imagePreview').hide();
                   $('#imagePreview').fadeIn(650);
               }
           });
-
-          /*
-                  $("#btn-register").on("click", function(e) {
-
-                      var form = $("#registration_form");
-
-                      // you can't pass Jquery form it has to be javascript form object
-                      var formData = new FormData(form[0]);
-
-                      //if you only need to upload files then
-                      //Grab the File upload control and append each file manually to FormData
-                      var files = form.find("#registration_form_photo")[0].files;
-
-                      $.each(files, function() {
-                        var file = $(this);
-                        formData.append(file[0].name, file[0]);
-                      });
-
-                      if ($(form).valid()) {
-                          $.ajax({
-                              type: "POST",
-                              url: $(form).prop("action"),
-                              //dataType: 'json', //not sure but works for me without this
-                              data: formData,
-                              contentType: false, //this is requireded please see answers above
-                              processData: false, //this is requireded please see answers above
-                              //cache: false, //not sure but works for me without this
-                              error   : function(d){},
-                              success : function(d){
-                                  console.log("");
-                              }
-                          });
-                      }
-                  });
-
-           */
       });
 
   </script>
