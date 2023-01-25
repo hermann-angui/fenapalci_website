@@ -39,6 +39,8 @@ class WaveService
             curl_close($curl);
 
             if ($err) {
+                dump($err);
+                die();
                 return null;
             } else {
                 # You can now decode the response and use the checkout session. Happy coding ;)
