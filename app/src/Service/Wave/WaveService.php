@@ -20,7 +20,7 @@ class WaveService
             ]);
 
             echo $encodedPayload . PHP_EOL;
-            die;
+
             $curlOptions = [
                 CURLOPT_URL => self::CHECKOUT_URL,
                 CURLOPT_RETURNTRANSFER => true,
@@ -42,9 +42,8 @@ class WaveService
             dump($response);
             $err = curl_error($curl);
             curl_close($curl);
-
+die;
             if ($err) {
-                echo  'err' . PHP_EOL;
                 return null;
             } else {
                 # You can now decode the response and use the checkout session. Happy coding ;)
