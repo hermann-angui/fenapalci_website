@@ -35,17 +35,21 @@ class WaveService
             $curl = curl_init();
             curl_setopt_array($curl, $curlOptions);
             $response = curl_exec($curl);
+
+            echo  'curl response ' . PHP_EOL;
+            dump($response);
             $err = curl_error($curl);
             curl_close($curl);
 
             if ($err) {
-                dump($err);
-                die();
+                echo  'err' . PHP_EOL;
                 return null;
             } else {
                 # You can now decode the response and use the checkout session. Happy coding ;)
                 $checkout_session = json_decode($response, true);
                 $waveResponse = new WaveCheckoutResponse();
+
+                echo  'init waveResponse' . PHP_EOL;
                 $waveResponse->setAmount($checkout_session["amount"])
                             ->setPaymentStatus($checkout_session["payment_status"])
                             ->setCurrency($checkout_session["currency"])
@@ -59,6 +63,8 @@ class WaveService
                             ->setWhenExpires(new \DateTime($checkout_session["when_expires"]))
                             ->setWaveLaunchUrl($checkout_session["wave_launch_url"]);
 
+                dump($waveResponse);
+                die;
                 return $waveResponse;
            }
 
