@@ -50,7 +50,7 @@ class SubscriptionController extends AbstractController
     #[Route(path: '/wave/checkout/{status}', name: 'wave_payment_callback')]
     public function wavePaymentCheckoutStatusCallback($status, Request $request): Response
     {
-        return $this->render('subscription/checkout_result.html.twig', [
+        return $this->render('subscription_payment/checkout_result.html.twig', [
             'status' => $status]);
     }
 

@@ -1,19 +1,24 @@
-{% extends 'base.html.twig' %}
+{% extends 'main.html.twig' %}
 
-{% block title %}Connexion{% endblock %}
 {% block stylesheet %}
     {{ parent() }}
     <style>
-        .btn:hover {
-            color: var(--bs-btn-hover-color);
-            background-color: #4f2470;
-            border-color:  #4f2470;
+        #main-wrapper a:hover, a:focus, .link:hover, .link:focus {
+            color: #313131;
+        }
+        #main-wrapper a, #main-wrapper .link {
+            color: #313131;
+            text-decoration: none;
         }
     </style>
 {% endblock %}
+
+
+{% block title %}
+{% endblock %}
+
 {% block body %}
-    <!-- **************** MAIN CONTENT START **************** -->
-    <main>
+    <div id="main-wrapper" class="layout-main-wrapper clearfix">
         <section class="container">
             {% if status == 'success' %}
                 <div class="row justify-content-md-center">
@@ -21,7 +26,7 @@
                     <div class="col-md-6 col-lg-6 text-center">
                         <div class="card mb-3 shadow-sm">
                             <div class="card-header">
-                                <img class="py-3" src="{{ asset('assets/images/misc/payment_successful.gif') }}" width="130" alt="payment successful">
+                                <img class="py-3" src="{{ asset('sites/img/misc/payment_successful.gif') }}" width="130" alt="payment successful">
                             </div>
                             <div class="card-body">
                                 <p class="fs-6 text-success fw-bolder">Transaction effectuée avec succès</p>
@@ -52,20 +57,16 @@
                 </div>
             {% endif %}
         </section>
-    </main>
-    <!-- **************** MAIN CONTENT END **************** -->
-{% endblock %}
-
-{% block footer %}
+    </div>
 {% endblock %}
 
 {% block javascript %}
-  {{ parent() }}
-    <script>
-        $('document').ready(function() {
-           var timer = setTimeout(function(){
-               window.location.href = '{{ path('member_edit_profile') }}';
-           }, 5000);
-        });
- 	</script>
+{{ parent() }}
+  <script>
+      $('document').ready(function() {
+         var timer = setTimeout(function(){
+             window.location.href = '{{ path('member_edit_profile') }}';
+         }, 5000);
+      });
+   </script>
 {% endblock %}
