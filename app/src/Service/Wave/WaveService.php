@@ -44,8 +44,6 @@ class WaveService
                 $checkout_session = json_decode($response, true);
                 $waveResponse = new WaveCheckoutResponse();
 
-                echo  'init waveResponse' . PHP_EOL;
-                dump($response);
                 $waveResponse->setAmount($checkout_session["amount"])
                             ->setPaymentStatus($checkout_session["payment_status"])
                             ->setCurrency($checkout_session["currency"])
@@ -59,13 +57,10 @@ class WaveService
                             ->setWhenExpires(new \DateTime($checkout_session["when_expires"]))
                             ->setWaveLaunchUrl($checkout_session["wave_launch_url"]);
 
-                dump($waveResponse);
-                die;
                 return $waveResponse;
            }
 
         }catch(\Exception $e){
-            dump($e);
             return null;
         }
 

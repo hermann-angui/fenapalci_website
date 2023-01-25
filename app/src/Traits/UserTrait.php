@@ -19,7 +19,7 @@ trait UserTrait
      * @param UserInterface|null $user
      * @return string|void
      */
-    public function payForSubscription(string $amount, ?UserInterface $user)
+    public function payForSubscription(string $amount, ?UserInterface $user) : ?string
     {
         try{
             $waveCheckoutRequest = new WaveCheckoutRequest();
@@ -53,8 +53,8 @@ trait UserTrait
                 return $waveResponse->getWaveLaunchUrl();
             }
         }catch(\Exception $e){
-            dump($e);
-            die;
+
+            return null;
         }
     }
 
