@@ -6,6 +6,7 @@
         #main-wrapper a:hover, a:focus, .link:hover, .link:focus {
             color: #313131;
         }
+
         #main-wrapper a, #main-wrapper .link {
             color: #313131;
             text-decoration: none;
@@ -18,109 +19,148 @@
 {% endblock %}
 
 {% block body %}
-        <div id="main-wrapper" class="layout-main-wrapper clearfix">
-            <div id="main" class="container">
-                <div id="block-nafr-breadcrumbs" class="block block-system block-system-breadcrumb-block">
-                    <div class="content">
-                        <nav role="navigation" aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item">
-                                    <a href="{{ path("home") }}">Accueil</a>
-                                </li>
-                                <li class="breadcrumb-item active">
-                                    Médiathèque
-                                </li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-                <div data-drupal-messages-fallback="" class="hidden"></div>
-
-                <div class="row row-offcanvas row-offcanvas-left clearfix">
-                    <main class="main-content col" id="content" role="main">
-                        <section class="section">
-                            <a id="main-content" tabindex="-1"></a>
-                            <div id="block-pagetitle" class="block block-core block-page-title-block">
-                                <div class="content">
-                                    <h1 class="title"> Médiathèque</h1>
-                                </div>
-                            </div>
-                            <div id="block-nafr-content" class="block block-system block-system-main-block">
-                                <div class="content">
-                                    <article data-history-node-id="2" role="article" about="/fr/defense-des-interets/nos-priorites" typeof="schema:WebPage" class="node node--type-page node--view-mode-full clearfix">
-                                        <header>
-                                            <span property="schema:name" content="Nos priorités" class="rdf-meta hidden"></span>
-                                        </header>
-                                        <div class="node__content clearfix">
-                                            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item">
-                                                <p class="text-align-justify">
-                                                    La <strong>FENAPAL-CI</strong> est une fédération nationale qui regroupe des associations: d'espaces d'animation, de restaurations et de loisirs (restaurants, bars, night-club, hôtels, maquis, caves etc.). La FENAPAL CI est un réseau professionnel permettant la mise en commun de ressources dans un esprit de solidarité et d'amitié. Cela se traduit par des avantages matériel, économique, le partage d'expérience et de savoir-faire, de conseils et des solutions adaptés.
-                                                <p class="text-align-justify">
-                                                    Créée depuis le 23 juillet 2020 par Monsieur MOBIO Arsène qui en est le Président, la Fédération des Acteurs et Professionnels des Espaces d’Animation, Restauration et Loisir de Côte d’Ivoire (FENAPAL-CI) poursuit un objectif simple : guider et servir notre communauté pour l’aider à se développer. Nous sommes une des rares fédération à permettre à nos membres de bénéficier de l’aménagement de leurs espaces à crédit. c’est-à-dire, La logistique : chaises, tables etc..., l’électroménager : télévisions, climatiseur, ventilateur, réfrigérateur, gazinière, cuisine professionnelle et bien d’autres. La FENAPAL-CI est une fédération nationale qui réunit tous les acteurs des espaces  d'animations tels que les restaurants, bars, night-club, hôtels, maquis, caves. La FENAPAL CI est un réseau professionnel permettant la mise en commun de ressources dans un esprit de solidarité et d'amitié. Cela se traduit par des avantages matériel, économique, le partage d'expérience et de savoir-faire, de conseils et des solutions adaptés.
-                                                </p>
-                                                <p class="text-align-justify">
-                                                    La FENAPAL CI est un réseau professionnel permettant la mise en commun de ressources dans un esprit de solidarité et d'amitié. Cela se traduit par des avantages matériel, économique, le partage d'expérience et de savoir-faire, de conseils et des solutions adaptés.                                                </p>
-
-                                                <p class="text-align-justify">
-                                                    Retraités fédéraux entrevoit avec confiance de travailler avec les députés pour faire avancer ces importantes recommandations politiques pendant le mandat du gouvernement actuel.
-                                                </p>
-
-                                                <ul>
-                                                    <li><a href="#">Assurer la formation de ses membres</a></li>
-                                                    <li><a href="#">Stratégie nationale d'organisation des professionnels</a></li>
-                                                    <li><a href="#">Assurer le defense des droits des membres</a></li>
-                                                    <li><a href="#">Assurance maladie</a></li>
-                                                </ul>
-                                                <p>&nbsp;</p>
-
-                                                <h3>
-                                                    <span style="color:#003767">
-                                                        <a name="securite" id="securite">De meilleures politiques en matière de sécurité du revenu de ses membres, qui&nbsp;:</a>
-                                                    </span>
-                                                </h3>
-
-                                                <ul>
-                                                    <li>encourageraient les régimes de retraite à prestations déterminées bien gérés et permettraient aux retraités de continuer à contribuer à une économie dynamique;</li>
-                                                    <li>répudieraient la législation qui permet aux membres de bénéficier de certains avantages socio-économiques;</li>
-                                                    <li>prévoiraient des améliorations continues aux conditions d'exercices de leur activités en Côte d'Ivoire, pour que les personnes qui n’ont pas de régime de retraite au travail puissent épargner suffisamment pour leur retraite;</li>
-                                                    <li>augmenteraient de manière stratégique le Supplément de revenu garanti, afin de sortir les aînés les plus vulnérables de la pauvreté;</li>
-                                                    <li>donneraient la priorité aux adhérents en cas de faillite, afin que tous les membres puissent prendre leur retraite dans la dignité;</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </article>
-
-                                </div>
-                            </div>
-
-                        </section>
-                    </main>
-                    <div class="sidebar_first sidebar col-md-3 order-first" id="sidebar_first">
-                        <aside class="section" role="complementary">
-                            <nav role="navigation" aria-labelledby="block-mainnavigation-menu" id="block-mainnavigation" class="block block-menu navigation menu--main">
-                                <h2 id="block-mainnavigation-menu">Qui sommes nous ?</h2>
-                                <ul class="clearfix nav navbar-nav">
-                                    <li class="nav-item menu-item--expanded active dropdown">
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown-item">
-                                                <a href="" class="nav-link--fr-defense-des-interets-nos-priorites-securite-du-revenu-de-retraite" data-drupal-link-system-path="node/1187">Assurer la formation continue de ses membres</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="" class="nav-link--fr-defense-des-interets-nos-priorites-strategie-nationale-pour-les-aines" data-drupal-link-system-path="node/1188">Définir la stratégie nationale d'organisation</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="" class="nav-link--fr-defense-des-interets-nos-priorites-veterans" data-drupal-link-system-path="node/1189">Conseil et protection juridique</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="" class="nav-link--fr-defense-des-interets-nos-priorites-assurance-medicaments" data-drupal-link-system-path="node/1190">Assurance maladie</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </aside>
-                    </div>
+    <div id="main-wrapper" class="layout-main-wrapper clearfix">
+        <div id="main" class="container">
+            <div id="block-nafr-breadcrumbs" class="block block-system block-system-breadcrumb-block">
+                <div class="content">
+                    <nav role="navigation" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="{{ path("home") }}">Accueil</a>
+                            </li>
+                            <li class="breadcrumb-item active">
+                                Médiathèque
+                            </li>
+                        </ol>
+                    </nav>
                 </div>
             </div>
+            <div data-drupal-messages-fallback="" class="hidden"></div>
+
+            <div class="row row-offcanvas row-offcanvas-left clearfix">
+                <main class="main-content col" id="content" role="main">
+                    <section class="section">
+                        <a id="main-content" tabindex="-1"></a>
+                        <div id="block-pagetitle" class="block block-core block-page-title-block">
+                            <div class="content">
+                                <h1 class="title"> Médiathèque</h1>
+                            </div>
+                        </div>
+                        <div id="block-nafr-content" class="block block-system block-system-main-block">
+                            <div class="views-element-container block block-views block-views-blockadvocacy-news-block-2" id="block-views-block-advocacy-news-block-2">
+
+                                <div class="content">
+                                    <div>
+                                        <div class="view view-advocacy-news view-id-advocacy_news view-display-id-block_2 js-view-dom-id-504bda477d354a18daf990a071abe35c59e499163dc12cccb8ae0b46834b0ae0">
+                                            <div class="view-content">
+                                                <div>
+                                                    <ul class="row">
+                                                        <li class="col-md-4">
+                                                            <div class="views-field views-field-field-image">
+                                                                <div class="field-content"><a href="">
+                                                                        <img loading="lazy"
+                                                                                src="{{  asset('sites/img/misc/bar1.jpg') }}"
+                                                                                width="540" height="360"
+                                                                                alt="."
+                                                                                title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet mi malesuada urna rhoncus sollicitudin. Nulla gravida lectus cursus nisi blandit egestas. Morbi libero arcu, euismod sit amet volutpat dignissim, convallis at sapien. Sed vehicula nunc ligula. Sed eu auctor nunc."
+                                                                                typeof="foaf:Image">
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="views-field views-field-title">
+                                                                <span class="field-content">
+                                                                    <a href="" hreflang="fr">Les bars et maquis</a>
+                                                                </span>
+                                                            </div>
+                                                        </li>
+                                                        <li class="col-md-4">
+                                                            <div class="views-field views-field-field-image">
+                                                                <div class="field-content"><a href="">
+                                                                        <img loading="lazy"
+                                                                             src="{{  asset('sites/img/misc/barman2.jpg') }}"
+                                                                             width="540" height="360"
+                                                                             alt="."
+                                                                             title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet mi malesuada urna rhoncus sollicitudin. Nulla gravida lectus cursus nisi blandit egestas. Morbi libero arcu, euismod sit amet volutpat dignissim, convallis at sapien. Sed vehicula nunc ligula. Sed eu auctor nunc."
+                                                                             typeof="foaf:Image">
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="views-field views-field-title">
+                                                                <span class="field-content">
+                                                                    <a href="" hreflang="fr">Les bars et maquis</a>
+                                                                </span>
+                                                            </div>
+                                                        </li>
+                                                        <li class="col-md-4">
+                                                            <div class="views-field views-field-field-image">
+                                                                <div class="field-content"><a href="">
+                                                                        <img loading="lazy"
+                                                                             src="{{  asset('sites/img/misc/barman3.jpg') }}"
+                                                                             width="540" height="360"
+                                                                             alt="."
+                                                                             title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet mi malesuada urna rhoncus sollicitudin. Nulla gravida lectus cursus nisi blandit egestas. Morbi libero arcu, euismod sit amet volutpat dignissim, convallis at sapien. Sed vehicula nunc ligula. Sed eu auctor nunc."
+                                                                             typeof="foaf:Image">
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="views-field views-field-title">
+                                                                <span class="field-content">
+                                                                    <a href="" hreflang="fr">Les bars et maquis</a>
+                                                                </span>
+                                                            </div>
+                                                        </li>
+                                                        <li class="col-md-4">
+                                                            <div class="views-field views-field-field-image">
+                                                                <div class="field-content"><a href="">
+                                                                        <img loading="lazy"
+                                                                             src="{{  asset('sites/img/misc/espace_loisir_2.png') }}"
+                                                                             width="540" height="360"
+                                                                             alt="."
+                                                                             title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet mi malesuada urna rhoncus sollicitudin. Nulla gravida lectus cursus nisi blandit egestas. Morbi libero arcu, euismod sit amet volutpat dignissim, convallis at sapien. Sed vehicula nunc ligula. Sed eu auctor nunc."
+                                                                             typeof="foaf:Image">
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="views-field views-field-title">
+                                                                <span class="field-content">
+                                                                    <a href="" hreflang="fr">Les bars et maquis</a>
+                                                                </span>
+                                                            </div>
+                                                        </li>
+                                                        <li class="col-md-4">
+                                                            <div class="views-field views-field-field-image">
+                                                                <div class="field-content"><a href="">
+                                                                        <img loading="lazy"
+                                                                             src="{{  asset('sites/img/misc/espace_loisir_3.jpg') }}"
+                                                                             width="540" height="360"
+                                                                             alt="."
+                                                                             title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet mi malesuada urna rhoncus sollicitudin. Nulla gravida lectus cursus nisi blandit egestas. Morbi libero arcu, euismod sit amet volutpat dignissim, convallis at sapien. Sed vehicula nunc ligula. Sed eu auctor nunc."
+                                                                             typeof="foaf:Image">
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="views-field views-field-title">
+                                                                <span class="field-content">
+                                                                    <a href="" hreflang="fr">Les bars et maquis</a>
+                                                                </span>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+                </main>
+            </div>
         </div>
+    </div>
 {% endblock %}

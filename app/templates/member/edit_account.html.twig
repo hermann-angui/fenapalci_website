@@ -5,6 +5,10 @@
 {% block stylesheet %}
     {{ parent() }}
     <style>
+        div.custom-file{
+            display: none !important;
+            visibility: hidden !important;
+        }
     </style>
 {% endblock %}
 
@@ -25,13 +29,13 @@
                                             {{ form_widget(userForm.photo, {'attr': {'id': 'user_form_photo'}}) }}
                                             <figure class="personal-figure">
                                                 {% if user.photo is not null %}
-                                                    <img  id="imagePreview"  src="{{ asset('users/') }}{{ user.photo }}" class="personal-avatar" alt="avatar">
+                                                    <img  id="imagePreview" width="250" src="{{ asset('users/') }}{{ user.photo }}" class="personal-avatar rounded-circle" alt="avatar">
                                                 {% else %}
                                                     <img  id="imagePreview"  src="{{ asset('assets/images/avatar/avatar.jpg') }}" class="personal-avatar" alt="avatar">
                                                 {% endif %}
-                                                <figcaption class="personal-figcaption">
+{#                                                <figcaption class="personal-figcaption">
                                                     <img src="https://raw.githubusercontent.com/ThiagoLuizNunes/angular-boilerplate/master/src/assets/imgs/camera-white.png">
-                                                </figcaption>
+                                                </figcaption>#}
                                             </figure>
                                         </label>
                                     </div>
