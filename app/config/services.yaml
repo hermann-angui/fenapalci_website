@@ -6,7 +6,8 @@
 parameters:
     app.supported_locales: ['fr','en']
     wave_success_url: https://fenapalci.org/payment/wave/checkout/success
-    wave_error_url: https://fenapalci.org/payment/wave/checkout/success
+    wave_payment_callback: https://fenapalci.org/payment/wave/checkout
+    wave_error_url: https://fenapalci.org/payment/wave/checkout/error
     images_directory: '%kernel.project_dir%/public/uploads'
 
 services:
