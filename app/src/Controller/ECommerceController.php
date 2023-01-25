@@ -30,11 +30,4 @@ class ECommerceController extends AbstractController
         return $this->render('ecommerce/index.html.twig', ['products' => $datas]);
     }
 
-    #[Route(path: '/product-details', name: 'ecommerce_product_details')]
-    public function productDetails(): Response
-    {
-        return $this->render('ecommerce/details.html.twig');
-    }
-
-
 }

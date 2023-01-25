@@ -24,6 +24,12 @@ class PageController extends AbstractController
         return $this->render('pages/aboutus.html.twig');
     }
 
+    #[Route(path: '/le-bureau', name: 'bureau')]
+    public function bureau(Request $request): Response
+    {
+        return $this->render('pages/bureau.html.twig');
+    }
+
     #[Route(path: '/nous-contacter', name: 'contact_us')]
     public function contactUs(Request $request): Response
     {
@@ -33,7 +39,19 @@ class PageController extends AbstractController
     #[Route(path: '/assurance-maladie', name: 'insurance')]
     public function insurance(Request $request): Response
     {
-       return $this->render('pages/contactus.html.twig');
+       return $this->render('pages/assurance.html.twig');
+    }
+
+    #[Route(path: '/foire-aux-questions', name: 'faq')]
+    public function faq(Request $request): Response
+    {
+        return $this->render('pages/faq.html.twig');
+    }
+
+    #[Route(path: '/mediatheque', name: 'mediatheque')]
+    public function mediatheques(Request $request): Response
+    {
+        return $this->render('pages/mediatheque.html.twig');
     }
 
     #[Route(path: '/conseil-juridique', name: 'lawyer_protection')]
@@ -45,19 +63,19 @@ class PageController extends AbstractController
     #[Route(path: '/formation-aux-membres', name: 'members_training')]
     public function memberTraining(Request $request): Response
     {
-        return $this->render('pages/lawyer_protection.html.twig');
+        return $this->render('pages/formations.html.twig');
     }
 
     #[Route(path: '/nos-missions', name: 'missions')]
     public function missions(Request $request): Response
     {
-        return $this->render('pages/lawyer_protection.html.twig');
+        return $this->render('pages/missions.html.twig');
     }
 
     #[Route(path: '/nos-activites', name: 'activities')]
     public function activities(Request $request): Response
     {
-        return $this->render('pages/lawyer_protection.html.twig');
+        return $this->render('pages/activities.html.twig');
     }
 
     #[Route(path: '/avantages-aux-membres', name: 'avantages')]

@@ -78,13 +78,13 @@
                                     <a href="{{ path('about_us') }}">Qui sommes-nous ?</a>
                                 </li>
                                 <li class="dropdown-item menu-item--collapsed">
-                                    <a href="{{ path('about_us') }}">Le bureau</a>
+                                    <a href="{{ path('bureau') }}">Le bureau</a>
                                 </li>
                                 <li class="dropdown-item">
-                                    <a href="{{ path('about_us') }}">Nos missions</a>
+                                    <a href="{{ path('missions') }}">Nos missions</a>
                                 </li>
                                 <li class="dropdown-item">
-                                    <a href="{{ path('about_us') }}">Nos activités</a>
+                                    <a href="{{ path('activities') }}">Nos activités</a>
                                 </li>
                             </ul>
 
@@ -115,22 +115,23 @@
 
 
                         <li class="nav-item menu-item--expanded dropdown">
-                            <a href="" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown"
+                            <a href="{{ path('activities') }}" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown"
                                aria-expanded="false" aria-haspopup="true">Actualités</a>
                         </li>
 
                         <li class="nav-item menu-item--expanded dropdown">
-                            <a href="" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Médiathèque</a>
+                            <a href="{{ path('mediatheque') }}" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown"
+                               aria-expanded="false" aria-haspopup="true">Médiathèque</a>
                         </li>
 
                         <li class="nav-item menu-item--expanded dropdown">
-                            <a href="" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown"
+                            <a href="{{ path('faq') }}" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown"
                                aria-expanded="false" aria-haspopup="true">FAQ</a>
                         </li>
 
 
                         <li class="nav-item menu-item--expanded dropdown">
-                            <a href="" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown"
+                            <a href="{{ path('contact_us') }}" class="nav-link dropdown-toggle nav-link-" data-toggle="dropdown"
                                aria-expanded="false" aria-haspopup="true">Nous contacter</a>
                         </li>
                     </ul>
